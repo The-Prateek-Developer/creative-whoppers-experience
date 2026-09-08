@@ -3,25 +3,164 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #141414;
+  --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #141414;
+  color: #ffffff;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #141414;
+  color: #ffffff;
+  overflow-x: clip;
+  min-height: 100vh;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom Selection Highlight */
+::selection {
+  background-color: #F8D625;
+  color: #141414;
+}
+
+/* Editorial Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Editorial Subtle Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F8D625;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
   }
+
+  .animate-pulse {
+    animation: none;
+  }
+
+  .img-skeleton {
+    animation: none;
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Subtle editorial utility classes */
+@layer utilities {
+  .editorial-border {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .editorial-border-yellow {
+    border-color: rgba(248, 214, 37, 0.35);
+  }
+  .editorial-border-coral {
+    border-color: rgba(255, 107, 53, 0.35);
+  }
+  .editorial-border-cyan {
+    border-color: rgba(0, 229, 255, 0.35);
+  }
+  .editorial-border-violet {
+    border-color: rgba(179, 102, 255, 0.35);
+  }
+  .editorial-glow {
+    box-shadow: 0 0 50px -10px rgba(248, 214, 37, 0.15);
+  }
+  .editorial-glow-yellow {
+    box-shadow: 0 0 50px -10px rgba(248, 214, 37, 0.15);
+  }
+  .editorial-glow-coral {
+    box-shadow: 0 0 50px -10px rgba(255, 107, 53, 0.18);
+  }
+  .editorial-glow-cyan {
+    box-shadow: 0 0 50px -10px rgba(0, 229, 255, 0.18);
+  }
+  .editorial-glow-violet {
+    box-shadow: 0 0 50px -10px rgba(179, 102, 255, 0.18);
+  }
+}
+
+.img-skeleton {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.035) 8%,
+    rgba(248, 214, 37, 0.09) 18%,
+    rgba(255, 255, 255, 0.035) 33%
+  );
+  background-size: 200% 100%;
+  animation: img-skeleton-shimmer 1.45s cubic-bezier(0.33, 1, 0.68, 1) infinite;
+}
+
+@keyframes img-skeleton-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Hero headline: size to the longest word, keep mask room for Syne 800 */
+.hero-copy {
+  container-type: inline-size;
+}
+
+.hero-headline {
+  font-size: min(6.5rem, 7.7cqw);
+  line-height: 1.28;
+}
+
+.hero-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0.42em 0.12em 0.48em;
+  margin: -0.06em 0.14em -0.08em -0.04em;
+}
+
+.hero-word-mask:last-child {
+  margin-right: 0;
 }
