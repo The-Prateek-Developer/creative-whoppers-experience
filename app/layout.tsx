@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,17 +8,10 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import CursorFollower from "@/components/canvas/CursorFollower";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
 
-const displayFont = Syne({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const sansFont = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -78,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className="dark">
       <body
-        className={`${displayFont.variable} ${sansFont.variable} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-black min-h-screen flex flex-col`}
+        className={`${poppins.variable} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-black min-h-screen flex flex-col`}
       >
         <SmoothScroll>
           <CursorFollower />

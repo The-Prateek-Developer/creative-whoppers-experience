@@ -5,6 +5,8 @@
 :root {
   --background: #141414;
   --foreground: #ffffff;
+  --font-display: var(--font-poppins);
+  --font-sans: var(--font-poppins);
 }
 
 * {
@@ -14,7 +16,7 @@
 html {
   background-color: #141414;
   color: #ffffff;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +25,7 @@ html {
 body {
   background-color: #141414;
   color: #ffffff;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   overflow-x: clip;
   min-height: 100vh;
 }
@@ -33,9 +36,9 @@ body {
   color: #141414;
 }
 
-/* Editorial Typography Defaults */
+/* Typography Defaults — Poppins Everywhere */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), system-ui, sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
 /* Lenis Recommended CSS */
