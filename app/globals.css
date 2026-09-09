@@ -128,24 +128,15 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Hero headline: size to the longest word, keep mask room for Syne 800 */
-.hero-copy {
-  container-type: inline-size;
+/* Hero lockup: brand name stays 1–2 lines; tagline stays a readable second line */
+.hero-lockup {
+  font-size: clamp(2.6rem, 7.2vw, 5.75rem);
+  line-height: 0.92;
+  text-wrap: balance;
 }
 
-.hero-headline {
-  font-size: min(6.5rem, 7.7cqw);
-  line-height: 1.28;
-}
-
-.hero-word-mask {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  padding: 0.42em 0.12em 0.48em;
-  margin: -0.06em 0.14em -0.08em -0.04em;
-}
-
-.hero-word-mask:last-child {
-  margin-right: 0;
+.hero-tagline {
+  font-size: clamp(1.15rem, 2.4vw, 1.85rem);
+  line-height: 1.25;
+  text-wrap: balance;
 }
