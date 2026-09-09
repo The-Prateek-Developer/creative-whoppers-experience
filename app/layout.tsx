@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CursorFollower from "@/components/canvas/CursorFollower";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
+import { PAGE_SEO, SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,17 +18,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Experiential Advertising & Production`,
+    default: PAGE_SEO.home.title,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "creative agency",
-    "experiential advertising",
-    "brand production",
-    "immersive campaigns",
-    "Creative Whoppers",
-  ],
+  keywords: [...PAGE_SEO.home.keywords, "Creative Whoppers"],
   icons: {
     icon: "/images/brand/logos/favicon_yellow.png",
   },
@@ -36,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Experiential Advertising & Production`,
+    title: PAGE_SEO.home.title,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     images: [
@@ -44,13 +38,13 @@ export const metadata: Metadata = {
         url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Creative Whoppers — experiential advertising and production",
+        alt: "Creative Whoppers — advertising and experience design agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | Experiential Advertising & Production`,
+    title: PAGE_SEO.home.title,
     description: SITE_DESCRIPTION,
     images: [SITE_OG_IMAGE],
   },

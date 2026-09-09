@@ -70,7 +70,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               type="button"
               onClick={onClose}
               whileTap={reduceMotion ? undefined : { scale: 0.92 }}
-              className="absolute right-6 top-6 z-20 rounded-full border border-agency-border bg-agency-black/80 p-2.5 text-agency-white transition-all hover:border-agency-cyan hover:text-agency-cyan"
+              className="absolute right-6 top-6 z-20 rounded-full border border-agency-border bg-agency-black/80 p-2.5 text-agency-white transition-all hover:border-agency-yellow hover:text-agency-yellow"
               aria-label="Close Case Study"
             >
               <X className="h-5 w-5" />
@@ -89,9 +89,9 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-agency-surface via-agency-surface/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/70 to-transparent" />
               <div className="absolute left-6 top-6">
-                <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-cyan backdrop-blur-md">
+                <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-yellow backdrop-blur-md">
                   {project.number} {"//"} {project.category.toUpperCase()}
                 </span>
               </div>
@@ -103,14 +103,14 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               transition={{ duration: 0.48, delay: 0.12, ease: easings.outPremium }}
               className="space-y-10 p-8 sm:p-12"
             >
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-muted">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-white/55">
                 <div className="flex items-center gap-2">
-                  <Building className="h-3.5 w-3.5 text-agency-cyan" />
+                  <Building className="h-3.5 w-3.5 text-agency-yellow" />
                   <span className="font-semibold text-agency-white">CLIENT:</span>
                   <span>{project.client}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-3.5 w-3.5 text-agency-cyan" />
+                  <Calendar className="h-3.5 w-3.5 text-agency-yellow" />
                   <span className="font-semibold text-agency-white">PRODUCTION YEAR:</span>
                   <span>{project.year}</span>
                 </div>
@@ -124,23 +124,23 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 >
                   {project.title}
                 </motion.h2>
-                <p className="font-sans text-base font-medium text-agency-cyan sm:text-lg">
+                <p className="font-sans text-base font-medium text-agency-yellow sm:text-lg">
                   {project.tagline}
                 </p>
               </div>
 
               <div>
-                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-muted">
+                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
                   [ EXECUTIVE OVERVIEW ]
                 </h4>
-                <p className="font-sans text-sm leading-relaxed text-agency-muted sm:text-base">
+                <p className="font-sans text-sm leading-relaxed text-agency-white/55 sm:text-base">
                   {project.overview}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-muted">
+                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
                     [ THE CHALLENGE ]
                   </h4>
                   <p className="font-sans text-sm leading-relaxed text-agency-white/80">
@@ -149,7 +149,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
 
                 <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-cyan">
+                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-yellow">
                     [ THE CREATIVE SOLUTION ]
                   </h4>
                   <p className="font-sans text-sm leading-relaxed text-agency-white/80">
@@ -158,10 +158,10 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-agency-border-cyan bg-agency-cyan/10 p-6">
-                <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-agency-cyan" />
+              <div className="flex items-start gap-4 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
+                <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-agency-yellow" />
                 <div>
-                  <span className="mb-1 block font-mono text-xs uppercase tracking-wider text-agency-cyan">
+                  <span className="mb-1 block font-mono text-xs uppercase tracking-wider text-agency-yellow">
                     MEASURED CAMPAIGN IMPACT
                   </span>
                   <p className="font-sans text-sm font-medium text-agency-white">{project.impact}</p>
@@ -169,7 +169,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               </div>
 
               <div>
-                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-muted">
+                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
                   [ DELIVERED ASSETS & PRODUCTION SCOPE ]
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -178,7 +178,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                       key={item}
                       className="flex items-center gap-1.5 rounded-lg border border-agency-border bg-agency-black px-3.5 py-1.5 font-mono text-xs text-agency-white/90"
                     >
-                      <CheckCircle2 className="h-3 w-3 text-agency-cyan" />
+                      <CheckCircle2 className="h-3 w-3 text-agency-yellow" />
                       <span>{item}</span>
                     </span>
                   ))}
@@ -189,14 +189,14 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full border border-agency-border px-6 py-3 font-mono text-xs uppercase tracking-wider text-agency-muted transition-colors hover:text-agency-white"
+                  className="rounded-full border border-agency-border px-6 py-3 font-mono text-xs uppercase tracking-wider text-agency-white/55 transition-colors hover:text-agency-white"
                 >
                   Back To Gallery
                 </button>
 
                 <Link
-                  href={`/contact?project=${project.id}`}
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-cyan px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-black transition-all duration-300 hover:scale-[1.02] hover:bg-agency-cyan-hover"
+                  href="/contact-us"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-black transition-all duration-300 hover:scale-[1.02] hover:bg-agency-yellow"
                 >
                   <span>Inquire About A Similar Production</span>
                   <ArrowUpRight className="h-4 w-4" />

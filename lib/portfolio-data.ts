@@ -1,10 +1,19 @@
+export const PORTFOLIO_CATEGORIES = [
+  "Experience Design",
+  "Creative Production",
+  "Digital Experiences",
+  "Brand & Marketing",
+] as const;
+
+export type PortfolioCategory = (typeof PORTFOLIO_CATEGORIES)[number];
+
 export interface PortfolioProject {
   id: string;
   number: string;
   title: string;
   client: string;
   industry: string;
-  category: string;
+  category: PortfolioCategory;
   year: string;
   tagline: string;
   overview: string;
@@ -23,7 +32,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Cycling4Life Sustainability",
     client: "European Union Delegation to India",
     industry: "Diplomatic & Sustainability",
-    category: "Film & Commercial",
+    category: "Creative Production",
     year: "2024",
     tagline: "Push the Pedals for a Sustainable Future: A nationwide cinematic movement.",
     overview:
@@ -48,7 +57,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Skill India National Campaign",
     client: "Ministry of Skill Development & Entrepreneurship",
     industry: "Government & Public Advocacy",
-    category: "Film & Commercial",
+    category: "Brand & Marketing",
     year: "2024",
     tagline: "Empowering India's youth through world-class vocational mastery and entrepreneurship.",
     overview:
@@ -64,7 +73,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Multilingual Voiceover Adaptations",
       "Digital Short-Form Snippets",
     ],
-    coverImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
     featured: true,
   },
   {
@@ -73,7 +82,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Hall of Fame Defence Museum",
     client: "THE ANTS Defence / Indian Armed Forces",
     industry: "Cultural & Defence Heritage",
-    category: "Experiential & Spaces",
+    category: "Digital Experiences",
     year: "2024",
     tagline: "Digitizing India's military valor in Leh, Ladakh for future generations.",
     overview:
@@ -89,7 +98,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Historical Archival Digitization",
       "Frontline Veteran Interview Series",
     ],
-    coverImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1200&auto=format&fit=crop",
     featured: true,
   },
   {
@@ -98,7 +107,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "The Rumi Project & Kabir Kalaam",
     client: "Manjari Chaturvedi & Harshdeep Kaur",
     industry: "Performing Arts & Heritage",
-    category: "Cultural & Live",
+    category: "Experience Design",
     year: "2024",
     tagline: "An ode to mystic poetry through Sufi Kathak dance and transcendent vocal performance.",
     overview:
@@ -123,7 +132,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "BRICS International Youth Summit",
     client: "Russian House / BRICS Youth Forum",
     industry: "Diplomacy & Education",
-    category: "Experiential & Spaces",
+    category: "Experience Design",
     year: "2024",
     tagline: "Fostering economic and cultural exchange among emerging global powerhouses.",
     overview:
@@ -148,7 +157,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Clarion AURA 21 Commercial",
     client: "Clarion Appliances",
     industry: "Consumer Electronics & Industrial",
-    category: "Film & Commercial",
+    category: "Creative Production",
     year: "2025",
     tagline: "Industrial aerodynamic engineering brought to life with 3D fluid simulation.",
     overview:
@@ -173,7 +182,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Hollywood Film: 'The Time is... Now!'",
     client: "International Film Production",
     industry: "Cinema & Entertainment",
-    category: "Motion & Animation",
+    category: "Creative Production",
     year: "2023",
     tagline: "International cinematic animation and visual effects title architecture.",
     overview:
@@ -198,7 +207,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Global Health Awareness Campaign",
     client: "Lincoln American University School of Medicine",
     industry: "Healthcare & Education",
-    category: "Motion & Animation",
+    category: "Brand & Marketing",
     year: "2024",
     tagline: "Simplifying complex viral epidemiology into accessible animated micro-stories.",
     overview:
@@ -218,3 +227,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     featured: false,
   },
 ];
+
+export function getProject(id: string) {
+  return PORTFOLIO_PROJECTS.find((project) => project.id === id);
+}

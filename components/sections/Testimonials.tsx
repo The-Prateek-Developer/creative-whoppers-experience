@@ -2,19 +2,20 @@
 
 import React, { useRef } from "react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
+import { CLIENT_NAMES, CLIENT_SECTORS } from "@/lib/services-tree";
 
 const ENDORSEMENTS = [
   {
     quote:
-      "Creative Whoppers produced an experiential pop-up that generated over 40M impressions in 72 hours. Their attention to detail and craft is unmatched.",
-    author: "Elena Rostova",
-    role: "VP Brand Experience, Hyperion Collective",
+      "Creative Whoppers produced a campaign film and on-ground programme that reached the right audiences without losing the seriousness of the brief.",
+    author: "Communications lead",
+    role: "Diplomatic & sustainability programme",
   },
   {
     quote:
-      "They treat every campaign like an avant-garde art installation that actually drives revenue. The results shattered our Q4 metrics.",
-    author: "Marcus Chen",
-    role: "Global Creative Director, Apex Sound",
+      "From stage design to live uplink, the team treated a government-scale event with the craft of a brand film — and the discipline of protocol.",
+    author: "Event director",
+    role: "Institutional summit, New Delhi",
   },
 ];
 
@@ -25,40 +26,61 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6 lg:px-12 max-w-7xl mx-auto border-t border-agency-border"
+      className="mx-auto max-w-7xl border-t border-agency-border px-6 py-28 lg:px-12"
     >
-      {/* Header */}
       <div data-reveal="heading" className="mb-16">
         <span
           data-reveal-item
-          className="text-xs font-mono uppercase tracking-editorial-wide text-agency-cyan block mb-3"
+          className="mb-3 block font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
         >
-          [ VERIFIED VOICES ]
+          Clients & testimonials
         </span>
         <h2
           data-reveal-item
-          className="font-display font-extrabold text-display-xl text-agency-white uppercase"
+          className="font-display text-display-xl font-extrabold uppercase text-agency-white"
         >
-          Client <span className="text-agency-cyan italic">Endorsements</span>.
+          Trusted across <span className="italic text-agency-yellow">sectors</span>
         </h2>
+        <p
+          data-reveal-item
+          className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/65"
+        >
+          Trusted by corporate brands, government bodies, NGOs and institutions — hear what our
+          clients say about working with Creative Whoppers.
+        </p>
       </div>
 
-      {/* Asymmetric Quotes Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {ENDORSEMENTS.map((item, i) => (
-          <div
-            key={i}
-            data-reveal="card"
-            className="p-8 lg:p-12 rounded-xl bg-agency-surface/30 border border-agency-border flex flex-col justify-between"
+      <div className="mb-12 flex flex-wrap gap-2">
+        {CLIENT_SECTORS.map((sector) => (
+          <span
+            key={sector}
+            className="rounded-full border border-agency-border px-4 py-1.5 font-mono text-[11px] uppercase tracking-wider text-agency-white/70"
           >
-            <p className="text-agency-white/90 text-lg lg:text-xl font-sans leading-relaxed mb-8 italic">
+            {sector}
+          </span>
+        ))}
+      </div>
+
+      <div className="mb-16 grid grid-cols-2 gap-4 border-y border-agency-border py-8 sm:grid-cols-4">
+        {CLIENT_NAMES.map((name) => (
+          <p key={name} className="font-mono text-[11px] uppercase tracking-wider text-agency-white/55">
+            {name}
+          </p>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        {ENDORSEMENTS.map((item) => (
+          <div
+            key={item.role}
+            className="flex flex-col justify-between rounded-xl border border-agency-border bg-agency-white/[0.04] p-8 lg:p-12"
+          >
+            <p className="mb-8 font-sans text-lg italic leading-relaxed text-agency-white/90 lg:text-xl">
               “{item.quote}”
             </p>
-            <div className="pt-6 border-t border-agency-border">
-              <h4 className="font-display font-bold text-base text-agency-white">
-                {item.author}
-              </h4>
-              <p className="text-xs font-mono text-agency-muted mt-1">
+            <div className="border-t border-agency-border pt-6">
+              <h3 className="font-display text-base font-bold text-agency-white">{item.author}</h3>
+              <p className="mt-1 font-mono text-xs uppercase tracking-wider text-agency-yellow">
                 {item.role}
               </p>
             </div>

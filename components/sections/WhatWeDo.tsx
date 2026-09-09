@@ -109,7 +109,7 @@ export default function WhatWeDo() {
           aria-hidden
         >
           <div className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-agency-yellow/10 blur-3xl" />
-          <div className="absolute -right-16 bottom-10 h-96 w-96 rounded-full bg-agency-coral/10 blur-3xl" />
+          <div className="absolute -right-16 bottom-10 h-96 w-96 rounded-full bg-agency-yellow/10 blur-3xl" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
@@ -117,19 +117,19 @@ export default function WhatWeDo() {
             <span className="what-meta block font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
               [ WHAT WE DO ]
             </span>
-            <span className="what-meta font-mono text-[11px] uppercase tracking-wider text-agency-muted">
+            <span className="what-meta font-mono text-[11px] uppercase tracking-wider text-agency-white/55">
               Experiential / Film / Spatial
             </span>
           </div>
 
-          <div className="what-rule mb-10 h-px origin-left bg-gradient-to-r from-agency-yellow via-agency-coral to-transparent" />
+          <div className="what-rule mb-10 h-px origin-left bg-gradient-to-r from-agency-yellow via-agency-yellow to-transparent" />
 
           <h2 className="font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
             {LINES.map((line) => (
               <span
                 key={line.text}
                 className={`what-line block overflow-hidden ${
-                  line.accent ? "bg-gradient-to-r from-agency-yellow via-agency-coral-light to-agency-coral bg-clip-text text-transparent" : ""
+                  line.accent ? "text-agency-yellow" : ""
                 }`}
               >
                 {line.text}

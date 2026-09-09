@@ -24,59 +24,25 @@ import {
   menuScrimVariants,
   underlineTransition,
 } from "@/lib/animations";
+import { NAP, NAV_LINKS } from "@/lib/site";
 
 const MotionLink = motion.create(Link);
 
-const NAV_LINKS = [
-  { name: "Services", href: "/services", index: "01", tag: "CAPABILITIES & EXPERTISE", accent: "coral" as const },
-  { name: "Portfolio", href: "/portfolio", index: "02", tag: "SELECTED CAMPAIGN ARCHIVES", accent: "cyan" as const },
-  { name: "About", href: "/about", index: "03", tag: "PHILOSOPHY & PRODUCTION POWER", accent: "violet" as const },
-  { name: "Contact", href: "/contact", index: "04", tag: "START A NEW BRIEF", accent: "yellow" as const },
-];
-
-const SOCIAL_LINKS = [
-  { name: "Instagram", href: "https://instagram.com", handle: "@creativewhoppers" },
-  { name: "LinkedIn", href: "https://linkedin.com", handle: "Creative Whoppers" },
-  { name: "Behance", href: "https://behance.net", handle: "creativewhoppers" },
-  { name: "Twitter / X", href: "https://twitter.com", handle: "@creativewhoppers" },
-];
+function isNavActive(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 const magneticSpring = { stiffness: 320, damping: 22, mass: 0.34 };
-
-const ACCENT_CLASSES = {
-  coral: {
-    activeText: "text-agency-coral font-semibold",
-    hoverText: "group-hover:text-agency-coral",
-    underline: "bg-agency-coral",
-  },
-  cyan: {
-    activeText: "text-agency-cyan font-semibold",
-    hoverText: "group-hover:text-agency-cyan",
-    underline: "bg-agency-cyan",
-  },
-  violet: {
-    activeText: "text-agency-violet-light font-semibold",
-    hoverText: "group-hover:text-agency-violet-light",
-    underline: "bg-agency-violet",
-  },
-  yellow: {
-    activeText: "text-agency-yellow font-semibold",
-    hoverText: "group-hover:text-agency-yellow",
-    underline: "bg-agency-yellow",
-  },
-};
 
 function MagneticNavLink({
   href,
   index,
   name,
-  accent = "yellow",
   isActive,
 }: {
   href: string;
   index: string;
   name: string;
-  accent?: "coral" | "cyan" | "violet" | "yellow";
   isActive: boolean;
 }) {
   const reduceMotion = useReducedMotion();
@@ -85,8 +51,6 @@ function MagneticNavLink({
   const y = useMotionValue(0);
   const springX = useSpring(x, magneticSpring);
   const springY = useSpring(y, magneticSpring);
-
-  const styling = ACCENT_CLASSES[accent] || ACCENT_CLASSES.yellow;
 
   const handleMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (reduceMotion) return;
@@ -116,17 +80,17 @@ function MagneticNavLink({
       variants={{ rest: {}, hover: {}, active: {} }}
       className="group relative inline-flex items-center gap-1.5 py-1 text-sm font-medium tracking-wide uppercase focus-visible:outline-none"
     >
-      <span className="text-[10px] text-agency-muted font-mono">{index}</span>
+      <span className="text-[10px] text-agency-white/55 font-mono">{index}</span>
       <span
         className={`${
-          isActive ? styling.activeText : "text-agency-white/80"
-        } ${styling.hoverText} transition-colors duration-200`}
+          isActive ? "text-agency-yellow font-semibold" : "text-agency-white/80"
+        } group-hover:text-agency-yellow transition-colors duration-200`}
       >
         {name}
       </span>
       <motion.span
         aria-hidden
-        className={`pointer-events-none absolute -bottom-1 left-0 h-[1.5px] w-full ${styling.underline}`}
+        className="pointer-events-none absolute -bottom-1 left-0 h-[1.5px] w-full bg-agency-yellow"
         style={{ originX: 0 }}
         variants={{
           rest: { scaleX: 0 },
@@ -181,7 +145,7 @@ export default function Navbar() {
               <span className="font-display font-bold text-lg tracking-tight text-agency-white group-hover:text-agency-yellow transition-colors">
                 CREATIVE WHOPPERS
               </span>
-              <span className="text-[10px] tracking-editorial-wide text-agency-muted uppercase font-sans">
+              <span className="text-[10px] tracking-editorial-wide text-agency-white/55 uppercase font-sans">
                 Experience Production
               </span>
             </div>
@@ -195,8 +159,7 @@ export default function Navbar() {
                 href={link.href}
                 index={link.index}
                 name={link.name}
-                accent={link.accent}
-                isActive={pathname === link.href}
+                isActive={isNavActive(pathname, link.href)}
               />
             ))}
           </nav>
@@ -204,8 +167,8 @@ export default function Navbar() {
           {/* Desktop CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
             <MotionLink
-              href="/contact"
-              className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-agency-yellow text-agency-black font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hover:bg-agency-yellow-hover"
+              href="/contact-us"
+              className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-agency-yellow text-agency-black font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hover:bg-agency-yellow"
               initial="rest"
               animate="rest"
               whileHover={reduceMotion ? undefined : "hover"}
@@ -314,67 +277,32 @@ export default function Navbar() {
                   [ NAVIGATION INDEX ]
                 </p>
                 {NAV_LINKS.map((link) => {
-                  const isActive = pathname === link.href;
-                  const itemColor =
-                    link.accent === "coral"
-                      ? "group-hover:text-agency-coral"
-                      : link.accent === "cyan"
-                      ? "group-hover:text-agency-cyan"
-                      : link.accent === "violet"
-                      ? "group-hover:text-agency-violet-light"
-                      : "group-hover:text-agency-yellow";
-
-                  const activeColor =
-                    link.accent === "coral"
-                      ? "text-agency-coral"
-                      : link.accent === "cyan"
-                      ? "text-agency-cyan"
-                      : link.accent === "violet"
-                      ? "text-agency-violet-light"
-                      : "text-agency-yellow";
-
-                  const borderHover =
-                    link.accent === "coral"
-                      ? "hover:border-agency-coral"
-                      : link.accent === "cyan"
-                      ? "hover:border-agency-cyan"
-                      : link.accent === "violet"
-                      ? "hover:border-agency-violet"
-                      : "hover:border-agency-yellow";
-
-                  const arrowColor =
-                    link.accent === "coral"
-                      ? "text-agency-coral"
-                      : link.accent === "cyan"
-                      ? "text-agency-cyan"
-                      : link.accent === "violet"
-                      ? "text-agency-violet"
-                      : "text-agency-yellow";
+                  const isActive = isNavActive(pathname, link.href);
 
                   return (
                     <motion.div key={link.name} variants={menuItemVariants}>
                       <Link
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`group flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-b border-agency-border/60 ${borderHover} transition-colors`}
+                        className="group flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-b border-agency-white/10 hover:border-agency-yellow transition-colors"
                       >
                         <div className="flex items-baseline gap-4">
-                          <span className={`text-sm font-mono text-agency-muted ${itemColor} transition-colors`}>
+                          <span className="text-sm font-mono text-agency-white/55 group-hover:text-agency-yellow transition-colors">
                             {link.index}
                           </span>
                           <span
                             className={`font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight transition-all duration-300 ${
-                              isActive ? activeColor : "text-agency-white"
-                            } ${itemColor} group-hover:translate-x-2`}
+                              isActive ? "text-agency-yellow" : "text-agency-white"
+                            } group-hover:text-agency-yellow group-hover:translate-x-2`}
                           >
                             {link.name}
                           </span>
                         </div>
                         <div className="flex items-center gap-3 mt-1 sm:mt-0">
-                          <span className="text-[11px] font-mono text-agency-muted group-hover:text-agency-white/80 transition-colors">
+                          <span className="text-[11px] font-mono text-agency-white/55 group-hover:text-agency-white/80 transition-colors">
                             {link.tag}
                           </span>
-                          <ArrowUpRight className={`w-4 h-4 ${arrowColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                          <ArrowUpRight className="w-4 h-4 text-agency-yellow opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
                       </Link>
                     </motion.div>
@@ -383,7 +311,7 @@ export default function Navbar() {
 
                 <motion.div variants={menuItemVariants} className="mt-6">
                   <MotionLink
-                    href="/contact"
+                    href="/contact-us"
                     onClick={() => setMobileMenuOpen(false)}
                     className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-agency-yellow text-agency-black font-display font-bold text-sm tracking-wider uppercase"
                     whileHover={reduceMotion ? undefined : ctaHover}
@@ -402,26 +330,26 @@ export default function Navbar() {
                 className="max-w-7xl w-full mx-auto pt-8 border-t border-agency-border grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs"
               >
                 <div>
-                  <span className="text-agency-muted font-mono block mb-2">[ INQUIRIES ]</span>
+                  <span className="text-agency-white/55 font-mono block mb-2">[ INQUIRIES ]</span>
                   <a
-                    href="mailto:hello@creativewhoppers.com"
+                    href={`mailto:${NAP.emails[0]}`}
                     className="text-agency-white hover:text-agency-yellow transition-colors font-mono"
                   >
-                    hello@creativewhoppers.com
+                    {NAP.emails[0]}
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-agency-muted font-mono block mb-2">[ STUDIO HUBS ]</span>
+                  <span className="text-agency-white/55 font-mono block mb-2">[ STUDIO ]</span>
                   <p className="text-agency-white/80 font-sans">
-                    New Delhi / London / New York
+                    {NAP.addressLocality}, {NAP.addressRegion}
                   </p>
                 </div>
 
                 <div>
-                  <span className="text-agency-muted font-mono block mb-2">[ CONNECT ]</span>
+                  <span className="text-agency-white/55 font-mono block mb-2">[ CONNECT ]</span>
                   <div className="flex flex-wrap gap-4 font-mono text-[11px]">
-                    {SOCIAL_LINKS.map((soc) => (
+                    {NAP.social.map((soc) => (
                       <a
                         key={soc.name}
                         href={soc.href}

@@ -7,10 +7,6 @@ import dynamic from "next/dynamic";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 
-const Scene3D = dynamic(() => import("@/components/canvas/Scene3D"), {
-  ssr: false,
-});
-
 const ParticleField = dynamic(() => import("@/components/canvas/ParticleField"), {
   ssr: false,
 });
@@ -62,24 +58,15 @@ export default function PhilosophySection() {
         </div>
       </div>
 
-      <div className="absolute inset-0 pointer-events-none z-[1]">
-        <Scene3D
-          variant="philosophy"
-          lazy
-          density="home"
-          className="!z-0 !inset-x-0 !top-0 !bottom-auto h-[100svh]"
-        />
-      </div>
-
       <ParticleField lazy count={32} className="z-[2] !inset-x-0 !top-0 !bottom-auto h-[100svh]" />
 
-      <div className="pointer-events-none absolute left-1/4 top-1/3 -z-10 h-96 w-96 rounded-full bg-agency-violet/15 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/4 top-1/3 -z-10 h-96 w-96 rounded-full bg-agency-yellow/15 blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div data-reveal="heading">
           <div
             data-reveal-item
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agency-violet/10 border border-agency-violet/30 text-agency-violet-light text-xs font-mono mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agency-yellow/10 border border-agency-yellow/30 text-agency-yellow text-xs font-mono mb-8"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>STUDIO ETHOS & PHILOSOPHY</span>
@@ -92,11 +79,11 @@ export default function PhilosophySection() {
             >
               We Don’t Compete For Attention.
               <br />
-              <span className="text-agency-violet">We Command It.</span>
+              <span className="text-agency-yellow">We Command It.</span>
             </h2>
             <p
               data-reveal-item
-              className="text-agency-muted text-editorial-sub max-w-2xl font-sans leading-relaxed"
+              className="text-agency-white/55 text-editorial-sub max-w-2xl font-sans leading-relaxed"
             >
               In an era of fleeting feeds and generic templates, Creative Whoppers engineers
               unapologetic visual spectacles that pierce through the noise and establish brand dominance.
@@ -104,27 +91,27 @@ export default function PhilosophySection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-agency-border/60">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-agency-white/10">
           {PILLARS.map((pillar) => (
             <div
               key={pillar.num}
               data-reveal="card"
-              className="p-8 rounded-xl bg-agency-surface/80 border border-agency-border hover:border-agency-violet/40 transition-all duration-300 flex flex-col justify-between"
+              className="p-8 rounded-xl bg-agency-white/[0.08] border border-agency-border hover:border-agency-yellow/40 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-mono text-agency-violet-light block mb-6">
+                <span className="text-xs font-mono text-agency-yellow block mb-6">
                   {pillar.num} {"//"} PHILOSOPHY
                 </span>
                 <h3 className="font-display font-bold text-2xl text-agency-white uppercase tracking-tight mb-4">
                   {pillar.title}
                 </h3>
-                <p className="text-agency-muted text-sm leading-relaxed font-sans">
+                <p className="text-agency-white/55 text-sm leading-relaxed font-sans">
                   {pillar.desc}
                 </p>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-agency-border/40">
-                <span className="text-[11px] font-mono text-agency-muted uppercase">
+              <div className="mt-8 pt-6 border-t border-agency-white/[0.06]">
+                <span className="text-[11px] font-mono text-agency-white/55 uppercase">
                   ACTIVE PRINCIPLE
                 </span>
               </div>
@@ -132,13 +119,13 @@ export default function PhilosophySection() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-agency-border text-xs font-mono text-agency-muted">
+        <div className="mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-agency-border text-xs font-mono text-agency-white/55">
           <div>
             <span>METHODOLOGY: BESPOKE CREATIVE PRODUCTION</span>
           </div>
           <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-agency-violet-light hover:text-agency-violet hover:underline tracking-wider uppercase font-semibold transition-colors"
+            href="/about-us"
+            className="inline-flex items-center gap-2 text-agency-yellow hover:text-agency-yellow hover:underline tracking-wider uppercase font-semibold transition-colors"
           >
             <span>Explore Agency Lineage & Capabilities</span>
             <ArrowUpRight className="w-4 h-4" />

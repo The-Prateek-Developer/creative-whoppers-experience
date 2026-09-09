@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { SITE_OG_IMAGE } from "@/lib/site";
+import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Film, motion, brand identity, experiential spaces, photography, and post-production — capabilities engineered for campaigns that stop culture mid-scroll.",
+  title: { absolute: PAGE_SEO.services.title },
+  description: PAGE_SEO.services.description,
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Production Disciplines | Creative Whoppers",
-    description:
-      "From cinema-grade film to museum digitization, explore the full Creative Whoppers production catalog.",
+    title: PAGE_SEO.services.title,
+    description: PAGE_SEO.services.description,
     url: "/services",
-    images: [SITE_OG_IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Production Disciplines | Creative Whoppers",
-    description:
-      "From cinema-grade film to museum digitization, explore the full Creative Whoppers production catalog.",
     images: [SITE_OG_IMAGE],
   },
 };

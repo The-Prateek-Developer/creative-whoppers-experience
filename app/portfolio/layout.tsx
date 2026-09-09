@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { SITE_OG_IMAGE } from "@/lib/site";
+import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description:
-    "Selected campaign archives: diplomatic films, national broadcasts, museum digitization, and live cultural spectacles produced by Creative Whoppers.",
+  title: { absolute: PAGE_SEO.portfolio.title },
+  description: PAGE_SEO.portfolio.description,
+  keywords: [...PAGE_SEO.portfolio.keywords],
   alternates: { canonical: "/portfolio" },
   openGraph: {
-    title: "Selected Works | Creative Whoppers",
-    description:
-      "Case studies spanning government, diplomatic, and commercial productions — from Cycling4Life to Hall of Fame Leh.",
+    title: PAGE_SEO.portfolio.title,
+    description: PAGE_SEO.portfolio.description,
     url: "/portfolio",
     images: [SITE_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Selected Works | Creative Whoppers",
-    description:
-      "Case studies spanning government, diplomatic, and commercial productions — from Cycling4Life to Hall of Fame Leh.",
+    title: PAGE_SEO.portfolio.title,
+    description: PAGE_SEO.portfolio.description,
     images: [SITE_OG_IMAGE],
   },
 };
