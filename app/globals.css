@@ -11,6 +11,7 @@ html[data-theme="dark"] {
   --foreground: #ffffff;
   --font-display: var(--font-poppins);
   --font-sans: var(--font-poppins);
+  --font-mono: var(--font-poppins);
   color-scheme: dark;
 }
 
@@ -43,6 +44,17 @@ body {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   overflow-x: clip;
   min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select,
+code,
+kbd,
+pre,
+samp {
+  font-family: inherit;
 }
 
 /* Custom Selection Highlight */

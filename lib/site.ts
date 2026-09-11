@@ -112,10 +112,10 @@ export const WHATSAPP_LINK = {
 };
 
 export const NAV_LINKS = [
-  { name: "Services", href: "/services", tag: "EVENTS, FILM, DIGITAL & MARKETING" },
-  { name: "Portfolio", href: "/portfolio", tag: "OUR WORK & CASE STUDIES" },
-  { name: "About Us", href: "/about-us", tag: "STORY, MISSION & TEAM" },
-  { name: "Contact Us", href: "/contact-us", tag: "GET A QUOTE" },
+  { name: "Services", href: "/services", tag: "Events, film, digital & marketing" },
+  { name: "Portfolio", href: "/portfolio", tag: "Our work & case studies" },
+  { name: "About Us", href: "/about-us", tag: "Story, mission & team" },
+  { name: "Contact Us", href: "/contact-us", tag: "Get a quote" },
 ] as const;
 
 export const STATS = [

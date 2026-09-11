@@ -76,7 +76,7 @@ export default function PortfolioArchive() {
             </div>
             <div className="hidden items-center gap-2 font-mono text-xs text-agency-white/55 sm:flex">
               <Filter className="h-3.5 w-3.5 text-agency-yellow" />
-              <span>SHOWING: {filteredProjects.length}</span>
+              <span>Showing {filteredProjects.length}</span>
             </div>
           </div>
         </section>

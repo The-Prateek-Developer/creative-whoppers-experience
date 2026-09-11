@@ -24,7 +24,7 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/40 to-transparent" />
         <div className="absolute left-6 top-6">
           <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-yellow backdrop-blur-md">
-            {project.number} {"//"} {project.category.toUpperCase()}
+            {project.number} · {project.category}
           </span>
         </div>
       </div>
@@ -32,12 +32,12 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-white/55">
         <div className="flex items-center gap-2">
           <Building className="h-3.5 w-3.5 text-agency-yellow" />
-          <span className="font-semibold text-agency-white">CLIENT:</span>
+          <span className="font-semibold text-agency-white">Client</span>
           <span>{project.client}</span>
         </div>
         <div className="flex items-center gap-2">
           <Calendar className="h-3.5 w-3.5 text-agency-yellow" />
-          <span className="font-semibold text-agency-white">YEAR:</span>
+          <span className="font-semibold text-agency-white">Year</span>
           <span>{project.year}</span>
         </div>
       </div>

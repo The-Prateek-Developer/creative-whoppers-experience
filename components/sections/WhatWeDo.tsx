@@ -114,8 +114,8 @@ export default function WhatWeDo() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <span className="what-meta block font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
-              [ WHAT WE DO ]
+            <span className="what-meta block font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
+              What we do
             </span>
             <span className="what-meta font-mono text-[11px] uppercase tracking-wider text-agency-white/55">
               Experiential / Film / Spatial

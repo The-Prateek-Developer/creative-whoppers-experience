@@ -269,8 +269,8 @@ export default function Navbar() {
                 variants={menuListVariants}
                 className="max-w-7xl w-full mx-auto py-12 flex flex-col gap-4 sm:gap-6"
               >
-                <p className="text-xs font-mono text-agency-yellow uppercase tracking-editorial-wide mb-4">
-                  [ NAVIGATION INDEX ]
+                <p className="mb-4 text-xs font-medium uppercase tracking-wider text-agency-yellow">
+                  Menu
                 </p>
                 {NAV_LINKS.map((link) => {
                   const isActive = isNavActive(pathname, link.href);
@@ -326,7 +326,7 @@ export default function Navbar() {
                 className="max-w-7xl w-full mx-auto pt-8 border-t border-agency-border grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs"
               >
                 <div>
-                  <span className="text-agency-white/55 font-mono block mb-2">[ INQUIRIES ]</span>
+                  <span className="mb-2 block text-agency-white/55">Inquiries</span>
                   <a
                     href={`mailto:${NAP.emails[0]}`}
                     className="text-agency-white hover:text-agency-yellow transition-colors font-mono"
@@ -336,14 +336,14 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <span className="text-agency-white/55 font-mono block mb-2">[ STUDIO ]</span>
+                  <span className="mb-2 block text-agency-white/55">Studio</span>
                   <p className="text-agency-white/80 font-sans">
                     {NAP.addressLocality}, {NAP.addressRegion}
                   </p>
                 </div>
 
                 <div>
-                  <span className="text-agency-white/55 font-mono block mb-2">[ CONNECT ]</span>
+                  <span className="mb-2 block text-agency-white/55">Connect</span>
                   <div className="flex flex-wrap gap-4 font-mono text-[11px]">
                     {NAP.social.map((soc) => (
                       <a

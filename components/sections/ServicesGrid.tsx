@@ -44,7 +44,7 @@ export default function ServicesGrid() {
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-yellow/10 px-3 py-1 font-mono text-xs text-agency-yellow"
           >
             <Sparkles className="h-3 w-3" />
-            <span>EXTRACTED PRODUCTION CAPABILITIES</span>
+            <span>Production capabilities</span>
           </div>
           <h2
             data-reveal-item
@@ -101,7 +101,7 @@ export default function ServicesGrid() {
                       isActive ? "font-bold text-agency-yellow" : "text-agency-white/55"
                     }`}
                   >
-                    {service.number} {"//"} {service.category.toUpperCase()}
+                    {service.number} · {service.category}
                   </span>
                   <ArrowUpRight
                     className={`h-4 w-4 transition-transform duration-300 ${
@@ -165,8 +165,8 @@ export default function ServicesGrid() {
                   <span className="font-mono text-xs text-agency-yellow">
                     {activeService.number}
                   </span>
-                  <span className="font-mono text-xs uppercase text-agency-white/55">
-                    [ PRODUCTION DISCIPLINE ]
+                  <span className="font-sans text-xs uppercase tracking-wider text-agency-white/55">
+                    Production discipline
                   </span>
                 </div>
 
@@ -179,8 +179,8 @@ export default function ServicesGrid() {
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="mb-3 font-mono text-[11px] uppercase tracking-wider text-agency-white/55">
-                    [ CORE DELIVERABLES ]
+                  <h4 className="mb-3 font-sans text-[11px] font-medium uppercase tracking-wider text-agency-white/55">
+                    Core deliverables
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {activeService.deliverables.map((item) => (
@@ -195,8 +195,8 @@ export default function ServicesGrid() {
                 </div>
 
                 <div className="mb-8 rounded-xl border border-agency-border bg-agency-black/60 p-4">
-                  <span className="mb-2 block font-mono text-[10px] uppercase tracking-wider text-agency-yellow">
-                    [ VERIFIED CREDITED CAMPAIGNS FROM BRIEF ]
+                  <span className="mb-2 block font-sans text-[10px] font-medium uppercase tracking-wider text-agency-yellow">
+                    Credited campaigns
                   </span>
                   <ul className="space-y-1.5 font-sans text-xs text-agency-white/80">
                     {activeService.clientWorks.slice(0, 3).map((client, i) => (
@@ -214,7 +214,7 @@ export default function ServicesGrid() {
                   href="/services"
                   className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-agency-yellow hover:underline"
                 >
-                  <span>Explore In Full Catalog</span>
+                  <span>Explore all services</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
 
@@ -231,12 +231,12 @@ export default function ServicesGrid() {
       </div>
 
       <div className="mt-16 flex flex-col justify-between gap-4 border-t border-agency-border pt-8 font-mono text-xs text-agency-white/55 sm:flex-row sm:items-center">
-        <span>CATALOG: 06 MAJOR PILLARS // 25+ DELIVERABLE SPECS</span>
+        <span>Six major pillars, 25+ deliverable specs</span>
         <Link
           href="/services"
           className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-surface px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
         >
-          <span>View All Services Catalog [06]</span>
+          <span>View all services</span>
           <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>

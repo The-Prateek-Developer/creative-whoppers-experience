@@ -69,7 +69,7 @@ export default function PhilosophySection() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agency-yellow/10 border border-agency-yellow/30 text-agency-yellow text-xs font-mono mb-8"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>STUDIO ETHOS & PHILOSOPHY</span>
+            <span>Studio ethos & philosophy</span>
           </div>
 
           <div className="page-heading mb-16 lg:mb-24">
@@ -100,7 +100,7 @@ export default function PhilosophySection() {
             >
               <div>
                 <span className="text-xs font-mono text-agency-yellow block mb-6">
-                  {pillar.num} {"//"} PHILOSOPHY
+                  {pillar.num} · Philosophy
                 </span>
                 <h3 className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                   {pillar.title}
@@ -112,7 +112,7 @@ export default function PhilosophySection() {
 
               <div className="mt-8 pt-6 border-t border-agency-white/[0.06]">
                 <span className="text-[11px] font-mono text-agency-white/55 uppercase">
-                  ACTIVE PRINCIPLE
+                  Active principle
                 </span>
               </div>
             </div>
@@ -121,13 +121,13 @@ export default function PhilosophySection() {
 
         <div className="mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-agency-border text-xs font-mono text-agency-white/55">
           <div>
-            <span>METHODOLOGY: BESPOKE CREATIVE PRODUCTION</span>
+            <span>Bespoke creative production</span>
           </div>
           <Link
             href="/about-us"
             className="inline-flex items-center gap-2 text-agency-yellow hover:text-agency-yellow hover:underline tracking-wider uppercase font-semibold transition-colors"
           >
-            <span>Explore Agency Lineage & Capabilities</span>
+            <span>Explore our story</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

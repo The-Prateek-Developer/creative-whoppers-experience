@@ -27,6 +27,7 @@ const config: Config = {
         display: ["var(--font-poppins)", "Poppins", "sans-serif"],
         sans: ["var(--font-poppins)", "Poppins", "sans-serif"],
         poppins: ["var(--font-poppins)", "Poppins", "sans-serif"],
+        mono: ["var(--font-poppins)", "Poppins", "sans-serif"],
       },
       fontSize: {
         "display-2xl": ["clamp(3.5rem, 9vw, 8.5rem)", { lineHeight: "0.92", letterSpacing: "-0.04em" }],

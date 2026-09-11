@@ -19,7 +19,7 @@ export default function Footer() {
               <div className="max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agency-yellow/10 border border-agency-yellow/30 text-agency-yellow text-xs font-mono mb-6">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>HAVE A BRIEF IN MIND?</span>
+                  <span>Have a brief in mind?</span>
                 </div>
                 <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-6xl text-agency-white uppercase tracking-tight mb-4">
                   Let’s Create Together.
@@ -63,14 +63,14 @@ export default function Footer() {
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-agency-black border border-agency-border text-xs font-mono text-agency-yellow">
               <span className="w-2 h-2 rounded-full bg-agency-yellow animate-pulse" />
-              ACCEPTING SELECT BRIEFS
+              Accepting select briefs
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="md:col-span-3">
-            <h4 className="text-xs uppercase tracking-editorial-wide text-agency-white/55 font-mono mb-6">
-              [ SITE INDEX ]
+            <h4 className="mb-6 text-xs font-medium uppercase tracking-wider text-agency-white/55">
+              Site
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-sm">
               {NAV_LINKS.map((item) => (
@@ -92,8 +92,8 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="md:col-span-4">
-            <h4 className="text-xs uppercase tracking-editorial-wide text-agency-white/55 font-mono mb-6">
-              [ SOCIAL CHANNELS ]
+            <h4 className="mb-6 text-xs font-medium uppercase tracking-wider text-agency-white/55">
+              Social
             </h4>
             <div className="grid grid-cols-2 gap-3">
               {NAP.social.map((item) => (
@@ -116,7 +116,7 @@ export default function Footer() {
             <div className="mt-6 pt-6 border-t border-agency-white/10 text-xs font-mono text-agency-white/55 flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-agency-yellow" />
               <span>
-                {NAP.addressLocality.toUpperCase()} / {NAP.addressRegion.toUpperCase()}
+                {NAP.addressLocality}, {NAP.addressRegion}
               </span>
             </div>
           </div>

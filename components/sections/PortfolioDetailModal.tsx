@@ -92,7 +92,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/70 to-transparent" />
               <div className="absolute left-6 top-6">
                 <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-yellow backdrop-blur-md">
-                  {project.number} {"//"} {project.category.toUpperCase()}
+                  {project.number} · {project.category}
                 </span>
               </div>
             </motion.div>
@@ -106,12 +106,12 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-white/55">
                 <div className="flex items-center gap-2">
                   <Building className="h-3.5 w-3.5 text-agency-yellow" />
-                  <span className="font-semibold text-agency-white">CLIENT:</span>
+                  <span className="font-semibold text-agency-white">Client</span>
                   <span>{project.client}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-3.5 w-3.5 text-agency-yellow" />
-                  <span className="font-semibold text-agency-white">PRODUCTION YEAR:</span>
+                  <span className="font-semibold text-agency-white">Year</span>
                   <span>{project.year}</span>
                 </div>
               </div>
@@ -130,8 +130,8 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               </div>
 
               <div>
-                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
-                  [ EXECUTIVE OVERVIEW ]
+                <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-white/55">
+                  Overview
                 </h4>
                 <p className="font-sans text-sm leading-relaxed text-agency-white/55 sm:text-base">
                   {project.overview}
@@ -140,8 +140,8 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
-                    [ THE CHALLENGE ]
+                  <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-white/55">
+                    The challenge
                   </h4>
                   <p className="font-sans text-sm leading-relaxed text-agency-white/80">
                     {project.challenge}
@@ -149,8 +149,8 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
 
                 <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-yellow">
-                    [ THE CREATIVE SOLUTION ]
+                  <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-yellow">
+                    The solution
                   </h4>
                   <p className="font-sans text-sm leading-relaxed text-agency-white/80">
                     {project.solution}
@@ -161,16 +161,16 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               <div className="flex items-start gap-4 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
                 <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-agency-yellow" />
                 <div>
-                  <span className="mb-1 block font-mono text-xs uppercase tracking-wider text-agency-yellow">
-                    MEASURED CAMPAIGN IMPACT
+                  <span className="mb-1 block font-sans text-xs font-medium uppercase tracking-wider text-agency-yellow">
+                    Impact
                   </span>
                   <p className="font-sans text-sm font-medium text-agency-white">{project.impact}</p>
                 </div>
               </div>
 
               <div>
-                <h4 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
-                  [ DELIVERED ASSETS & PRODUCTION SCOPE ]
+                <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-white/55">
+                  Deliverables
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.deliverables.map((item) => (
@@ -198,7 +198,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                   {...WHATSAPP_LINK}
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-all duration-300 hover:scale-[1.02] hover:bg-agency-yellow"
                 >
-                  <span>Inquire About A Similar Production</span>
+                  <span>Ask about a similar project</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>

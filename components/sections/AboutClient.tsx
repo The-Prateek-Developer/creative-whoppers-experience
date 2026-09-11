@@ -97,7 +97,7 @@ export default function AboutClient() {
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.05 }}
             className="page-heading mx-auto font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
           >
-            About Creative Whoppers
+            About <span className="text-agency-yellow">Creative</span> Whoppers
           </motion.h1>
           <motion.p
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}

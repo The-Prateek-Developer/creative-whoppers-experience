@@ -62,7 +62,7 @@ export default function PortfolioCard({
 
           <div className="absolute left-4 right-4 top-4 flex items-center justify-between sm:left-5 sm:right-5 sm:top-5">
             <span className="rounded-full border border-agency-border bg-agency-black/90 px-3 py-1 font-mono text-[10px] text-agency-yellow sm:text-[11px]">
-              {project.number} {"//"} {project.category.toUpperCase()}
+              {project.number} · {project.category}
             </span>
             <span className="rounded-full border border-agency-border bg-agency-black/90 px-2.5 py-1 font-mono text-[10px] text-agency-white/80 sm:px-3 sm:text-[11px]">
               {project.year}
@@ -80,7 +80,7 @@ export default function PortfolioCard({
         <div className={cn("flex flex-1 flex-col justify-between", compact ? "p-6 sm:p-7" : "p-6 sm:p-8")}>
           <div>
             <span className="mb-1 block font-mono text-[11px] uppercase text-agency-white/55">
-              CLIENT: {project.client}
+              Client: {project.client}
             </span>
             <motion.h3
               layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}

@@ -69,7 +69,7 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body
-        className={`${poppins.variable} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-ink min-h-screen flex flex-col`}
+        className={`${poppins.variable} ${poppins.className} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-ink min-h-screen flex flex-col`}
       >
         <SmoothScroll>
           <CursorFollower />
