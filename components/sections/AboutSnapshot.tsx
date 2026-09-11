@@ -37,7 +37,7 @@ export default function AboutSnapshot() {
           </p>
           <h2
             data-reveal-item
-            className="mb-4 max-w-lg font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl lg:text-[2rem] lg:leading-tight"
+            className="mb-4 max-w-lg font-display text-xl font-semibold tracking-tight text-agency-white"
           >
             A trusted creative agency partner
           </h2>

@@ -25,7 +25,7 @@ export default function FlagshipServices() {
         </p>
         <h2
           data-reveal-item
-          className="mb-3 font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
+          className="mb-3 font-display text-xl font-semibold tracking-tight text-agency-white"
         >
           Flagship services
         </h2>
@@ -52,7 +52,7 @@ export default function FlagshipServices() {
               />
             </div>
             <div className="p-7">
-              <h3 className="mb-3 font-display text-xl font-bold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
+              <h3 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
                 {service.title}
               </h3>
               <p className="font-sans text-sm leading-relaxed text-agency-white/60">{service.intro}</p>

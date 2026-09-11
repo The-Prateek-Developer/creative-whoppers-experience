@@ -42,7 +42,7 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         </div>
       </div>
 
-      <h1 className="mb-4 font-display text-3xl font-black uppercase tracking-tight text-agency-white sm:text-5xl">
+      <h1 className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
         {project.title}
       </h1>
       <p className="mb-10 font-sans text-base font-medium text-agency-yellow sm:text-lg">

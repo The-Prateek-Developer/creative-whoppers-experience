@@ -95,7 +95,7 @@ export default function AboutClient() {
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.05 }}
-            className="font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            className="page-heading mx-auto font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
           >
             About Creative Whoppers
           </motion.h1>
@@ -103,7 +103,7 @@ export default function AboutClient() {
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.1 }}
-            className="mx-auto mt-8 max-w-2xl font-sans text-base leading-relaxed text-agency-white/65"
+            className="page-heading-lead mx-auto mt-8 font-sans text-base leading-relaxed text-agency-white/65"
           >
             How Creative Whoppers grew from a creative studio into a full-service agency
             delivering experience design, production and marketing under one roof.
@@ -122,7 +122,7 @@ export default function AboutClient() {
           />
         </div>
         <div className="lg:col-span-6">
-          <h2 className="mb-4 font-display text-3xl font-extrabold uppercase text-agency-white">Our story</h2>
+          <h2 className="mb-4 font-display text-xl font-semibold uppercase text-agency-white">Our story</h2>
           <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
             We design experiences that people remember. For over a decade we have partnered with
             brands, government organisations, educational institutions and cultural organisations
@@ -138,12 +138,12 @@ export default function AboutClient() {
 
       <section className="border-y border-agency-border bg-agency-white/[0.03] px-6 py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 font-display text-display-xl font-extrabold uppercase text-agency-white">
+          <h2 className="page-heading mb-12 font-display text-display-xl font-extrabold uppercase text-agency-white">
             Mission & vision
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="rounded-2xl border border-agency-border p-8">
-              <h3 className="mb-4 font-display text-xl font-bold uppercase text-agency-yellow">Our mission</h3>
+              <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our mission</h3>
               <p className="font-sans text-sm leading-relaxed text-agency-white/70">
                 To design, create and amplify meaningful experiences that connect people, communicate
                 ideas and create lasting impact — from physical spaces and live events to multimedia,
@@ -151,7 +151,7 @@ export default function AboutClient() {
               </p>
             </div>
             <div className="rounded-2xl border border-agency-border p-8">
-              <h3 className="mb-4 font-display text-xl font-bold uppercase text-agency-yellow">Our vision</h3>
+              <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our vision</h3>
               <p className="font-sans text-sm leading-relaxed text-agency-white/70">
                 To become a leading creative experience company, shaping how organisations connect
                 with people through ideas, stories, technology and experiences that are not only
@@ -162,7 +162,7 @@ export default function AboutClient() {
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             {VALUES.map((value) => (
               <div key={value.title} className="rounded-xl border border-agency-border p-6">
-                <h3 className="mb-2 font-display text-sm font-bold uppercase text-agency-white">{value.title}</h3>
+                <h3 className="mb-2 font-display text-xl font-semibold uppercase text-agency-white">{value.title}</h3>
                 <p className="text-sm text-agency-white/55">{value.detail}</p>
               </div>
             ))}
@@ -171,7 +171,7 @@ export default function AboutClient() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
-        <h2 className="mb-4 font-display text-display-xl font-extrabold uppercase text-agency-white">Our approach</h2>
+        <h2 className="page-heading mb-4 font-display text-display-xl font-extrabold uppercase text-agency-white">Our approach</h2>
         <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
           A four-stage approach — Discover, Design, Deliver, Sustain — that takes every project
           from strategy through to long-term growth.
@@ -180,7 +180,7 @@ export default function AboutClient() {
           {PROCESS_STAGES.map((stage) => (
             <div key={stage.id} className="rounded-2xl border border-agency-border p-8">
               <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
-              <h3 className="mt-2 font-display text-2xl font-extrabold uppercase text-agency-white">
+              <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {stage.title}
               </h3>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-agency-white/50">
@@ -194,7 +194,7 @@ export default function AboutClient() {
 
       <section className="border-y border-agency-border px-6 py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-6 font-display text-3xl font-extrabold uppercase text-agency-white">
+          <h2 className="mb-6 font-display text-xl font-semibold uppercase text-agency-white">
             What sets us apart
           </h2>
           <p className="mb-8 max-w-2xl text-sm text-agency-white/60">
@@ -215,13 +215,13 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="overflow-hidden py-24">
-        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
-          <h2 className="font-display text-display-xl font-extrabold uppercase text-agency-white">
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <h2 className="page-heading mb-10 font-display text-display-xl font-extrabold uppercase text-agency-white">
             Meet the team
           </h2>
+          <TeamMarquee people={TEAM} />
         </div>
-        <TeamMarquee people={TEAM} />
       </section>
     </div>
   );

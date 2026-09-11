@@ -9,10 +9,10 @@ import BrandLogo from "@/components/brand/BrandLogo";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-32 w-full overflow-hidden border-t border-agency-border bg-agency-black">
+    <footer className="relative mt-12 w-full overflow-hidden border-t border-agency-border bg-agency-black">
       {/* Integrated Closing CTA Banner */}
       <div className="border-b border-agency-border">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-16">
           <div className="relative overflow-hidden rounded-2xl border border-agency-border bg-agency-black p-8 sm:p-12 lg:p-16">
 
             <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
@@ -21,7 +21,7 @@ export default function Footer() {
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>HAVE A BRIEF IN MIND?</span>
                 </div>
-                <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-agency-white uppercase tracking-tight mb-4">
+                <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-6xl text-agency-white uppercase tracking-tight mb-4">
                   Let’s Create Together.
                 </h2>
                 <p className="text-agency-white/55 text-sm sm:text-base font-sans leading-relaxed">

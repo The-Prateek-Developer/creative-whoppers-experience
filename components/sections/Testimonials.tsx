@@ -45,7 +45,7 @@ export default function Testimonials() {
           </p>
           <h2
             data-reveal-item
-            className="font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
+            className="font-display text-xl font-semibold tracking-tight text-agency-white"
           >
             Trusted across <span className="italic text-agency-yellow">sectors</span>
           </h2>

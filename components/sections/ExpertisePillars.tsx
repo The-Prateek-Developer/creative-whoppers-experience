@@ -24,7 +24,7 @@ export default function ExpertisePillars() {
         </p>
         <h2
           data-reveal-item
-          className="mb-3 font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
+          className="mb-3 font-display text-xl font-semibold tracking-tight text-agency-white"
         >
           Four capability pillars
         </h2>
@@ -44,7 +44,7 @@ export default function ExpertisePillars() {
           >
             <div>
               <span className="mb-4 block font-mono text-xs text-agency-yellow">{pillar.number}</span>
-              <h3 className="mb-2 font-display text-lg font-bold tracking-tight text-agency-white group-hover:text-agency-yellow">
+              <h3 className="mb-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
                 {pillar.title}
               </h3>
               <p className="max-w-md font-sans text-sm leading-relaxed text-agency-white/60">

@@ -37,10 +37,10 @@ export default function PortfolioArchive() {
           <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
             Portfolio
           </p>
-          <h1 className="mb-6 font-display text-display-2xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+          <h1 className="page-heading mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
             Our Work
           </h1>
-          <p className="max-w-3xl font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+          <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
             Events, films, branding and digital projects for corporate, government and institutional
             clients — from diplomatic campaigns and national broadcasts to museums and live culture.
           </p>

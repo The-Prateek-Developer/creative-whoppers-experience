@@ -85,8 +85,8 @@ export default function PortfolioCard({
             <motion.h3
               layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}
               className={cn(
-                "font-display uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow",
-                compact ? "mb-2 text-xl font-bold" : "text-2xl font-black sm:text-3xl"
+                "font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow",
+                compact ? "mb-2" : ""
               )}
             >
               {project.title}

@@ -72,10 +72,10 @@ export default function PhilosophySection() {
             <span>STUDIO ETHOS & PHILOSOPHY</span>
           </div>
 
-          <div className="max-w-5xl mb-16 lg:mb-24">
+          <div className="page-heading mb-16 lg:mb-24">
             <h2
               data-reveal-item
-              className="font-display font-extrabold text-display-xl text-agency-white uppercase tracking-editorial-tight leading-none mb-6"
+              className="mb-6 font-display text-display-xl font-extrabold uppercase leading-none tracking-editorial-tight text-agency-white"
             >
               We Don’t Compete For Attention.
               <br />
@@ -83,7 +83,7 @@ export default function PhilosophySection() {
             </h2>
             <p
               data-reveal-item
-              className="text-agency-white/55 text-editorial-sub max-w-2xl font-sans leading-relaxed"
+              className="page-heading-lead font-sans text-editorial-sub leading-relaxed text-agency-white/55"
             >
               In an era of fleeting feeds and generic templates, Creative Whoppers engineers
               unapologetic visual spectacles that pierce through the noise and establish brand dominance.
@@ -102,7 +102,7 @@ export default function PhilosophySection() {
                 <span className="text-xs font-mono text-agency-yellow block mb-6">
                   {pillar.num} {"//"} PHILOSOPHY
                 </span>
-                <h3 className="font-display font-bold text-2xl text-agency-white uppercase tracking-tight mb-4">
+                <h3 className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                   {pillar.title}
                 </h3>
                 <p className="text-agency-white/55 text-sm leading-relaxed font-sans">

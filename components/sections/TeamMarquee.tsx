@@ -78,18 +78,19 @@ export default function TeamMarquee({ people }: { people: TeamMember[] }) {
   };
 
   return (
-    <div
-      ref={scrollerRef}
-      tabIndex={0}
-      aria-label="Team members, scroll horizontally"
-      onMouseEnter={pause}
-      onMouseLeave={resume}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
-      className="flex cursor-grab gap-5 overflow-x-auto px-6 pb-2 active:cursor-grabbing lg:px-12 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-    >
+    <div className="edge-fade-x overflow-hidden">
+      <div
+        ref={scrollerRef}
+        tabIndex={0}
+        aria-label="Team members, scroll horizontally"
+        onMouseEnter={pause}
+        onMouseLeave={resume}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        className="flex cursor-grab gap-5 overflow-x-auto pb-2 active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
       {loop.map((person, index) => (
         <article
           key={`${person.name}-${index}`}
@@ -108,7 +109,7 @@ export default function TeamMarquee({ people }: { people: TeamMember[] }) {
             <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-agency-yellow">
               {person.experience}
             </p>
-            <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-agency-white">
+            <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               {person.name}
             </h3>
             <p className="mt-1 text-sm text-agency-white/55">{person.role}</p>
@@ -116,6 +117,7 @@ export default function TeamMarquee({ people }: { people: TeamMember[] }) {
           </div>
         </article>
       ))}
+      </div>
     </div>
   );
 }

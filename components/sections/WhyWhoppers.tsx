@@ -22,7 +22,7 @@ export default function WhyWhoppers() {
         </p>
         <h2
           data-reveal-item
-          className="mb-3 font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
+          className="mb-3 font-display text-xl font-semibold tracking-tight text-agency-white"
         >
           Preferred for a reason
         </h2>
@@ -38,7 +38,7 @@ export default function WhyWhoppers() {
             key={item.title}
             className="rounded-2xl border border-agency-border bg-agency-white/[0.04] p-7"
           >
-            <h3 className="mb-3 font-display text-lg font-bold uppercase tracking-tight text-agency-white">
+            <h3 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               {item.title}
             </h3>
             <p className="font-sans text-sm leading-relaxed text-agency-white/60">{item.description}</p>
@@ -53,7 +53,7 @@ export default function WhyWhoppers() {
         {HOME_PROCESS.map((stage) => (
           <div key={stage.id} className="border-t border-agency-yellow/40 pt-6">
             <span className="font-mono text-[11px] text-agency-yellow">{stage.number}</span>
-            <h3 className="mt-2 font-display text-xl font-extrabold uppercase text-agency-white">
+            <h3 className="mt-2 font-display text-xl font-semibold uppercase text-agency-white">
               {stage.title}
             </h3>
             <p className="mt-1 text-xs font-mono uppercase tracking-wider text-agency-white/50">

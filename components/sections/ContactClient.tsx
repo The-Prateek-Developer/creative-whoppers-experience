@@ -206,7 +206,7 @@ export default function ContactClient() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <section className="relative isolate flex min-h-[min(70vh,40rem)] items-end overflow-hidden border-b border-agency-border px-6 pb-28 pt-16 sm:pb-32 lg:px-12 lg:pt-24">
+      <section className="relative isolate flex min-h-[70vh] items-center overflow-hidden border-b border-agency-border px-6 pb-28 pt-24 sm:pb-32 lg:px-12">
         <div className="absolute inset-0">
           <FadeImage
             src={SITE_IMAGES.conference}
@@ -219,14 +219,14 @@ export default function ContactClient() {
         </div>
         <div className="absolute inset-0 bg-agency-black/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/55 to-agency-black/30" />
-        <div className="pointer-events-none absolute -left-16 top-10 h-64 w-64 rounded-full bg-agency-yellow/20 blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-1/4 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-agency-yellow/15 blur-3xl" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl">
+        <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
           <motion.p
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: easings.outPremium }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-black/40 px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow backdrop-blur-sm"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-black/40 px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow backdrop-blur-sm"
           >
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
             Get in touch
@@ -235,7 +235,7 @@ export default function ContactClient() {
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.05 }}
-            className="max-w-4xl font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            className="page-heading mx-auto font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
           >
             Let’s start a brief
           </motion.h1>
@@ -243,7 +243,7 @@ export default function ContactClient() {
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.58, ease: easings.outPremium, delay: 0.1 }}
-            className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-agency-white/80 sm:text-lg"
+            className="page-heading-lead mx-auto mt-8 font-sans text-base leading-relaxed text-agency-white/80 sm:text-lg"
           >
             Events, film, digital and brand work — tell us what you need and a producer
             will reply within one business day.
@@ -252,7 +252,7 @@ export default function ContactClient() {
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: easings.outPremium, delay: 0.16 }}
-            className="mt-8 flex flex-wrap gap-2"
+            className="mt-8 flex flex-wrap justify-center gap-2"
           >
             {["Reply in 1 business day", "Okhla, New Delhi", NAP.hours].map((item) => (
               <li
@@ -266,7 +266,7 @@ export default function ContactClient() {
         </div>
       </section>
 
-      <section className="relative z-20 mx-auto -mt-16 max-w-7xl px-6 lg:-mt-20 lg:px-12">
+      <section className="relative z-20 mx-auto -mt-11 max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {channels.map((channel) => {
             const Icon = channel.icon;
@@ -297,13 +297,13 @@ export default function ContactClient() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+      <section className="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-12 lg:pb-10 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow">
               Enquiry form
             </p>
-            <h2 className="mb-3 font-display text-3xl font-extrabold uppercase tracking-tight text-agency-white sm:text-4xl">
+            <h2 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               Share the brief
             </h2>
             <p className="mb-8 max-w-xl text-sm leading-relaxed text-agency-white/65">
@@ -323,7 +323,7 @@ export default function ContactClient() {
                   role="status"
                 >
                   <CheckCircle2 className="h-8 w-8 text-agency-yellow" aria-hidden />
-                  <p className="mt-4 font-display text-2xl font-bold uppercase text-agency-white">
+                  <p className="mt-4 font-display text-xl font-semibold uppercase text-agency-white">
                     Brief ready
                   </p>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-agency-white/70">
@@ -564,7 +564,7 @@ export default function ContactClient() {
                 />
               </div>
               <div className="space-y-5 p-6 sm:p-8">
-                <h2 className="font-display text-xl font-bold uppercase text-agency-white">
+                <h2 className="font-display text-xl font-semibold uppercase text-agency-white">
                   Studio details
                 </h2>
                 <p className="flex gap-3 text-sm leading-relaxed text-agency-white/80">
@@ -608,34 +608,7 @@ export default function ContactClient() {
             </div>
 
             <div>
-              <h2 className="mb-4 font-display text-xl font-bold uppercase text-agency-white">
-                Find us
-              </h2>
-              <div
-                data-lenis-prevent
-                className="overflow-hidden rounded-2xl border border-agency-border"
-              >
-                <iframe
-                  title="Creative Whoppers studio map"
-                  src={NAP.mapEmbed}
-                  className="h-72 w-full grayscale contrast-125 !pointer-events-auto dark:invert"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <a
-                href={NAP.mapLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex cursor-pointer items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-agency-yellow hover:underline"
-              >
-                Open in Google Maps
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-              </a>
-            </div>
-
-            <div>
-              <h2 className="mb-4 font-display text-xl font-bold uppercase text-agency-white">
+              <h2 className="mb-4 font-display text-xl font-semibold uppercase text-agency-white">
                 Connect
               </h2>
               <div className="grid grid-cols-2 gap-3">
@@ -657,6 +630,35 @@ export default function ContactClient() {
               </div>
             </div>
           </aside>
+        </div>
+
+        <div className="mt-16 lg:mt-20">
+          <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+            <h2 className="font-display text-xl font-semibold uppercase text-agency-white">
+              Find us
+            </h2>
+            <a
+              href={NAP.mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex cursor-pointer items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-agency-yellow hover:underline"
+            >
+              Open in Google Maps
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+            </a>
+          </div>
+          <div
+            data-lenis-prevent
+            className="overflow-hidden rounded-2xl border border-agency-border"
+          >
+            <iframe
+              title="Creative Whoppers studio map"
+              src={NAP.mapEmbed}
+              className="h-72 w-full grayscale contrast-125 !pointer-events-auto sm:h-96 lg:h-[28rem] dark:invert"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </div>

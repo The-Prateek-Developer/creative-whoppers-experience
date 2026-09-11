@@ -14,7 +14,6 @@ import {
   staggerContainer,
 } from "@/lib/animations";
 import HeroVideo from "@/components/media/HeroVideo";
-import BrandLogo from "@/components/brand/BrandLogo";
 import { PILLARS } from "@/lib/services-tree";
 import { WHATSAPP_LINK } from "@/lib/site";
 
@@ -47,13 +46,23 @@ export default function Hero() {
               Full-service creative agency
             </motion.p>
 
-            <motion.h1 variants={fadeInUp} className="text-agency-white">
-              <span className="sr-only">Creative Whoppers</span>
-              <BrandLogo size="hero" priority />
-              <span className="hero-tagline mt-4 block font-display font-semibold tracking-tight text-agency-yellow">
-                Crafting memorable brand experiences
-              </span>
+            <motion.h1
+              variants={fadeInUp}
+              className="page-heading mb-5 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            >
+              <span className="text-agency-yellow">Creative</span> Whoppers
             </motion.h1>
+
+            <motion.p
+              variants={fadeInUp}
+              className="hero-headline font-display font-extrabold uppercase text-agency-white"
+            >
+              <span className="whitespace-nowrap">
+                Enhance the <span className="text-agency-yellow">Creative Impact</span>
+              </span>
+              <br />
+              <span className="whitespace-nowrap">of your Brand</span>
+            </motion.p>
 
             <motion.p
               variants={fadeInUp}
@@ -99,7 +108,7 @@ export default function Hero() {
                     >
                       <span className="flex items-baseline gap-3">
                         <span className="font-mono text-[11px] text-agency-yellow">{pillar.number}</span>
-                        <span className="font-display text-sm font-bold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow sm:text-base">
+                        <span className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                           {pillar.title}
                         </span>
                       </span>

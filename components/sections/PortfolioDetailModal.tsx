@@ -120,7 +120,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 <motion.h2
                   id="case-study-title"
                   layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}
-                  className="mb-4 font-display text-3xl font-black uppercase tracking-tight text-agency-white sm:text-5xl"
+                  className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white"
                 >
                   {project.title}
                 </motion.h2>

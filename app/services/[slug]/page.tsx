@@ -55,10 +55,10 @@ export default function ServiceDetailPage({ params }: Props) {
         <p className="mb-3 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
           {page.kind === "pillar" ? `Pillar ${page.number}` : "Flagship service"}
         </p>
-        <h1 className="mb-6 max-w-4xl font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+        <h1 className="page-heading mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
           {page.h1}
         </h1>
-        <p className="mb-10 max-w-3xl font-sans text-base leading-relaxed text-agency-white/65">
+        <p className="page-heading-lead mb-10 font-sans text-base leading-relaxed text-agency-white/65">
           {page.intro}
         </p>
         <div className="relative mb-16 aspect-[21/9] overflow-hidden rounded-3xl border border-agency-border">
@@ -77,13 +77,13 @@ export default function ServiceDetailPage({ params }: Props) {
         <section className="mx-auto max-w-7xl space-y-16 px-6 lg:px-12">
           {page.groups.map((group) => (
             <div key={group.title}>
-              <h2 className="mb-8 border-b border-agency-border pb-4 font-display text-2xl font-extrabold uppercase text-agency-white">
+              <h2 className="mb-8 border-b border-agency-border pb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {group.title}
               </h2>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {group.items.map((item) => (
                   <article key={item.name} className="rounded-2xl border border-agency-border p-6">
-                    <h3 className="mb-2 font-display text-lg font-bold uppercase text-agency-white">
+                    <h3 className="mb-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                       {item.name}
                     </h3>
                     <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>

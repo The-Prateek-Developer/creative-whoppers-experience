@@ -40,10 +40,10 @@ export default function ServicesPage() {
         <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
           Creative agency services
         </p>
-        <h1 className="mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+        <h1 className="page-heading mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
           Our Services
         </h1>
-        <p className="max-w-3xl font-sans text-base leading-relaxed text-agency-white/65">
+        <p className="page-heading-lead font-sans text-base leading-relaxed text-agency-white/65">
           Creative Whoppers offers four integrated service pillars — Experience Design, Creative
           Production, Digital Experiences and Brand & Marketing — covering everything a brand
           needs to plan, produce and promote memorable experiences.
@@ -51,7 +51,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto mb-24 max-w-7xl px-6 lg:px-12">
-        <h2 className="mb-8 font-display text-2xl font-extrabold uppercase text-agency-white">
+        <h2 className="mb-8 font-display text-xl font-semibold uppercase text-agency-white">
           Capability pillars
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -72,7 +72,7 @@ export default function ServicesPage() {
               </div>
               <div className="p-8">
                 <span className="font-mono text-xs text-agency-yellow">{pillar.number}</span>
-                <h3 className="mt-2 font-display text-2xl font-extrabold uppercase text-agency-white group-hover:text-agency-yellow">
+                <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
                   {pillar.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-agency-white/60">{pillar.intro}</p>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 lg:px-12">
-        <h2 className="mb-8 font-display text-2xl font-extrabold uppercase text-agency-white">
+        <h2 className="mb-8 font-display text-xl font-semibold uppercase text-agency-white">
           Flagship services
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -96,7 +96,7 @@ export default function ServicesPage() {
               href={`/services/${service.slug}`}
               className="rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50"
             >
-              <h3 className="font-display text-lg font-bold uppercase text-agency-white">
+              <h3 className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {service.title}
               </h3>
               <p className="mt-2 text-sm text-agency-white/60">{service.intro}</p>

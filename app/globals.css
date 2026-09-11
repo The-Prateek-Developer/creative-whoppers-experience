@@ -124,6 +124,12 @@ html.lenis, html.lenis body {
   .editorial-glow-yellow {
     box-shadow: 0 0 50px -10px rgba(248, 214, 37, 0.15);
   }
+  .page-heading {
+    max-width: 600px;
+  }
+  .page-heading-lead {
+    max-width: 600px;
+  }
 }
 
 .img-skeleton {
@@ -154,6 +160,29 @@ html.lenis, html.lenis body {
   font-size: clamp(1.15rem, 2.4vw, 1.85rem);
   line-height: 1.25;
   text-wrap: balance;
+}
+
+.hero-headline {
+  font-size: clamp(1.25rem, 4.2vw, 2.55rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.edge-fade-x {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 11%,
+    #000 89%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 11%,
+    #000 89%,
+    transparent 100%
+  );
 }
 
 input:-webkit-autofill,

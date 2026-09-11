@@ -48,7 +48,7 @@ export default function ServicesGrid() {
           </div>
           <h2
             data-reveal-item
-            className="font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            className="page-heading font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
           >
             Production <span className="text-agency-yellow italic">Capabilities</span>.
           </h2>
@@ -113,7 +113,7 @@ export default function ServicesGrid() {
                 </div>
 
                 <h3
-                  className={`font-display text-xl font-bold uppercase tracking-tight transition-colors ${
+                  className={`font-display text-xl font-semibold uppercase tracking-tight transition-colors ${
                     isActive ? "text-agency-white" : "text-agency-white/80"
                   }`}
                 >
@@ -170,7 +170,7 @@ export default function ServicesGrid() {
                   </span>
                 </div>
 
-                <h3 className="mb-4 font-display text-2xl font-extrabold uppercase text-agency-white sm:text-3xl">
+                <h3 className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                   {activeService.title}
                 </h3>
 
