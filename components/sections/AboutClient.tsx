@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2, Sparkles } from "lucide-react";

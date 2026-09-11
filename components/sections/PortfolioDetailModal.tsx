@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import FadeImage from "@/components/media/FadeImage";
-import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Calendar, Building, Sparkles } from "lucide-react";
 import { PortfolioProject } from "@/lib/portfolio-data";
