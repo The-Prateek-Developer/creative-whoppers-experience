@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CursorFollower from "@/components/canvas/CursorFollower";
+import ThemeScript from "@/components/theme/ThemeScript";
 import { PAGE_SEO, SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
 
 const poppins = Poppins({
@@ -63,9 +64,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className="dark">
+    <html lang="en-IN" className="dark" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body
-        className={`${poppins.variable} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-black min-h-screen flex flex-col`}
+        className={`${poppins.variable} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-ink min-h-screen flex flex-col`}
       >
         <SmoothScroll>
           <CursorFollower />

@@ -1,8 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import AboutClient from "@/components/sections/AboutClient";
+import ClientLogos from "@/components/sections/ClientLogos";
 import Testimonials from "@/components/sections/Testimonials";
-import CTA from "@/components/sections/CTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
@@ -36,8 +36,8 @@ export default function AboutPage() {
         ])}
       />
       <AboutClient />
+      <ClientLogos />
       <Testimonials />
-      <CTA />
     </div>
   );
 }

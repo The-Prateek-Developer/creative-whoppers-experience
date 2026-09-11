@@ -1,3 +1,5 @@
+import { SITE_IMAGES } from "@/lib/site-images";
+
 export const PORTFOLIO_CATEGORIES = [
   "Experience Design",
   "Creative Production",
@@ -48,7 +50,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Social Media Teasers & Cutdowns",
       "Broadcast Color Grading & Sound Mix",
     ],
-    coverImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.cyclingStage,
     featured: true,
   },
   {
@@ -73,7 +75,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Multilingual Voiceover Adaptations",
       "Digital Short-Form Snippets",
     ],
-    coverImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.workshop,
     featured: true,
   },
   {
@@ -98,7 +100,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Historical Archival Digitization",
       "Frontline Veteran Interview Series",
     ],
-    coverImage: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.festival,
     featured: true,
   },
   {
@@ -123,7 +125,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Behind-the-Scenes Artist Interviews",
       "International Film Festival Screener",
     ],
-    coverImage: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.silhouette,
     featured: true,
   },
   {
@@ -148,7 +150,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Rapid-Response Social Video Recap",
       "Diplomatic Highlight Documentary",
     ],
-    coverImage: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.erasmus,
     featured: false,
   },
   {
@@ -173,7 +175,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Retail Showroom Video Loops",
       "Maintenance & Explainer Guide",
     ],
-    coverImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.productLamp,
     featured: false,
   },
   {
@@ -198,7 +200,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Promotional Theatrical Trailer VFX",
       "Festival Screening Master Deliveries",
     ],
-    coverImage: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.filmReel,
     featured: false,
   },
   {
@@ -223,7 +225,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Multilingual Social Cutdowns",
       "University Portal Educational Assets",
     ],
-    coverImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
+    coverImage: SITE_IMAGES.heartYellow,
     featured: false,
   },
 ];

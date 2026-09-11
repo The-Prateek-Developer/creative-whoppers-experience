@@ -2,11 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+html.dark,
+html[data-theme="dark"] {
+  --cw-bg: 20 20 20;
+  --cw-fg: 255 255 255;
   --background: #141414;
   --foreground: #ffffff;
   --font-display: var(--font-poppins);
   --font-sans: var(--font-poppins);
+  color-scheme: dark;
+}
+
+html.light,
+html[data-theme="light"] {
+  --cw-bg: 255 255 255;
+  --cw-fg: 20 20 20;
+  --background: #ffffff;
+  --foreground: #141414;
+  color-scheme: light;
 }
 
 * {
@@ -14,17 +28,18 @@
 }
 
 html {
-  background-color: #141414;
-  color: #ffffff;
+  background-color: rgb(var(--cw-bg));
+  color: rgb(var(--cw-fg));
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 body {
-  background-color: #141414;
-  color: #ffffff;
+  background-color: rgb(var(--cw-bg));
+  color: rgb(var(--cw-fg));
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   overflow-x: clip;
   min-height: 100vh;
@@ -68,11 +83,11 @@ html.lenis, html.lenis body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: rgb(var(--cw-bg));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgb(var(--cw-fg) / 0.16);
   border-radius: 3px;
 }
 
@@ -91,14 +106,14 @@ html.lenis, html.lenis body {
 
   .img-skeleton {
     animation: none;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgb(var(--cw-fg) / 0.06);
   }
 }
 
 /* Subtle editorial utility classes */
 @layer utilities {
   .editorial-border {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgb(var(--cw-fg) / 0.12);
   }
   .editorial-border-yellow {
     border-color: rgba(248, 214, 37, 0.35);
@@ -114,9 +129,9 @@ html.lenis, html.lenis body {
 .img-skeleton {
   background: linear-gradient(
     110deg,
-    rgba(255, 255, 255, 0.035) 8%,
+    rgb(var(--cw-fg) / 0.035) 8%,
     rgba(248, 214, 37, 0.09) 18%,
-    rgba(255, 255, 255, 0.035) 33%
+    rgb(var(--cw-fg) / 0.035) 33%
   );
   background-size: 200% 100%;
   animation: img-skeleton-shimmer 1.45s cubic-bezier(0.33, 1, 0.68, 1) infinite;
@@ -130,7 +145,7 @@ html.lenis, html.lenis body {
 
 /* Hero lockup: brand name stays 1–2 lines; tagline stays a readable second line */
 .hero-lockup {
-  font-size: clamp(2.6rem, 7.2vw, 5.75rem);
+  font-size: clamp(2.25rem, 5.6vw, 4.5rem);
   line-height: 0.92;
   text-wrap: balance;
 }
@@ -139,4 +154,18 @@ html.lenis, html.lenis body {
   font-size: clamp(1.15rem, 2.4vw, 1.85rem);
   line-height: 1.25;
   text-wrap: balance;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: rgb(var(--cw-fg));
+  caret-color: rgb(var(--cw-fg));
+  box-shadow: 0 0 0 1000px rgb(var(--cw-bg)) inset;
+  transition: background-color 9999s ease-out;
+}
+
+option {
+  background-color: rgb(var(--cw-bg));
+  color: rgb(var(--cw-fg));
 }

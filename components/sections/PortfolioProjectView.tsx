@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Calendar, Building, Sparkles } from "lucide-react";
 import FadeImage from "@/components/media/FadeImage";
 import type { PortfolioProject } from "@/lib/portfolio-data";
+import { WHATSAPP_LINK } from "@/lib/site";
 
 export default function PortfolioProjectView({ project }: { project: PortfolioProject }) {
   return (
@@ -106,13 +107,13 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         >
           Back to portfolio
         </Link>
-        <Link
-          href="/contact-us"
-          className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-black"
+        <a
+          {...WHATSAPP_LINK}
+          className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink"
         >
           <span>Start a similar project</span>
           <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        </a>
       </div>
     </article>
   );

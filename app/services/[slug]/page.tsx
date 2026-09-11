@@ -7,7 +7,6 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { getServicePage, SERVICE_PAGES } from "@/lib/services-tree";
 import { SITE_OG_IMAGE } from "@/lib/site";
-import CTA from "@/components/sections/CTA";
 
 type Props = { params: { slug: string } };
 
@@ -106,8 +105,6 @@ export default function ServiceDetailPage({ params }: Props) {
           </Link>
         </section>
       )}
-
-      <CTA />
     </div>
   );
 }

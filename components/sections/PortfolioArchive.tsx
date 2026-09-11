@@ -4,9 +4,7 @@ import React, { useState, useEffect } from "react";
 import { LayoutGroup, AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Filter } from "lucide-react";
 import { PORTFOLIO_CATEGORIES, PORTFOLIO_PROJECTS } from "@/lib/portfolio-data";
-import { CLIENT_NAMES } from "@/lib/services-tree";
 import PortfolioCard from "@/components/sections/PortfolioCard";
-import CTA from "@/components/sections/CTA";
 import { useInViewGate } from "@/hooks/useInViewGate";
 import { layoutSpring } from "@/lib/animations";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -48,22 +46,6 @@ export default function PortfolioArchive() {
           </p>
         </section>
 
-        <section className="relative z-10 mx-auto mb-12 max-w-7xl px-6 lg:px-12">
-          <p className="mb-4 font-mono text-[11px] uppercase tracking-wider text-agency-white/45">
-            Selected clients
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {CLIENT_NAMES.map((name) => (
-              <span
-                key={name}
-                className="rounded-full border border-agency-border px-3 py-1.5 font-mono text-[11px] uppercase text-agency-white/70"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </section>
-
         <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
           <div className="flex items-center justify-between gap-4 border-b border-agency-border pb-4">
             <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
@@ -76,7 +58,7 @@ export default function PortfolioArchive() {
                     onClick={() => setSelectedCategory(cat)}
                     className={`relative whitespace-nowrap rounded-full px-5 py-2.5 font-mono text-xs uppercase tracking-wider transition-colors ${
                       isActive
-                        ? "font-bold text-agency-black"
+                        ? "font-bold text-agency-ink"
                         : "border border-agency-border bg-agency-surface text-agency-white/70 hover:border-agency-yellow/50 hover:text-agency-yellow"
                     }`}
                   >
@@ -116,10 +98,6 @@ export default function PortfolioArchive() {
             </motion.div>
           </div>
         </section>
-
-        <div className="mt-28">
-          <CTA />
-        </div>
       </div>
     </LayoutGroup>
   );

@@ -1,5 +1,13 @@
 import type { Config } from "tailwindcss";
 
+/** Theme-aware RGB. Channels live in --cw-bg / --cw-fg (see app/globals.css). */
+const rgb =
+  (cssVar: string) =>
+  ({ opacityValue }: { opacityValue?: string }) =>
+    opacityValue === undefined
+      ? `rgb(var(${cssVar}) / 1)`
+      : `rgb(var(${cssVar}) / ${opacityValue})`;
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,14 +19,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#141414",
-        foreground: "#FFFFFF",
-        "agency-black": "#141414",
-        "agency-white": "#FFFFFF",
+        background: rgb("--cw-bg"),
+        foreground: rgb("--cw-fg"),
+        "agency-black": rgb("--cw-bg"),
+        "agency-white": rgb("--cw-fg"),
+        "agency-ink": "#141414",
         "agency-yellow": "#F8D625",
-        "agency-surface": "rgba(255, 255, 255, 0.06)",
-        "agency-muted": "rgba(255, 255, 255, 0.55)",
-        "agency-border": "rgba(255, 255, 255, 0.08)",
+        "agency-surface": "rgb(var(--cw-fg) / 0.06)",
+        "agency-muted": "rgb(var(--cw-fg) / 0.55)",
+        "agency-border": "rgb(var(--cw-fg) / 0.12)",
         "agency-border-strong": "rgba(248, 214, 37, 0.3)",
       },
       fontFamily: {
@@ -44,6 +53,14 @@ const config: Config = {
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "client-marquee": "client-marquee 42s linear infinite",
+        "client-marquee-reverse": "client-marquee 48s linear infinite reverse",
+      },
+      keyframes: {
+        "client-marquee": {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-50%, 0, 0)" },
+        },
       },
     },
   },

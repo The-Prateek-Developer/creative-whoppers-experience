@@ -24,7 +24,10 @@ import {
   menuScrimVariants,
   underlineTransition,
 } from "@/lib/animations";
-import { NAP, NAV_LINKS } from "@/lib/site";
+import { NAP, NAV_LINKS, WHATSAPP_LINK } from "@/lib/site";
+import SocialIcon from "@/components/icons/SocialIcon";
+import ThemeToggle from "@/components/theme/ThemeToggle";
+import BrandLogo from "@/components/brand/BrandLogo";
 
 const MotionLink = motion.create(Link);
 
@@ -36,12 +39,10 @@ const magneticSpring = { stiffness: 320, damping: 22, mass: 0.34 };
 
 function MagneticNavLink({
   href,
-  index,
   name,
   isActive,
 }: {
   href: string;
-  index: string;
   name: string;
   isActive: boolean;
 }) {
@@ -70,6 +71,9 @@ function MagneticNavLink({
     <MotionLink
       ref={ref}
       href={href}
+      {...(href.startsWith("http")
+        ? { target: "_blank" as const, rel: "noopener noreferrer" }
+        : {})}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={reduceMotion ? undefined : { x: springX, y: springY }}
@@ -78,9 +82,8 @@ function MagneticNavLink({
       whileHover={reduceMotion ? undefined : "hover"}
       whileFocus={reduceMotion ? undefined : "hover"}
       variants={{ rest: {}, hover: {}, active: {} }}
-      className="group relative inline-flex items-center gap-1.5 py-1 text-sm font-medium tracking-wide uppercase focus-visible:outline-none"
+      className="group relative inline-flex items-center py-1 text-sm font-medium tracking-wide uppercase focus-visible:outline-none"
     >
-      <span className="text-[10px] text-agency-white/55 font-mono">{index}</span>
       <span
         className={`${
           isActive ? "text-agency-yellow font-semibold" : "text-agency-white/80"
@@ -134,21 +137,15 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 bg-agency-black/92 border-b border-agency-border">
+      <header className="fixed top-0 left-0 z-[100] w-full border-b border-agency-border bg-agency-black backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
           {/* Brand Logo / Wordmark */}
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="w-9 h-9 rounded-sm bg-agency-yellow flex items-center justify-center font-display font-black text-agency-black text-xl tracking-tighter transition-transform duration-300 group-hover:scale-105">
-              CW
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-lg tracking-tight text-agency-white group-hover:text-agency-yellow transition-colors">
-                CREATIVE WHOPPERS
-              </span>
-              <span className="text-[10px] tracking-editorial-wide text-agency-white/55 uppercase font-sans">
-                Experience Production
-              </span>
-            </div>
+          <Link
+            href="/"
+            aria-label="Creative Whoppers home"
+            className="group flex min-w-0 items-center transition-opacity duration-300 hover:opacity-80"
+          >
+            <BrandLogo size="nav" priority />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -157,7 +154,6 @@ export default function Navbar() {
               <MagneticNavLink
                 key={link.name}
                 href={link.href}
-                index={link.index}
                 name={link.name}
                 isActive={isNavActive(pathname, link.href)}
               />
@@ -165,10 +161,11 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle />
             <MotionLink
-              href="/contact-us"
-              className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-agency-yellow text-agency-black font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hover:bg-agency-yellow"
+              {...WHATSAPP_LINK}
+              className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-agency-yellow text-agency-ink font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hover:bg-agency-yellow"
               initial="rest"
               animate="rest"
               whileHover={reduceMotion ? undefined : "hover"}
@@ -223,7 +220,7 @@ export default function Navbar() {
             animate="open"
             exit="closed"
             variants={menuOverlayVariants}
-            className="fixed inset-0 z-50 overflow-hidden"
+            className="fixed inset-0 z-[110] overflow-hidden"
             id="fullscreen-mobile-menu"
           >
             <motion.div
@@ -244,28 +241,27 @@ export default function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3"
+                  aria-label="Creative Whoppers home"
+                  className="flex min-w-0 items-center"
                 >
-                  <div className="w-8 h-8 rounded-sm bg-agency-yellow flex items-center justify-center font-display font-black text-agency-black text-lg">
-                    CW
-                  </div>
-                  <span className="font-display font-bold text-base tracking-tight text-agency-white">
-                    CREATIVE WHOPPERS
-                  </span>
+                  <BrandLogo size="menu" />
                 </Link>
 
-                <motion.button
-                  type="button"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-agency-border bg-agency-surface text-agency-white hover:text-agency-yellow hover:border-agency-yellow text-xs font-mono uppercase"
-                  aria-label="Close Menu"
-                  id="mobile-menu-close-btn"
-                  whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-                  transition={{ duration: 0.16, ease: easings.outSoft }}
-                >
-                  <span>Close</span>
-                  <X className="w-4 h-4 text-agency-yellow" />
-                </motion.button>
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <motion.button
+                    type="button"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-agency-border bg-agency-surface text-agency-white hover:text-agency-yellow hover:border-agency-yellow text-xs font-mono uppercase"
+                    aria-label="Close Menu"
+                    id="mobile-menu-close-btn"
+                    whileTap={reduceMotion ? undefined : { scale: 0.94 }}
+                    transition={{ duration: 0.16, ease: easings.outSoft }}
+                  >
+                    <span>Close</span>
+                    <X className="w-4 h-4 text-agency-yellow" />
+                  </motion.button>
+                </div>
               </motion.div>
 
               {/* Middle: Oversized Staggered Links */}
@@ -283,13 +279,13 @@ export default function Navbar() {
                     <motion.div key={link.name} variants={menuItemVariants}>
                       <Link
                         href={link.href}
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank" as const, rel: "noopener noreferrer" }
+                          : {})}
                         onClick={() => setMobileMenuOpen(false)}
                         className="group flex flex-col sm:flex-row sm:items-baseline justify-between py-2 border-b border-agency-white/10 hover:border-agency-yellow transition-colors"
                       >
-                        <div className="flex items-baseline gap-4">
-                          <span className="text-sm font-mono text-agency-white/55 group-hover:text-agency-yellow transition-colors">
-                            {link.index}
-                          </span>
+                        <div className="flex items-baseline">
                           <span
                             className={`font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight transition-all duration-300 ${
                               isActive ? "text-agency-yellow" : "text-agency-white"
@@ -311,9 +307,9 @@ export default function Navbar() {
 
                 <motion.div variants={menuItemVariants} className="mt-6">
                   <MotionLink
-                    href="/contact-us"
+                    {...WHATSAPP_LINK}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-agency-yellow text-agency-black font-display font-bold text-sm tracking-wider uppercase"
+                    className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-agency-yellow text-agency-ink font-display font-bold text-sm tracking-wider uppercase"
                     whileHover={reduceMotion ? undefined : ctaHover}
                     whileTap={reduceMotion ? undefined : ctaTap}
                     transition={ctaTransition}
@@ -355,9 +351,10 @@ export default function Navbar() {
                         href={soc.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-agency-white/80 hover:text-agency-yellow transition-colors"
+                        className="inline-flex items-center gap-1.5 text-agency-white/80 hover:text-agency-yellow transition-colors"
                       >
-                        {soc.name} ↗
+                        <SocialIcon name={soc.name} />
+                        {soc.name}
                       </a>
                     ))}
                   </div>

@@ -1,7 +1,13 @@
 export const SITE_NAME = "Creative Whoppers";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://creativewhoppers.com";
-export const SITE_OG_IMAGE = "/images/brand/banners/page_01_image_01.png";
+export const SITE_OG_IMAGE = "/images/site/cycling-stage.jpg";
+
+export const BRAND_LOGOS = {
+  dark: "/images/brand/logos/logo-wordmark-dark.png",
+  light: "/images/brand/logos/logo-wordmark-light.png",
+  yellow: "/images/brand/logos/logo-lockup-yellow.png",
+} as const;
 
 export const SITE_DESCRIPTION =
   "Creative Whoppers is a full-service creative agency for event experiences, film production, digital design and brand marketing. Turning ideas into memorable brand experiences.";
@@ -98,11 +104,18 @@ export const PAGE_SEO = {
   },
 } as const;
 
+export const WHATSAPP_URL = "https://wa.me/919354484098";
+export const WHATSAPP_LINK = {
+  href: WHATSAPP_URL,
+  target: "_blank" as const,
+  rel: "noopener noreferrer" as const,
+};
+
 export const NAV_LINKS = [
-  { name: "Services", href: "/services", index: "01", tag: "EVENTS, FILM, DIGITAL & MARKETING" },
-  { name: "Portfolio", href: "/portfolio", index: "02", tag: "OUR WORK & CASE STUDIES" },
-  { name: "About Us", href: "/about-us", index: "03", tag: "STORY, MISSION & TEAM" },
-  { name: "Contact Us", href: "/contact-us", index: "04", tag: "GET A QUOTE" },
+  { name: "Services", href: "/services", tag: "EVENTS, FILM, DIGITAL & MARKETING" },
+  { name: "Portfolio", href: "/portfolio", tag: "OUR WORK & CASE STUDIES" },
+  { name: "About Us", href: "/about-us", tag: "STORY, MISSION & TEAM" },
+  { name: "Contact Us", href: WHATSAPP_URL, tag: "GET A QUOTE" },
 ] as const;
 
 export const STATS = [

@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Calendar, Building, Sparkles } from "lucide-react";
 import { PortfolioProject } from "@/lib/portfolio-data";
 import { easings } from "@/lib/animations";
+import { WHATSAPP_LINK } from "@/lib/site";
 
 interface PortfolioDetailModalProps {
   project: PortfolioProject | null;
@@ -194,13 +195,13 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                   Back To Gallery
                 </button>
 
-                <Link
-                  href="/contact-us"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-black transition-all duration-300 hover:scale-[1.02] hover:bg-agency-yellow"
+                <a
+                  {...WHATSAPP_LINK}
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-all duration-300 hover:scale-[1.02] hover:bg-agency-yellow"
                 >
                   <span>Inquire About A Similar Production</span>
                   <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </motion.div>
           </motion.div>

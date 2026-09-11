@@ -70,7 +70,7 @@ export default function PortfolioCard({
           </div>
 
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div className="flex scale-90 items-center gap-2 rounded-full bg-agency-yellow px-4 py-2 font-mono text-xs font-bold uppercase text-agency-black shadow-[0_0_20px_rgba(248,214,37,0.4)] transition-transform duration-300 group-hover:scale-100">
+            <div className="flex scale-90 items-center gap-2 rounded-full bg-agency-yellow px-4 py-2 font-mono text-xs font-bold uppercase text-agency-ink shadow-[0_0_20px_rgba(248,214,37,0.4)] transition-transform duration-300 group-hover:scale-100">
               <Eye className="h-3.5 w-3.5" />
               <span>{compact ? "Case Details" : "View Case Study"}</span>
             </div>
@@ -98,7 +98,7 @@ export default function PortfolioCard({
 
           <div className="mt-6 flex items-center justify-between border-t border-agency-white/10 pt-4">
             <span className="font-mono text-[11px] text-agency-white/70">{project.industry}</span>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-agency-border text-agency-white transition-all group-hover:border-agency-yellow group-hover:bg-agency-yellow group-hover:text-agency-black">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-agency-border text-agency-white transition-all group-hover:border-agency-yellow group-hover:bg-agency-yellow group-hover:text-agency-ink">
               <ArrowUpRight className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
             </div>
           </div>

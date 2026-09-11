@@ -19,7 +19,7 @@ export default function PortfolioGrid() {
     <LayoutGroup id="portfolio-home">
       <section
         ref={sectionRef}
-        className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-28 lg:px-12"
+        className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
       >
         <div className="pointer-events-none absolute right-0 top-1/3 -z-10 h-96 w-96 rounded-full bg-agency-yellow/10 blur-3xl" />
 
@@ -37,12 +37,12 @@ export default function PortfolioGrid() {
             </div>
             <h2
               data-reveal-item
-              className="font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+              className="font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
             >
-              Recent <span className="italic text-agency-yellow">projects</span>
+              Recent <span className="italic text-agency-yellow">Updates</span>
             </h2>
             <p className="mt-3 max-w-xl font-sans text-sm text-agency-white/60">
-              A glimpse of recent projects across events, films, branding and digital
+              A glimpse of recent updates across events, films, branding and digital
               experiences for corporate, government and institutional clients.
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function PortfolioGrid() {
           <span>Projects across events, films, branding and digital</span>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-white/[0.06] px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-black"
+            className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-white/[0.06] px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
           >
             <span>View full portfolio</span>
             <ArrowUpRight className="h-4 w-4" />

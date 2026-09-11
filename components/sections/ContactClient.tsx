@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
 import { NAP } from "@/lib/site";
+import SocialIcon from "@/components/icons/SocialIcon";
 
 const SERVICE_OPTIONS = [
   ...PILLARS.map((item) => item.title),
@@ -109,7 +110,7 @@ export default function ContactClient() {
               </label>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-agency-yellow px-8 py-4 font-display text-xs font-bold uppercase tracking-wider text-agency-black"
+                className="inline-flex items-center gap-2 rounded-full bg-agency-yellow px-8 py-4 font-display text-xs font-bold uppercase tracking-wider text-agency-ink"
               >
                 Send enquiry
                 <Send className="h-4 w-4" />
@@ -163,7 +164,7 @@ export default function ContactClient() {
               <iframe
                 title="Creative Whoppers studio map"
                 src={NAP.mapEmbed}
-                className="h-64 w-full grayscale invert"
+                className="h-64 w-full grayscale dark:invert"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -181,8 +182,9 @@ export default function ContactClient() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-agency-border px-4 py-2 font-mono text-xs uppercase hover:border-agency-yellow hover:text-agency-yellow"
+                  className="inline-flex items-center gap-2 rounded-full border border-agency-border px-4 py-2 font-sans text-xs font-medium uppercase hover:border-agency-yellow hover:text-agency-yellow"
                 >
+                  <SocialIcon name={item.name} />
                   {item.name}
                 </a>
               ))}

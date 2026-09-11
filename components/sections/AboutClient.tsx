@@ -4,17 +4,11 @@ import React from "react";
 import Link from "next/link";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { easings } from "@/lib/animations";
 import { PROCESS_STAGES } from "@/lib/process";
 import { CLIENT_SECTORS } from "@/lib/services-tree";
-
-const MILESTONES = [
-  { year: "2014+", title: "Studio founded", detail: "A creative studio built around branding, events and production." },
-  { year: "2018+", title: "National campaigns", detail: "Film and communications work for government and institutional briefs." },
-  { year: "2022+", title: "Heritage & museums", detail: "Digitization and visitor experiences for cultural and defence institutions." },
-  { year: "Today", title: "Four pillars, one roof", detail: "Experience design, production, digital and marketing as a full-service agency." },
-];
+import TeamMarquee from "@/components/sections/TeamMarquee";
 
 const VALUES = [
   { title: "Purpose", detail: "Work that connects people, communicates ideas and leaves a lasting impact." },
@@ -22,20 +16,62 @@ const VALUES = [
   { title: "Precision", detail: "Protocol, logistics and delivery that organisations can trust." },
 ];
 
-const LEADERSHIP = [
+const TEAM = [
   {
     name: "Mr. Dilip Katariya",
     role: "Co-Founder & Creative Director",
     experience: "16+ Years",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-    bio: "A creative entrepreneur with 16+ years of mastery in branding, design, and visual communication. Passionate about building impactful brands through strategic thinking, innovation, and human-centered design, including contribution to the Hollywood feature film 'The Time is... Now!'.",
+    bio: "A creative entrepreneur with 16+ years of mastery in branding, design, and visual communication, including contribution to the Hollywood feature film 'The Time is... Now!'.",
   },
   {
     name: "Mr. Khaalid Naik",
     role: "Co-Founder & Executive Director",
     experience: "10+ Years",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
-    bio: "A multidisciplinary entrepreneur with 10+ years across live events, media production, filmmaking and marketing. He combines creative thinking with strategic execution for businesses, institutions and state governments.",
+    bio: "A multidisciplinary entrepreneur with 10+ years across live events, media production, filmmaking and marketing for businesses, institutions and state governments.",
+  },
+  {
+    name: "Experience Designer",
+    role: "Events & spatial journeys",
+    experience: "8+ Years",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    bio: "Designs visitor flow, staging and brand moments for conferences, exhibitions and cultural spaces.",
+  },
+  {
+    name: "Film Director",
+    role: "Creative production",
+    experience: "9+ Years",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+    bio: "Leads campaign films, commercials and documentary-style stories from treatment through to the final grade.",
+  },
+  {
+    name: "Brand Strategist",
+    role: "Brand & marketing",
+    experience: "7+ Years",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+    bio: "Shapes positioning, messaging and packaging so every experience speaks with one clear brand voice.",
+  },
+  {
+    name: "Digital Lead",
+    role: "Digital experiences",
+    experience: "8+ Years",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+    bio: "Builds websites, interactive installs and campaign platforms that extend live work into digital.",
+  },
+  {
+    name: "Event Producer",
+    role: "Experience design",
+    experience: "10+ Years",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+    bio: "Runs on-ground logistics, vendor crews and show-calling so complex briefs land on time.",
+  },
+  {
+    name: "Motion Designer",
+    role: "Creative production",
+    experience: "6+ Years",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+    bio: "Crafts titles, explainers and social cutdowns that carry cinema-grade motion into every channel.",
   },
 ];
 
@@ -79,7 +115,7 @@ export default function AboutClient() {
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-24 lg:grid-cols-12 lg:px-12">
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-agency-border lg:col-span-6">
           <FadeImage
-            src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop"
+            src="/images/site/conference.jpg"
             alt="Live event production and stage design"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -98,17 +134,6 @@ export default function AboutClient() {
             technology and execution sit together so briefs survive from first conversation to
             final delivery.
           </p>
-          <div className="mt-10 space-y-6 border-t border-agency-border pt-8">
-            {MILESTONES.map((item) => (
-              <div key={item.year} className="grid grid-cols-[5rem_1fr] gap-4">
-                <span className="font-mono text-xs text-agency-yellow">{item.year}</span>
-                <div>
-                  <h3 className="font-display text-lg font-bold uppercase text-agency-white">{item.title}</h3>
-                  <p className="mt-1 text-sm text-agency-white/55">{item.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -191,49 +216,13 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
-        <h2 className="mb-12 font-display text-display-xl font-extrabold uppercase text-agency-white">
-          Meet the team
-        </h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {LEADERSHIP.map((person) => (
-            <article key={person.name} className="overflow-hidden rounded-3xl border border-agency-border">
-              <div className="relative aspect-[16/10]">
-                <FadeImage src={person.image} alt={person.name} fill sizes="50vw" className="object-cover grayscale" />
-              </div>
-              <div className="p-8">
-                <p className="font-mono text-[11px] uppercase text-agency-yellow">{person.experience}</p>
-                <h3 className="mt-2 font-display text-2xl font-extrabold uppercase text-agency-white">
-                  {person.name}
-                </h3>
-                <p className="mt-1 text-sm text-agency-white/55">{person.role}</p>
-                <p className="mt-4 text-sm leading-relaxed text-agency-white/65">{person.bio}</p>
-              </div>
-            </article>
-          ))}
+      <section className="overflow-hidden py-24">
+        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+          <h2 className="font-display text-display-xl font-extrabold uppercase text-agency-white">
+            Meet the team
+          </h2>
         </div>
-      </section>
-
-      <section className="border-t border-agency-border px-6 py-24 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="mb-4 font-display text-3xl font-extrabold uppercase text-agency-white">Recognition</h2>
-          <p className="mb-8 max-w-xl text-sm text-agency-white/60">
-            Awards, certifications and press coverage recognising Creative Whoppers&apos; work in
-            experience design and brand marketing.
-          </p>
-          <ul className="space-y-3 font-sans text-sm text-agency-white/70">
-            <li>Hollywood feature contribution — The Time is... Now!</li>
-            <li>National broadcast campaigns for government skill and public programmes</li>
-            <li>Museum digitization for defence heritage sites in Leh and beyond</li>
-          </ul>
-          <Link
-            href="/contact-us"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-agency-yellow px-8 py-4 font-display text-xs font-bold uppercase tracking-wider text-agency-black"
-          >
-            Start a project
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
+        <TeamMarquee people={TEAM} />
       </section>
     </div>
   );

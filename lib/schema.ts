@@ -1,4 +1,4 @@
-import { NAP, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
+import { BRAND_LOGOS, NAP, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
 
 export function organizationJsonLd() {
   return {
@@ -6,7 +6,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}${SITE_OG_IMAGE}`,
+    logo: `${SITE_URL}${BRAND_LOGOS.yellow}`,
     email: NAP.emails[0],
     telephone: NAP.phoneTel[0],
     address: {

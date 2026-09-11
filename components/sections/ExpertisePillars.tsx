@@ -13,18 +13,18 @@ export default function ExpertisePillars() {
   return (
     <section
       ref={sectionRef}
-      className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-28 lg:px-12"
+      className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
     >
-      <div data-reveal="heading" className="mb-14 max-w-3xl">
+      <div data-reveal="heading" className="mb-10 max-w-2xl">
         <p
           data-reveal-item
-          className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
+          className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow"
         >
           Our expertise
         </p>
         <h2
           data-reveal-item
-          className="mb-4 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+          className="mb-3 font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
         >
           Four capability pillars
         </h2>
@@ -44,7 +44,7 @@ export default function ExpertisePillars() {
           >
             <div>
               <span className="mb-4 block font-mono text-xs text-agency-yellow">{pillar.number}</span>
-              <h3 className="mb-3 font-display text-2xl font-extrabold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
+              <h3 className="mb-2 font-display text-lg font-bold tracking-tight text-agency-white group-hover:text-agency-yellow">
                 {pillar.title}
               </h3>
               <p className="max-w-md font-sans text-sm leading-relaxed text-agency-white/60">

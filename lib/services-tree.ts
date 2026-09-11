@@ -1,3 +1,5 @@
+import { SITE_IMAGES } from "@/lib/site-images";
+
 export type ServiceItem = {
   name: string;
   description: string;
@@ -25,22 +27,14 @@ export type ServicePage = {
 };
 
 const IMG = {
-  experience:
-    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop",
-  production:
-    "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop",
-  digital:
-    "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1600&auto=format&fit=crop",
-  brand:
-    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop",
-  museum:
-    "https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=1600&auto=format&fit=crop",
-  video:
-    "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1600&auto=format&fit=crop",
-  events:
-    "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop",
-  packaging:
-    "https://images.unsplash.com/photo-1631730486572-226d1f595b68?q=80&w=1600&auto=format&fit=crop",
+  experience: SITE_IMAGES.conference,
+  production: SITE_IMAGES.videoEditor,
+  digital: SITE_IMAGES.programmer,
+  brand: SITE_IMAGES.designStudio,
+  museum: SITE_IMAGES.festival,
+  video: SITE_IMAGES.colorGrade,
+  events: SITE_IMAGES.erasmus,
+  packaging: SITE_IMAGES.pencils,
 };
 
 export const HERO_VIDEO =
@@ -379,15 +373,4 @@ export const CLIENT_SECTORS = [
   "Government",
   "NGO",
   "Institutional",
-] as const;
-
-export const CLIENT_NAMES = [
-  "European Union in India",
-  "Ministry of Skill Development",
-  "Indian Armed Forces",
-  "Russian House / BRICS",
-  "Rus Education",
-  "Clarion Appliances",
-  "Sufi Kathak Foundation",
-  "Lincoln American University",
 ] as const;

@@ -11,18 +11,18 @@ export default function WhyWhoppers() {
   return (
     <section
       ref={sectionRef}
-      className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-28 lg:px-12"
+      className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
     >
-      <div data-reveal="heading" className="mb-14 max-w-3xl">
+      <div data-reveal="heading" className="mb-10 max-w-2xl">
         <p
           data-reveal-item
-          className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
+          className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow"
         >
           Why Creative Whoppers
         </p>
         <h2
           data-reveal-item
-          className="mb-4 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+          className="mb-3 font-display text-2xl font-bold tracking-tight text-agency-white sm:text-3xl"
         >
           Preferred for a reason
         </h2>

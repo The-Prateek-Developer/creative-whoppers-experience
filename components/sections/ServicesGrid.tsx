@@ -6,6 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import { SERVICES_DATA } from "@/lib/services-data";
+import { WHATSAPP_LINK } from "@/lib/site";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { useInViewGate } from "@/hooks/useInViewGate";
 import {
@@ -217,12 +218,12 @@ export default function ServicesGrid() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
 
-                <Link
-                  href={`/contact?service=${activeService.id}`}
-                  className="rounded-full bg-agency-yellow px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-agency-black transition-colors hover:bg-agency-yellow"
+                <a
+                  {...WHATSAPP_LINK}
+                  className="rounded-full bg-agency-yellow px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-colors hover:bg-agency-yellow"
                 >
                   Inquire
-                </Link>
+                </a>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -233,7 +234,7 @@ export default function ServicesGrid() {
         <span>CATALOG: 06 MAJOR PILLARS // 25+ DELIVERABLE SPECS</span>
         <Link
           href="/services"
-          className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-surface px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-black"
+          className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-surface px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
         >
           <span>View All Services Catalog [06]</span>
           <ArrowUpRight className="h-4 w-4" />

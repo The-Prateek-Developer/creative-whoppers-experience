@@ -1,3 +1,5 @@
+import { SITE_IMAGES } from "@/lib/site-images";
+
 export interface ServiceItem {
   id: string;
   number: string;
@@ -38,7 +40,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "The Rumi Project & Kabir Soulful Sufi Kalaam",
     ],
     differentiator: "Full-cycle cinema production from treatment to multi-lingual broadcast distribution.",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.videoEditor,
     featured: true,
   },
   {
@@ -63,7 +65,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Dynamic Social Campaign Shorts",
     ],
     differentiator: "Hollywood-credited animation artists delivering frame-accurate kinetic design.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.mindDoor,
     featured: true,
   },
   {
@@ -89,7 +91,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Consumer Product Packaging",
     ],
     differentiator: "16+ years of human-centered brand strategy led by veteran design entrepreneurs.",
-    image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.pencils,
     featured: true,
   },
   {
@@ -113,7 +115,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Russian Young Entrepreneurs Delegation Pavilion",
     ],
     differentiator: "Pioneering defence and cultural museum digitization with permanent public impact.",
-    image: "https://images.unsplash.com/photo-1508997449629-303059a039c0?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.festival,
     featured: true,
   },
   {
@@ -137,7 +139,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Government Cultural Festivals",
     ],
     differentiator: "Licensed drone pilots and commercial lighting masters on standby across India and abroad.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.photographer,
     featured: false,
   },
   {
@@ -161,7 +163,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Documentary Post-Production Suites",
     ],
     differentiator: "Full in-house post-production pipeline ensuring rapid turnaround without vendor markups.",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop",
+    image: SITE_IMAGES.colorGrade,
     featured: false,
   },
 ];

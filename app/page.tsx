@@ -6,8 +6,8 @@ import FlagshipServices from "@/components/sections/FlagshipServices";
 import ExpertisePillars from "@/components/sections/ExpertisePillars";
 import PortfolioGrid from "@/components/sections/PortfolioGrid";
 import WhyWhoppers from "@/components/sections/WhyWhoppers";
+import ClientLogos from "@/components/sections/ClientLogos";
 import Testimonials from "@/components/sections/Testimonials";
-import CTA from "@/components/sections/CTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { organizationJsonLd } from "@/lib/schema";
 import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
@@ -41,8 +41,8 @@ export default function HomePage() {
       <ExpertisePillars />
       <PortfolioGrid />
       <WhyWhoppers />
+      <ClientLogos />
       <Testimonials />
-      <CTA />
     </div>
   );
 }

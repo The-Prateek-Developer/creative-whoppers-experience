@@ -46,7 +46,7 @@ export default function PhilosophySection() {
         >
           <div className="absolute inset-0 opacity-[0.18]">
             <FadeImage
-              src="/images/brand/photos/page_35_image_01.jpeg"
+              src="/images/site/paint-yellow-black.png"
               alt=""
               fill
               sizes="100vw"
