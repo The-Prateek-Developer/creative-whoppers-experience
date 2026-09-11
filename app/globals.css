@@ -188,23 +188,6 @@ html.lenis, html.lenis body {
   letter-spacing: -0.04em;
 }
 
-.edge-fade-x {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 11%,
-    #000 89%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 11%,
-    #000 89%,
-    transparent 100%
-  );
-}
-
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {

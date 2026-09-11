@@ -215,13 +215,13 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <h2 className="section-heading mb-10 text-agency-white">
+      <section className="overflow-hidden py-24">
+        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+          <h2 className="section-heading text-agency-white">
             Meet the team
           </h2>
-          <TeamMarquee people={TEAM} />
         </div>
+        <TeamMarquee people={TEAM} />
       </section>
     </div>
   );

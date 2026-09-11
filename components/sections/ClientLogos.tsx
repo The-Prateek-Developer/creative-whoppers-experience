@@ -76,7 +76,7 @@ function AutoRow({
       onMouseLeave={() => {
         pausedRef.current = false;
       }}
-      className="flex gap-4 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      className="flex gap-4 overflow-x-auto px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
     >
       {loop.map((client, index) => (
         <LogoTile key={`${client.id}-${index}`} client={client} />
@@ -95,42 +95,40 @@ export default function ClientLogos() {
       className="border-t border-agency-border py-16 lg:py-20"
       aria-labelledby="clients-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-10">
-          <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
-            Our clients
-          </p>
-          <h2
-            id="clients-heading"
-            className="section-heading text-agency-white"
-          >
-            Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
-          </h2>
-          <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
-            Government, defence, culture, education and brands — partners across the briefs we
-            produce.
-          </p>
-        </div>
-
-        <ul className="sr-only">
-          {CLIENTS.map((client) => (
-            <li key={client.id}>{client.name}</li>
-          ))}
-        </ul>
-
-        {reduceMotion ? (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {CLIENTS.map((client) => (
-              <LogoTile key={client.id} client={client} className="w-full max-w-none" />
-            ))}
-          </div>
-        ) : (
-          <div aria-hidden className="edge-fade-x relative space-y-4 overflow-hidden">
-            <AutoRow items={rowA} speed={0.85} />
-            <AutoRow items={rowB} speed={1.15} offset={0.35} />
-          </div>
-        )}
+      <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+        <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
+          Our clients
+        </p>
+        <h2
+          id="clients-heading"
+          className="section-heading text-agency-white"
+        >
+          Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
+        </h2>
+        <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
+          Government, defence, culture, education and brands — partners across the briefs we
+          produce.
+        </p>
       </div>
+
+      <ul className="sr-only">
+        {CLIENTS.map((client) => (
+          <li key={client.id}>{client.name}</li>
+        ))}
+      </ul>
+
+      {reduceMotion ? (
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-12">
+          {CLIENTS.map((client) => (
+            <LogoTile key={client.id} client={client} className="w-full max-w-none" />
+          ))}
+        </div>
+      ) : (
+        <div aria-hidden className="relative space-y-4 overflow-hidden">
+          <AutoRow items={rowA} speed={0.85} />
+          <AutoRow items={rowB} speed={1.15} offset={0.35} />
+        </div>
+      )}
     </section>
   );
 }
