@@ -97,12 +97,12 @@ export default function ClientLogos() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow">
+          <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
             Our clients
           </p>
           <h2
             id="clients-heading"
-            className="font-display text-xl font-semibold tracking-tight text-agency-white"
+            className="section-heading text-agency-white"
           >
             Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
           </h2>

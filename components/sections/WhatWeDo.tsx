@@ -124,7 +124,7 @@ export default function WhatWeDo() {
 
           <div className="what-rule mb-10 h-px origin-left bg-gradient-to-r from-agency-yellow via-agency-yellow to-transparent" />
 
-          <h2 className="page-heading font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+          <h2 className="section-heading page-heading text-agency-white">
             {LINES.map((line) => (
               <span
                 key={line.text}

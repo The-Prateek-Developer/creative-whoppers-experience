@@ -31,13 +31,13 @@ export default function AboutSnapshot() {
         <div data-reveal="heading" className="lg:col-span-7">
           <p
             data-reveal-item
-            className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow"
+            className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow"
           >
             Who we are
           </p>
           <h2
             data-reveal-item
-            className="mb-4 max-w-lg font-display text-xl font-semibold tracking-tight text-agency-white"
+            className="section-heading mb-5 text-agency-white"
           >
             A trusted creative agency partner
           </h2>

@@ -21,7 +21,7 @@ export default function Footer() {
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Have a brief in mind?</span>
                 </div>
-                <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-6xl text-agency-white uppercase tracking-tight mb-4">
+                <h2 className="section-heading mb-4 text-agency-white">
                   Let’s Create Together.
                 </h2>
                 <p className="text-agency-white/55 text-sm sm:text-base font-sans leading-relaxed">

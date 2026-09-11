@@ -37,7 +37,7 @@ export default function PortfolioGrid() {
             </div>
             <h2
               data-reveal-item
-              className="font-display text-xl font-semibold tracking-tight text-agency-white"
+              className="section-heading text-agency-white"
             >
               Recent <span className="italic text-agency-yellow">Updates</span>
             </h2>

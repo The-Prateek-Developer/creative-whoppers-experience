@@ -300,10 +300,10 @@ export default function ContactClient() {
       <section className="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-12 lg:pb-10 lg:pt-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <p className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow">
+            <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
               Enquiry form
             </p>
-            <h2 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
+            <h2 className="section-heading mb-4 text-agency-white">
               Share the brief
             </h2>
             <p className="mb-8 max-w-xl text-sm leading-relaxed text-agency-white/65">
@@ -634,7 +634,7 @@ export default function ContactClient() {
 
         <div className="mt-16 lg:mt-20">
           <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-            <h2 className="font-display text-xl font-semibold uppercase text-agency-white">
+            <h2 className="section-heading text-agency-white">
               Find us
             </h2>
             <a

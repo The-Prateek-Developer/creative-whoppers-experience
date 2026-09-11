@@ -15,16 +15,16 @@ export default function ExpertisePillars() {
       ref={sectionRef}
       className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
     >
-      <div data-reveal="heading" className="mb-10 max-w-2xl">
+      <div data-reveal="heading" className="mb-10 max-w-4xl">
         <p
           data-reveal-item
-          className="mb-3 font-mono text-[11px] uppercase tracking-editorial-wide text-agency-yellow"
+          className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow"
         >
           Our expertise
         </p>
         <h2
           data-reveal-item
-          className="mb-3 font-display text-xl font-semibold tracking-tight text-agency-white"
+          className="section-heading mb-4 text-agency-white"
         >
           Four capability pillars
         </h2>

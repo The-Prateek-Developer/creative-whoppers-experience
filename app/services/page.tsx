@@ -51,7 +51,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto mb-24 max-w-7xl px-6 lg:px-12">
-        <h2 className="mb-8 font-display text-xl font-semibold uppercase text-agency-white">
+        <h2 className="section-heading mb-8 text-agency-white">
           Capability pillars
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 lg:px-12">
-        <h2 className="mb-8 font-display text-xl font-semibold uppercase text-agency-white">
+        <h2 className="section-heading mb-8 text-agency-white">
           Flagship services
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

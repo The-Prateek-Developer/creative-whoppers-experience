@@ -75,7 +75,7 @@ export default function PhilosophySection() {
           <div className="page-heading mb-16 lg:mb-24">
             <h2
               data-reveal-item
-              className="mb-6 font-display text-display-xl font-extrabold uppercase leading-none tracking-editorial-tight text-agency-white"
+              className="section-heading mb-6 leading-none text-agency-white"
             >
               We Don’t Compete For Attention.
               <br />

@@ -36,16 +36,16 @@ export default function Testimonials() {
         data-reveal="heading"
         className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
       >
-        <div className="max-w-xl">
+        <div className="max-w-4xl">
           <p
             data-reveal-item
-            className="mb-3 font-sans text-[11px] font-medium uppercase tracking-editorial-wide text-agency-yellow"
+            className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow"
           >
             Clients & testimonials
           </p>
           <h2
             data-reveal-item
-            className="font-display text-xl font-semibold tracking-tight text-agency-white"
+            className="section-heading text-agency-white"
           >
             Trusted across <span className="italic text-agency-yellow">sectors</span>
           </h2>

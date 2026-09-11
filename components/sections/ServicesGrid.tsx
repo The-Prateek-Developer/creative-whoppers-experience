@@ -48,7 +48,7 @@ export default function ServicesGrid() {
           </div>
           <h2
             data-reveal-item
-            className="page-heading font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            className="section-heading page-heading text-agency-white"
           >
             Production <span className="text-agency-yellow italic">Capabilities</span>.
           </h2>

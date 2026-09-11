@@ -142,6 +142,14 @@ html.lenis, html.lenis body {
   .page-heading-lead {
     max-width: 600px;
   }
+  .section-heading {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.25rem);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
 }
 
 .img-skeleton {
