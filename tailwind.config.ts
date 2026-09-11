@@ -1,13 +1,5 @@
 import type { Config } from "tailwindcss";
 
-/** Theme-aware RGB. Channels live in --cw-bg / --cw-fg (see app/globals.css). */
-const rgb =
-  (cssVar: string) =>
-  ({ opacityValue }: { opacityValue?: string }) =>
-    opacityValue === undefined
-      ? `rgb(var(${cssVar}) / 1)`
-      : `rgb(var(${cssVar}) / ${opacityValue})`;
-
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,10 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: rgb("--cw-bg"),
-        foreground: rgb("--cw-fg"),
-        "agency-black": rgb("--cw-bg"),
-        "agency-white": rgb("--cw-fg"),
+        // Theme-aware channels live in --cw-bg / --cw-fg (see app/globals.css).
+        background: "rgb(var(--cw-bg) / <alpha-value>)",
+        foreground: "rgb(var(--cw-fg) / <alpha-value>)",
+        "agency-black": "rgb(var(--cw-bg) / <alpha-value>)",
+        "agency-white": "rgb(var(--cw-fg) / <alpha-value>)",
         "agency-ink": "#141414",
         "agency-yellow": "#F8D625",
         "agency-surface": "rgb(var(--cw-fg) / 0.06)",
