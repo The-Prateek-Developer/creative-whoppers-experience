@@ -129,9 +129,9 @@ export default function Footer() {
             <Link href="/about-us" className="hover:text-agency-white transition-colors">
               About Us
             </Link>
-            <a {...WHATSAPP_LINK} className="hover:text-agency-white transition-colors">
+            <Link href="/contact-us" className="hover:text-agency-white transition-colors">
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

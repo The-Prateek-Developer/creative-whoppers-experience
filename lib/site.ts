@@ -115,7 +115,7 @@ export const NAV_LINKS = [
   { name: "Services", href: "/services", tag: "EVENTS, FILM, DIGITAL & MARKETING" },
   { name: "Portfolio", href: "/portfolio", tag: "OUR WORK & CASE STUDIES" },
   { name: "About Us", href: "/about-us", tag: "STORY, MISSION & TEAM" },
-  { name: "Contact Us", href: WHATSAPP_URL, tag: "GET A QUOTE" },
+  { name: "Contact Us", href: "/contact-us", tag: "GET A QUOTE" },
 ] as const;
 
 export const STATS = [
