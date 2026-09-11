@@ -138,7 +138,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 z-[100] w-full border-b border-agency-border bg-agency-black backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+        <div className="mx-auto flex h-[5.5rem] max-w-7xl items-center justify-between px-6 lg:px-12">
           {/* Brand Logo / Wordmark */}
           <Link
             href="/"
@@ -165,7 +165,7 @@ export default function Navbar() {
             <ThemeToggle />
             <MotionLink
               {...WHATSAPP_LINK}
-              className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-agency-yellow text-agency-ink font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hover:bg-agency-yellow"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-agency-yellow px-6 py-3 text-xs font-semibold uppercase tracking-wider text-agency-ink transition-colors duration-300 hover:bg-agency-yellow"
               initial="rest"
               animate="rest"
               whileHover={reduceMotion ? undefined : "hover"}
@@ -194,7 +194,7 @@ export default function Navbar() {
             <motion.button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="md:hidden p-2.5 rounded-full border border-agency-border bg-agency-surface text-agency-white hover:text-agency-yellow hover:border-agency-yellow"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-agency-border bg-agency-surface text-agency-white hover:border-agency-yellow hover:text-agency-yellow md:hidden"
               aria-label="Open Menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="fullscreen-mobile-menu"
@@ -252,7 +252,7 @@ export default function Navbar() {
                   <motion.button
                     type="button"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-agency-border bg-agency-surface text-agency-white hover:text-agency-yellow hover:border-agency-yellow text-xs font-mono uppercase"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-agency-border bg-agency-surface px-4 text-xs font-mono uppercase text-agency-white hover:border-agency-yellow hover:text-agency-yellow"
                     aria-label="Close Menu"
                     id="mobile-menu-close-btn"
                     whileTap={reduceMotion ? undefined : { scale: 0.94 }}

@@ -52,19 +52,19 @@ export default function Footer() {
 
       {/* Main Footer Links & Info Grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-agency-border">
+        <div className="grid grid-cols-1 items-start gap-12 border-b border-agency-border pb-16 md:grid-cols-12">
           {/* Brand Info */}
           <div className="md:col-span-5">
-            <Link href="/" aria-label="Creative Whoppers home" className="mb-6 inline-flex">
-              <BrandLogo size="footer" />
-            </Link>
-            <p className="text-agency-white/55 text-sm leading-relaxed mb-6 font-sans max-w-sm">
-              {SITE_DESCRIPTION}
-            </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-agency-black border border-agency-border text-xs font-mono text-agency-yellow">
-              <span className="w-2 h-2 rounded-full bg-agency-yellow animate-pulse" />
-              Accepting select briefs
-            </div>
+              <Link href="/" aria-label="Creative Whoppers home" className="mb-5 block leading-none">
+                <BrandLogo size="nav" />
+              </Link>
+              <p className="mb-6 text-justify font-sans text-sm leading-relaxed text-agency-white/55">
+                {SITE_DESCRIPTION}
+              </p>
+              <div className="inline-flex items-center gap-2 rounded-full border border-agency-border bg-agency-black px-3 py-1.5 font-mono text-xs text-agency-yellow">
+                <span className="h-2 w-2 rounded-full bg-agency-yellow animate-pulse" />
+                Accepting select briefs
+              </div>
           </div>
 
           {/* Navigation Links */}

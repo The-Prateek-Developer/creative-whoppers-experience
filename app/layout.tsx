@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import CursorFollower from "@/components/canvas/CursorFollower";
 import ThemeScript from "@/components/theme/ThemeScript";
 import { PAGE_SEO, SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
@@ -74,10 +75,11 @@ export default function RootLayout({
         <SmoothScroll>
           <CursorFollower />
           <Navbar />
-          <main className="flex-1 w-full relative pt-20">
+          <main className="relative w-full flex-1 pt-[5.5rem]">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <ScrollToTop />
         </SmoothScroll>
       </body>
     </html>

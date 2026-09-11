@@ -3,16 +3,16 @@ import { cn } from "@/lib/utils";
 import { BRAND_LOGOS } from "@/lib/site";
 
 const SIZE = {
-  nav: "h-8 w-[6.5rem] sm:h-9 sm:w-[7.2rem]",
-  menu: "h-8 w-[6.5rem]",
-  footer: "h-10 w-32 sm:h-11 sm:w-[8.8rem]",
+  nav: "h-11 w-[8.3rem] sm:h-12 sm:w-[9.05rem]",
+  menu: "h-11 w-[8.3rem] sm:h-12 sm:w-[9.05rem]",
+  footer: "h-11 w-[8.3rem] sm:h-12 sm:w-[9.05rem]",
   hero: "aspect-[1000/320] w-full max-w-[36rem]",
 } as const;
 
 const SIZES = {
-  nav: "115px",
-  menu: "104px",
-  footer: "141px",
+  nav: "192px",
+  menu: "192px",
+  footer: "192px",
   hero: "(max-width: 640px) 90vw, 576px",
 } as const;
 
@@ -28,24 +28,28 @@ export default function BrandLogo({
   priority = false,
 }: BrandLogoProps) {
   return (
-    <span className={cn("relative inline-block shrink-0", SIZE[size], className)}>
-      <Image
-        src={BRAND_LOGOS.dark}
-        alt="Creative Whoppers"
-        fill
-        sizes={SIZES[size]}
-        priority={priority}
-        className="hidden object-contain object-left dark:block"
-      />
-      <Image
-        src={BRAND_LOGOS.light}
-        alt=""
-        fill
-        sizes={SIZES[size]}
-        priority={priority}
-        aria-hidden
-        className="object-contain object-left dark:hidden"
-      />
+    <span className={cn("relative block overflow-hidden", SIZE[size], className)}>
+      <span className="absolute -left-[15.62%] -top-[16.27%] h-[124.6%] w-[131.23%]">
+        <Image
+          src={BRAND_LOGOS.dark}
+          alt="Creative Whoppers"
+          fill
+          sizes={SIZES[size]}
+          priority={priority}
+          className="hidden object-fill dark:block"
+        />
+      </span>
+      <span className="absolute -left-[15.62%] -top-[18.25%] h-[132.54%] w-[131.23%]">
+        <Image
+          src={BRAND_LOGOS.light}
+          alt=""
+          fill
+          sizes={SIZES[size]}
+          priority={priority}
+          aria-hidden
+          className="object-fill dark:hidden"
+        />
+      </span>
     </span>
   );
 }

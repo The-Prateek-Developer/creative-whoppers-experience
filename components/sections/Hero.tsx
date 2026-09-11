@@ -23,7 +23,7 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-5rem)] flex-col overflow-hidden px-4 pb-8 pt-6 sm:px-6 sm:pt-8 lg:px-12">
+    <section className="relative isolate flex min-h-[calc(100svh-5.5rem)] flex-col overflow-hidden px-4 pb-8 pt-6 sm:px-6 sm:pt-8 lg:px-12">
       <div className="pointer-events-none absolute inset-0 z-0">
         <HeroVideo />
         <div className="absolute inset-0 bg-agency-black/40" />
@@ -55,13 +55,13 @@ export default function Hero() {
 
             <motion.p
               variants={fadeInUp}
-              className="hero-headline font-display font-extrabold uppercase text-agency-white"
+              className="hero-headline font-display font-medium tracking-tight text-agency-white"
             >
               <span className="whitespace-nowrap">
-                Enhance the <span className="text-agency-yellow">Creative Impact</span>
+                Enhance the <span className="text-agency-yellow">creative impact</span>
               </span>
               <br />
-              <span className="whitespace-nowrap">of your Brand</span>
+              <span className="whitespace-nowrap">of your brand</span>
             </motion.p>
 
             <motion.p
