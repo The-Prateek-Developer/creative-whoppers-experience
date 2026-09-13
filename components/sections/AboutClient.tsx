@@ -225,9 +225,10 @@ export default function AboutClient() {
           </div>
           <div className="lg:col-span-6">
             <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-              We believe great experiences don&apos;t just happen. They&apos;re designed. Every
-              memorable experience starts with an idea, but it takes strategy, creativity, technology
-              and flawless execution to bring that idea to life. That&apos;s where we come in.
+              Have a project in mind? Share your brief with us, and let&apos;s explore how we can
+              bring it to life. Every memorable experience starts with an idea, but it takes
+              strategy, creativity, technology and flawless execution to bring that idea to life.
+              That&apos;s where we come in.
             </p>
             <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
               From a stage and a screen to an interactive space, we bring together creative thinking

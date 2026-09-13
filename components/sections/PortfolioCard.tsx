@@ -6,8 +6,6 @@ import FadeImage from "@/components/media/FadeImage";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Eye } from "lucide-react";
 import { PortfolioProject } from "@/lib/portfolio-data";
-import { testimonialForKey } from "@/lib/testimonials";
-import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import {
   cardLiftHover,
   cardLiftTap,
@@ -103,12 +101,9 @@ const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
           >
             {project.summary}
           </p>
-          <div className="mt-auto">
-            <ProjectTestimonial {...testimonialForKey(project.id)} compact />
-            <div className="flex items-center justify-end pt-5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full border border-agency-border text-agency-white transition-all group-hover:border-agency-yellow group-hover:bg-agency-yellow group-hover:text-agency-ink">
-                <ArrowUpRight className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
-              </div>
+          <div className="mt-auto flex items-center justify-end pt-5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-agency-border text-agency-white transition-all group-hover:border-agency-yellow group-hover:bg-agency-yellow group-hover:text-agency-ink">
+              <ArrowUpRight className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
             </div>
           </div>
         </div>
