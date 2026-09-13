@@ -18,6 +18,8 @@ const ABOUT_SECTIONS = [
   { id: "trusted-across-sectors", label: "Trusted across sectors" },
 ] as const;
 
+type AboutSectionId = (typeof ABOUT_SECTIONS)[number]["id"];
+
 const NAV_OFFSET = -112;
 
 const MISSION_VISION = [
@@ -122,12 +124,10 @@ const TEAM = [
 export default function AboutClient() {
   const lenis = useLenis();
   const reduceMotion = useReducedMotion();
-  const [activeId, setActiveId] = useState<(typeof ABOUT_SECTIONS)[number]["id"]>(
-    ABOUT_SECTIONS[0].id
-  );
+  const [activeId, setActiveId] = useState<AboutSectionId>(ABOUT_SECTIONS[0].id);
 
   const scrollToSection = useCallback(
-    (id: (typeof ABOUT_SECTIONS)[number]["id"]) => {
+    (id: AboutSectionId) => {
       const target = document.getElementById(id);
       if (!target) return;
       setActiveId(id);
@@ -145,7 +145,7 @@ export default function AboutClient() {
   );
 
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "") as (typeof ABOUT_SECTIONS)[number]["id"];
+    const hash = window.location.hash.replace("#", "") as AboutSectionId;
     if (ABOUT_SECTIONS.some((section) => section.id === hash)) {
       const timer = window.setTimeout(() => scrollToSection(hash), 80);
       return () => window.clearTimeout(timer);
@@ -155,7 +155,7 @@ export default function AboutClient() {
   useEffect(() => {
     const updateActive = () => {
       const marker = 140;
-      let current = ABOUT_SECTIONS[0].id;
+      let current: AboutSectionId = ABOUT_SECTIONS[0].id;
       for (const section of ABOUT_SECTIONS) {
         const el = document.getElementById(section.id);
         if (!el) continue;
