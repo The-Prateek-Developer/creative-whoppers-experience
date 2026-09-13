@@ -36,6 +36,20 @@ export function youtubeEmbedSrc(url: string, autoplay = false): string | null {
   return `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`;
 }
 
+export function isYoutubeShort(url: string): boolean {
+  try {
+    return new URL(url).pathname.includes("/shorts/");
+  } catch {
+    return false;
+  }
+}
+
+export function youtubeThumbnailSrc(url: string): string | null {
+  const id = youtubeIdFromUrl(url);
+  if (!id) return null;
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+
 export function embeddableVideos(videos: string[] | undefined): string[] {
   if (!videos?.length) return [];
   const seen = new Set<string>();

@@ -23,9 +23,15 @@ export function useSectionReveal(scopeRef: RefObject<HTMLElement | null>) {
           overwrite: "auto",
           scrollTrigger: {
             trigger: heading,
-            start: "top 86%",
-            toggleActions: "play none none reverse",
+            start: "top 92%",
+            once: true,
+            toggleActions: "play none none none",
             invalidateOnRefresh: true,
+            onRefresh(self) {
+              if (self.progress > 0) {
+                gsap.set(targets, { y: 0, opacity: 1, overwrite: true });
+              }
+            },
           },
         });
       });
@@ -36,7 +42,8 @@ export function useSectionReveal(scopeRef: RefObject<HTMLElement | null>) {
         ScrollTrigger.batch(cards, {
           interval: 0.1,
           batchMax: 4,
-          start: "top 90%",
+          start: "top 92%",
+          once: true,
           onEnter: (elements) =>
             gsap.to(elements, {
               y: 0,
@@ -44,24 +51,6 @@ export function useSectionReveal(scopeRef: RefObject<HTMLElement | null>) {
               duration: 0.72,
               stagger: 0.08,
               ease: gsapEase.outPremium,
-              overwrite: "auto",
-            }),
-          onEnterBack: (elements) =>
-            gsap.to(elements, {
-              y: 0,
-              opacity: 1,
-              duration: 0.55,
-              stagger: 0.06,
-              ease: gsapEase.outPremium,
-              overwrite: "auto",
-            }),
-          onLeaveBack: (elements) =>
-            gsap.to(elements, {
-              y: 32,
-              opacity: 0,
-              duration: 0.35,
-              stagger: 0.04,
-              ease: gsapEase.exitFast,
               overwrite: "auto",
             }),
         });

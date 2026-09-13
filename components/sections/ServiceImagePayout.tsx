@@ -1,8 +1,14 @@
-import React from "react";
-import { Play } from "lucide-react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Play, X } from "lucide-react";
 import FadeImage from "@/components/media/FadeImage";
 import ServiceYoutubeEmbed from "@/components/media/ServiceYoutubeEmbed";
-import { embeddableVideos } from "@/lib/youtube";
+import ServiceYoutubeThumb from "@/components/media/ServiceYoutubeThumb";
+import { embeddableVideos, isYoutubeShort } from "@/lib/youtube";
+import { easings } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -18,39 +24,141 @@ function videoForIndex(videos: string[] | undefined, index: number) {
   return videos[index] ?? (videos.length === 1 ? videos[0] : undefined);
 }
 
+function FullImage({
+  src,
+  alt,
+  sizes,
+  priority,
+  className,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <FadeImage
+      src={src}
+      alt={alt}
+      width={0}
+      height={0}
+      sizes={sizes}
+      priority={priority}
+      className={cn("relative mx-auto h-auto w-full object-contain", className)}
+      style={{ width: "100%", height: "auto" }}
+    />
+  );
+}
+
+function ImageLightbox({
+  src,
+  alt,
+  onClose,
+}: {
+  src: string | null;
+  alt: string;
+  onClose: () => void;
+}) {
+  const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!src) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [src, onClose]);
+
+  if (!mounted) return null;
+
+  return createPortal(
+    <AnimatePresence>
+      {src ? (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={alt}
+        >
+          <motion.button
+            type="button"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.28, ease: easings.outSnappy }}
+            onClick={onClose}
+            className="absolute inset-0 bg-agency-black/92 backdrop-blur-md"
+            aria-label="Close image"
+          />
+          <motion.figure
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, y: 10 }}
+            transition={{ duration: 0.4, ease: easings.outPremium }}
+            className="relative z-10 flex max-h-[92vh] w-full max-w-6xl flex-col items-center"
+          >
+            <button
+              type="button"
+              onClick={onClose}
+              className="mb-4 self-end rounded-full border border-agency-border bg-agency-black/80 p-2.5 text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
+              aria-label="Close image"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="relative w-full">
+              <FullImage
+                src={src}
+                alt={alt}
+                sizes="96vw"
+                priority
+                className="max-h-[78vh]"
+              />
+            </div>
+          </motion.figure>
+        </div>
+      ) : null}
+    </AnimatePresence>,
+    document.body
+  );
+}
+
 function Shot({
   src,
   alt,
   href,
-  className,
   sizes,
   priority,
+  onOpen,
 }: {
   src: string;
   alt: string;
   href?: string;
-  className?: string;
   sizes: string;
   priority?: boolean;
+  onOpen: (src: string) => void;
 }) {
   const media = (
-    <>
-      <FadeImage
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        className="object-cover transition-transform duration-500 group-hover/shot:scale-105"
-        priority={priority}
-      />
+    <div className="relative w-full">
+      <FullImage src={src} alt={alt} sizes={sizes} priority={priority} />
       {href ? (
-        <span className="absolute inset-0 flex items-center justify-center bg-agency-black/25 transition-colors group-hover/shot:bg-agency-black/40">
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-agency-black/20">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-agency-black/80 text-agency-white shadow-lg ring-2 ring-white/80">
             <Play className="h-6 w-6 fill-current pl-0.5" aria-hidden />
           </span>
         </span>
       ) : null}
-    </>
+    </div>
   );
 
   if (href) {
@@ -60,7 +168,7 @@ function Shot({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Watch ${alt} on YouTube`}
-        className={cn("group/shot relative overflow-hidden bg-agency-black", className)}
+        className="relative block w-full"
       >
         {media}
       </a>
@@ -68,9 +176,14 @@ function Shot({
   }
 
   return (
-    <div className={cn("relative overflow-hidden bg-agency-black", className)}>
+    <button
+      type="button"
+      onClick={() => onOpen(src)}
+      className="relative block w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+      aria-label={`View full image: ${alt}`}
+    >
       {media}
-    </div>
+    </button>
   );
 }
 
@@ -78,26 +191,43 @@ export default function ServiceImagePayout({
   images,
   videos,
   alt,
-  variant = "page",
   priority,
 }: Props) {
-  if (images.length === 0) return null;
+  const [openSrc, setOpenSrc] = useState<string | null>(null);
+  const [activeShort, setActiveShort] = useState<string | null>(null);
+  const embeds = embeddableVideos(videos);
+  const shorts = embeds.filter((url) => isYoutubeShort(url));
 
-  const isCard = variant === "card";
-  const frame = isCard ? "rounded-none" : "rounded-xl sm:rounded-2xl";
-  const gap = isCard ? "gap-1" : "gap-2 sm:gap-3";
-  const hrefAt = (index: number) => (isCard ? undefined : videoForIndex(videos, index));
-  const embeds = !isCard ? embeddableVideos(videos) : [];
-
-  if (embeds.length > 0) {
+  if (shorts.length > 0) {
     return (
       <div
         className={cn(
-          "grid",
-          gap,
-          embeds.length === 1 ? "grid-cols-1" : "grid-cols-2"
+          "grid gap-4 sm:gap-5",
+          shorts.length === 1
+            ? "grid-cols-1 sm:max-w-sm"
+            : shorts.length === 2
+              ? "grid-cols-2"
+              : "grid-cols-2 lg:grid-cols-4"
         )}
       >
+        {shorts.map((url, index) => (
+          <ServiceYoutubeThumb
+            key={url}
+            videoUrl={url}
+            alt={`${alt} ${index + 1}`}
+            portrait
+            playing={activeShort === url}
+            onPlay={() => setActiveShort(url)}
+            priority={priority && index === 0}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (embeds.length > 0) {
+    return (
+      <div className={cn("grid gap-6", embeds.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2")}>
         {embeds.map((url, index) => (
           <ServiceYoutubeEmbed
             key={url}
@@ -105,116 +235,34 @@ export default function ServiceImagePayout({
             poster={images[index] ?? images[0]}
             alt={`${alt} ${index + 1}`}
             priority={priority && index === 0}
-            className={frame}
           />
         ))}
       </div>
     );
   }
 
-  if (images.length === 1) {
-    return (
-      <Shot
-        src={images[0]}
-        alt={alt}
-        href={hrefAt(0)}
-        priority={priority}
-        sizes={isCard ? "(max-width: 768px) 100vw, 640px" : "100vw"}
-        className={cn(frame, isCard ? "aspect-[16/10]" : "aspect-[16/9]")}
-      />
-    );
-  }
+  if (images.length === 0) return null;
 
-  if (images.length === 2) {
-    return (
-      <div className={cn("grid grid-cols-2", gap, isCard ? "aspect-[16/9]" : "")}>
+  return (
+    <>
+      <div className="flex flex-col gap-8">
         {images.map((src, index) => (
           <Shot
             key={src}
             src={src}
-            href={hrefAt(index)}
-            alt={`${alt} ${index + 1}`}
+            href={videoForIndex(videos, index)}
+            alt={images.length === 1 ? alt : `${alt} ${index + 1}`}
             priority={priority && index === 0}
-            sizes={isCard ? "(max-width: 768px) 50vw, 320px" : "(max-width: 768px) 50vw, 50vw"}
-            className={cn(frame, isCard ? "h-full" : "aspect-[16/10]")}
+            sizes="(max-width: 1280px) 100vw, 1152px"
+            onOpen={setOpenSrc}
           />
         ))}
       </div>
-    );
-  }
-
-  if (images.length === 3) {
-    return (
-      <div
-        className={cn(
-          "grid grid-cols-12 grid-rows-2",
-          gap,
-          isCard ? "aspect-[16/10]" : "min-h-[22rem] sm:min-h-[28rem]"
-        )}
-      >
-        <Shot
-          src={images[0]}
-          href={hrefAt(0)}
-          alt={`${alt} 1`}
-          priority={priority}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className={cn(frame, "col-span-12 sm:col-span-7 sm:row-span-2")}
-        />
-        <Shot
-          src={images[1]}
-          href={hrefAt(1)}
-          alt={`${alt} 2`}
-          sizes="(max-width: 768px) 50vw, 25vw"
-          className={cn(frame, "col-span-6 sm:col-span-5")}
-        />
-        <Shot
-          src={images[2]}
-          href={hrefAt(2)}
-          alt={`${alt} 3`}
-          sizes="(max-width: 768px) 50vw, 25vw"
-          className={cn(frame, "col-span-6 sm:col-span-5")}
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={cn(
-        "grid grid-cols-12 grid-rows-2",
-        gap,
-        isCard ? "aspect-[16/10]" : "min-h-[24rem] sm:min-h-[32rem] lg:min-h-[36rem]"
-      )}
-    >
-      <Shot
-        src={images[0]}
-        href={hrefAt(0)}
-        alt={`${alt} 1`}
-        priority={priority}
-        sizes="(max-width: 768px) 100vw, 35vw"
-        className={cn(frame, "col-span-12 sm:col-span-4 sm:row-span-2")}
+      <ImageLightbox
+        src={openSrc}
+        alt={alt}
+        onClose={() => setOpenSrc(null)}
       />
-      <Shot
-        src={images[1]}
-        href={hrefAt(1)}
-        alt={`${alt} 2`}
-        sizes="(max-width: 768px) 50vw, 40vw"
-        className={cn(frame, "col-span-7 sm:col-span-5")}
-      />
-      <Shot
-        src={images[2]}
-        href={hrefAt(2)}
-        alt={`${alt} 3`}
-        sizes="(max-width: 768px) 50vw, 25vw"
-        className={cn(frame, "col-span-5 sm:col-span-3")}
-      />
-      <Shot
-        src={images[3]}
-        href={hrefAt(3)}
-        alt={`${alt} 4`}
-        sizes="(max-width: 768px) 100vw, 65vw"
-        className={cn(frame, "col-span-12 sm:col-span-8")}
-      />
-    </div>
+    </>
   );
 }

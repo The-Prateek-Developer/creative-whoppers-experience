@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { pageExitTiming, pageTransition, pageTransitionTiming } from "@/lib/animations";
@@ -14,6 +14,13 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const lenis = useLenis();
+  const prevPath = useRef(pathname);
+  const isClientNav = useRef(false);
+
+  if (prevPath.current !== pathname) {
+    prevPath.current = pathname;
+    isClientNav.current = true;
+  }
 
   useEffect(() => {
     if (lenis) {
@@ -23,17 +30,24 @@ export default function PageTransition({ children }: PageTransitionProps) {
     }
   }, [pathname, lenis]);
 
-  if (reduceMotion) {
-    return <div className="w-full flex-1">{children}</div>;
-  }
+  // useReducedMotion() is null until hydration. Treating that as a branch
+  // remounts AnimatePresence and can leave the page stuck at opacity 0.
+  // mode="wait" also unmounts the incoming page until exit finishes — if
+  // that exit never completes (common with App Router children), the page
+  // stays blank until a hard refresh.
+  const skipEnter = reduceMotion === true || !isClientNav.current;
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence initial={false} mode="sync">
       <motion.div
         key={pathname}
-        initial={pageTransition.initial}
+        initial={skipEnter ? false : pageTransition.initial}
         animate={pageTransition.animate}
-        exit={{ ...pageTransition.exit, transition: pageExitTiming }}
+        exit={
+          reduceMotion === true
+            ? undefined
+            : { ...pageTransition.exit, transition: pageExitTiming }
+        }
         transition={pageTransitionTiming}
         className="w-full flex-1"
       >

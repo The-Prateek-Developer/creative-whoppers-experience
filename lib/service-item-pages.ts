@@ -8,8 +8,10 @@ export type ServiceItemDetail = {
 const ED = "/images/services/experience-design";
 const CP = "/images/services/creative-production";
 
-function shots(base: string, count: number) {
-  return Array.from({ length: count }, (_, index) => `${base}/${String(index + 1).padStart(2, "0")}.png`);
+function collage(base: string, count = 1) {
+  return Array.from({ length: count }, (_, index) =>
+    index === 0 ? `${base}/collage.jpg` : `${base}/collage-${String(index + 1).padStart(2, "0")}.jpg`
+  );
 }
 
 export const ITEM_SLUG_BY_NAME: Record<string, string> = {
@@ -63,7 +65,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Logistics, Hospitality & Vendor Management",
       "On-Ground Execution, Show Management & Closure",
     ],
-    images: shots(`${ED}/turnkey-event-management-production`, 4),
+    images: collage(`${ED}/turnkey-event-management-production`),
   },
   "experience-design/venue-hospitality-management": {
     slug: "venue-hospitality-management",
@@ -74,7 +76,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Commercial Negotiation & Contract Coordination",
       "Venue, Guest & Hospitality Coordination",
     ],
-    images: shots(`${ED}/venue-hospitality-management`, 4),
+    images: collage(`${ED}/venue-hospitality-management`),
   },
   "experience-design/event-branding-environmental-design": {
     slug: "event-branding-environmental-design",
@@ -85,7 +87,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Wayfinding & Directional Systems",
       "Fabrication, Production & Installation",
     ],
-    images: shots(`${ED}/event-branding-environmental-design`, 4),
+    images: collage(`${ED}/event-branding-environmental-design`),
   },
   "experience-design/event-production-technical-solutions": {
     slug: "event-production-technical-solutions",
@@ -96,7 +98,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Technical Direction & Show Management",
       "Live & Multi-Camera Production",
     ],
-    images: shots(`${ED}/event-production-technical-solutions`, 4),
+    images: collage(`${ED}/event-production-technical-solutions`),
   },
   "experience-design/food-beverage-management": {
     slug: "food-beverage-management",
@@ -107,7 +109,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Beverage & Hospitality Services",
       "F&B Operations & Service Management",
     ],
-    images: shots(`${ED}/food-beverage-management`, 4),
+    images: collage(`${ED}/food-beverage-management`),
   },
   "experience-design/corporate-gifts-branded-packaging": {
     slug: "corporate-gifts-branded-packaging",
@@ -118,7 +120,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Bespoke Packaging & Presentation",
       "Sourcing, Customisation & Production",
     ],
-    images: shots(`${ED}/corporate-gifts-branded-packaging`, 4),
+    images: collage(`${ED}/corporate-gifts-branded-packaging`),
   },
   "experience-design/destination-programme-design": {
     slug: "destination-programme-design",
@@ -129,7 +131,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Local & Cultural Experience Integration",
       "End-to-End Programme Coordination",
     ],
-    images: shots(`${ED}/destination-programme-design`, 4),
+    images: collage(`${ED}/destination-programme-design`),
   },
   "experience-design/themed-events-experience-design": {
     slug: "themed-events-experience-design",
@@ -140,7 +142,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Cultural & Destination-Themed Experiences",
       "Experiential Programming & Execution",
     ],
-    images: shots(`${ED}/themed-events-experience-design`, 4),
+    images: collage(`${ED}/themed-events-experience-design`),
   },
   "experience-design/entertainment-live-experiences": {
     slug: "entertainment-live-experiences",
@@ -151,7 +153,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Interactive & Experiential Entertainment",
       "Entertainment Production & Coordination",
     ],
-    images: shots(`${ED}/entertainment-live-experiences`, 4),
+    images: collage(`${ED}/entertainment-live-experiences`),
   },
   "experience-design/corporate-offsites-team-experiences": {
     slug: "corporate-offsites-team-experiences",
@@ -162,7 +164,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Indoor & Outdoor Recreational Activities",
       "Retreat, Recreation & Wellness Programmes",
     ],
-    images: shots(`${ED}/corporate-offsites-team-experiences`, 4),
+    images: collage(`${ED}/corporate-offsites-team-experiences`),
   },
   "experience-design/tours-excursions-local-experiences": {
     slug: "tours-excursions-local-experiences",
@@ -173,7 +175,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Special-Interest & Experiential Tours",
       "Pre- & Post-Event Tours & Extensions",
     ],
-    images: shots(`${ED}/tours-excursions-local-experiences`, 4),
+    images: collage(`${ED}/tours-excursions-local-experiences`),
   },
   "experience-design/off-property-events-destination-experiences": {
     slug: "off-property-events-destination-experiences",
@@ -184,11 +186,11 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
       "Outdoor & Experiential Event Formats",
       "Logistics, Vendor & On-Ground Management",
     ],
-    images: shots(`${ED}/off-property-events-destination-experiences`, 4),
+    images: collage(`${ED}/off-property-events-destination-experiences`),
   },
   "creative-production/brand-films": {
     slug: "brand-films",
-    images: shots(`${CP}/brand-films`, 2),
+    images: collage(`${CP}/brand-films`),
     videos: [
       "https://www.youtube.com/watch?v=gFNK1gZgUjE",
       "https://www.youtube.com/watch?v=Y69X15We4TU",
@@ -196,7 +198,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/corporate-films": {
     slug: "corporate-films",
-    images: shots(`${CP}/corporate-films`, 2),
+    images: collage(`${CP}/corporate-films`),
     videos: [
       "https://www.youtube.com/watch?v=SHTF8jD-weg",
       "https://www.youtube.com/watch?v=ppiSVJ4Pp0U",
@@ -204,7 +206,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/documentary-films": {
     slug: "documentary-films",
-    images: shots(`${CP}/documentary-films`, 2),
+    images: collage(`${CP}/documentary-films`),
     videos: [
       "https://www.youtube.com/watch?v=xXOThqEDXcQ",
       "https://www.youtube.com/watch?v=ewNnHcp5MWc",
@@ -212,7 +214,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/explainer-videos": {
     slug: "explainer-videos",
-    images: shots(`${CP}/explainer-videos`, 2),
+    images: collage(`${CP}/explainer-videos`),
     videos: [
       "https://www.youtube.com/watch?v=4NNO5jCFvTw",
       "https://www.youtube.com/watch?v=3X836Yz6c2g",
@@ -220,7 +222,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/product-videos": {
     slug: "product-videos",
-    images: shots(`${CP}/product-videos`, 2),
+    images: collage(`${CP}/product-videos`),
     videos: [
       "https://www.youtube.com/watch?v=grlISKkR1ug",
       "https://www.youtube.com/watch?v=dRKwJNnrm48",
@@ -228,7 +230,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/testimonial-videos": {
     slug: "testimonial-videos",
-    images: shots(`${CP}/testimonial-videos`, 2),
+    images: collage(`${CP}/testimonial-videos`),
     videos: [
       "https://www.youtube.com/watch?v=KZlnoRbi5fI",
       "https://www.youtube.com/watch?v=1s5LzTZF_XM",
@@ -236,7 +238,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/podcast-production": {
     slug: "podcast-production",
-    images: shots(`${CP}/podcast-production`, 2),
+    images: collage(`${CP}/podcast-production`),
     videos: [
       "https://www.youtube.com/watch?v=yV9D9NUqPLo",
       "https://www.youtube.com/watch?v=-lrL0yB5XoY",
@@ -244,7 +246,7 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/live-streaming": {
     slug: "live-streaming",
-    images: shots(`${CP}/live-streaming`, 2),
+    images: collage(`${CP}/live-streaming`),
     videos: [
       "https://www.youtube.com/watch?v=LhouH513UqY",
       "https://www.youtube.com/watch?v=lhQSfH6mEHI",
@@ -252,78 +254,83 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/reels-shorts": {
     slug: "reels-shorts",
-    images: shots(`${CP}/reels-shorts`, 3),
-    videos: ["https://www.youtube.com/@CreativeWhoppers"],
+    images: collage(`${CP}/reels-shorts`),
+    videos: [
+      "https://www.youtube.com/shorts/Zv9YUWMQYhs",
+      "https://www.youtube.com/shorts/_oyT7hAxOCA",
+      "https://www.youtube.com/shorts/PRk4eL7IteE",
+      "https://www.youtube.com/shorts/rYA7aCpzEPk",
+    ],
   },
   "creative-production/video-audio-editing": {
     slug: "video-audio-editing",
-    images: shots(`${CP}/video-audio-editing`, 1),
+    images: collage(`${CP}/video-audio-editing`),
   },
   "creative-production/event-photography": {
     slug: "event-photography",
-    images: shots(`${CP}/event-photography`, 4),
+    images: collage(`${CP}/event-photography`),
   },
   "creative-production/corporate-photography": {
     slug: "corporate-photography",
-    images: shots(`${CP}/corporate-photography`, 4),
+    images: collage(`${CP}/corporate-photography`),
   },
   "creative-production/product-photography": {
     slug: "product-photography",
-    images: shots(`${CP}/product-photography`, 3),
+    images: collage(`${CP}/product-photography`),
   },
   "creative-production/drone-photography": {
     slug: "drone-photography",
-    images: shots(`${CP}/drone-photography`, 4),
+    images: collage(`${CP}/drone-photography`),
   },
   "creative-production/motion-graphics": {
     slug: "motion-graphics",
-    images: shots(`${CP}/motion-graphics`, 2),
+    images: collage(`${CP}/motion-graphics`),
     videos: ["https://www.youtube.com/watch?v=ObVGT5TzGOM"],
   },
   "creative-production/2d-animation": {
     slug: "2d-animation",
-    images: shots(`${CP}/2d-animation`, 2),
+    images: collage(`${CP}/2d-animation`),
     videos: ["https://www.youtube.com/watch?v=WSwgPP2K2LI"],
   },
   "creative-production/logo-design": {
     slug: "logo-design",
-    images: shots(`${CP}/logo-design`, 3),
+    images: collage(`${CP}/logo-design`),
   },
   "creative-production/brand-identity": {
     slug: "brand-identity",
-    images: shots(`${CP}/brand-identity`, 1),
+    images: collage(`${CP}/brand-identity`),
   },
   "creative-production/visual-identity": {
     slug: "visual-identity",
-    images: shots(`${CP}/visual-identity`, 3),
+    images: collage(`${CP}/visual-identity`),
   },
   "creative-production/packaging-design": {
     slug: "packaging-design",
-    images: shots(`${CP}/packaging-design`, 3),
+    images: collage(`${CP}/packaging-design`),
   },
   "creative-production/company-profile-design": {
     slug: "company-profile-design",
-    images: shots(`${CP}/company-profile-design`, 3),
+    images: collage(`${CP}/company-profile-design`),
   },
   "creative-production/brochure-design": {
     slug: "brochure-design",
-    images: shots(`${CP}/brochure-design`, 4),
+    images: collage(`${CP}/brochure-design`),
   },
   "creative-production/social-media-creatives": {
     slug: "social-media-creatives",
-    images: shots(`${CP}/social-media-creatives`, 4),
+    images: collage(`${CP}/social-media-creatives`),
   },
   "creative-production/illustration": {
     slug: "illustration",
-    images: shots(`${CP}/illustration`, 4),
+    images: collage(`${CP}/illustration`, 3),
   },
   "creative-production/creative-campaign-design": {
     slug: "creative-campaign-design",
-    images: shots(`${CP}/creative-campaign-design`, 1),
+    images: collage(`${CP}/creative-campaign-design`),
   },
   "creative-production/print-collateral": {
     slug: "print-collateral",
-    images: shots(`${CP}/print-collateral`, 3),
+    images: collage(`${CP}/print-collateral`),
   },
 };
 
