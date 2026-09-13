@@ -27,11 +27,12 @@ export default function FlagshipServices() {
           data-reveal-item
           className="section-heading mb-4 text-agency-white"
         >
-          Flagship services
+          Creative excellence
         </h2>
         <p data-reveal-item className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          Explore our flagship services — from heritage digitization and video marketing to
-          full-scale event management and brand strategy — each built to deliver measurable impact.
+          Our core areas of expertise, combining creative thinking, technology and seamless
+          execution to help organisations build brands, create experiences and tell stories that
+          make an impact.
         </p>
       </div>
 

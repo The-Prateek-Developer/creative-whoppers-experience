@@ -101,7 +101,7 @@ export default function TeamMarquee({ people }: { people: TeamMember[] }) {
               alt={person.name}
               fill
               sizes="360px"
-              className="pointer-events-none object-cover grayscale"
+              className="pointer-events-none object-cover object-[center_28%] grayscale"
             />
           </div>
           <div className="p-6">

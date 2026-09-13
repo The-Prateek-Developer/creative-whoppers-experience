@@ -31,6 +31,16 @@ yarn-error.log*
 # vercel
 .vercel
 .tmp-hero-shots/
+.tmp-docx-extract/
+
+# local source dumps (too large for GitHub)
+*.zip
+Website Changes.docx
+Website Image - Home/
+Website img/
+Client Logos/
+Logos/
+Team Members - Creative Whoppers-20260913T072528Z-1-001/
 
 # typescript
 *.tsbuildinfo

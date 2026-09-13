@@ -27,20 +27,19 @@ export type ServicePage = {
 };
 
 const IMG = {
-  experience: SITE_IMAGES.conference,
-  production: SITE_IMAGES.videoEditor,
-  digital: SITE_IMAGES.programmer,
-  brand: SITE_IMAGES.designStudio,
-  museum: SITE_IMAGES.festival,
-  video: SITE_IMAGES.colorGrade,
-  events: SITE_IMAGES.erasmus,
-  packaging: SITE_IMAGES.pencils,
+  experience: SITE_IMAGES.pillarExperienceDesign,
+  production: SITE_IMAGES.pillarCreativeProduction,
+  digital: SITE_IMAGES.pillarDigitalExperiences,
+  brand: SITE_IMAGES.pillarBrandMarketing,
+  museum: SITE_IMAGES.whatWeDoMuseumDigitization,
+  digitalSocial: SITE_IMAGES.whatWeDoDigitalSocial,
+  events: SITE_IMAGES.whatWeDoEventManagement,
+  whatWeDoProduction: SITE_IMAGES.whatWeDoCreativeProduction,
 };
 
-export const HERO_VIDEO =
-  "https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4";
-export const HERO_VIDEO_POSTER =
-  "https://images.pexels.com/videos/2022395/free-video-2022395.jpg?auto=compress&cs=tinysrgb&w=1920";
+export const HERO_YOUTUBE_ID = "GO30DGyTwKo";
+export const HERO_VIDEO = `https://www.youtube.com/watch?v=${HERO_YOUTUBE_ID}`;
+export const HERO_VIDEO_POSTER = `https://img.youtube.com/vi/${HERO_YOUTUBE_ID}/maxresdefault.jpg`;
 
 export const SERVICE_PAGES: ServicePage[] = [
   {
@@ -51,53 +50,80 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Experience Design",
     metaTitle: "Experience Design & Event Production | Creative Whoppers",
     metaDescription:
-      "From corporate summits to government and cultural events, our experience design team plans and produces engagements that leave a lasting impression.",
+      "End-to-end event production for corporate, government, and public events, conferences, summits, and exhibitions.",
     intro:
-      "From corporate summits to government and cultural events, our experience design team plans and produces engagements that leave a lasting impression.",
+      "End-to-end event production for corporate, government, and public events, conferences, summits, and exhibitions, designed to engage audiences and create memorable brand experiences.",
     image: IMG.experience,
-    imageAlt: "Audience at a professionally produced conference and stage experience",
+    imageAlt: "Experience design and event production",
     groups: [
       {
-        title: "Corporate Experiences",
+        title: "Event Management",
         items: [
-          { name: "Corporate Events", description: "End-to-end planning and execution of business events that reflect your brand and engage stakeholders." },
-          { name: "Conferences", description: "Multi-session conferences designed for a seamless delegate experience, from registration to closing." },
-          { name: "Summits", description: "High-profile summits bringing together industry leaders with polished production and content flow." },
-          { name: "Annual Meetings", description: "Structured, professional annual general meetings and shareholder events managed start to finish." },
-          { name: "Award Ceremonies", description: "Memorable award nights with stage design, scripting and guest experience handled end to end." },
+          {
+            name: "Turnkey Event Management & Production",
+            description:
+              "Complete event solutions, delivered from concept to closure. We bring strategy, creative, production, technology, logistics, hospitality and on-ground execution together under one accountable team.",
+          },
+          {
+            name: "Venue & Hospitality Management",
+            description:
+              "The right venue sets the foundation for a successful event. We source, evaluate and coordinate venues and accommodation aligned with your event format, audience, objectives and budget.",
+          },
+          {
+            name: "Event Branding & Environmental Design",
+            description:
+              "We transform brand identity into immersive event environments through cohesive visual systems, impactful branding and carefully designed audience touchpoints across the venue.",
+          },
+          {
+            name: "Event Production & Technical Solutions",
+            description:
+              "Powering memorable events with dependable technical expertise, production infrastructure and show technology, from staging and sound to lighting, AV, LED and live production.",
+          },
+          {
+            name: "Food & Beverage Management",
+            description:
+              "Thoughtfully planned culinary experiences that complement the occasion, elevate guest hospitality and deliver quality service across conferences, celebrations, launches and institutional events.",
+          },
+          {
+            name: "Corporate Gifts & Branded Packaging",
+            description:
+              "Extending the event experience beyond the venue through thoughtfully curated gifts, branded merchandise and distinctive packaging that create lasting brand impressions.",
+          },
         ],
       },
       {
-        title: "Government & Institutional Experiences",
+        title: "Destination Management & MICE",
         items: [
-          { name: "Government Events", description: "Large-scale government event management with protocol, security and logistics expertise." },
-          { name: "Institutional Events", description: "Events for academic, financial and public institutions, planned with precision and compliance." },
-          { name: "NGO Events", description: "Purpose-driven events for NGOs that amplify cause and community impact." },
-          { name: "CSR Events", description: "CSR initiatives brought to life through engaging on-ground and community activations." },
-          { name: "Community & Public Engagement", description: "Public engagement programs that connect institutions with the communities they serve." },
-          { name: "Education Fairs", description: "Education and career fairs designed to connect institutions with students and parents." },
-        ],
-      },
-      {
-        title: "Exhibitions & Experiential Events",
-        items: [
-          { name: "Exhibitions & Trade Shows", description: "Custom stall design and exhibition management that maximizes visitor engagement and leads." },
-          { name: "Experience Centres", description: "Immersive, branded experience centres that tell your brand story in physical space." },
-          { name: "Cultural Festivals", description: "Large-scale cultural festival production, from stage design to crowd management." },
-          { name: "Sports Events", description: "Sports event management covering logistics, sponsorship activation and fan experience." },
-          { name: "Brand Activations", description: "On-ground brand activations designed to drive engagement and conversions." },
-        ],
-      },
-      {
-        title: "Event Production",
-        items: [
-          { name: "Stage Design", description: "Custom stage design and set fabrication tailored to each event's theme and scale." },
-          { name: "Event Branding", description: "Cohesive on-site branding across signage, backdrops and collateral." },
-          { name: "Registration Management", description: "Smooth guest registration and check-in, on-site and digital." },
-          { name: "Venue Design", description: "Venue layout and design planning for optimal flow and impact." },
-          { name: "Sound, Lighting & LED Walls", description: "Technical production including sound, lighting and LED wall setups for high-impact events." },
-          { name: "Exhibition Stall Design", description: "Custom exhibition stalls designed to attract footfall and showcase brand identity." },
-          { name: "Guest Management", description: "End-to-end guest handling, hospitality and on-ground coordination." },
+          {
+            name: "Destination & Programme Design",
+            description:
+              "Creating thoughtfully structured destination programmes aligned with your objectives, audience and itinerary, from destination selection and experience curation to complete programme planning.",
+          },
+          {
+            name: "Themed Events & Experience Design",
+            description:
+              "Transforming destination venues into distinctive event experiences through creative themes, immersive environments and engaging programmes designed around the occasion and audience.",
+          },
+          {
+            name: "Entertainment & Live Experiences",
+            description:
+              "Curating engaging entertainment and live experiences that add energy, character and local flavour to corporate programmes, celebrations and destination events.",
+          },
+          {
+            name: "Corporate Offsites & Team Experiences",
+            description:
+              "Designing purposeful corporate offsites that combine business objectives with recreation, engagement and team experiences to encourage connection, collaboration and renewed energy.",
+          },
+          {
+            name: "Tours, Excursions & Local Experiences",
+            description:
+              "Curating memorable journeys that connect guests with the character of each destination through sightseeing, heritage, culture, adventure and specially curated local experiences.",
+          },
+          {
+            name: "Off-Property Events & Destination Experiences",
+            description:
+              "Taking programmes beyond conventional event venues through distinctive off-property locations, destination settings and curated experiences that create memorable moments for guests and delegates.",
+          },
         ],
       },
     ],
@@ -108,67 +134,58 @@ export const SERVICE_PAGES: ServicePage[] = [
     number: "02",
     title: "Creative Production",
     h1: "Creative Production",
-    metaTitle: "Video Production, Film & Branding Studio | Creative Whoppers",
+    metaTitle: "Film, Photography, Motion & Branding | Creative Whoppers",
     metaDescription:
-      "A full creative production studio covering film, photography, animation and design — everything a brand needs to tell its story visually.",
+      "Film and video production, motion design, animation, and brand identity design — visual stories and creative campaigns that build brand recall.",
     intro:
-      "A full creative production studio covering film, photography, animation and design — everything a brand needs to tell its story visually.",
+      "Film and video production, motion design, animation, and brand identity design, crafting visual stories and creative campaigns that capture attention and build brand recall.",
     image: IMG.production,
-    imageAlt: "Film and commercial video production on a professional set",
+    imageAlt: "Creative production studio for film, photography and design",
     groups: [
       {
         title: "Film & Video Production",
         items: [
-          { name: "Brand Films", description: "Cinematic brand films that communicate purpose, values and vision." },
-          { name: "Corporate Films", description: "Professional corporate videos for internal communication, investor relations and recruitment." },
-          { name: "Documentary Films", description: "Documentary-style storytelling that captures real narratives with depth and authenticity." },
-          { name: "Explainer Videos", description: "Clear, engaging explainer videos that simplify products and services." },
-          { name: "Product Videos", description: "High-quality product videos crafted to drive interest and conversions." },
-          { name: "Testimonial Videos", description: "Authentic client and customer testimonial videos that build trust." },
-          { name: "Podcast Production", description: "Full podcast production, from concept and recording to editing and distribution." },
-          { name: "Live Streaming", description: "Reliable live streaming for events, conferences and product launches." },
+          { name: "Brand Films", description: "Compelling narratives that connect brands with their audience through strategy, scriptwriting, cinematography and post-production." },
+          { name: "Corporate Films", description: "Professional films that showcase your organization's vision, culture and achievements for stakeholders, investors and employees." },
+          { name: "Documentary Films", description: "Authentic, research-driven storytelling that captures real people, places and moments from research to the final cut." },
+          { name: "Explainer Videos", description: "Simplifying complex ideas into clear, engaging visuals that educate and drive action." },
+          { name: "Product Videos", description: "High-impact visuals that highlight product features and benefits to drive engagement, conversions and brand recall." },
+          { name: "Testimonial Videos", description: "Genuine customer stories that build trust and credibility with your target audience." },
+          { name: "Podcast Production", description: "End-to-end podcast solutions from concept and studio setup to recording, editing and publishing." },
+          { name: "Live Streaming", description: "Seamless live broadcast solutions for events, conferences and launches with real-time audience engagement." },
+          { name: "Reels & Shorts", description: "Fast-paced, trend-driven short-form videos built for social media impact and brand visibility." },
+          { name: "Video & Audio Editing", description: "Professional post-production that elevates raw footage into polished content across every platform." },
         ],
       },
       {
-        title: "Photography",
+        title: "Photography Production",
         items: [
-          { name: "Event Photography", description: "Professional event photography that captures key moments as they happen." },
-          { name: "Corporate Photography", description: "Corporate headshots and workplace photography for a polished brand image." },
-          { name: "Product Photography", description: "High-resolution product photography for e-commerce and marketing use." },
-          { name: "Drone Photography", description: "Aerial drone photography for events, venues and large-scale properties." },
+          { name: "Event Photography", description: "Capturing every key moment with a mix of candid, formal and cinematic shots that tell the complete story." },
+          { name: "Corporate Photography", description: "Professional imagery that reflects your brand's identity and culture across corporate communications and marketing." },
+          { name: "Product Photography", description: "Sharp, detail-focused visuals tailored for e-commerce, catalogs and campaigns." },
+          { name: "Drone Photography", description: "Aerial perspectives that add scale and impact, captured safely and creatively." },
         ],
       },
       {
         title: "Motion & Animation",
         items: [
-          { name: "Motion Graphics", description: "Custom motion graphics that bring data, ideas and brand stories to life." },
-          { name: "2D Animation", description: "2D animated content for explainer videos, campaigns and social media." },
-          { name: "Reels & Shorts", description: "Short-form reels and vertical video content optimized for social platforms." },
+          { name: "Motion Graphics", description: "Dynamic visual elements that blend design, animation and storytelling to capture attention and simplify messaging." },
+          { name: "2D Animation", description: "Hand-crafted animated storytelling that adds character and charm across formats and audiences." },
         ],
       },
       {
         title: "Design & Branding",
         items: [
-          { name: "Logo Design", description: "Distinctive logo design that forms the foundation of a strong brand identity." },
-          { name: "Brand Identity", description: "Comprehensive brand identity systems including colour, typography and visual language." },
-          { name: "Visual Identity", description: "Consistent visual identity applied across every brand touchpoint." },
-          { name: "Packaging Design", description: "Packaging design that stands out on shelf and reflects brand positioning." },
-          { name: "Company Profile Design", description: "Professional company profile design for pitches, tenders and partnerships." },
-          { name: "Brochure Design", description: "Compelling brochure design for marketing and sales collateral." },
-          { name: "Presentation Design", description: "Polished presentation design for pitches, reports and internal decks." },
-          { name: "Social Media Creatives", description: "On-brand social media creatives designed for engagement across platforms." },
-          { name: "Infographics", description: "Data-driven infographics that simplify complex information visually." },
-          { name: "Illustration", description: "Custom illustration work for branding, campaigns and publications." },
-          { name: "Creative Campaign Design", description: "End-to-end creative design for integrated marketing campaigns." },
-          { name: "Print Collateral", description: "Print-ready collateral including flyers, posters and standees." },
-          { name: "Marketing Collateral", description: "Marketing collateral designed to support sales and brand communication." },
-        ],
-      },
-      {
-        title: "Post Production",
-        items: [
-          { name: "Video Editing", description: "Professional video editing that transforms raw footage into polished content." },
-          { name: "Audio Production", description: "Audio mixing, mastering and sound design for video and podcast content." },
+          { name: "Logo Design", description: "Distinctive marks that capture the essence of your brand — memorable, versatile and built to last." },
+          { name: "Brand Identity", description: "A complete visual language that defines who you are and creates recognition across every touchpoint." },
+          { name: "Visual Identity", description: "Consistent visual elements that make your brand instantly recognizable everywhere." },
+          { name: "Packaging Design", description: "Packaging that stands out on the shelf and tells your brand story." },
+          { name: "Company Profile Design", description: "Professional profiles that present your business with clarity and impact." },
+          { name: "Brochure Design", description: "Informative, visually engaging brochures that balance content and creativity." },
+          { name: "Social Media Creatives", description: "Scroll-stopping, platform-specific visuals that keep your brand consistent and relevant." },
+          { name: "Illustration", description: "Custom artwork that adds a unique, human touch to your brand storytelling." },
+          { name: "Creative Campaign Design", description: "Integrated visual campaigns that bring big ideas to life across every channel." },
+          { name: "Print Collateral", description: "High-quality print materials that reinforce your brand presence offline." },
         ],
       },
     ],
@@ -179,50 +196,38 @@ export const SERVICE_PAGES: ServicePage[] = [
     number: "03",
     title: "Digital Experiences",
     h1: "Digital Experiences",
-    metaTitle: "Digital Experience Design, Web & Immersive | Creative Whoppers",
+    metaTitle: "Digital Experiences, Museum Digitization & Apps | Creative Whoppers",
     metaDescription:
-      "Websites, apps and immersive digital installations engineered for performance, usability and measurable results.",
+      "Websites, mobile apps, and interactive experiences, with specialised museum and heritage digitization, virtual tours, and interactive touchscreens.",
     intro:
-      "Websites, apps and immersive digital installations engineered for performance, usability and measurable results.",
+      "Websites, mobile apps, and interactive experiences, with specialised museum and heritage digitization, virtual tours, and interactive touchscreens, making stories accessible and unforgettable.",
     image: IMG.digital,
-    imageAlt: "Digital product and interface design on multiple screens",
+    imageAlt: "Digital experiences, museum digitization and interactive design",
     groups: [
       {
-        title: "Web & Mobile",
+        title: "Museum & Heritage Digitization — Capture & Documentation",
         items: [
-          { name: "Website Development", description: "Custom website development built for performance, scalability and SEO." },
-          { name: "Landing Pages", description: "Conversion-focused landing pages designed for campaigns and product launches." },
-          { name: "E-commerce Websites", description: "Secure, user-friendly e-commerce websites built to drive online sales." },
-          { name: "Mobile Applications", description: "Custom mobile app development for iOS and Android." },
+          { name: "Artifact & Archive Digitization", description: "Preserving fragile artifacts and records through high-precision digital capture into accessible, future-proof archives." },
+          { name: "Digital Twin Mapping", description: "Precise digital replicas of physical spaces and structures for research, restoration and virtual access." },
+          { name: "Heritage Documentary Production", description: "Cinematic storytelling that captures the history and significance of heritage sites for future audiences." },
         ],
       },
       {
-        title: "User Experience",
+        title: "Visitor Experience & Interpretation",
         items: [
-          { name: "UI Design", description: "Clean, intuitive UI design that enhances usability across devices." },
-          { name: "UX Design", description: "Research-driven UX design focused on user needs and business goals." },
-          { name: "Interactive Design", description: "Interactive design elements that make digital experiences more engaging." },
+          { name: "Curated Multimedia Kiosks", description: "Interactive touchpoints that deliver rich, curated content at the visitor's fingertips." },
+          { name: "Audio-Visual Guides", description: "Personalized audio-visual companions that enrich the visitor journey through storytelling." },
+          { name: "Immersive Narrated Walkthroughs", description: "Story-driven journeys that guide visitors through history in a compelling sequence." },
+          { name: "On-Site Immersive Installations", description: "Physical and digital installations that transform spaces into immersive storytelling environments." },
+          { name: "Sound Domes & Triggered Soundscapes", description: "Directional and responsive audio experiences that add depth to exhibits." },
         ],
       },
       {
-        title: "Immersive Experiences",
+        title: "Websites & Mobile Applications",
         items: [
-          { name: "Museum Digitization", description: "Digitizing museum collections and exhibits for interactive, accessible experiences." },
-          { name: "Virtual Tours", description: "Immersive virtual tours that let audiences explore spaces remotely." },
-          { name: "Interactive Touchscreens", description: "Interactive touchscreen installations for exhibitions and experience centres." },
-          { name: "Experience Centres", description: "Digitally-enabled experience centres that blend physical and digital storytelling." },
-          { name: "Digital Installations", description: "Custom digital installations that create memorable, interactive brand moments." },
-        ],
-      },
-      {
-        title: "Technology Solutions",
-        items: [
-          { name: "CRM Integration", description: "CRM integration that connects your website to sales and marketing workflows." },
-          { name: "Website Maintenance", description: "Ongoing website maintenance to keep sites secure, updated and running smoothly." },
-          { name: "Website Speed Optimization", description: "Performance optimization to improve website speed and search rankings." },
-          { name: "Web Hosting", description: "Reliable web hosting solutions tailored to site size and traffic needs." },
-          { name: "CMS Development", description: "Custom CMS development for easy, flexible content management." },
-          { name: "Custom Web Applications", description: "Bespoke web application development for unique business needs." },
+          { name: "UI/UX Design & Strategy", description: "Crafting intuitive, user-centric design experiences that translate brand identity into seamless digital interactions." },
+          { name: "Website Development & CMS Integration", description: "Building responsive, scalable websites powered by flexible content management systems." },
+          { name: "Mobile App Design & Development", description: "Designing and developing intuitive mobile applications for iOS and Android." },
         ],
       },
     ],
@@ -231,138 +236,95 @@ export const SERVICE_PAGES: ServicePage[] = [
     slug: "brand-marketing",
     kind: "pillar",
     number: "04",
-    title: "Brand & Marketing",
-    h1: "Brand & Marketing",
-    metaTitle: "Brand Strategy & Marketing Agency | Creative Whoppers",
+    title: "Brand Marketing",
+    h1: "Brand Marketing",
+    metaTitle: "Brand Strategy, SEO & Digital Marketing | Creative Whoppers",
     metaDescription:
-      "Strategy-led branding, digital marketing, advertising, PR and integrated campaigns that build brands and drive growth.",
+      "Brand strategy, SEO, and digital marketing, including social media and performance marketing, built to boost visibility and deliver measurable growth.",
     intro:
-      "Strategy-led branding, digital marketing, advertising, PR and integrated campaigns that build brands and drive growth.",
+      "Brand strategy, SEO, and digital marketing, including social media and performance marketing, integrated campaigns built to boost visibility and deliver measurable growth.",
     image: IMG.brand,
-    imageAlt: "Brand strategy workshop and marketing campaign planning",
+    imageAlt: "Brand marketing strategy and campaign planning",
     groups: [
       {
-        title: "Brand Strategy",
+        title: "Brand Marketing",
         items: [
-          { name: "Brand Strategy", description: "Strategic brand planning that aligns business goals with market positioning." },
-          { name: "Brand Audit", description: "In-depth brand audits that identify gaps and growth opportunities." },
-          { name: "Rebranding", description: "End-to-end rebranding services from strategy through to rollout." },
-          { name: "Positioning", description: "Clear brand positioning that differentiates you from competitors." },
-          { name: "Brand Architecture", description: "Structured brand architecture for businesses with multiple products or divisions." },
-        ],
-      },
-      {
-        title: "Digital Marketing",
-        items: [
-          { name: "Search Engine Optimization (SEO)", description: "SEO strategies that improve organic visibility and search rankings." },
-          { name: "Social Media Marketing", description: "Social media marketing that builds community and drives engagement." },
-          { name: "Performance Marketing", description: "Data-driven performance marketing focused on measurable ROI." },
-          { name: "Content Marketing", description: "Content marketing strategies that attract and retain audiences." },
-          { name: "Email Marketing", description: "Targeted email marketing campaigns that nurture leads and customers." },
-          { name: "WhatsApp Marketing", description: "WhatsApp marketing campaigns for direct, personal customer engagement." },
-          { name: "Marketing Automation", description: "Marketing automation setup that streamlines campaigns and lead nurturing." },
-          { name: "Online Reputation Management", description: "Online reputation management to protect and strengthen brand perception." },
-        ],
-      },
-      {
-        title: "Advertising",
-        items: [
-          { name: "Google Ads", description: "Google Ads campaigns managed for maximum reach and conversions." },
-          { name: "LinkedIn Ads", description: "LinkedIn advertising for B2B lead generation and brand visibility." },
-          { name: "YouTube Advertising", description: "YouTube advertising campaigns that put video content in front of the right audience." },
-          { name: "Digital Media Buying", description: "Strategic digital media buying across platforms for optimal reach and spend efficiency." },
-          { name: "Media Planning & Buying", description: "Integrated media planning and buying across digital and traditional channels." },
-          { name: "Outdoor Advertising", description: "Outdoor advertising placements including hoardings and billboards." },
-          { name: "Transit Advertising", description: "Transit advertising across buses, metros and public transport hubs." },
-          { name: "Print Advertising", description: "Print advertising in newspapers, magazines and publications." },
-          { name: "Television Advertising", description: "Television advertising planning and production for mass-reach campaigns." },
-          { name: "Radio Advertising", description: "Radio advertising campaigns for local and regional audience reach." },
-        ],
-      },
-      {
-        title: "Public Relations",
-        items: [
-          { name: "Media Relations", description: "Building and managing relationships with media for consistent brand coverage." },
-          { name: "Press Releases", description: "Press release writing and distribution for announcements and milestones." },
-          { name: "Press Conferences", description: "End-to-end press conference planning and execution." },
-          { name: "Crisis Communication", description: "Crisis communication strategy and support to protect brand reputation." },
-          { name: "Influencer Relations", description: "Influencer relationship management for authentic brand advocacy." },
-        ],
-      },
-      {
-        title: "Campaigns",
-        items: [
-          { name: "Integrated Marketing Campaigns", description: "Integrated campaigns that align creative, media and PR around a single message." },
-          { name: "Government Communication", description: "Communication campaigns for government departments and public sector initiatives." },
-          { name: "Public Information Campaigns", description: "Public information campaigns designed to inform and engage citizens." },
-          { name: "CSR Campaigns", description: "CSR campaign design and execution that amplifies social impact." },
-          { name: "IEC Campaigns", description: "Information, Education and Communication (IEC) campaigns for public health and awareness programs." },
-          { name: "Brand Activation", description: "On-ground and digital brand activation campaigns that drive engagement." },
-          { name: "Influencer Marketing", description: "Influencer marketing campaigns that extend reach through trusted voices." },
+          { name: "Brand Strategy", description: "Defining a clear and distinctive brand foundation through positioning, messaging and identity that resonates with your target audience." },
+          { name: "Search Engine Optimization (SEO)", description: "Improving organic visibility and search rankings through technical, content and local optimization strategies." },
+          { name: "Digital Marketing", description: "Driving brand growth through integrated digital channels, combining paid, organic and communication-led strategies." },
+          { name: "Social Media Marketing", description: "Building brand presence and audience engagement across social platforms through strategic content and community management." },
+          { name: "Performance Marketing", description: "Maximizing ROI through data-driven paid campaigns across search, social and display platforms." },
+          { name: "Integrated Marketing Campaigns", description: "Designing end-to-end campaigns that unify brand, content and channels for cohesive, high-impact marketing outcomes." },
         ],
       },
     ],
   },
   {
-    slug: "museum-heritage-digitization",
+    slug: "digital-social-media",
     kind: "flagship",
-    title: "Museum Experiences & Heritage Digitization",
-    h1: "Museum Experiences & Heritage Digitization",
-    metaTitle: "Museum Digitization & Heritage Experiences | Creative Whoppers",
+    title: "Digital & Social Media",
+    h1: "Digital & Social Media",
+    metaTitle: "Digital & Social Media | Creative Whoppers",
     metaDescription:
-      "Digitizing and reimagining museums and heritage sites into interactive, accessible experiences.",
+      "Building a stronger digital presence through strategic social media, content, campaigns and audience engagement.",
     intro:
-      "Digitizing and reimagining museums and heritage sites into interactive, accessible experiences — from collections and kiosks to documentary storytelling.",
-    image: IMG.museum,
-    imageAlt: "Museum gallery prepared for heritage digitization and visitor experiences",
-    pillarSlug: "digital-experiences",
-  },
-  {
-    slug: "video-marketing",
-    kind: "flagship",
-    title: "Video Marketing",
-    h1: "Video Marketing",
-    metaTitle: "Video Marketing & Brand Films | Creative Whoppers",
-    metaDescription:
-      "Brand films, corporate videos and social content that grow reach, engagement and recall.",
-    intro:
-      "Brand films, corporate videos and social content crafted to grow reach, engagement and recall.",
-    image: IMG.video,
-    imageAlt: "Video marketing crew filming a brand film",
-    pillarSlug: "creative-production",
+      "Building a stronger digital presence through strategic social media, content, campaigns and audience engagement.",
+    image: IMG.digitalSocial,
+    imageAlt: "Digital and social media campaign planning",
+    pillarSlug: "brand-marketing",
   },
   {
     slug: "event-management",
     kind: "flagship",
-    title: "Event Management & Production",
-    h1: "Event Management & Production",
-    metaTitle: "Event Management & Production Agency | Creative Whoppers",
+    title: "Event Management",
+    h1: "Event Management",
+    metaTitle: "Event Management | Creative Whoppers",
     metaDescription:
-      "End-to-end event management and production, from concept to flawless on-ground execution.",
+      "Planning and delivering impactful events through creative concepts, seamless production and end-to-end execution.",
     intro:
-      "End-to-end event management and production, from concept and stage design to flawless on-ground execution.",
+      "Planning and delivering impactful events through creative concepts, seamless production and end-to-end execution.",
     image: IMG.events,
-    imageAlt: "Large-scale event stage production with lighting and audience",
+    imageAlt: "Event management and on-ground production",
     pillarSlug: "experience-design",
   },
   {
-    slug: "brand-strategy-packaging",
+    slug: "museum-heritage-digitization",
     kind: "flagship",
-    title: "Brand Strategy & Packaging",
-    h1: "Brand Strategy & Packaging",
-    metaTitle: "Brand Strategy & Packaging Design | Creative Whoppers",
+    title: "Museum Digitization",
+    h1: "Museum Digitization",
+    metaTitle: "Museum Digitization | Creative Whoppers",
     metaDescription:
-      "Strategic brand positioning and packaging design that help businesses stand out.",
+      "Digitising heritage collections and transforming historical narratives into interactive, technology-enabled museum experiences.",
     intro:
-      "Strategic brand positioning and packaging design that helps businesses stand out on shelf and in the market.",
-    image: IMG.packaging,
-    imageAlt: "Brand packaging and identity design layout",
-    pillarSlug: "brand-marketing",
+      "Digitising heritage collections and transforming historical narratives into interactive, technology-enabled museum experiences that educate, engage and inspire.",
+    image: IMG.museum,
+    imageAlt: "Museum and heritage digitization",
+    pillarSlug: "digital-experiences",
   },
 ];
 
 export const PILLARS = SERVICE_PAGES.filter((page) => page.kind === "pillar");
-export const FLAGSHIPS = SERVICE_PAGES.filter((page) => page.kind === "flagship");
+
+const pageBySlug = (slug: string) => {
+  const page = SERVICE_PAGES.find((item) => item.slug === slug);
+  if (!page) {
+    throw new Error(`Missing service page: ${slug}`);
+  }
+  return page;
+};
+
+export const FLAGSHIPS: ServicePage[] = [
+  pageBySlug("digital-social-media"),
+  {
+    ...pageBySlug("creative-production"),
+    image: IMG.whatWeDoProduction,
+    imageAlt: "Creative production across film, photography and design",
+    intro:
+      "Creating compelling visual content through film, video, photography, graphic design, motion and animation.",
+  },
+  pageBySlug("event-management"),
+  pageBySlug("museum-heritage-digitization"),
+];
 
 export function getServicePage(slug: string) {
   return SERVICE_PAGES.find((page) => page.slug === slug);

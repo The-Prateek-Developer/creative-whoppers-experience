@@ -10,9 +10,9 @@ export const BRAND_LOGOS = {
 } as const;
 
 export const SITE_DESCRIPTION =
-  "Creative Whoppers is a full-service creative agency for event experiences, film production, digital design and brand marketing. Turning ideas into memorable brand experiences.";
+  "We're a Creative Experience Company helping organisations design, produce and amplify memorable experiences through events, multimedia production, digital experiences and strategic marketing.";
 
-export const SITE_TAGLINE = "Crafting Memorable Brand Experiences";
+export const SITE_TAGLINE = "Enhance the creative impact of your Brand";
 
 export const NAP = {
   name: "Creative Whoppers",
@@ -40,9 +40,9 @@ export const NAP = {
 
 export const PAGE_SEO = {
   home: {
-    title: "Creative Whoppers | Advertising & Experience Design Agency",
+    title: "Creative Whoppers | Creative Experience Company",
     description: SITE_DESCRIPTION,
-    h1: "Creative Whoppers — Crafting Memorable Brand Experiences",
+    h1: "Creative Whoppers — Enhance the creative impact of your Brand",
     keywords: [
       "creative agency",
       "advertising agency",
@@ -55,7 +55,7 @@ export const PAGE_SEO = {
   about: {
     title: "About Creative Whoppers | Our Story, Mission & Team",
     description:
-      "Learn how Creative Whoppers became a full-service creative agency — our story, mission, approach and the team behind memorable brand experiences.",
+      "Learn how Creative Whoppers designs memorable experiences — our story, mission, approach and the team behind events, production, digital and marketing.",
     h1: "About Creative Whoppers",
     keywords: [
       "about creative whoppers",
@@ -119,8 +119,8 @@ export const NAV_LINKS = [
 ] as const;
 
 export const STATS = [
-  { value: "10+", label: "Years of experience" },
-  { value: "4", label: "Integrated capability pillars" },
-  { value: "Gov + Corp", label: "Trusted across sectors" },
-  { value: "1 roof", label: "Strategy to execution" },
+  { value: "16+", label: "Years of Experience" },
+  { value: "75+", label: "Projects Delivered" },
+  { value: "20+", label: "Organisations Served" },
+  { value: "47+", label: "Cities & Locations" },
 ] as const;

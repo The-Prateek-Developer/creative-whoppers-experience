@@ -32,7 +32,7 @@ import { cn } from "@/lib/utils";
 
 const SERVICE_OPTIONS = [
   ...PILLARS.map((item) => item.title),
-  ...FLAGSHIPS.map((item) => item.title),
+  ...FLAGSHIPS.filter((item) => item.kind === "flagship").map((item) => item.title),
   "Something else",
 ];
 

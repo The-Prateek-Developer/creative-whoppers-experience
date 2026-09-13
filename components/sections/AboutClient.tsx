@@ -3,10 +3,9 @@
 import React from "react";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, useReducedMotion } from "framer-motion";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { easings } from "@/lib/animations";
 import { PROCESS_STAGES } from "@/lib/process";
-import { CLIENT_SECTORS } from "@/lib/services-tree";
 import TeamMarquee from "@/components/sections/TeamMarquee";
 
 const VALUES = [
@@ -17,60 +16,81 @@ const VALUES = [
 
 const TEAM = [
   {
-    name: "Mr. Dilip Katariya",
-    role: "Co-Founder & Creative Director",
-    experience: "16+ Years",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-    bio: "A creative entrepreneur with 16+ years of mastery in branding, design, and visual communication, including contribution to the Hollywood feature film 'The Time is... Now!'.",
-  },
-  {
-    name: "Mr. Khaalid Naik",
+    name: "Khaalid Naik",
     role: "Co-Founder & Executive Director",
-    experience: "10+ Years",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
-    bio: "A multidisciplinary entrepreneur with 10+ years across live events, media production, filmmaking and marketing for businesses, institutions and state governments.",
+    experience: "Leadership",
+    image: "/images/team/khaalid-naik.png",
+    bio: "A multidisciplinary entrepreneur across live events, media production, filmmaking and marketing for businesses, institutions and governments.",
   },
   {
-    name: "Experience Designer",
-    role: "Events & spatial journeys",
-    experience: "8+ Years",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-    bio: "Designs visitor flow, staging and brand moments for conferences, exhibitions and cultural spaces.",
+    name: "Dilip Katariya",
+    role: "Co-Founder & Creative Director",
+    experience: "Leadership",
+    image: "/images/team/dilip-katariya.png",
+    bio: "Leads branding, design and visual communication — including contribution to the Hollywood feature film 'The Time is... Now!'.",
   },
   {
-    name: "Film Director",
-    role: "Creative production",
-    experience: "9+ Years",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-    bio: "Leads campaign films, commercials and documentary-style stories from treatment through to the final grade.",
+    name: "Imran Haider",
+    role: "Production Designer",
+    experience: "Experience Design",
+    image: "/images/team/imran-haider.png",
+    bio: "Shapes stage, spatial and production design so live experiences feel intentional and on-brand.",
   },
   {
-    name: "Brand Strategist",
-    role: "Brand & marketing",
-    experience: "7+ Years",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
-    bio: "Shapes positioning, messaging and packaging so every experience speaks with one clear brand voice.",
+    name: "Ashima Kumar",
+    role: "Brand Marketing Manager",
+    experience: "Brand Marketing",
+    image: "/images/team/ashima-kumar.png",
+    bio: "Builds brand presence, campaigns and audience engagement across digital and social channels.",
   },
   {
-    name: "Digital Lead",
-    role: "Digital experiences",
-    experience: "8+ Years",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
-    bio: "Builds websites, interactive installs and campaign platforms that extend live work into digital.",
+    name: "Umar Bin Ahad",
+    role: "Cinematographer",
+    experience: "Creative Production",
+    image: "/images/team/umar-bin-ahad.png",
+    bio: "Captures films, events and brand stories with cinema-grade cinematography.",
   },
   {
-    name: "Event Producer",
-    role: "Experience design",
-    experience: "10+ Years",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-    bio: "Runs on-ground logistics, vendor crews and show-calling so complex briefs land on time.",
+    name: "Ruchika Khatri",
+    role: "Graphic and UI Designer",
+    experience: "Design",
+    image: "/images/team/ruchika-khatri.png",
+    bio: "Designs brand systems, graphic identities and digital interfaces that stay consistent across touchpoints.",
   },
   {
-    name: "Motion Designer",
-    role: "Creative production",
-    experience: "6+ Years",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
-    bio: "Crafts titles, explainers and social cutdowns that carry cinema-grade motion into every channel.",
+    name: "Shoaib Zaidi",
+    role: "Content Writer",
+    experience: "Content",
+    image: "/images/team/shoaib-zaidi.png",
+    bio: "Writes narratives, scripts and campaign copy that carry the brief from strategy to screen.",
+  },
+  {
+    name: "Anand Mohan Gupta",
+    role: "Video Editor",
+    experience: "Post-Production",
+    image: "/images/team/anand-mohan-gupta.png",
+    bio: "Edits films, event films and digital cutdowns into polished, platform-ready stories.",
+  },
+  {
+    name: "Hilal Bhat",
+    role: "Photographer",
+    experience: "Photography",
+    image: "/images/team/hilal-bhat.png",
+    bio: "Documents events, people and places with photography built for campaigns and archives.",
+  },
+  {
+    name: "Rohan Sonker",
+    role: "Creative Designer",
+    experience: "Design",
+    image: "/images/team/rohan-sonker.png",
+    bio: "Creates campaign visuals, collateral and brand applications for live and digital work.",
+  },
+  {
+    name: "Jitendra Singh",
+    role: "Drone Pilot",
+    experience: "Aerial",
+    image: "/images/team/jitendra-singh.png",
+    bio: "Captures aerial photography and videography that add scale to events, venues and heritage sites.",
   },
 ];
 
@@ -89,7 +109,7 @@ export default function AboutClient() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-white/[0.06] px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Our story, mission and team
+            Who we are
           </motion.p>
           <motion.h1
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -105,8 +125,7 @@ export default function AboutClient() {
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.1 }}
             className="page-heading-lead mx-auto mt-8 font-sans text-base leading-relaxed text-agency-white/65"
           >
-            How Creative Whoppers grew from a creative studio into a full-service agency
-            delivering experience design, production and marketing under one roof.
+            We believe great experiences don&apos;t just happen. They&apos;re designed.
           </motion.p>
         </div>
       </section>
@@ -122,16 +141,16 @@ export default function AboutClient() {
           />
         </div>
         <div className="lg:col-span-6">
-          <h2 className="section-heading mb-5 text-agency-white">Our story</h2>
+          <h2 className="section-heading mb-5 text-agency-white">Who we are</h2>
           <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-            We design experiences that people remember. For over a decade we have partnered with
-            brands, government organisations, educational institutions and cultural organisations
-            to turn ideas into events, films, digital platforms and campaigns.
+            We believe great experiences don&apos;t just happen. They&apos;re designed. Every
+            memorable experience starts with an idea, but it takes strategy, creativity, technology
+            and flawless execution to bring that idea to life. That&apos;s where we come in.
           </p>
           <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-            Great experiences don&apos;t just happen — they&apos;re designed. Strategy, creativity,
-            technology and execution sit together so briefs survive from first conversation to
-            final delivery.
+            From a stage and a screen to an interactive space, we bring together creative thinking
+            and execution under one roof to create experiences that connect with people, communicate
+            ideas and create lasting impact.
           </p>
         </div>
       </section>
@@ -146,16 +165,14 @@ export default function AboutClient() {
               <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our mission</h3>
               <p className="font-sans text-sm leading-relaxed text-agency-white/70">
                 To design, create and amplify meaningful experiences that connect people, communicate
-                ideas and create lasting impact — from physical spaces and live events to multimedia,
-                digital experiences and marketing.
+                ideas and create lasting impact.
               </p>
             </div>
             <div className="rounded-2xl border border-agency-border p-8">
               <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our vision</h3>
               <p className="font-sans text-sm leading-relaxed text-agency-white/70">
                 To become a leading creative experience company, shaping how organisations connect
-                with people through ideas, stories, technology and experiences that are not only
-                memorable, but meaningful.
+                with people through ideas, stories, technology and experiences.
               </p>
             </div>
           </div>
@@ -173,8 +190,8 @@ export default function AboutClient() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
         <h2 className="section-heading mb-5 text-agency-white">Our approach</h2>
         <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
-          A four-stage approach — Discover, Design, Deliver, Sustain — that takes every project
-          from strategy through to long-term growth.
+          Discover → Design → Deliver → Amplify. Understand before we create, turn ideas into
+          experiences, create with precision, and make the experience go further.
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {PROCESS_STAGES.map((stage) => (
@@ -192,30 +209,7 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="border-y border-agency-border px-6 py-24 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading mb-6 text-agency-white">
-            What sets us apart
-          </h2>
-          <p className="mb-8 max-w-2xl text-sm text-agency-white/60">
-            An end-to-end creative agency spanning experience design, production, digital and
-            marketing — trusted by corporate, government, NGO and institutional clients.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {CLIENT_SECTORS.map((sector) => (
-              <span
-                key={sector}
-                className="inline-flex items-center gap-2 rounded-full border border-agency-border px-4 py-2 font-mono text-xs uppercase text-agency-white/70"
-              >
-                <CheckCircle2 className="h-3.5 w-3.5 text-agency-yellow" />
-                {sector}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="overflow-hidden py-24">
+      <section className="overflow-hidden border-t border-agency-border py-24">
         <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
           <h2 className="section-heading text-agency-white">
             Meet the team

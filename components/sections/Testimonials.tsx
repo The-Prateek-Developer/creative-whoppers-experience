@@ -7,16 +7,23 @@ import { CLIENT_SECTORS } from "@/lib/services-tree";
 const ENDORSEMENTS = [
   {
     quote:
-      "Creative Whoppers produced a campaign film and on-ground programme that reached the right audiences without losing the seriousness of the brief.",
-    author: "Communications lead",
-    role: "Diplomatic & sustainability programme",
+      "Delivered outstanding multimedia coverage for the Cycling4Life event in New Delhi. From capturing powerful visuals of over 500 cyclists to producing high-quality content that reflected our message of a greener future, their work was seamless, creative, and impactful. A valuable partner in bringing our vision to life.",
+    author: "Hema Singh Rance",
+    role: "Marketing & Communications Expert (Team Lead), European Union Policy & Outreach Partnerships (EUPOP)",
     featured: true,
   },
   {
     quote:
-      "From stage design to live uplink, the team treated a government-scale event with the craft of a brand film — and the discipline of protocol.",
-    author: "Event director",
-    role: "Institutional summit, New Delhi",
+      "Selecting Creative Whoppers for our Erasmus event in 2023 was a fantastic choice. They managed everything with ease and creativity, leaving our guests impressed. Thank you, Creative Whoppers for putting together a memorable and smooth process that went beyond what we expected!",
+    author: "Sanjeev Roy",
+    role: "Expert in Higher Education Policy, International Partnership & Outreach — EU, UK & India",
+    featured: false,
+  },
+  {
+    quote:
+      "Working with Creative Whoppers on the Chambal Literary Festival was a great experience. Their professionalism and attention to detail made the entire event run smoothly from start to finish. Truly appreciate their effort and expertise!",
+    author: "Dr. Shah Alam Rana",
+    role: "Founder, Chambal Foundation & Chambal Museum",
     featured: false,
   },
 ];
@@ -25,7 +32,7 @@ export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   useSectionReveal(sectionRef);
   const featured = ENDORSEMENTS[0];
-  const secondary = ENDORSEMENTS[1];
+  const secondary = ENDORSEMENTS.slice(1);
 
   return (
     <section
@@ -98,19 +105,26 @@ export default function Testimonials() {
           </div>
         </blockquote>
 
-        <blockquote className="flex flex-col justify-between rounded-2xl border border-agency-border border-l-agency-yellow bg-agency-black p-7 lg:col-span-5 lg:p-8">
-          <p className="font-sans text-sm leading-relaxed text-agency-white/80 sm:text-base">
-            {secondary.quote}
-          </p>
-          <footer className="mt-8">
-            <cite className="not-italic font-display text-sm font-semibold text-agency-white">
-              {secondary.author}
-            </cite>
-            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-agency-yellow">
-              {secondary.role}
-            </p>
-          </footer>
-        </blockquote>
+        <div className="flex flex-col gap-4 lg:col-span-5">
+          {secondary.map((item) => (
+            <blockquote
+              key={item.author}
+              className="flex flex-1 flex-col justify-between rounded-2xl border border-agency-border border-l-agency-yellow bg-agency-black p-7 lg:p-8"
+            >
+              <p className="font-sans text-sm leading-relaxed text-agency-white/80 sm:text-base">
+                {item.quote}
+              </p>
+              <footer className="mt-8">
+                <cite className="not-italic font-display text-sm font-semibold text-agency-white">
+                  {item.author}
+                </cite>
+                <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-agency-yellow">
+                  {item.role}
+                </p>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
       </div>
     </section>
   );

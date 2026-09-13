@@ -20,7 +20,7 @@ export default function ExpertisePillars() {
           data-reveal-item
           className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow"
         >
-          Our expertise
+          Creative expertise
         </p>
         <h2
           data-reveal-item
@@ -29,9 +29,8 @@ export default function ExpertisePillars() {
           Four capability pillars
         </h2>
         <p data-reveal-item className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          Four integrated capability pillars — Experience Design, Creative Production, Digital
-          Experiences and Brand & Marketing — give clients a single creative agency for every
-          stage of the journey.
+          Four ways we create memorable experiences — Experience Design, Creative Production,
+          Digital Experiences and Brand Marketing.
         </p>
       </div>
 

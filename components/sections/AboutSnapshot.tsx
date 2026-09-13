@@ -20,8 +20,8 @@ export default function AboutSnapshot() {
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-agency-border lg:col-span-5">
           <FadeImage
-            src="/images/site/studio-collab.jpg"
-            alt="Creative team collaborating in a video editing studio"
+            src="/images/site/who-we-are.png"
+            alt="Looking ahead — Creative Whoppers experience design"
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
             className="object-cover"
@@ -39,14 +39,14 @@ export default function AboutSnapshot() {
             data-reveal-item
             className="section-heading mb-5 text-agency-white"
           >
-            A trusted creative agency partner
+            We design experiences that people remember
           </h2>
           <p
             data-reveal-item
             className="max-w-xl font-sans text-sm leading-relaxed text-agency-white/65"
           >
-            Creative Whoppers blends strategy, design and production to bring ideas to life
-            across every touchpoint — for corporate, government and institutional clients.
+            Every memorable experience starts with an idea, but it takes strategy, creativity,
+            technology and flawless execution to bring that idea to life.
           </p>
 
           <div

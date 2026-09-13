@@ -27,8 +27,9 @@ export default function WhyWhoppers() {
           Preferred for a reason
         </h2>
         <p data-reveal-item className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          What makes Creative Whoppers a preferred creative and event management agency — an
-          integrated team, proven process and a track record of memorable experiences.
+          With 16+ years of experience, an integrated in-house team, and a track record of
+          memorable experiences across corporate, government, and institutional stages, Creative
+          Whoppers is built to deliver, not just conceptualise.
         </p>
       </div>
 

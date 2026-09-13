@@ -24,18 +24,22 @@ interface PortfolioCardProps {
   compact?: boolean;
 }
 
-export default function PortfolioCard({
-  project,
-  index,
-  ready,
-  className,
-  imageAspect = "aspect-[4/3]",
-  compact = false,
-}: PortfolioCardProps) {
+const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
+  function PortfolioCard(
+    {
+      project,
+      index,
+      ready,
+      className,
+      imageAspect = "aspect-[4/3]",
+      compact = false,
+    },
+    ref
+  ) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <Link href={`/portfolio/${project.id}`} className={cn("block h-full", className)}>
+    <Link ref={ref} href={`/portfolio/${project.id}`} className={cn("block h-full", className)}>
       <motion.article
         layout={reduceMotion ? false : "position"}
         initial={{ opacity: 0, y: 28, scale: 0.97 }}
@@ -106,4 +110,7 @@ export default function PortfolioCard({
       </motion.article>
     </Link>
   );
-}
+  }
+);
+
+export default PortfolioCard;

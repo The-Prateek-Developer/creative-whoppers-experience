@@ -87,8 +87,6 @@ function AutoRow({
 
 export default function ClientLogos() {
   const reduceMotion = useReducedMotion();
-  const rowA = CLIENTS.filter((_, index) => index % 2 === 0);
-  const rowB = CLIENTS.filter((_, index) => index % 2 === 1);
 
   return (
     <section
@@ -124,9 +122,8 @@ export default function ClientLogos() {
           ))}
         </div>
       ) : (
-        <div aria-hidden className="relative space-y-4 overflow-hidden">
-          <AutoRow items={rowA} speed={0.85} />
-          <AutoRow items={rowB} speed={1.15} offset={0.35} />
+        <div aria-hidden className="relative overflow-hidden">
+          <AutoRow items={CLIENTS} speed={0.9} />
         </div>
       )}
     </section>

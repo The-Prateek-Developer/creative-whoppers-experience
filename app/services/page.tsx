@@ -44,9 +44,9 @@ export default function ServicesPage() {
           Our Services
         </h1>
         <p className="page-heading-lead font-sans text-base leading-relaxed text-agency-white/65">
-          Creative Whoppers offers four integrated service pillars — Experience Design, Creative
-          Production, Digital Experiences and Brand & Marketing — covering everything a brand
-          needs to plan, produce and promote memorable experiences.
+          Four ways we create memorable experiences — Experience Design, Creative Production,
+          Digital Experiences and Brand Marketing — covering everything an organisation needs
+          to plan, produce and amplify work that lasts.
         </p>
       </section>
 
@@ -87,7 +87,7 @@ export default function ServicesPage() {
 
       <section className="mx-auto max-w-7xl px-6 lg:px-12">
         <h2 className="section-heading mb-8 text-agency-white">
-          Flagship services
+          Creative excellence
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {FLAGSHIPS.map((service) => (

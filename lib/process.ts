@@ -5,7 +5,7 @@ export const PROCESS_STAGES = [
     title: "Discover",
     subtitle: "Research & Strategy",
     description:
-      "We start by understanding the brief, audience and context — research, stakeholder alignment and a clear strategic direction before a single asset is made.",
+      "Understanding the brief, audience, and context. Stakeholder alignment and a clear strategic direction, established before a single asset is made.",
   },
   {
     id: "design",
@@ -13,7 +13,7 @@ export const PROCESS_STAGES = [
     title: "Design",
     subtitle: "Creative & Experience Development",
     description:
-      "Concepts, narratives, spatial plans and visual systems are developed so every touchpoint feels intentional, on-brand and ready to produce.",
+      "Concepts, narratives, spatial plans, and visual systems developed so every touchpoint — stage, branding, F&B, digital — feels intentional and on-brand.",
   },
   {
     id: "deliver",
@@ -21,15 +21,15 @@ export const PROCESS_STAGES = [
     title: "Deliver",
     subtitle: "Production & Execution",
     description:
-      "Film crews, event teams, digital builders and marketers execute under one roof — from stage and screen to campaign launch.",
+      "Event teams, technical crews, hospitality, and digital builders execute under one roof, from venue branding and live production to on-ground show management and closure.",
   },
   {
-    id: "sustain",
+    id: "amplify",
     number: "04",
-    title: "Sustain",
-    subtitle: "Marketing, Growth & Support",
+    title: "Amplify",
+    subtitle: "Make the Experience Go Further",
     description:
-      "After go-live we keep the work working: content, performance, maintenance and long-term brand support.",
+      "We extend the impact through content, digital experiences, marketing and communication, helping the experience reach more people and stay relevant longer.",
   },
 ] as const;
 
@@ -37,18 +37,18 @@ export const HOME_PROCESS = PROCESS_STAGES.slice(0, 3);
 
 export const DIFFERENTIATORS = [
   {
-    title: "End-to-end under one roof",
+    title: "End-to-end, under one roof",
     description:
-      "Experience design, creative production, digital and marketing sit in one team — fewer handoffs, tighter craft.",
+      "Experience design, creative production, and digital and brand marketing sit within a single team. Event strategy, F&B, branding, technical production, and hospitality are all handled in-house, without external handoffs or coordination gaps.",
   },
   {
-    title: "Corporate, government and institutional",
+    title: "Corporate, government & institutional",
     description:
-      "Protocol-ready events and campaigns for ministries, missions, NGOs and brands — not just consumer launches.",
+      "From Sberbank India and EU policy and outreach partnerships to Jamia Millia Islamia and the Chambal Museum, we deliver protocol-ready events for embassies, ministries, NGOs, and brands, not just consumer launches.",
   },
   {
-    title: "Proven process",
+    title: "Proven at scale",
     description:
-      "Discover → Design → Deliver (and Sustain) keeps briefs measurable from strategy through to on-ground and on-screen delivery.",
+      "75+ projects delivered, 20+ organisations served, across 47+ cities and locations, from intimate 100-guest corporate evenings to public festivals with 5,000+ attendees.",
   },
 ] as const;

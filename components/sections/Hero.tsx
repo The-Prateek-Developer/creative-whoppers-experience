@@ -43,7 +43,7 @@ export default function Hero() {
               variants={fadeInUp}
               className="mb-5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
             >
-              Full-service creative agency
+              We are
             </motion.p>
 
             <motion.h1
@@ -68,8 +68,9 @@ export default function Hero() {
               variants={fadeInUp}
               className="mt-6 max-w-xl font-sans text-base leading-relaxed text-agency-white/75 sm:text-lg"
             >
-              Events, exhibitions, films, digital platforms and marketing campaigns — designed and
-              delivered under one roof for brands, institutions and governments.
+              We&apos;re a Creative Experience Company helping organisations design, produce and
+              amplify memorable experiences through events, multimedia production, digital
+              experiences and strategic marketing.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
