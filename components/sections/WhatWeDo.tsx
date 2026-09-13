@@ -5,7 +5,7 @@ import { gsap, gsapEase, prefersReducedMotion, refreshScrollTrigger } from "@/li
 
 const LINES = [
   { text: "We architect experiences" },
-  { text: "that stop culture mid-scroll —" },
+  { text: "that stop culture mid-scroll" },
   { text: "across space, film, and the physical world." },
 ];
 

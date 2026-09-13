@@ -30,7 +30,7 @@ export default function ExpertisePillars() {
           Four capability pillars
         </h2>
         <p data-reveal-item className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          Four ways we create memorable experiences — Experience Design, Creative Production,
+          Four ways we create memorable experiences: Experience Design, Creative Production,
           Digital Experiences and Brand Marketing.
         </p>
       </div>

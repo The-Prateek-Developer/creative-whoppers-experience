@@ -24,7 +24,7 @@ import {
   menuScrimVariants,
   underlineTransition,
 } from "@/lib/animations";
-import { NAP, NAV_LINKS, WHATSAPP_LINK } from "@/lib/site";
+import { CONTACT_HREF, NAP, NAV_LINKS } from "@/lib/site";
 import SocialIcon from "@/components/icons/SocialIcon";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import BrandLogo from "@/components/brand/BrandLogo";
@@ -164,7 +164,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 sm:gap-4">
             <ThemeToggle />
             <MotionLink
-              {...WHATSAPP_LINK}
+              href={CONTACT_HREF}
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-agency-yellow px-6 py-3 text-xs font-semibold uppercase tracking-wider text-agency-ink transition-colors duration-300 hover:bg-agency-yellow"
               initial="rest"
               animate="rest"
@@ -307,7 +307,7 @@ export default function Navbar() {
 
                 <motion.div variants={menuItemVariants} className="mt-6">
                   <MotionLink
-                    {...WHATSAPP_LINK}
+                    href={CONTACT_HREF}
                     onClick={() => setMobileMenuOpen(false)}
                     className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-agency-yellow text-agency-ink font-display font-bold text-sm tracking-wider uppercase"
                     whileHover={reduceMotion ? undefined : ctaHover}
@@ -327,12 +327,13 @@ export default function Navbar() {
               >
                 <div>
                   <span className="mb-2 block text-agency-white/55">Inquiries</span>
-                  <a
-                    href={`mailto:${NAP.emails[0]}`}
+                  <Link
+                    href={CONTACT_HREF}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="text-agency-white hover:text-agency-yellow transition-colors font-mono"
                   >
                     {NAP.emails[0]}
-                  </a>
+                  </Link>
                 </div>
 
                 <div>

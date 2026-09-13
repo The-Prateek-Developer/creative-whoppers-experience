@@ -15,7 +15,7 @@ import {
 } from "@/lib/animations";
 import HeroVideo from "@/components/media/HeroVideo";
 import { PILLARS } from "@/lib/services-tree";
-import { WHATSAPP_LINK } from "@/lib/site";
+import { CONTACT_HREF } from "@/lib/site";
 
 const MotionLink = motion.create(Link);
 
@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="lg:col-span-7">
             <motion.h1
               variants={fadeInUp}
-              className="hero-headline font-display font-light text-agency-white"
+              className="hero-headline font-display font-light text-agency-white [hyphens:none]"
             >
               <span className="block">
                 <span className="font-bold">Enhance</span> the
@@ -56,7 +56,7 @@ export default function Hero() {
 
             <motion.p
               variants={fadeInUp}
-              className="mt-6 max-w-xl font-sans text-base leading-relaxed text-agency-white/75 sm:text-lg"
+              className="mt-6 max-w-xl font-sans text-base leading-relaxed text-agency-white/75 [hyphens:none] sm:text-lg"
             >
               We&apos;re a Creative Experience Company helping organisations design, produce and
               amplify memorable experiences through events, multimedia production, digital
@@ -65,7 +65,7 @@ export default function Hero() {
 
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
               <MotionLink
-                {...WHATSAPP_LINK}
+                href={CONTACT_HREF}
                 className="inline-flex items-center gap-3 rounded-full bg-agency-yellow px-8 py-4 font-display text-sm font-bold uppercase tracking-wider text-agency-ink"
                 initial="rest"
                 whileHover={reduceMotion ? undefined : "hover"}
@@ -76,12 +76,12 @@ export default function Hero() {
                 Let&apos;s Create Together
                 <ArrowUpRight className="h-4 w-4" />
               </MotionLink>
-              <a
-                {...WHATSAPP_LINK}
+              <Link
+                href={CONTACT_HREF}
                 className="inline-flex items-center gap-2 rounded-full border border-agency-border px-7 py-4 text-sm font-medium text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
               >
                 Start a Project
-              </a>
+              </Link>
             </motion.div>
           </div>
 

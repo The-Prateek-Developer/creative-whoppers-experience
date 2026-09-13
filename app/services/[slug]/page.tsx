@@ -4,10 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeImage from "@/components/media/FadeImage";
 import JsonLd from "@/components/seo/JsonLd";
+import ServiceImagePayout from "@/components/sections/ServiceImagePayout";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { getServicePage, SERVICE_PAGES } from "@/lib/services-tree";
+import { getServiceItemDetail, itemSlugForName } from "@/lib/service-item-pages";
 import { SITE_OG_IMAGE } from "@/lib/site";
-import { altCardBg } from "@/lib/utils";
+import { altCardBg } from "@/lib/card-styles";
+import { ArrowUpRight } from "lucide-react";
 
 type Props = { params: { slug: string } };
 
@@ -66,12 +69,12 @@ export default function ServiceDetailPage({ params }: Props) {
         <p className="page-heading-lead mb-10 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
           {page.intro}
         </p>
-        <div className="relative mb-16 aspect-[21/9] overflow-hidden rounded-3xl border border-agency-border">
+        <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-3xl border border-agency-border">
           <FadeImage
             src={page.image}
             alt={page.imageAlt}
             fill
-            sizes="100vw"
+            sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover"
             priority
           />
@@ -82,21 +85,59 @@ export default function ServiceDetailPage({ params }: Props) {
         <section className="relative z-10 mx-auto max-w-7xl space-y-16 px-6 lg:px-12">
           {page.groups.map((group) => (
             <div key={group.title}>
-              <h2 className="mb-8 border-b border-agency-border pb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
-                {group.title}
-              </h2>
+              <div className="mb-8 border-b border-agency-border pb-4">
+                <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-agency-yellow sm:text-3xl">
+                  {group.title}
+                </h2>
+                {group.subtitle ? (
+                  <p className="mt-2 font-display text-lg font-semibold uppercase tracking-tight text-agency-white/80 sm:text-xl">
+                    {group.subtitle}
+                  </p>
+                ) : null}
+              </div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {group.items.map((item, index) => (
-                  <article
-                    key={item.name}
-                    className={`rounded-2xl border border-agency-border p-6 ${altCardBg(index)}`}
-                  >
-                    <h3 className="mb-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
-                      {item.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>
-                  </article>
-                ))}
+                {group.items.map((item, index) => {
+                  const itemSlug = itemSlugForName(item.name);
+                  const detail = itemSlug
+                    ? getServiceItemDetail(page.slug, itemSlug)
+                    : null;
+                  const href = itemSlug ? `/services/${page.slug}/${itemSlug}` : null;
+                  const shots = detail?.images ?? [];
+                  const cardClass = `overflow-hidden rounded-2xl border border-agency-border transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`;
+
+                  const body = (
+                    <>
+                      {shots.length > 0 ? (
+                        <ServiceImagePayout images={shots} alt={item.name} variant="card" />
+                      ) : null}
+                      <div className="p-6">
+                        <h3 className="mb-2 font-display text-2xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
+                          {item.name}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>
+                        {href ? (
+                          <span className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow">
+                            View service <ArrowUpRight className="h-3.5 w-3.5" />
+                          </span>
+                        ) : null}
+                      </div>
+                    </>
+                  );
+
+                  if (href) {
+                    return (
+                      <Link key={item.name} href={href} className={`group block ${cardClass}`}>
+                        {body}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <article key={item.name} className={`group ${cardClass}`}>
+                      {body}
+                    </article>
+                  );
+                })}
               </div>
             </div>
           ))}

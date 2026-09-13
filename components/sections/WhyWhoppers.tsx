@@ -48,11 +48,7 @@ export default function WhyWhoppers() {
         ))}
       </div>
 
-      <h2 className="section-heading mb-5 text-agency-white">Our approach</h2>
-      <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
-        Discover → Design → Deliver → Amplify. Understand before we create, turn ideas into
-        experiences, create with precision, and make the experience go further.
-      </p>
+      <h2 className="section-heading mb-12 text-agency-yellow">Our approach</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {PROCESS_STAGES.map((stage, index) => (
           <div
@@ -60,10 +56,10 @@ export default function WhyWhoppers() {
             className={`rounded-2xl border border-agency-border p-8 ${altCardBg(index)}`}
           >
             <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
-            <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
+            <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-yellow">
               {stage.title}
             </h3>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-agency-white/50">
+            <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-yellow">
               {stage.subtitle}
             </p>
             <p className="mt-4 text-sm leading-relaxed text-agency-white/60">{stage.description}</p>

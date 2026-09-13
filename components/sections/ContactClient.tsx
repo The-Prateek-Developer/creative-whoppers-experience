@@ -13,6 +13,7 @@ import {
   Clock,
   Mail,
   MapPin,
+  MessageSquare,
   Phone,
   Send,
 } from "lucide-react";
@@ -25,7 +26,7 @@ import {
 } from "@/lib/animations";
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
 import { SITE_IMAGES } from "@/lib/site-images";
-import { NAP, WHATSAPP_URL } from "@/lib/site";
+import { NAP } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const SERVICE_OPTIONS = [
@@ -62,14 +63,6 @@ const FIELD_LABELS: Record<FieldKey, string> = {
   service: "Service interested in",
   message: "Project brief",
 };
-
-function WhatsAppIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
-      <path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18 1.76.76 2.45.82 3.33.69.51-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32zM12.04 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97 1-3.62-.23-.37a9.8 9.8 0 0 1-1.5-5.23 9.82 9.82 0 0 1 9.81-9.8 9.76 9.76 0 0 1 6.94 2.88 9.78 9.78 0 0 1 2.87 6.93 9.82 9.82 0 0 1-9.82 9.82zm8.36-18.16A11.73 11.73 0 0 0 12.03 0C5.45 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.19-1.24-6.18-3.57-8.43z" />
-    </svg>
-  );
-}
 
 function validate(form: FormFields): Partial<Record<FieldKey, string>> {
   const errors: Partial<Record<FieldKey, string>> = {};
@@ -165,19 +158,13 @@ export default function ContactClient() {
     }, 280);
   };
 
-  const whatsappHref = `${WHATSAPP_URL}?text=${encodeURIComponent(
-    form.name || form.message
-      ? briefText({ ...form, service: form.service || "General enquiry" })
-      : "Hello Creative Whoppers — I’d like to start a project brief."
-  )}`;
-
   const channels = [
     {
-      href: whatsappHref,
-      external: true,
-      label: "WhatsApp",
-      value: "Chat with a producer",
-      icon: WhatsAppIcon,
+      href: "#share-the-brief",
+      external: false,
+      label: "Get in touch",
+      value: "Tell us about your project",
+      icon: MessageSquare,
     },
     {
       href: `tel:${NAP.phoneTel[1]}`,
@@ -196,7 +183,7 @@ export default function ContactClient() {
     {
       href: NAP.mapLink,
       external: true,
-      label: "Studio",
+      label: "Location",
       value: `${NAP.addressLocality}`,
       icon: MapPin,
     },
@@ -242,7 +229,7 @@ export default function ContactClient() {
             transition={{ duration: 0.58, ease: easings.outPremium, delay: 0.1 }}
             className="page-heading-lead mx-auto mt-8 font-sans text-base leading-relaxed text-agency-white/80 sm:text-lg"
           >
-            Events, film, digital and brand work — tell us what you need and a producer
+            Events, film, digital and brand work. Tell us what you need and a producer
             will reply within one business day.
           </motion.p>
         </div>
@@ -260,29 +247,39 @@ export default function ContactClient() {
                   ? { target: "_blank" as const, rel: "noopener noreferrer" }
                   : {})}
                 className={cn(
-                  "group flex min-h-[5.5rem] cursor-pointer items-center gap-4 rounded-2xl border border-agency-white/20 p-4 shadow-[0_8px_30px_rgba(0,0,0,0.45)] transition-colors hover:border-agency-yellow/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black",
+                  "group flex min-h-[5.5rem] cursor-pointer items-center gap-3 overflow-hidden rounded-2xl border border-agency-white/20 p-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.45)] transition-colors hover:border-agency-yellow/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black sm:p-4",
                   index % 2 === 0 ? "bg-[#1c1c1c]" : "bg-[#111111]"
                 )}
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-agency-yellow/30 bg-agency-yellow/10 text-agency-yellow">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-agency-yellow/30 bg-agency-yellow/10 text-agency-yellow sm:h-12 sm:w-12">
                   <Icon className="h-5 w-5" />
                 </span>
-                <span className="min-w-0">
-                  <span className="block font-mono text-[10px] uppercase tracking-editorial-wide text-agency-white/50">
+                <span className="min-w-0 flex-1">
+                  <span className="block font-mono text-[10px] uppercase tracking-wider text-agency-white/50">
                     {channel.label}
                   </span>
-                  <span className="mt-0.5 block truncate font-sans text-sm font-medium text-agency-white group-hover:text-agency-yellow">
+                  <span
+                    className={cn(
+                      "mt-0.5 block font-medium leading-snug text-agency-white group-hover:text-agency-yellow",
+                      channel.value.includes("@")
+                        ? "break-all font-mono text-[11px] sm:text-xs"
+                        : "font-sans text-sm"
+                    )}
+                  >
                     {channel.value}
                   </span>
                 </span>
-                <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-agency-white/30 transition-colors group-hover:text-agency-yellow" aria-hidden />
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-agency-white/30 transition-colors group-hover:text-agency-yellow" aria-hidden />
               </a>
             );
           })}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-12 lg:pb-10 lg:pt-24">
+      <section
+        id="share-the-brief"
+        className="mx-auto max-w-7xl scroll-mt-28 px-6 pb-8 pt-16 lg:px-12 lg:pb-10 lg:pt-24"
+      >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
@@ -293,7 +290,6 @@ export default function ContactClient() {
             </h2>
             <p className="mb-8 max-w-xl text-sm leading-relaxed text-agency-white/65">
               Send the form and we&apos;ll open your email with the details filled in.
-              Prefer chat? Use WhatsApp from the cards above.
             </p>
 
             <AnimatePresence mode="wait">
@@ -318,17 +314,15 @@ export default function ContactClient() {
                       className="text-agency-yellow underline-offset-2 hover:underline"
                     >
                       {NAP.emails[0]}
-                    </a>{" "}
-                    or continue on WhatsApp.
+                    </a>
+                    .
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={whatsappHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`mailto:${NAP.emails[0]}`}
                       className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-agency-yellow px-6 py-3 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
                     >
-                      Continue on WhatsApp
+                      Get in touch
                       <ArrowUpRight className="h-4 w-4" aria-hidden />
                     </a>
                     <button
@@ -502,7 +496,7 @@ export default function ContactClient() {
                       onChange={(event) => update("message", event.target.value)}
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? "contact-message-error" : undefined}
-                      placeholder="Dates, venue, audience, deliverables — whatever you already know."
+                      placeholder="Dates, venue, audience, deliverables, whatever you already know."
                       className={cn(inputClass(Boolean(errors.message)), "resize-y")}
                     />
                   </Field>
@@ -523,13 +517,11 @@ export default function ContactClient() {
                       <Send className="h-4 w-4" aria-hidden />
                     </motion.button>
                     <a
-                      href={whatsappHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`mailto:${NAP.emails[0]}`}
                       className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full border border-agency-border px-6 py-3.5 font-mono text-xs uppercase tracking-wider text-agency-white hover:border-agency-yellow hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
                     >
-                      <WhatsAppIcon className="h-4 w-4" />
-                      WhatsApp instead
+                      <Mail className="h-4 w-4" />
+                      Get in touch
                     </a>
                   </div>
                 </motion.form>
@@ -550,7 +542,7 @@ export default function ContactClient() {
               </div>
               <div className="space-y-5 p-6 sm:p-8">
                 <h2 className="font-display text-xl font-semibold uppercase text-agency-white">
-                  Studio details
+                  Location
                 </h2>
                 <p className="flex gap-3 text-sm leading-relaxed text-agency-white/80">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />

@@ -3,31 +3,31 @@ export const PROCESS_STAGES = [
     id: "discover",
     number: "01",
     title: "Discover",
-    subtitle: "Research & Strategy",
+    subtitle: "Understand Before We Create.",
     description:
-      "Understanding the brief, audience, and context. Stakeholder alignment and a clear strategic direction, established before a single asset is made.",
+      "We begin by understanding the organisation, its objectives, audience, challenges and vision. This gives every idea a clear purpose.",
   },
   {
     id: "design",
     number: "02",
     title: "Design",
-    subtitle: "Creative & Experience Development",
+    subtitle: "Turn Ideas Into Experiences.",
     description:
-      "Concepts, narratives, spatial plans, and visual systems developed so every touchpoint — stage, branding, F&B, digital — feels intentional and on-brand.",
+      "We develop the creative direction, concepts and strategy, bringing together storytelling, design, technology and communication to shape the right experience.",
   },
   {
     id: "deliver",
     number: "03",
     title: "Deliver",
-    subtitle: "Production & Execution",
+    subtitle: "Create With Precision.",
     description:
-      "Event teams, technical crews, hospitality, and digital builders execute under one roof, from venue branding and live production to on-ground show management and closure.",
+      "From production and execution to technology and on-ground management, we bring the idea to life with attention to every detail.",
   },
   {
     id: "amplify",
     number: "04",
     title: "Amplify",
-    subtitle: "Make the Experience Go Further",
+    subtitle: "Make the Experience Go Further.",
     description:
       "We extend the impact through content, digital experiences, marketing and communication, helping the experience reach more people and stay relevant longer.",
   },

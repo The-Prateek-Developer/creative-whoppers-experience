@@ -129,7 +129,7 @@ export default function ClientLogos({
             Trusted by teams who need it done
           </h2>
           <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
-            Government, defence, culture, education and brands — partners across the briefs we
+            Government, defence, culture, education and brands, partners across the briefs we
             produce.
           </p>
         </div>

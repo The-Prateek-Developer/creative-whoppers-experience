@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
-import { altCardBg } from "@/lib/utils";
+import { altCardBg } from "@/lib/card-styles";
 import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -49,8 +49,8 @@ export default function ServicesPage() {
           Our Services
         </h1>
         <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          Four ways we create memorable experiences — Experience Design, Creative Production,
-          Digital Experiences and Brand Marketing — covering everything an organisation needs
+          Four ways we create memorable experiences: Experience Design, Creative Production,
+          Digital Experiences and Brand Marketing, covering everything an organisation needs
           to plan, produce and amplify work that lasts.
         </p>
       </section>

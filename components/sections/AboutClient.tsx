@@ -47,77 +47,66 @@ const TEAM = [
     role: "Co-Founder & Executive Director",
     experience: "Leadership",
     image: "/images/team/khaalid-naik.png",
-    bio: "A multidisciplinary entrepreneur across live events, media production, filmmaking and marketing for businesses, institutions and governments.",
   },
   {
     name: "Dilip Katariya",
     role: "Co-Founder & Creative Director",
     experience: "Leadership",
     image: "/images/team/dilip-katariya.png",
-    bio: "Leads branding, design and visual communication — including contribution to the Hollywood feature film 'The Time is... Now!'.",
   },
   {
     name: "Imran Haider",
     role: "Production Designer",
     experience: "Experience Design",
     image: "/images/team/imran-haider.png",
-    bio: "Shapes stage, spatial and production design so live experiences feel intentional and on-brand.",
   },
   {
     name: "Ashima Kumar",
     role: "Brand Marketing Manager",
     experience: "Brand Marketing",
     image: "/images/team/ashima-kumar.png",
-    bio: "Builds brand presence, campaigns and audience engagement across digital and social channels.",
   },
   {
     name: "Umar Bin Ahad",
     role: "Cinematographer",
     experience: "Creative Production",
     image: "/images/team/umar-bin-ahad.png",
-    bio: "Captures films, events and brand stories with cinema-grade cinematography.",
   },
   {
     name: "Ruchika Khatri",
     role: "Graphic and UI Designer",
     experience: "Design",
     image: "/images/team/ruchika-khatri.png",
-    bio: "Designs brand systems, graphic identities and digital interfaces that stay consistent across touchpoints.",
   },
   {
     name: "Shoaib Zaidi",
     role: "Content Writer",
     experience: "Content",
     image: "/images/team/shoaib-zaidi.png",
-    bio: "Writes narratives, scripts and campaign copy that carry the brief from strategy to screen.",
   },
   {
     name: "Anand Mohan Gupta",
     role: "Video Editor",
     experience: "Post-Production",
     image: "/images/team/anand-mohan-gupta.png",
-    bio: "Edits films, event films and digital cutdowns into polished, platform-ready stories.",
   },
   {
     name: "Hilal Bhat",
     role: "Photographer",
     experience: "Photography",
     image: "/images/team/hilal-bhat.png",
-    bio: "Documents events, people and places with photography built for campaigns and archives.",
   },
   {
     name: "Rohan Sonker",
     role: "Creative Designer",
     experience: "Design",
     image: "/images/team/rohan-sonker.png",
-    bio: "Creates campaign visuals, collateral and brand applications for live and digital work.",
   },
   {
     name: "Jitendra Singh",
     role: "Drone Pilot",
     experience: "Aerial",
     image: "/images/team/jitendra-singh.png",
-    bio: "Captures aerial photography and videography that add scale to events, venues and heritage sites.",
   },
 ];
 
@@ -187,8 +176,8 @@ export default function AboutClient() {
           Who we are
         </h1>
         <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          We believe great experiences don&apos;t just happen. They&apos;re designed. Strategy,
-          creativity, technology and execution — under one roof.
+          Have a project in mind? Share your brief with us, and let&apos;s explore how we can bring
+          it to life.
         </p>
       </section>
 
@@ -283,11 +272,7 @@ export default function AboutClient() {
         id="our-approach"
         className="relative z-10 mx-auto mb-24 max-w-7xl scroll-mt-28 px-6 lg:px-12"
       >
-        <h2 className="section-heading mb-5 text-agency-white">Our approach</h2>
-        <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
-          Discover → Design → Deliver → Amplify. Understand before we create, turn ideas into
-          experiences, create with precision, and make the experience go further.
-        </p>
+        <h2 className="section-heading mb-12 text-agency-yellow">Our approach</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {PROCESS_STAGES.map((stage, index) => (
             <div
@@ -295,10 +280,10 @@ export default function AboutClient() {
               className={`rounded-2xl border border-agency-border p-8 ${altCardBg(index)}`}
             >
               <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
-              <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
+              <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-yellow">
                 {stage.title}
               </h3>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-agency-white/50">
+              <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-yellow">
                 {stage.subtitle}
               </p>
               <p className="mt-4 text-sm leading-relaxed text-agency-white/60">{stage.description}</p>

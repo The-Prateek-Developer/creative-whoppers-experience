@@ -13,6 +13,7 @@ export default function FadeImage({
   skeletonClassName,
   alt,
   onLoad,
+  quality = 90,
   ...props
 }: FadeImageProps) {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,7 @@ export default function FadeImage({
       />
       <Image
         alt={alt}
+        quality={quality}
         {...props}
         onLoad={(event) => {
           setLoaded(true);

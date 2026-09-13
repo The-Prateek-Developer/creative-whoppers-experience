@@ -42,7 +42,7 @@ export default function PortfolioArchive() {
           </h1>
           <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
             Events, films, branding and digital projects for corporate, government and institutional
-            clients — from diplomatic campaigns and national broadcasts to museums and live culture.
+            clients, from diplomatic campaigns and national broadcasts to museums and live culture.
           </p>
         </section>
 

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { NAP, NAV_LINKS, SITE_DESCRIPTION, WHATSAPP_LINK } from "@/lib/site";
+import { CONTACT_HREF, NAP, NAV_LINKS, SITE_DESCRIPTION } from "@/lib/site";
 import SocialIcon from "@/components/icons/SocialIcon";
 import BrandLogo from "@/components/brand/BrandLogo";
 
@@ -27,25 +27,25 @@ export default function Footer() {
                   Let’s Create Together.
                 </h2>
                 <p className="font-sans text-sm leading-relaxed text-agency-white/55 sm:text-base">
-                  Events, film, digital experiences and brand marketing — under one creative agency roof.
+                  Events, film, digital experiences and brand marketing under one creative agency roof.
                 </p>
               </div>
 
               <div className="flex w-full flex-col items-stretch gap-3 lg:w-auto lg:min-w-[17rem]">
-                <a
-                  {...WHATSAPP_LINK}
+                <Link
+                  href={CONTACT_HREF}
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-4 font-display text-sm font-bold uppercase tracking-wider text-agency-ink transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(248,214,37,0.35)] active:scale-[0.98]"
                 >
                   <span>Start A Project</span>
                   <ArrowUpRight className="h-4 w-4" />
-                </a>
-                <a
-                  href={`mailto:${NAP.emails[0]}`}
+                </Link>
+                <Link
+                  href={CONTACT_HREF}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-agency-border bg-agency-black px-6 py-4 font-mono text-xs uppercase tracking-wider text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
                 >
                   <Mail className="h-4 w-4 text-agency-yellow" />
                   <span>Email Direct</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -90,13 +90,13 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 font-sans text-sm text-agency-white/80">
               {NAP.emails.map((email) => (
                 <li key={email} className="min-w-0">
-                  <a
-                    href={`mailto:${email}`}
+                  <Link
+                    href={CONTACT_HREF}
                     className="group flex min-w-0 items-start gap-2 transition-colors hover:text-agency-yellow"
                   >
                     <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-agency-yellow" />
                     <span className="break-all">{email}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
               {NAP.phones.map((phone, index) => (
@@ -143,7 +143,9 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 pt-8 font-mono text-xs text-agency-white/55 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Creative Whoppers. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {NAP.legalName}. All Right Reserved.
+          </p>
           <p>
             {NAP.addressLocality}, {NAP.addressRegion}
           </p>

@@ -16,7 +16,7 @@ export const SITE_TAGLINE = "Enhance the creative impact of your Brand";
 
 export const NAP = {
   name: "Creative Whoppers",
-  legalName: "Creative Whoppers",
+  legalName: "Creative Whopper Pvt. Ltd.",
   streetAddress: "3rd Floor, 211, Okhla Industrial Estate Phase 3 Rd, Okhla Phase III",
   addressLocality: "New Delhi",
   addressRegion: "Delhi",
@@ -24,7 +24,7 @@ export const NAP = {
   addressCountry: "IN",
   phones: ["+91 96675 63175", "+91 93544 84098"],
   phoneTel: ["+919667563175", "+919354484098"],
-  emails: ["contact@creativewhoppers.com"],
+  emails: ["hello@creativewhoppers.com"],
   hours: "Monday–Saturday, 10:00 AM – 7:00 PM IST",
   mapEmbed:
     "https://maps.google.com/maps?q=211%20Okhla%20Industrial%20Estate%20Phase%203%2C%20New%20Delhi%20110020&t=&z=15&ie=UTF8&iwloc=&output=embed",
@@ -42,7 +42,7 @@ export const PAGE_SEO = {
   home: {
     title: "Creative Whoppers | Creative Experience Company",
     description: SITE_DESCRIPTION,
-    h1: "Creative Whoppers — Enhance the creative impact of your Brand",
+    h1: "Creative Whoppers, Enhance the creative impact of your Brand",
     keywords: [
       "creative agency",
       "advertising agency",
@@ -104,11 +104,10 @@ export const PAGE_SEO = {
   },
 } as const;
 
+export const CONTACT_HREF = "/contact-us";
 export const WHATSAPP_URL = "https://wa.me/919354484098";
 export const WHATSAPP_LINK = {
-  href: WHATSAPP_URL,
-  target: "_blank" as const,
-  rel: "noopener noreferrer" as const,
+  href: CONTACT_HREF,
 };
 
 export const NAV_LINKS = [

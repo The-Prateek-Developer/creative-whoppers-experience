@@ -13,7 +13,6 @@ export type TeamMember = {
   role: string;
   experience: string;
   image: string;
-  bio: string;
 };
 
 function TeamCard({
@@ -51,9 +50,6 @@ function TeamCard({
           {person.name}
         </h3>
         <p className="mt-0.5 text-xs text-agency-white/55 sm:text-sm">{person.role}</p>
-        <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-agency-white/65">
-          {person.bio}
-        </p>
       </div>
     </button>
   );

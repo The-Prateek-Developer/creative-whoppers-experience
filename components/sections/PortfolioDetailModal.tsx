@@ -3,11 +3,12 @@
 import React, { useEffect } from "react";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { X, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { X } from "lucide-react";
 import ProjectFacts from "@/components/sections/ProjectFacts";
+import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import { PortfolioProject } from "@/lib/portfolio-data";
 import { easings } from "@/lib/animations";
-import { WHATSAPP_LINK } from "@/lib/site";
+import { testimonialForKey } from "@/lib/testimonials";
 
 interface PortfolioDetailModalProps {
   project: PortfolioProject | null;
@@ -160,40 +161,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
               </div>
 
-              <div>
-                <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-white/55">
-                  Deliverables
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.deliverables.map((item) => (
-                    <span
-                      key={item}
-                      className="flex items-center gap-1.5 rounded-lg border border-agency-border bg-agency-black px-3.5 py-1.5 font-mono text-xs text-agency-white/90"
-                    >
-                      <CheckCircle2 className="h-3 w-3 text-agency-yellow" />
-                      <span>{item}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col items-stretch justify-between gap-4 border-t border-agency-border pt-8 sm:flex-row sm:items-center">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="rounded-full border border-agency-border px-6 py-3 font-mono text-xs uppercase tracking-wider text-agency-white/55 transition-colors hover:text-agency-white"
-                >
-                  Back To Gallery
-                </button>
-
-                <a
-                  {...WHATSAPP_LINK}
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-all duration-300 hover:scale-[1.02] hover:bg-agency-yellow"
-                >
-                  <span>Ask about a similar project</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
+              <ProjectTestimonial {...testimonialForKey(project.id)} />
             </motion.div>
           </motion.div>
         </div>

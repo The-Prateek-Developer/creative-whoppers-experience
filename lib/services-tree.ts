@@ -1,4 +1,5 @@
 import { SITE_IMAGES } from "@/lib/site-images";
+import { itemSlugForName } from "@/lib/service-item-pages";
 
 export type ServiceItem = {
   name: string;
@@ -7,6 +8,7 @@ export type ServiceItem = {
 
 export type ServiceGroup = {
   title: string;
+  subtitle?: string;
   items: ServiceItem[];
 };
 
@@ -51,9 +53,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Experience Design",
     metaTitle: "Experience Design & Event Production | Creative Whoppers",
     metaDescription:
-      "End-to-end event production for corporate, government, and public events, conferences, summits, and exhibitions.",
+      "End to end event production for corporate, government, and public events, conferences, summits, and exhibitions.",
     intro:
-      "End-to-end event production for corporate, government, and public events, conferences, summits, and exhibitions, designed to engage audiences and create memorable brand experiences.",
+      "End to end event production for corporate, government, and public events, conferences, summits, and exhibitions, designed to engage audiences and create memorable brand experiences.",
     image: IMG.experience,
     imageAlt: "Experience design and event production",
     groups: [
@@ -137,7 +139,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Creative Production",
     metaTitle: "Film, Photography, Motion & Branding | Creative Whoppers",
     metaDescription:
-      "Film and video production, motion design, animation, and brand identity design — visual stories and creative campaigns that build brand recall.",
+      "Film and video production, motion design, animation, and brand identity design, visual stories and creative campaigns that build brand recall.",
     intro:
       "Film and video production, motion design, animation, and brand identity design, crafting visual stories and creative campaigns that capture attention and build brand recall.",
     image: IMG.production,
@@ -177,7 +179,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       {
         title: "Design & Branding",
         items: [
-          { name: "Logo Design", description: "Distinctive marks that capture the essence of your brand — memorable, versatile and built to last." },
+          { name: "Logo Design", description: "Distinctive marks that capture the essence of your brand, memorable, versatile and built to last." },
           { name: "Brand Identity", description: "A complete visual language that defines who you are and creates recognition across every touchpoint." },
           { name: "Visual Identity", description: "Consistent visual elements that make your brand instantly recognizable everywhere." },
           { name: "Packaging Design", description: "Packaging that stands out on the shelf and tells your brand story." },
@@ -206,7 +208,8 @@ export const SERVICE_PAGES: ServicePage[] = [
     imageAlt: "Digital experiences, museum digitization and interactive design",
     groups: [
       {
-        title: "Museum & Heritage Digitization — Capture & Documentation",
+        title: "Museum & Heritage Digitization",
+        subtitle: "Capture & Documentation",
         items: [
           { name: "Artifact & Archive Digitization", description: "Preserving fragile artifacts and records through high-precision digital capture into accessible, future-proof archives." },
           { name: "Digital Twin Mapping", description: "Precise digital replicas of physical spaces and structures for research, restoration and virtual access." },
@@ -281,9 +284,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Event Management",
     metaTitle: "Event Management | Creative Whoppers",
     metaDescription:
-      "Planning and delivering impactful events through creative concepts, seamless production and end-to-end execution.",
+      "Planning and delivering impactful events through creative concepts, seamless production and end to end execution.",
     intro:
-      "Planning and delivering impactful events through creative concepts, seamless production and end-to-end execution.",
+      "Planning and delivering impactful events through creative concepts, seamless production and end to end execution.",
     image: IMG.events,
     imageAlt: "Event management and on-ground production",
     pillarSlug: "experience-design",
@@ -295,9 +298,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Museum Digitization",
     metaTitle: "Museum Digitization | Creative Whoppers",
     metaDescription:
-      "Digitising heritage collections and transforming historical narratives into interactive, technology-enabled museum experiences.",
+      "Digitising heritage collections and transforming historical narratives into interactive, technology enabled museum experiences.",
     intro:
-      "Digitising heritage collections and transforming historical narratives into interactive, technology-enabled museum experiences that educate, engage and inspire.",
+      "Digitising heritage collections and transforming historical narratives into interactive, technology enabled museum experiences that educate, engage and inspire.",
     image: IMG.museum,
     imageAlt: "Museum and heritage digitization",
     pillarSlug: "digital-experiences",
@@ -329,6 +332,18 @@ export const FLAGSHIPS: ServicePage[] = [
 
 export function getServicePage(slug: string) {
   return SERVICE_PAGES.find((page) => page.slug === slug);
+}
+
+export function getServiceItem(pillarSlug: string, itemSlug: string) {
+  const page = getServicePage(pillarSlug);
+  if (!page?.groups) return null;
+  for (const group of page.groups) {
+    const item = group.items.find((entry) => itemSlugForName(entry.name) === itemSlug);
+    if (item) {
+      return { page, group, item };
+    }
+  }
+  return null;
 }
 
 export const CLIENT_SECTORS = [

@@ -5,29 +5,9 @@ import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { CLIENT_SECTORS } from "@/lib/services-tree";
+import { CLIENT_ENDORSEMENTS } from "@/lib/testimonials";
 import { easings } from "@/lib/animations";
 import ClientLogos from "@/components/sections/ClientLogos";
-
-const ENDORSEMENTS = [
-  {
-    quote:
-      "Delivered outstanding multimedia coverage for the Cycling4Life event in New Delhi. From capturing powerful visuals of over 500 cyclists to producing high-quality content that reflected our message of a greener future, their work was seamless, creative, and impactful. A valuable partner in bringing our vision to life.",
-    author: "Hema Singh Rance",
-    role: "Marketing & Communications Expert (Team Lead), European Union Policy & Outreach Partnerships (EUPOP)",
-  },
-  {
-    quote:
-      "Selecting Creative Whoppers for our Erasmus event in 2023 was a fantastic choice. They managed everything with ease and creativity, leaving our guests impressed. Thank you, Creative Whoppers for putting together a memorable and smooth process that went beyond what we expected!",
-    author: "Sanjeev Roy",
-    role: "Expert in Higher Education Policy, International Partnership & Outreach — EU, UK & India",
-  },
-  {
-    quote:
-      "Working with Creative Whoppers on the Chambal Literary Festival was a great experience. Their professionalism and attention to detail made the entire event run smoothly from start to finish. Truly appreciate their effort and expertise!",
-    author: "Dr. Shah Alam Rana",
-    role: "Founder, Chambal Foundation & Chambal Museum",
-  },
-];
 
 const AUTO_MS = 7000;
 const SWIPE_PX = 56;
@@ -63,7 +43,7 @@ export default function Testimonials({
 
   const goTo = useCallback((nextIndex: number, dir: number) => {
     setDirection(dir);
-    setIndex((nextIndex + ENDORSEMENTS.length) % ENDORSEMENTS.length);
+    setIndex((nextIndex + CLIENT_ENDORSEMENTS.length) % CLIENT_ENDORSEMENTS.length);
   }, []);
 
   const goNext = useCallback(() => {
@@ -79,7 +59,7 @@ export default function Testimonials({
     const timer = window.setInterval(() => {
       if (pausedRef.current) return;
       setDirection(1);
-      setIndex((current) => (current + 1) % ENDORSEMENTS.length);
+      setIndex((current) => (current + 1) % CLIENT_ENDORSEMENTS.length);
     }, AUTO_MS);
     return () => window.clearInterval(timer);
   }, [reduceMotion]);
@@ -101,7 +81,7 @@ export default function Testimonials({
     pausedRef.current = false;
   };
 
-  const current = ENDORSEMENTS[index];
+  const current = CLIENT_ENDORSEMENTS[index];
 
   return (
     <section
@@ -128,7 +108,7 @@ export default function Testimonials({
             data-reveal-item
             className="mt-3 font-sans text-sm leading-relaxed text-agency-white/60"
           >
-            Corporate, government, NGO and institutional partners — voices from briefs we&apos;ve
+            Corporate, government, NGO and institutional partners, voices from briefs we&apos;ve
             delivered.
           </p>
         </div>
@@ -199,7 +179,7 @@ export default function Testimonials({
 
         <div className="mt-6 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2" role="tablist" aria-label="Testimonials">
-            {ENDORSEMENTS.map((item, itemIndex) => {
+            {CLIENT_ENDORSEMENTS.map((item, itemIndex) => {
               const active = itemIndex === index;
               return (
                 <button

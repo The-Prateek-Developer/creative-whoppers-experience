@@ -1,10 +1,9 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import FadeImage from "@/components/media/FadeImage";
 import ProjectFacts from "@/components/sections/ProjectFacts";
+import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import type { PortfolioProject } from "@/lib/portfolio-data";
-import { WHATSAPP_LINK } from "@/lib/site";
+import { testimonialForKey } from "@/lib/testimonials";
 
 export default function PortfolioProjectView({ project }: { project: PortfolioProject }) {
   return (
@@ -79,37 +78,8 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         </div>
       </div>
 
-      <div className="mb-12">
-        <h2 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
-          Deliverables
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {project.deliverables.map((item) => (
-            <span
-              key={item}
-              className="flex items-center gap-1.5 rounded-lg border border-agency-border bg-agency-black px-3.5 py-1.5 font-mono text-xs text-agency-white/90"
-            >
-              <CheckCircle2 className="h-3 w-3 text-agency-yellow" />
-              <span>{item}</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex flex-col items-stretch justify-between gap-4 border-t border-agency-border pt-8 sm:flex-row sm:items-center">
-        <Link
-          href="/portfolio"
-          className="rounded-full border border-agency-border px-6 py-3 text-center font-mono text-xs uppercase tracking-wider text-agency-white/55 transition-colors hover:text-agency-white"
-        >
-          Back to portfolio
-        </Link>
-        <a
-          {...WHATSAPP_LINK}
-          className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink"
-        >
-          <span>Start a similar project</span>
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
+      <div className="mb-4">
+        <ProjectTestimonial {...testimonialForKey(project.id)} />
       </div>
     </article>
   );

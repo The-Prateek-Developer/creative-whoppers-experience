@@ -6,7 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SERVICES_DATA } from "@/lib/services-data";
-import { WHATSAPP_LINK } from "@/lib/site";
+import { CONTACT_HREF } from "@/lib/site";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { useInViewGate } from "@/hooks/useInViewGate";
 import {
@@ -218,12 +218,12 @@ export default function ServicesGrid() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
 
-                <a
-                  {...WHATSAPP_LINK}
+                <Link
+                  href={CONTACT_HREF}
                   className="rounded-full bg-agency-yellow px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-colors hover:bg-agency-yellow"
                 >
                   Inquire
-                </a>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
