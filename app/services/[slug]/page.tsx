@@ -4,10 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeImage from "@/components/media/FadeImage";
 import JsonLd from "@/components/seo/JsonLd";
-import ServiceImagePayout from "@/components/sections/ServiceImagePayout";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { getServicePage, SERVICE_PAGES } from "@/lib/services-tree";
-import { getServiceItemDetail, itemSlugForName } from "@/lib/service-item-pages";
+import { itemSlugForName } from "@/lib/service-item-pages";
 import { SITE_OG_IMAGE } from "@/lib/site";
 import { altCardBg } from "@/lib/card-styles";
 import { ArrowUpRight } from "lucide-react";
@@ -98,30 +97,21 @@ export default function ServiceDetailPage({ params }: Props) {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {group.items.map((item, index) => {
                   const itemSlug = itemSlugForName(item.name);
-                  const detail = itemSlug
-                    ? getServiceItemDetail(page.slug, itemSlug)
-                    : null;
                   const href = itemSlug ? `/services/${page.slug}/${itemSlug}` : null;
-                  const shots = detail?.images ?? [];
                   const cardClass = `overflow-hidden rounded-2xl border border-agency-border transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`;
 
                   const body = (
-                    <>
-                      {shots.length > 0 ? (
-                        <ServiceImagePayout images={shots} alt={item.name} variant="card" />
+                    <div className="p-6">
+                      <h3 className="mb-2 font-display text-2xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>
+                      {href ? (
+                        <span className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow">
+                          View service <ArrowUpRight className="h-3.5 w-3.5" />
+                        </span>
                       ) : null}
-                      <div className="p-6">
-                        <h3 className="mb-2 font-display text-2xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
-                          {item.name}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>
-                        {href ? (
-                          <span className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow">
-                            View service <ArrowUpRight className="h-3.5 w-3.5" />
-                          </span>
-                        ) : null}
-                      </div>
-                    </>
+                    </div>
                   );
 
                   if (href) {
