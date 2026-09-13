@@ -17,14 +17,14 @@ export default function AboutSnapshot() {
       ref={sectionRef}
       className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
     >
-      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
-        <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-agency-border lg:col-span-5">
+      <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="relative aspect-square overflow-hidden rounded-2xl border border-agency-border bg-agency-white/[0.03] lg:col-span-5 lg:aspect-auto lg:h-full">
           <FadeImage
             src="/images/site/who-we-are.png"
             alt="Looking ahead — Creative Whoppers experience design"
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover"
+            className="object-contain object-center"
           />
         </div>
 

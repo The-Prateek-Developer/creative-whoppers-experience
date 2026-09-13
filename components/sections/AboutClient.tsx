@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { easings } from "@/lib/animations";
 import { PROCESS_STAGES } from "@/lib/process";
-import TeamMarquee from "@/components/sections/TeamMarquee";
+import TeamGrid from "@/components/sections/TeamGrid";
 
 const VALUES = [
   { title: "Purpose", detail: "Work that connects people, communicates ideas and leaves a lasting impact." },
@@ -98,7 +98,7 @@ export default function AboutClient() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-x-hidden">
       <section className="relative flex min-h-[70vh] items-center border-b border-agency-border px-6 pb-20 pt-24 lg:px-12">
         <div className="pointer-events-none absolute left-1/2 top-1/4 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-agency-yellow/10 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-5xl text-center">
@@ -209,13 +209,13 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="overflow-hidden border-t border-agency-border py-24">
-        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+      <section className="border-t border-agency-border py-24">
+        <div className="mx-auto mb-10 max-w-5xl px-6 lg:px-12">
           <h2 className="section-heading text-agency-white">
             Meet the team
           </h2>
         </div>
-        <TeamMarquee people={TEAM} />
+        <TeamGrid people={TEAM} />
       </section>
     </div>
   );

@@ -1,29 +1,52 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { CLIENTS, type ClientLogo } from "@/lib/clients";
 import { cn } from "@/lib/utils";
 
 function LogoTile({ client, className }: { client: ClientLogo; className?: string }) {
+  const tileRef = useRef<HTMLDivElement>(null);
+  const [origin, setOrigin] = useState("50% 50%");
+  const [hovered, setHovered] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  const onMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const box = tileRef.current?.getBoundingClientRect();
+    if (!box) return;
+    const x = ((event.clientX - box.left) / box.width) * 100;
+    const y = ((event.clientY - box.top) / box.height) * 100;
+    setOrigin(`${x}% ${y}%`);
+  };
+
   return (
-    <div
+    <motion.div
+      ref={tileRef}
+      onMouseMove={onMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setHovered(false);
+        setOrigin("50% 50%");
+      }}
+      animate={reduceMotion ? undefined : { scale: hovered ? 1.16 : 1 }}
+      transition={{ type: "spring", stiffness: 320, damping: 22, mass: 0.6 }}
+      style={{ transformOrigin: origin, zIndex: hovered ? 20 : 1 }}
       className={cn(
-        "flex h-[4.75rem] w-[10.75rem] shrink-0 items-center justify-center rounded-xl bg-white px-4 py-3 ring-1 ring-black/10 sm:h-[5.25rem] sm:w-[12.25rem]",
+        "relative flex h-[4.75rem] w-[10.75rem] shrink-0 items-center justify-center rounded-xl bg-white px-4 py-3 ring-1 ring-black/10 sm:h-[5.25rem] sm:w-[12.25rem]",
         className
       )}
     >
       <span className="relative h-12 w-full sm:h-14">
         <Image
           src={client.src}
-          alt=""
+          alt={client.name}
           fill
           sizes="196px"
           className="pointer-events-none object-contain"
         />
       </span>
-    </div>
+    </motion.div>
   );
 }
 
@@ -76,7 +99,7 @@ function AutoRow({
       onMouseLeave={() => {
         pausedRef.current = false;
       }}
-      className="flex gap-4 overflow-x-auto px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      className="flex gap-4 overflow-x-auto px-4 py-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
     >
       {loop.map((client, index) => (
         <LogoTile key={`${client.id}-${index}`} client={client} />
@@ -85,29 +108,31 @@ function AutoRow({
   );
 }
 
-export default function ClientLogos() {
+export default function ClientLogos({ scrollerOnly = false }: { scrollerOnly?: boolean }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <section
-      className="border-t border-agency-border py-16 lg:py-20"
-      aria-labelledby="clients-heading"
+      className={cn(
+        "border-t border-agency-border",
+        scrollerOnly ? "py-8 lg:py-10" : "py-16 lg:py-20"
+      )}
+      aria-label="Our clients"
     >
-      <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
-        <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
-          Our clients
-        </p>
-        <h2
-          id="clients-heading"
-          className="section-heading text-agency-white"
-        >
-          Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
-        </h2>
-        <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
-          Government, defence, culture, education and brands — partners across the briefs we
-          produce.
-        </p>
-      </div>
+      {!scrollerOnly && (
+        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+          <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
+            Our clients
+          </p>
+          <h2 className="section-heading text-agency-white">
+            Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
+          </h2>
+          <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
+            Government, defence, culture, education and brands — partners across the briefs we
+            produce.
+          </p>
+        </div>
+      )}
 
       <ul className="sr-only">
         {CLIENTS.map((client) => (
@@ -116,13 +141,13 @@ export default function ClientLogos() {
       </ul>
 
       {reduceMotion ? (
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-6 py-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-12">
           {CLIENTS.map((client) => (
             <LogoTile key={client.id} client={client} className="w-full max-w-none" />
           ))}
         </div>
       ) : (
-        <div aria-hidden className="relative overflow-hidden">
+        <div aria-hidden className="relative overflow-x-hidden">
           <AutoRow items={CLIENTS} speed={0.9} />
         </div>
       )}

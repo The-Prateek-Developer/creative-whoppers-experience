@@ -36,8 +36,8 @@ export default function AboutPage() {
         ])}
       />
       <AboutClient />
-      <ClientLogos />
       <Testimonials />
+      <ClientLogos scrollerOnly />
     </div>
   );
 }

@@ -41,8 +41,8 @@ export default function HomePage() {
       <ExpertisePillars />
       <PortfolioGrid />
       <WhyWhoppers />
-      <ClientLogos />
       <Testimonials />
+      <ClientLogos scrollerOnly />
     </div>
   );
 }
