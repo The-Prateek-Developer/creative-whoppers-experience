@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import { LayoutGroup, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_PROJECTS } from "@/lib/portfolio-data";
 import PortfolioCard from "@/components/sections/PortfolioCard";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
@@ -19,7 +19,7 @@ export default function PortfolioGrid() {
     <LayoutGroup id="portfolio-home">
       <section
         ref={sectionRef}
-        className="relative mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
+        className="relative mx-auto max-w-7xl border-t border-agency-border px-6 pt-16 lg:px-12 lg:pt-20"
       >
         <div className="pointer-events-none absolute right-0 top-1/3 -z-10 h-96 w-96 rounded-full bg-agency-yellow/10 blur-3xl" />
 
@@ -32,14 +32,13 @@ export default function PortfolioGrid() {
               data-reveal-item
               className="mb-4 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-yellow/10 px-3 py-1 font-mono text-xs text-agency-yellow"
             >
-              <Sparkles className="h-3 w-3" />
               <span>Featured work</span>
             </div>
             <h2
               data-reveal-item
               className="section-heading text-agency-white"
             >
-              Recent <span className="italic text-agency-yellow">Updates</span>
+              Recent Updates
             </h2>
             <p className="mt-3 max-w-xl font-sans text-sm text-agency-white/60">
               A glimpse of recent updates across events, films, branding and digital
@@ -56,10 +55,10 @@ export default function PortfolioGrid() {
           </Link>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-12">
+        <div ref={gridRef} className="grid grid-cols-1 gap-6 md:grid-cols-12">
           <AnimatePresence mode="popLayout">
             {featuredProjects.map((project, index) => {
-              const isLarge = index === 0 || index === 3;
+              const isWide = index === 0 || index === 3;
               return (
                 <PortfolioCard
                   key={project.id}
@@ -67,18 +66,20 @@ export default function PortfolioGrid() {
                   index={index}
                   ready={ready}
                   imageAspect="aspect-[16/10]"
-                  className={isLarge ? "md:col-span-7" : "md:col-span-5"}
+                  className={isWide ? "md:col-span-7" : "md:col-span-5"}
                 />
               );
             })}
           </AnimatePresence>
         </div>
 
-        <div className="mt-16 flex flex-col justify-between gap-4 border-t border-agency-border pt-8 font-mono text-xs text-agency-white/55 sm:flex-row sm:items-center">
-          <span>Projects across events, films, branding and digital</span>
+        <div className="mt-16 flex flex-col items-center justify-center gap-4 border-t border-agency-border py-8 text-center sm:flex-row sm:gap-8">
+          <span className="font-sans text-sm leading-relaxed text-agency-white/70 sm:text-base">
+            Projects across events, films, branding and digital
+          </span>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-white/[0.06] px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
+            className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-white/[0.06] px-6 py-3 font-mono text-xs font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
           >
             <span>View full portfolio</span>
             <ArrowUpRight className="h-4 w-4" />

@@ -6,6 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { ArrowUpRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { STATS } from "@/lib/site";
+import { altCardBg } from "@/lib/utils";
 
 export default function AboutSnapshot() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -53,10 +54,10 @@ export default function AboutSnapshot() {
             data-reveal-item
             className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4"
           >
-            {STATS.map((stat) => (
+            {STATS.map((stat, index) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-agency-border bg-agency-white/[0.03] px-3 py-3.5"
+                className={`rounded-xl border border-agency-border px-3 py-3.5 ${altCardBg(index)}`}
               >
                 <p className="font-display text-lg font-extrabold tracking-tight text-agency-yellow">
                   {stat.value}

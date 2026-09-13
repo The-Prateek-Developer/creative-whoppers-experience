@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { CLIENT_SECTORS } from "@/lib/services-tree";
 import { easings } from "@/lib/animations";
+import ClientLogos from "@/components/sections/ClientLogos";
 
 const ENDORSEMENTS = [
   {
@@ -46,7 +47,13 @@ const slideVariants = {
   }),
 };
 
-export default function Testimonials() {
+export default function Testimonials({
+  className,
+  id,
+}: {
+  className?: string;
+  id?: string;
+}) {
   const sectionRef = useRef<HTMLElement>(null);
   useSectionReveal(sectionRef);
   const reduceMotion = useReducedMotion();
@@ -98,9 +105,11 @@ export default function Testimonials() {
 
   return (
     <section
+      id={id}
       ref={sectionRef}
-      className="mx-auto max-w-7xl border-t border-agency-border px-6 py-16 lg:px-12 lg:py-20"
+      className={className ?? "border-t border-agency-border py-16 lg:py-20"}
     >
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
       <div
         data-reveal="heading"
         className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
@@ -113,7 +122,7 @@ export default function Testimonials() {
             Clients & testimonials
           </p>
           <h2 data-reveal-item className="section-heading text-agency-white">
-            Trusted across <span className="italic text-agency-yellow">sectors</span>
+            Trusted across sectors
           </h2>
           <p
             data-reveal-item
@@ -229,6 +238,10 @@ export default function Testimonials() {
             </button>
           </div>
         </div>
+      </div>
+      </div>
+      <div className="mt-12">
+        <ClientLogos embedded />
       </div>
     </section>
   );

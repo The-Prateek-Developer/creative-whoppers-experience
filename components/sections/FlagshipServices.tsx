@@ -6,6 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { ArrowUpRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { FLAGSHIPS } from "@/lib/services-tree";
+import { altCardBg } from "@/lib/utils";
 
 export default function FlagshipServices() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,11 +38,11 @@ export default function FlagshipServices() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {FLAGSHIPS.map((service) => (
+        {FLAGSHIPS.map((service, index) => (
           <Link
             key={service.slug}
             href={`/services/${service.slug}`}
-            className="group overflow-hidden rounded-3xl border border-agency-border bg-agency-white/[0.04] transition-colors hover:border-agency-yellow/50"
+            className={`group overflow-hidden rounded-3xl border border-agency-border transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
           >
             <div className="relative aspect-[16/9] overflow-hidden">
               <FadeImage

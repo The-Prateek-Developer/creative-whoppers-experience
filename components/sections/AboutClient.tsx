@@ -1,18 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import FadeImage from "@/components/media/FadeImage";
-import { motion, useReducedMotion } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { easings } from "@/lib/animations";
+import { LayoutGroup, motion, useReducedMotion } from "framer-motion";
 import { PROCESS_STAGES } from "@/lib/process";
+import { SITE_IMAGES } from "@/lib/site-images";
 import TeamGrid from "@/components/sections/TeamGrid";
+import { altCardBg } from "@/lib/utils";
+import { useLenis } from "@/components/layout/SmoothScroll";
+import { layoutSpring } from "@/lib/animations";
 
-const VALUES = [
-  { title: "Purpose", detail: "Work that connects people, communicates ideas and leaves a lasting impact." },
-  { title: "Craft", detail: "Cinema-grade production, spatial detail and brand systems that hold together." },
-  { title: "Precision", detail: "Protocol, logistics and delivery that organisations can trust." },
-];
+const ABOUT_SECTIONS = [
+  { id: "who-we-are", label: "Who we are" },
+  { id: "mission-and-vision", label: "Mission & vision" },
+  { id: "our-approach", label: "Our approach" },
+  { id: "our-team", label: "Our team" },
+  { id: "trusted-across-sectors", label: "Trusted across sectors" },
+] as const;
+
+const NAV_OFFSET = -112;
+
+const MISSION_VISION = [
+  {
+    title: "Our mission",
+    detail:
+      "To design, create and amplify meaningful experiences that connect people, communicate ideas and create lasting impact.",
+    image: SITE_IMAGES.ourMission,
+    imageClass: "object-cover object-center",
+    alt: "A glowing lamp — ideas brought to light",
+  },
+  {
+    title: "Our vision",
+    detail:
+      "To become a leading creative experience company, shaping how organisations connect with people through ideas, stories, technology and experiences.",
+    image: SITE_IMAGES.ourVision,
+    imageClass: "object-cover object-center",
+    alt: "A yellow queen among chess pieces — leading with clarity",
+  },
+] as const;
 
 const TEAM = [
   {
@@ -95,107 +120,180 @@ const TEAM = [
 ];
 
 export default function AboutClient() {
+  const lenis = useLenis();
   const reduceMotion = useReducedMotion();
+  const [activeId, setActiveId] = useState<(typeof ABOUT_SECTIONS)[number]["id"]>(
+    ABOUT_SECTIONS[0].id
+  );
+
+  const scrollToSection = useCallback(
+    (id: (typeof ABOUT_SECTIONS)[number]["id"]) => {
+      const target = document.getElementById(id);
+      if (!target) return;
+      setActiveId(id);
+      window.history.replaceState(null, "", `#${id}`);
+      if (lenis) {
+        lenis.scrollTo(target, {
+          offset: NAV_OFFSET,
+          duration: reduceMotion ? 0 : 1.05,
+        });
+        return;
+      }
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    },
+    [lenis, reduceMotion]
+  );
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "") as (typeof ABOUT_SECTIONS)[number]["id"];
+    if (ABOUT_SECTIONS.some((section) => section.id === hash)) {
+      const timer = window.setTimeout(() => scrollToSection(hash), 80);
+      return () => window.clearTimeout(timer);
+    }
+  }, [scrollToSection]);
+
+  useEffect(() => {
+    const updateActive = () => {
+      const marker = 140;
+      let current = ABOUT_SECTIONS[0].id;
+      for (const section of ABOUT_SECTIONS) {
+        const el = document.getElementById(section.id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= marker) current = section.id;
+      }
+      setActiveId(current);
+    };
+
+    if (lenis) {
+      lenis.on("scroll", updateActive);
+      updateActive();
+      return () => {
+        lenis.off("scroll", updateActive);
+      };
+    }
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+    return () => window.removeEventListener("scroll", updateActive);
+  }, [lenis]);
 
   return (
-    <div className="relative w-full overflow-x-hidden">
-      <section className="relative flex min-h-[70vh] items-center border-b border-agency-border px-6 pb-20 pt-24 lg:px-12">
-        <div className="pointer-events-none absolute left-1/2 top-1/4 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-agency-yellow/10 blur-3xl" />
-        <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <motion.p
-            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: easings.outPremium }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-white/[0.06] px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            Who we are
-          </motion.p>
-          <motion.h1
-            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.05 }}
-            className="page-heading mx-auto font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
-          >
-            About <span className="text-agency-yellow">Creative</span> Whoppers
-          </motion.h1>
-          <motion.p
-            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.1 }}
-            className="page-heading-lead mx-auto mt-8 font-sans text-base leading-relaxed text-agency-white/65"
-          >
-            We believe great experiences don&apos;t just happen. They&apos;re designed.
-          </motion.p>
-        </div>
+    <>
+      <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
+        <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
+          About us
+        </p>
+        <h1 className="page-heading mb-6 max-w-none whitespace-nowrap font-display text-display-xl font-bold uppercase tracking-tight text-agency-white">
+          Who we are
+        </h1>
+        <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+          We believe great experiences don&apos;t just happen. They&apos;re designed. Strategy,
+          creativity, technology and execution — under one roof.
+        </p>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-24 lg:grid-cols-12 lg:px-12">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-agency-border lg:col-span-6">
-          <FadeImage
-            src="/images/site/conference.jpg"
-            alt="Live event production and stage design"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
+      <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
+        <LayoutGroup id="about-section-nav">
+        <div className="flex items-center gap-2 overflow-x-auto border-b border-agency-border pb-4 scrollbar-none">
+          {ABOUT_SECTIONS.map((section) => {
+            const isActive = activeId === section.id;
+            return (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => scrollToSection(section.id)}
+                className={`relative whitespace-nowrap rounded-full px-5 py-2.5 font-mono text-xs uppercase tracking-wider transition-colors ${
+                  isActive
+                    ? "font-bold text-agency-ink"
+                    : "border border-agency-border bg-agency-surface text-agency-white/70 hover:border-agency-yellow/50 hover:text-agency-yellow"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId={reduceMotion ? undefined : "about-section-pill"}
+                    className="absolute inset-0 rounded-full bg-agency-yellow shadow-[0_0_15px_rgba(248,214,37,0.35)]"
+                    transition={layoutSpring}
+                  />
+                )}
+                <span className="relative z-10">{section.label}</span>
+              </button>
+            );
+          })}
         </div>
-        <div className="lg:col-span-6">
-          <h2 className="section-heading mb-5 text-agency-white">Who we are</h2>
-          <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-            We believe great experiences don&apos;t just happen. They&apos;re designed. Every
-            memorable experience starts with an idea, but it takes strategy, creativity, technology
-            and flawless execution to bring that idea to life. That&apos;s where we come in.
-          </p>
-          <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-            From a stage and a screen to an interactive space, we bring together creative thinking
-            and execution under one roof to create experiences that connect with people, communicate
-            ideas and create lasting impact.
-          </p>
-        </div>
+        </LayoutGroup>
       </section>
 
-      <section className="border-y border-agency-border bg-agency-white/[0.03] px-6 py-24 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading mb-12 text-agency-white">
-            Mission & vision
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-agency-border p-8">
-              <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our mission</h3>
-              <p className="font-sans text-sm leading-relaxed text-agency-white/70">
-                To design, create and amplify meaningful experiences that connect people, communicate
-                ideas and create lasting impact.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-agency-border p-8">
-              <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">Our vision</h3>
-              <p className="font-sans text-sm leading-relaxed text-agency-white/70">
-                To become a leading creative experience company, shaping how organisations connect
-                with people through ideas, stories, technology and experiences.
-              </p>
-            </div>
+      <section id="who-we-are" className="relative z-10 mx-auto mb-24 max-w-7xl scroll-mt-28 px-6 lg:px-12">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-agency-border lg:col-span-6">
+            <FadeImage
+              src="/images/site/conference.jpg"
+              alt="Live event production and stage design"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {VALUES.map((value) => (
-              <div key={value.title} className="rounded-xl border border-agency-border p-6">
-                <h3 className="mb-2 font-display text-xl font-semibold uppercase text-agency-white">{value.title}</h3>
-                <p className="text-sm text-agency-white/55">{value.detail}</p>
+          <div className="lg:col-span-6">
+            <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+              We believe great experiences don&apos;t just happen. They&apos;re designed. Every
+              memorable experience starts with an idea, but it takes strategy, creativity, technology
+              and flawless execution to bring that idea to life. That&apos;s where we come in.
+            </p>
+            <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+              From a stage and a screen to an interactive space, we bring together creative thinking
+              and execution under one roof to create experiences that connect with people, communicate
+              ideas and create lasting impact.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="mission-and-vision"
+        className="relative z-10 mx-auto mb-24 max-w-7xl scroll-mt-28 px-6 lg:px-12"
+      >
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {MISSION_VISION.map((item, index) => (
+            <div
+              key={item.title}
+              className={`overflow-hidden rounded-3xl border border-agency-border ${altCardBg(index)}`}
+            >
+              <div className="relative aspect-[4/3]">
+                <FadeImage
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={item.imageClass}
+                />
               </div>
-            ))}
-          </div>
+              <div className="p-8">
+                <h3 className="mb-4 font-display text-xl font-semibold uppercase text-agency-yellow">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-sm leading-relaxed text-agency-white/70">{item.detail}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
+      <section
+        id="our-approach"
+        className="relative z-10 mx-auto mb-24 max-w-7xl scroll-mt-28 px-6 lg:px-12"
+      >
         <h2 className="section-heading mb-5 text-agency-white">Our approach</h2>
         <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
           Discover → Design → Deliver → Amplify. Understand before we create, turn ideas into
           experiences, create with precision, and make the experience go further.
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {PROCESS_STAGES.map((stage) => (
-            <div key={stage.id} className="rounded-2xl border border-agency-border p-8">
+          {PROCESS_STAGES.map((stage, index) => (
+            <div
+              key={stage.id}
+              className={`rounded-2xl border border-agency-border p-8 ${altCardBg(index)}`}
+            >
               <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
               <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {stage.title}
@@ -209,14 +307,12 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <section className="border-t border-agency-border py-24">
-        <div className="mx-auto mb-10 max-w-5xl px-6 lg:px-12">
-          <h2 className="section-heading text-agency-white">
-            Meet the team
-          </h2>
+      <section id="our-team" className="relative z-10 mb-8 scroll-mt-28">
+        <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
+          <h2 className="section-heading text-agency-white">Meet the team</h2>
         </div>
         <TeamGrid people={TEAM} />
       </section>
-    </div>
+    </>
   );
 }

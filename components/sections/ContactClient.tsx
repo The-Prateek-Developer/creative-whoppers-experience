@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import FadeImage from "@/components/media/FadeImage";
-import SocialIcon from "@/components/icons/SocialIcon";
 import {
   AnimatePresence,
   motion,
@@ -16,7 +15,6 @@ import {
   MapPin,
   Phone,
   Send,
-  Sparkles,
 } from "lucide-react";
 import {
   ctaHover,
@@ -228,14 +226,13 @@ export default function ContactClient() {
             transition={{ duration: 0.55, ease: easings.outPremium }}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-black/40 px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow backdrop-blur-sm"
           >
-            <Sparkles className="h-3.5 w-3.5" aria-hidden />
             Get in touch
           </motion.p>
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.62, ease: easings.outPremium, delay: 0.05 }}
-            className="page-heading mx-auto font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+            className="page-heading mx-auto font-display text-display-xl font-bold uppercase tracking-tight text-agency-white"
           >
             Let’s start a brief
           </motion.h1>
@@ -248,27 +245,12 @@ export default function ContactClient() {
             Events, film, digital and brand work — tell us what you need and a producer
             will reply within one business day.
           </motion.p>
-          <motion.ul
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: easings.outPremium, delay: 0.16 }}
-            className="mt-8 flex flex-wrap justify-center gap-2"
-          >
-            {["Reply in 1 business day", "Okhla, New Delhi", NAP.hours].map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-agency-white/15 bg-agency-black/40 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-agency-white/80 backdrop-blur-sm"
-              >
-                {item}
-              </li>
-            ))}
-          </motion.ul>
         </div>
       </section>
 
       <section className="relative z-20 mx-auto -mt-11 max-w-7xl px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {channels.map((channel) => {
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {channels.map((channel, index) => {
             const Icon = channel.icon;
             return (
               <a
@@ -277,7 +259,10 @@ export default function ContactClient() {
                 {...(channel.external
                   ? { target: "_blank" as const, rel: "noopener noreferrer" }
                   : {})}
-                className="group flex min-h-[5.5rem] cursor-pointer items-center gap-4 rounded-2xl border border-agency-border bg-agency-black p-4 transition-colors hover:border-agency-yellow/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+                className={cn(
+                  "group flex min-h-[5.5rem] cursor-pointer items-center gap-4 rounded-2xl border border-agency-white/20 p-4 shadow-[0_8px_30px_rgba(0,0,0,0.45)] transition-colors hover:border-agency-yellow/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black",
+                  index % 2 === 0 ? "bg-[#1c1c1c]" : "bg-[#111111]"
+                )}
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-agency-yellow/30 bg-agency-yellow/10 text-agency-yellow">
                   <Icon className="h-5 w-5" />
@@ -606,59 +591,28 @@ export default function ContactClient() {
                 </p>
               </div>
             </div>
-
-            <div>
-              <h2 className="mb-4 font-display text-xl font-semibold uppercase text-agency-white">
-                Connect
-              </h2>
-              <div className="grid grid-cols-2 gap-3">
-                {NAP.social.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex min-h-12 cursor-pointer items-center justify-between gap-2 rounded-xl border border-agency-border px-4 py-3 font-sans text-xs font-medium uppercase hover:border-agency-yellow hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <SocialIcon name={item.name} />
-                      {item.name}
-                    </span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-agency-white/30 group-hover:text-agency-yellow" aria-hidden />
-                  </a>
-                ))}
-              </div>
-            </div>
           </aside>
         </div>
+      </section>
 
-        <div className="mt-16 lg:mt-20">
-          <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-            <h2 className="section-heading text-agency-white">
-              Find us
-            </h2>
-            <a
-              href={NAP.mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-agency-yellow hover:underline"
-            >
-              Open in Google Maps
-              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-            </a>
-          </div>
-          <div
-            data-lenis-prevent
-            className="overflow-hidden rounded-2xl border border-agency-border"
-          >
-            <iframe
-              title="Creative Whoppers studio map"
-              src={NAP.mapEmbed}
-              className="h-72 w-full grayscale contrast-125 !pointer-events-auto sm:h-96 lg:h-[28rem] dark:invert"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+      <section className="relative w-full pt-16 lg:pt-20">
+        <a
+          href={NAP.mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-6 top-20 z-10 inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow backdrop-blur-sm hover:border-agency-yellow lg:right-12 lg:top-24"
+        >
+          Open in Google Maps
+          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+        </a>
+        <div data-lenis-prevent className="w-full overflow-hidden border-y border-agency-border">
+          <iframe
+            title="Creative Whoppers studio map"
+            src={NAP.mapEmbed}
+            className="h-[22rem] w-full grayscale contrast-125 !pointer-events-auto sm:h-[28rem] lg:h-[36rem] dark:invert"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </section>
     </div>

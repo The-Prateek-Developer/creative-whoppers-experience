@@ -37,9 +37,10 @@ const IMG = {
   whatWeDoProduction: SITE_IMAGES.whatWeDoCreativeProduction,
 };
 
-export const HERO_YOUTUBE_ID = "GO30DGyTwKo";
-export const HERO_VIDEO = `https://www.youtube.com/watch?v=${HERO_YOUTUBE_ID}`;
-export const HERO_VIDEO_POSTER = `https://img.youtube.com/vi/${HERO_YOUTUBE_ID}/maxresdefault.jpg`;
+export const HERO_VIDEO =
+  "https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4";
+export const HERO_VIDEO_POSTER =
+  "https://images.pexels.com/videos/2022395/free-video-2022395.jpg?auto=compress&cs=tinysrgb&w=1920";
 
 export const SERVICE_PAGES: ServicePage[] = [
   {

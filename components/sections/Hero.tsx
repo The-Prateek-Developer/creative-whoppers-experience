@@ -37,32 +37,22 @@ export default function Hero() {
         animate="animate"
         className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start gap-8 lg:justify-center lg:gap-10"
       >
-        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <motion.p
-              variants={fadeInUp}
-              className="mb-5 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow"
-            >
-              We are
-            </motion.p>
-
             <motion.h1
               variants={fadeInUp}
-              className="page-heading mb-5 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white"
+              className="hero-headline font-display font-light text-agency-white"
             >
-              <span className="text-agency-yellow">Creative</span> Whoppers
-            </motion.h1>
-
-            <motion.p
-              variants={fadeInUp}
-              className="hero-headline font-display font-medium tracking-tight text-agency-white"
-            >
-              <span className="whitespace-nowrap">
-                Enhance the <span className="text-agency-yellow">creative impact</span>
+              <span className="block">
+                <span className="font-bold">Enhance</span> the
               </span>
-              <br />
-              <span className="whitespace-nowrap">of your brand</span>
-            </motion.p>
+              <span className="block">
+                <span className="font-bold">creative impact</span>
+              </span>
+              <span className="block">
+                of your <span className="font-bold">brand</span>
+              </span>
+            </motion.h1>
 
             <motion.p
               variants={fadeInUp}

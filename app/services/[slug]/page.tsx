@@ -7,6 +7,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { getServicePage, SERVICE_PAGES } from "@/lib/services-tree";
 import { SITE_OG_IMAGE } from "@/lib/site";
+import { altCardBg } from "@/lib/utils";
 
 type Props = { params: { slug: string } };
 
@@ -35,7 +36,11 @@ export default function ServiceDetailPage({ params }: Props) {
   if (!page) notFound();
 
   return (
-    <div className="pb-16 pt-8">
+    <div className="relative w-full overflow-hidden pb-24 pt-8">
+      <div
+        className="pointer-events-none absolute -top-20 right-1/4 h-96 w-96 rounded-full bg-agency-yellow/15 blur-3xl"
+        aria-hidden
+      />
       <JsonLd
         data={[
           breadcrumbJsonLd([
@@ -51,14 +56,14 @@ export default function ServiceDetailPage({ params }: Props) {
         ]}
       />
 
-      <section className="mx-auto max-w-7xl px-6 lg:px-12">
-        <p className="mb-3 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+        <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
           {page.kind === "pillar" ? `Pillar ${page.number}` : "Flagship service"}
         </p>
-        <h1 className="page-heading mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+        <h1 className="page-heading mb-6 font-display text-display-xl font-bold uppercase tracking-tight text-agency-white">
           {page.h1}
         </h1>
-        <p className="page-heading-lead mb-10 font-sans text-base leading-relaxed text-agency-white/65">
+        <p className="page-heading-lead mb-10 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
           {page.intro}
         </p>
         <div className="relative mb-16 aspect-[21/9] overflow-hidden rounded-3xl border border-agency-border">
@@ -74,15 +79,18 @@ export default function ServiceDetailPage({ params }: Props) {
       </section>
 
       {page.groups && (
-        <section className="mx-auto max-w-7xl space-y-16 px-6 lg:px-12">
+        <section className="relative z-10 mx-auto max-w-7xl space-y-16 px-6 lg:px-12">
           {page.groups.map((group) => (
             <div key={group.title}>
               <h2 className="mb-8 border-b border-agency-border pb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {group.title}
               </h2>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {group.items.map((item) => (
-                  <article key={item.name} className="rounded-2xl border border-agency-border p-6">
+                {group.items.map((item, index) => (
+                  <article
+                    key={item.name}
+                    className={`rounded-2xl border border-agency-border p-6 ${altCardBg(index)}`}
+                  >
                     <h3 className="mb-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                       {item.name}
                     </h3>
@@ -96,7 +104,7 @@ export default function ServiceDetailPage({ params }: Props) {
       )}
 
       {page.kind === "flagship" && page.pillarSlug && (
-        <section className="mx-auto mt-16 max-w-7xl px-6 lg:px-12">
+        <section className="relative z-10 mx-auto mt-16 max-w-7xl px-6 lg:px-12">
           <Link
             href={`/services/${page.pillarSlug}`}
             className="font-mono text-xs uppercase tracking-wider text-agency-yellow hover:underline"

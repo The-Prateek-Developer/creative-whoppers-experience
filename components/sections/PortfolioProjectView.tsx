@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, Calendar, Building, Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import FadeImage from "@/components/media/FadeImage";
+import ProjectFacts from "@/components/sections/ProjectFacts";
 import type { PortfolioProject } from "@/lib/portfolio-data";
 import { WHATSAPP_LINK } from "@/lib/site";
 
@@ -29,31 +30,27 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         </div>
       </div>
 
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-white/55">
-        <div className="flex items-center gap-2">
-          <Building className="h-3.5 w-3.5 text-agency-yellow" />
-          <span className="font-semibold text-agency-white">Client</span>
-          <span>{project.client}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Calendar className="h-3.5 w-3.5 text-agency-yellow" />
-          <span className="font-semibold text-agency-white">Year</span>
-          <span>{project.year}</span>
-        </div>
+      <div className="group/heading">
+        <h1 className="mb-3 font-mono text-[11px] font-normal uppercase tracking-wider text-agency-white sm:text-xs">
+          {project.title}
+        </h1>
+        <p className="mb-3 font-display text-[1.25rem] font-bold uppercase leading-[1.05] tracking-[-0.015em] text-agency-white transition-colors group-hover/heading:text-agency-yellow">
+          {project.tagline}
+        </p>
       </div>
-
-      <h1 className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
-        {project.title}
-      </h1>
-      <p className="mb-10 font-sans text-base font-medium text-agency-yellow sm:text-lg">
-        {project.tagline}
+      <p className="mb-8 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+        {project.summary}
       </p>
 
       <div className="mb-10">
-        <h2 className="mb-3 font-mono text-xs uppercase tracking-wider text-agency-white/55">
+        <ProjectFacts facts={project.facts} />
+      </div>
+
+      <div className="mb-10 rounded-2xl border border-agency-border bg-agency-white/[0.03] p-6 sm:p-8">
+        <h2 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-yellow">
           Overview
         </h2>
-        <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+        <p className="font-sans text-sm leading-relaxed text-agency-white/75 sm:text-base">
           {project.overview}
         </p>
       </div>
@@ -73,8 +70,7 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         </div>
       </div>
 
-      <div className="mb-10 flex items-start gap-4 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
-        <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-agency-yellow" />
+      <div className="mb-10 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
         <div>
           <h2 className="mb-1 font-mono text-xs uppercase tracking-wider text-agency-yellow">
             Impact

@@ -13,7 +13,7 @@ import {
   galleryEnterTransition,
   filterExit,
 } from "@/lib/animations";
-import { cn } from "@/lib/utils";
+import { altCardBg, cn } from "@/lib/utils";
 
 interface PortfolioCardProps {
   project: PortfolioProject;
@@ -48,7 +48,10 @@ const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
         transition={galleryEnterTransition(index)}
         whileHover={reduceMotion ? undefined : cardLiftHover}
         whileTap={reduceMotion ? undefined : cardLiftTap}
-        className="group relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-3xl border border-agency-border bg-agency-surface will-change-transform hover:border-agency-yellow/50"
+        className={cn(
+          "group relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-3xl border border-agency-border will-change-transform hover:border-agency-yellow/50",
+          altCardBg(index)
+        )}
       >
         <motion.div
           layoutId={reduceMotion ? undefined : `portfolio-cover-${project.id}`}
@@ -64,12 +67,9 @@ const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/20 to-transparent" />
 
-          <div className="absolute left-4 right-4 top-4 flex items-center justify-between sm:left-5 sm:right-5 sm:top-5">
+          <div className="absolute left-4 top-4 sm:left-5 sm:top-5">
             <span className="rounded-full border border-agency-border bg-agency-black/90 px-3 py-1 font-mono text-[10px] text-agency-yellow sm:text-[11px]">
               {project.number} · {project.category}
-            </span>
-            <span className="rounded-full border border-agency-border bg-agency-black/90 px-2.5 py-1 font-mono text-[10px] text-agency-white/80 sm:px-3 sm:text-[11px]">
-              {project.year}
             </span>
           </div>
 
@@ -81,27 +81,27 @@ const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
           </div>
         </motion.div>
 
-        <div className={cn("flex flex-1 flex-col justify-between", compact ? "p-6 sm:p-7" : "p-6 sm:p-8")}>
-          <div>
-            <span className="mb-1 block font-mono text-[11px] uppercase text-agency-white/55">
-              Client: {project.client}
-            </span>
-            <motion.h3
-              layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}
-              className={cn(
-                "font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow",
-                compact ? "mb-2" : ""
-              )}
-            >
-              {project.title}
-            </motion.h3>
-            <p className="mt-2 line-clamp-2 font-sans text-xs leading-relaxed text-agency-white/55">
-              {project.tagline}
-            </p>
-          </div>
-
-          <div className="mt-6 flex items-center justify-between border-t border-agency-white/10 pt-4">
-            <span className="font-mono text-[11px] text-agency-white/70">{project.industry}</span>
+        <div className={cn("flex flex-1 flex-col", compact ? "p-5 sm:p-6" : "p-6 sm:p-8")}>
+          <motion.h3
+            layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}
+            className="font-mono text-[11px] font-normal uppercase tracking-wider text-agency-white sm:text-xs"
+          >
+            {project.title}
+          </motion.h3>
+          <p
+            className="mt-2 font-display text-[1.25rem] font-bold uppercase leading-[1.05] tracking-[-0.015em] text-agency-white transition-colors group-hover:text-agency-yellow"
+          >
+            {project.tagline}
+          </p>
+          <p
+            className={cn(
+              "mt-2 font-sans leading-relaxed text-agency-white/65",
+              compact ? "line-clamp-2 text-xs" : "line-clamp-2 text-sm"
+            )}
+          >
+            {project.summary}
+          </p>
+          <div className="mt-auto flex items-center justify-end pt-5">
             <div className="flex h-8 w-8 items-center justify-center rounded-full border border-agency-border text-agency-white transition-all group-hover:border-agency-yellow group-hover:bg-agency-yellow group-hover:text-agency-ink">
               <ArrowUpRight className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
             </div>

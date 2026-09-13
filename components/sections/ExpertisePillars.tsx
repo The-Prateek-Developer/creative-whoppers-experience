@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { PILLARS } from "@/lib/services-tree";
+import { altCardBg } from "@/lib/utils";
 
 export default function ExpertisePillars() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -35,11 +36,11 @@ export default function ExpertisePillars() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {PILLARS.map((pillar) => (
+        {PILLARS.map((pillar, index) => (
           <Link
             key={pillar.slug}
             href={`/services/${pillar.slug}`}
-            className="group flex items-start justify-between gap-6 rounded-2xl border border-agency-border p-8 transition-colors hover:border-agency-yellow/50"
+            className={`group flex items-start justify-between gap-6 rounded-2xl border border-agency-border p-8 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
           >
             <div>
               <span className="mb-4 block font-mono text-xs text-agency-yellow">{pillar.number}</span>

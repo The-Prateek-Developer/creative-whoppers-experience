@@ -27,6 +27,8 @@ export const SITE_IMAGES = {
   binoculars: "/images/site/binoculars.jpg",
   ideaChair: "/images/site/idea-chair.jpg",
   leap: "/images/site/leap.jpg",
+  ourMission: "/images/site/our-mission.jpg",
+  ourVision: "/images/site/our-vision.jpg",
   podcast: "/images/site/podcast.png",
   mindDoor: "/images/site/mind-door.png",
   whoWeAre: "/images/site/who-we-are.png",

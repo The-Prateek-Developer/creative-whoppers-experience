@@ -3,7 +3,8 @@
 import React, { useEffect } from "react";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { X, ArrowUpRight, CheckCircle2, Calendar, Building, Sparkles } from "lucide-react";
+import { X, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import ProjectFacts from "@/components/sections/ProjectFacts";
 import { PortfolioProject } from "@/lib/portfolio-data";
 import { easings } from "@/lib/animations";
 import { WHATSAPP_LINK } from "@/lib/site";
@@ -103,37 +104,29 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               transition={{ duration: 0.48, delay: 0.12, ease: easings.outPremium }}
               className="space-y-10 p-8 sm:p-12"
             >
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-agency-border pb-6 font-mono text-xs text-agency-white/55">
-                <div className="flex items-center gap-2">
-                  <Building className="h-3.5 w-3.5 text-agency-yellow" />
-                  <span className="font-semibold text-agency-white">Client</span>
-                  <span>{project.client}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-3.5 w-3.5 text-agency-yellow" />
-                  <span className="font-semibold text-agency-white">Year</span>
-                  <span>{project.year}</span>
-                </div>
-              </div>
-
-              <div>
+              <div className="group/heading">
                 <motion.h2
                   id="case-study-title"
                   layoutId={reduceMotion ? undefined : `portfolio-title-${project.id}`}
-                  className="mb-4 font-display text-xl font-semibold uppercase tracking-tight text-agency-white"
+                  className="mb-3 font-mono text-[11px] font-normal uppercase tracking-wider text-agency-white sm:text-xs"
                 >
                   {project.title}
                 </motion.h2>
-                <p className="font-sans text-base font-medium text-agency-yellow sm:text-lg">
+                <p className="mb-3 font-display text-[1.25rem] font-bold uppercase leading-[1.05] tracking-[-0.015em] text-agency-white transition-colors group-hover/heading:text-agency-yellow">
                   {project.tagline}
+                </p>
+                <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+                  {project.summary}
                 </p>
               </div>
 
-              <div>
-                <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-white/55">
+              <ProjectFacts facts={project.facts} />
+
+              <div className="rounded-2xl border border-agency-border bg-agency-white/[0.03] p-6 sm:p-8">
+                <h4 className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-agency-yellow">
                   Overview
                 </h4>
-                <p className="font-sans text-sm leading-relaxed text-agency-white/55 sm:text-base">
+                <p className="font-sans text-sm leading-relaxed text-agency-white/75 sm:text-base">
                   {project.overview}
                 </p>
               </div>
@@ -158,8 +151,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
-                <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-agency-yellow" />
+              <div className="rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
                 <div>
                   <span className="mb-1 block font-sans text-xs font-medium uppercase tracking-wider text-agency-yellow">
                     Impact

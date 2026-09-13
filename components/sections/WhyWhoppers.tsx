@@ -2,7 +2,8 @@
 
 import React, { useRef } from "react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
-import { DIFFERENTIATORS, HOME_PROCESS } from "@/lib/process";
+import { DIFFERENTIATORS, PROCESS_STAGES } from "@/lib/process";
+import { altCardBg } from "@/lib/utils";
 
 export default function WhyWhoppers() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,10 +35,10 @@ export default function WhyWhoppers() {
       </div>
 
       <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {DIFFERENTIATORS.map((item) => (
+        {DIFFERENTIATORS.map((item, index) => (
           <div
             key={item.title}
-            className="rounded-2xl border border-agency-border bg-agency-white/[0.04] p-7"
+            className={`rounded-2xl border border-agency-border p-7 ${altCardBg(index)}`}
           >
             <h3 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               {item.title}
@@ -47,22 +48,25 @@ export default function WhyWhoppers() {
         ))}
       </div>
 
-      <p className="mb-8 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
-        Process snapshot
+      <h2 className="section-heading mb-5 text-agency-white">Our approach</h2>
+      <p className="mb-12 max-w-2xl font-sans text-sm text-agency-white/60">
+        Discover → Design → Deliver → Amplify. Understand before we create, turn ideas into
+        experiences, create with precision, and make the experience go further.
       </p>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {HOME_PROCESS.map((stage) => (
-          <div key={stage.id} className="border-t border-agency-yellow/40 pt-6">
-            <span className="font-mono text-[11px] text-agency-yellow">{stage.number}</span>
-            <h3 className="mt-2 font-display text-xl font-semibold uppercase text-agency-white">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {PROCESS_STAGES.map((stage, index) => (
+          <div
+            key={stage.id}
+            className={`rounded-2xl border border-agency-border p-8 ${altCardBg(index)}`}
+          >
+            <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
+            <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               {stage.title}
             </h3>
-            <p className="mt-1 text-xs font-mono uppercase tracking-wider text-agency-white/50">
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-agency-white/50">
               {stage.subtitle}
             </p>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-agency-white/60">
-              {stage.description}
-            </p>
+            <p className="mt-4 text-sm leading-relaxed text-agency-white/60">{stage.description}</p>
           </div>
         ))}
       </div>

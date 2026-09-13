@@ -2,21 +2,25 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles, Mail, MapPin, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { NAP, NAV_LINKS, SITE_DESCRIPTION, WHATSAPP_LINK } from "@/lib/site";
 import SocialIcon from "@/components/icons/SocialIcon";
 import BrandLogo from "@/components/brand/BrandLogo";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const hideCta = pathname === "/contact-us";
+
   return (
-    <footer className="relative mt-12 w-full overflow-hidden border-t border-agency-border bg-agency-black">
+    <footer className="relative w-full overflow-hidden border-t border-agency-border bg-agency-black">
+      {!hideCta && (
       <div className="border-b border-agency-border">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-12 lg:py-16">
           <div className="relative overflow-hidden rounded-2xl border border-agency-border bg-agency-black p-8 sm:p-12 lg:p-16">
             <div className="relative z-10 flex flex-col justify-between gap-10 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-yellow/10 px-3 py-1 font-mono text-xs text-agency-yellow">
-                  <Sparkles className="h-3.5 w-3.5" />
+                <div className="mb-6 inline-flex items-center rounded-full border border-agency-yellow/30 bg-agency-yellow/10 px-3 py-1 font-mono text-xs text-agency-yellow">
                   <span>Have a brief in mind?</span>
                 </div>
                 <h2 className="section-heading mb-4 text-agency-white">
@@ -47,20 +51,17 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      )}
 
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12">
-        <div className="grid grid-cols-1 gap-12 border-b border-agency-border pb-16 md:grid-cols-2 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-12 lg:py-12">
+        <div className="grid grid-cols-1 gap-10 border-b border-agency-border pb-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="md:col-span-2 lg:col-span-4">
             <Link href="/" aria-label="Creative Whoppers home" className="mb-5 block leading-none">
               <BrandLogo size="nav" />
             </Link>
-            <p className="mb-6 max-w-md font-sans text-sm leading-relaxed text-agency-white/55">
+            <p className="max-w-md font-sans text-sm leading-relaxed text-agency-white/55">
               {SITE_DESCRIPTION}
             </p>
-            <div className="inline-flex items-center gap-2 rounded-full border border-agency-border bg-agency-black px-3 py-1.5 font-mono text-xs text-agency-yellow">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-agency-yellow" />
-              Accepting select briefs
-            </div>
           </div>
 
           <div className="lg:col-span-2">

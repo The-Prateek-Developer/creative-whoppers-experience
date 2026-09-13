@@ -108,24 +108,25 @@ function AutoRow({
   );
 }
 
-export default function ClientLogos({ scrollerOnly = false }: { scrollerOnly?: boolean }) {
+export default function ClientLogos({
+  scrollerOnly = false,
+  embedded = false,
+}: {
+  scrollerOnly?: boolean;
+  embedded?: boolean;
+}) {
   const reduceMotion = useReducedMotion();
+  const hideChrome = scrollerOnly || embedded;
 
-  return (
-    <section
-      className={cn(
-        "border-t border-agency-border",
-        scrollerOnly ? "py-8 lg:py-10" : "py-16 lg:py-20"
-      )}
-      aria-label="Our clients"
-    >
-      {!scrollerOnly && (
+  const body = (
+    <>
+      {!hideChrome && (
         <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-12">
           <p className="mb-4 font-sans text-xs font-medium uppercase tracking-editorial-wide text-agency-yellow">
             Our clients
           </p>
           <h2 className="section-heading text-agency-white">
-            Trusted by teams who need it <span className="italic text-agency-yellow">done</span>
+            Trusted by teams who need it done
           </h2>
           <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/60">
             Government, defence, culture, education and brands — partners across the briefs we
@@ -151,6 +152,22 @@ export default function ClientLogos({ scrollerOnly = false }: { scrollerOnly?: b
           <AutoRow items={CLIENTS} speed={0.9} />
         </div>
       )}
+    </>
+  );
+
+  if (embedded) {
+    return <div aria-label="Our clients">{body}</div>;
+  }
+
+  return (
+    <section
+      className={cn(
+        "border-t border-agency-border",
+        scrollerOnly ? "py-8 lg:py-10" : "py-16 lg:py-20"
+      )}
+      aria-label="Our clients"
+    >
+      {body}
     </section>
   );
 }

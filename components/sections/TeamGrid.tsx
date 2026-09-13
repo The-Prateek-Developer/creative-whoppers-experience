@@ -6,6 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import { easings } from "@/lib/animations";
+import { altCardBg, cn } from "@/lib/utils";
 
 export type TeamMember = {
   name: string;
@@ -17,41 +18,40 @@ export type TeamMember = {
 
 function TeamCard({
   person,
-  featured = false,
+  index = 0,
   onOpen,
 }: {
   person: TeamMember;
-  featured?: boolean;
+  index?: number;
   onOpen: (person: TeamMember) => void;
 }) {
   return (
     <button
       type="button"
       onClick={() => onOpen(person)}
-      className="group w-full overflow-hidden rounded-2xl border border-agency-border bg-agency-black text-left transition-colors hover:border-agency-yellow/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+      className={cn(
+        "group flex w-full flex-col overflow-hidden rounded-2xl border border-agency-border text-left transition-colors hover:border-agency-yellow/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black",
+        altCardBg(index)
+      )}
     >
-      <div className="relative aspect-[5/6] overflow-hidden bg-[#eef1f4]">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#eef1f4]">
         <FadeImage
           src={person.image}
           alt={person.name}
           fill
-          sizes={featured ? "(max-width: 768px) 100vw, 40vw" : "(max-width: 768px) 100vw, 25vw"}
-          className="object-cover object-[center_40%] scale-[1.38] transition-transform duration-700 group-hover:scale-[1.46]"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover object-top grayscale transition-[filter] duration-700 group-hover:grayscale-0"
         />
       </div>
-      <div className={featured ? "p-4 sm:p-5" : "p-3.5 sm:p-4"}>
+      <div className="w-full p-3 sm:p-3.5">
         <p className="font-sans text-[10px] font-medium uppercase tracking-wider text-agency-yellow">
           {person.experience}
         </p>
-        <h3
-          className={`mt-1.5 font-display font-semibold uppercase tracking-tight text-agency-white ${
-            featured ? "text-xl" : "text-lg"
-          }`}
-        >
+        <h3 className="mt-1 font-display text-base font-semibold uppercase tracking-tight text-agency-white">
           {person.name}
         </h3>
-        <p className="mt-0.5 text-sm text-agency-white/55">{person.role}</p>
-        <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-agency-white/65 sm:text-sm">
+        <p className="mt-0.5 text-xs text-agency-white/55 sm:text-sm">{person.role}</p>
+        <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-agency-white/65">
           {person.bio}
         </p>
       </div>
@@ -153,24 +153,26 @@ export default function TeamGrid({ people }: { people: TeamMember[] }) {
     (person) => person.name === "Dilip Katariya" || person.name === "Khaalid Naik"
   );
   const featuredOrdered = [
-    featured.find((person) => person.name === "Dilip Katariya"),
     featured.find((person) => person.name === "Khaalid Naik"),
+    featured.find((person) => person.name === "Dilip Katariya"),
   ].filter(Boolean) as TeamMember[];
   const rest = people.filter(
     (person) => person.name !== "Dilip Katariya" && person.name !== "Khaalid Naik"
   );
 
+  const ordered = [...featuredOrdered, ...rest];
+
   return (
     <>
-      <div className="mx-auto max-w-5xl px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {featuredOrdered.map((person) => (
-            <TeamCard key={person.name} person={person} featured onOpen={setSelected} />
-          ))}
-        </div>
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((person) => (
-            <TeamCard key={person.name} person={person} onOpen={setSelected} />
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {ordered.map((person, index) => (
+            <TeamCard
+              key={person.name}
+              person={person}
+              index={index}
+              onOpen={setSelected}
+            />
           ))}
         </div>
       </div>

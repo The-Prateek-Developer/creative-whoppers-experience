@@ -33,8 +33,6 @@ export const PROCESS_STAGES = [
   },
 ] as const;
 
-export const HOME_PROCESS = PROCESS_STAGES.slice(0, 3);
-
 export const DIFFERENTIATORS = [
   {
     title: "End-to-end, under one roof",

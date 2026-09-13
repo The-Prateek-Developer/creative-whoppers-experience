@@ -6,7 +6,6 @@ import FlagshipServices from "@/components/sections/FlagshipServices";
 import ExpertisePillars from "@/components/sections/ExpertisePillars";
 import PortfolioGrid from "@/components/sections/PortfolioGrid";
 import WhyWhoppers from "@/components/sections/WhyWhoppers";
-import ClientLogos from "@/components/sections/ClientLogos";
 import Testimonials from "@/components/sections/Testimonials";
 import JsonLd from "@/components/seo/JsonLd";
 import { organizationJsonLd } from "@/lib/schema";
@@ -42,7 +41,6 @@ export default function HomePage() {
       <PortfolioGrid />
       <WhyWhoppers />
       <Testimonials />
-      <ClientLogos scrollerOnly />
     </div>
   );
 }

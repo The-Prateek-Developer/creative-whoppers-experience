@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import AboutClient from "@/components/sections/AboutClient";
-import ClientLogos from "@/components/sections/ClientLogos";
 import Testimonials from "@/components/sections/Testimonials";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
@@ -28,7 +27,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="w-full">
+    <div className="relative w-full overflow-hidden pb-24 pt-8">
+      <div
+        className="pointer-events-none absolute -top-20 right-1/4 h-96 w-96 rounded-full bg-agency-yellow/15 blur-3xl"
+        aria-hidden
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -36,8 +39,10 @@ export default function AboutPage() {
         ])}
       />
       <AboutClient />
-      <Testimonials />
-      <ClientLogos scrollerOnly />
+      <Testimonials
+        id="trusted-across-sectors"
+        className="relative z-10 scroll-mt-28 py-16 lg:py-20"
+      />
     </div>
   );
 }

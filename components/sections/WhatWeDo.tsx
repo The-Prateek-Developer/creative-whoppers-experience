@@ -4,9 +4,9 @@ import React, { useLayoutEffect, useRef } from "react";
 import { gsap, gsapEase, prefersReducedMotion, refreshScrollTrigger } from "@/lib/gsap";
 
 const LINES = [
-  { text: "We architect experiences", accent: false },
-  { text: "that stop culture mid-scroll —", accent: false },
-  { text: "across space, film, and the physical world.", accent: true },
+  { text: "We architect experiences" },
+  { text: "that stop culture mid-scroll —" },
+  { text: "across space, film, and the physical world." },
 ];
 
 export default function WhatWeDo() {
@@ -128,9 +128,7 @@ export default function WhatWeDo() {
             {LINES.map((line) => (
               <span
                 key={line.text}
-                className={`what-line block overflow-hidden ${
-                  line.accent ? "text-agency-yellow" : ""
-                }`}
+                className="what-line block overflow-hidden"
               >
                 {line.text}
               </span>

@@ -9,6 +9,11 @@ export const PORTFOLIO_CATEGORIES = [
 
 export type PortfolioCategory = (typeof PORTFOLIO_CATEGORIES)[number];
 
+export type ProjectFact = {
+  label: string;
+  value: string;
+};
+
 export interface PortfolioProject {
   id: string;
   number: string;
@@ -18,6 +23,8 @@ export interface PortfolioProject {
   category: PortfolioCategory;
   year: string;
   tagline: string;
+  summary: string;
+  facts: ProjectFact[];
   overview: string;
   challenge: string;
   solution: string;
@@ -37,8 +44,17 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Experience Design",
     year: "2024",
     tagline: "A Day to Connect, Collaborate and Celebrate",
+    summary:
+      "End-to-end corporate event management for Sberbank India's flagship employee gathering.",
+    facts: [
+      { label: "Client", value: "Sberbank India" },
+      { label: "Year", value: "2024" },
+      { label: "Location", value: "Russian House, New Delhi" },
+      { label: "Capacity", value: "150+ attendees" },
+      { label: "Duration", value: "1 Day" },
+    ],
     overview:
-      "Creative Whoppers delivered end-to-end event management for Sberbank India's corporate gathering at the Russian House in New Delhi. Bringing together 100+ employees for a full day of leadership dialogue, team engagement, and celebration, the event was designed to feel purposeful rather than procedural — a rare balance for a large-scale corporate town hall. Location: Russian House, New Delhi. Capacity: 150+ attendees. Duration: 1 day.",
+      "Creative Whoppers delivered end-to-end event management for Sberbank India's corporate gathering at the Russian House in New Delhi. Bringing together 100+ employees for a full day of leadership dialogue, team engagement, and celebration, the event was designed to feel purposeful rather than procedural — a rare balance for a large-scale corporate town hall.",
     challenge:
       "Sberbank needed a single-day format that could hold a formal leadership townhall, Q&A sessions, panel discussions, and internal business updates, while still creating space for genuine team bonding. The brief was clear: this couldn't be read as an office meeting stretched across eight hours — it needed to feel like an occasion.",
     solution:
@@ -63,6 +79,14 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Digital Experiences",
     year: "2024",
     tagline: "Preserving a Nation's Military Legacy, Museum by Museum",
+    summary:
+      "A nationwide digitisation initiative capturing the history, artefacts, and stories of India's Army, Navy, and Air Force museums for the Indian Armed Forces Museum Digital Platform.",
+    facts: [
+      { label: "Client", value: "Indian Armed Forces (Army, Navy, and Air Force)" },
+      { label: "Scope", value: "22 States & Union Territories, 47 Museum Locations" },
+      { label: "Coverage", value: "Leh to Trivandrum, Jaisalmer to Assam" },
+      { label: "Service", value: "Museum & Heritage Digitisation" },
+    ],
     overview:
       "Creative Whoppers partnered with the Indian Armed Forces on a pan-India mission to digitise the legacy of the Army, Navy, and Air Force museums, travelling to 47 museum locations across 22 states and union territories, from Leh to Trivandrum and Jaisalmer to Assam. The project goes beyond documentation, building the foundation for the upcoming Indian Armed Forces Museum Digital Platform, making India's military heritage accessible to every citizen.",
     challenge:
@@ -91,6 +115,15 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Experience Design",
     year: "2023",
     tagline: "Celebrating a New Chapter for India's Global Scholars",
+    summary:
+      "Full-scale event production and media coverage for the EU Delegation's send-off ceremony honoring Erasmus Mundus scholars.",
+    facts: [
+      { label: "Client", value: "European Union & The Instituto Cervantes, New Delhi" },
+      { label: "Year", value: "2023" },
+      { label: "Location", value: "Instituto Cervantes, New Delhi" },
+      { label: "Capacity", value: "500+" },
+      { label: "Duration", value: "1 Day" },
+    ],
     overview:
       "Held at the Instituto Cervantes in New Delhi, the Erasmus Mundus Pre-Departure Ceremony brought together 500+ scholars, EU officials, and academic dignitaries to celebrate Indian students embarking on the prestigious Erasmus Mundus scholarship journey to Europe. Creative Whoppers led complete event production alongside videography and photography, working directly with the EU Delegation and Instituto Cervantes to deliver the ceremony end to end.",
     challenge:
@@ -117,6 +150,15 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Creative Production",
     year: "2022",
     tagline: "Pedaling for a Cleaner Capital",
+    summary:
+      "Media production and on-ground event support for a landmark climate-awareness cycling event by the EU Delegation.",
+    facts: [
+      { label: "Client", value: "European Union Delegation, Netherlands Embassy, Embassy of the Federal Republic of Germany" },
+      { label: "Year", value: "2022" },
+      { label: "Location", value: "Netherlands Embassy & Embassy of the Federal Republic of Germany, New Delhi" },
+      { label: "Capacity", value: "2000+" },
+      { label: "Duration", value: "1 Day" },
+    ],
     overview:
       "Held on October 15, 2022, Cycling4Life brought together the EU Delegation, the Dutch and German Embassies, and NGO Delhi by Cycle for a city-wide cycling event promoting climate awareness and sustainable, low-emission living. More than 500 cyclists rode a 15–20 km route across Delhi's landmark roads, starting at the Netherlands Embassy in Chanakyapuri and finishing at Nehru Park opposite the German Embassy. Creative Whoppers led all media production for the event and supported the EU Delegation in on-ground event management.",
     challenge:
@@ -143,8 +185,17 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Experience Design",
     year: "2024",
     tagline: "Where Literature Meets the Ravines of Chambal",
+    summary:
+      "A recurring flagship literary and cultural festival held on the banks of the Chambal, championing India's most misunderstood landscape.",
+    facts: [
+      { label: "Client", value: "Chambal Museum & THE ANTS" },
+      { label: "Year", value: "2024 (4th Edition)" },
+      { label: "Location", value: "Panchnad, Chambal & Chambal Ghati, Bhind" },
+      { label: "Capacity", value: "2000+" },
+      { label: "Duration", value: "3 Days" },
+    ],
     overview:
-      "The Chambal Literary Festival is a one-of-its-kind cultural gathering held not in a city auditorium, but on the sandbanks of Panchnad — the confluence of five rivers (Kunwari, Pahuj, Yamuna, Chambal and Sind) near the borders of Jalaun, Etawah and Auraiya. First organized in 2020 as an initiative of THE ANTS and Chambal Museum, the 2024 edition brought together writers, filmmakers, historians, and cultural figures from across India for three days of dialogue, storytelling, and heritage exploration. Capacity: 2000+. Duration: 3 days.",
+      "The Chambal Literary Festival is a one-of-its-kind cultural gathering held not in a city auditorium, but on the sandbanks of Panchnad — the confluence of five rivers (Kunwari, Pahuj, Yamuna, Chambal and Sind) near the borders of Jalaun, Etawah and Auraiya. First organized in 2020 as an initiative of THE ANTS and Chambal Museum, the 2024 edition brought together writers, filmmakers, historians, and cultural figures from across India for three days of dialogue, storytelling, and heritage exploration in one of the country's most remote and least-documented regions.",
     challenge:
       "Bring a literature festival — a format typically associated with urban venues like Delhi and Jaipur — to one of India's most inaccessible landscapes, without losing production quality, safety, or scale. The larger challenge was narrative: to shift public perception of Chambal away from decades of \"dacoit-land\" stereotyping, and reintroduce the region through its history, ecology, and role in the freedom struggle, all while running a genuinely sustainable, plastic-free event for 2000+ attendees across three days.",
     solution:

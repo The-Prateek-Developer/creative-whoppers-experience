@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { WHATSAPP_LINK } from "@/lib/site";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
@@ -15,6 +15,7 @@ import {
   easings,
   galleryEnterTransition,
 } from "@/lib/animations";
+import { altCardBg } from "@/lib/utils";
 
 export default function ServicesGrid() {
   const featuredServices = SERVICES_DATA.slice(0, 4);
@@ -43,14 +44,13 @@ export default function ServicesGrid() {
             data-reveal-item
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-agency-yellow/30 bg-agency-yellow/10 px-3 py-1 font-mono text-xs text-agency-yellow"
           >
-            <Sparkles className="h-3 w-3" />
             <span>Production capabilities</span>
           </div>
           <h2
             data-reveal-item
             className="section-heading page-heading text-agency-white"
           >
-            Production <span className="text-agency-yellow italic">Capabilities</span>.
+            Production Capabilities.
           </h2>
         </div>
         <p
@@ -84,7 +84,7 @@ export default function ServicesGrid() {
                 className={`group relative w-full overflow-hidden rounded-xl border p-6 text-left will-change-transform ${
                   isActive
                     ? "border-agency-yellow/50 bg-agency-surface shadow-[0_0_20px_rgba(248,214,37,0.15)]"
-                    : "border-agency-border bg-agency-white/[0.04] hover:border-agency-border-strong hover:bg-agency-white/[0.05]"
+                    : `border-agency-border hover:border-agency-border-strong ${altCardBg(index)}`
                 }`}
               >
                 {isActive && (

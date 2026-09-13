@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
+import { altCardBg } from "@/lib/utils";
 import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -29,37 +30,41 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="pb-28 pt-8">
+    <div className="relative w-full overflow-hidden pb-24 pt-8">
+      <div
+        className="pointer-events-none absolute -top-20 right-1/4 h-96 w-96 rounded-full bg-agency-yellow/15 blur-3xl"
+        aria-hidden
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
         ])}
       />
-      <section className="mx-auto mb-20 max-w-7xl px-6 lg:px-12">
+      <section className="relative z-10 mx-auto mb-16 max-w-7xl border-b border-agency-border px-6 pb-16 lg:px-12">
         <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
-          Creative agency services
+          Services
         </p>
-        <h1 className="page-heading mb-6 font-display text-display-xl font-extrabold uppercase tracking-editorial-tight text-agency-white">
+        <h1 className="page-heading mb-6 max-w-none whitespace-nowrap font-display text-display-xl font-bold uppercase tracking-tight text-agency-white">
           Our Services
         </h1>
-        <p className="page-heading-lead font-sans text-base leading-relaxed text-agency-white/65">
+        <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
           Four ways we create memorable experiences — Experience Design, Creative Production,
           Digital Experiences and Brand Marketing — covering everything an organisation needs
           to plan, produce and amplify work that lasts.
         </p>
       </section>
 
-      <section className="mx-auto mb-24 max-w-7xl px-6 lg:px-12">
+      <section className="relative z-10 mx-auto mb-24 max-w-7xl px-6 lg:px-12">
         <h2 className="section-heading mb-8 text-agency-white">
           Capability pillars
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {PILLARS.map((pillar) => (
+          {PILLARS.map((pillar, index) => (
             <Link
               key={pillar.slug}
               href={`/services/${pillar.slug}`}
-              className="group overflow-hidden rounded-3xl border border-agency-border hover:border-agency-yellow/50"
+              className={`group overflow-hidden rounded-3xl border border-agency-border hover:border-agency-yellow/50 ${altCardBg(index)}`}
             >
               <div className="relative aspect-[16/9]">
                 <FadeImage
@@ -85,16 +90,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 lg:px-12">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         <h2 className="section-heading mb-8 text-agency-white">
           Creative excellence
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {FLAGSHIPS.map((service) => (
+          {FLAGSHIPS.map((service, index) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50"
+              className={`rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
             >
               <h3 className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {service.title}

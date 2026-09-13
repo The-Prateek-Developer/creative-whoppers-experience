@@ -4,8 +4,9 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import FadeImage from "@/components/media/FadeImage";
 import dynamic from "next/dynamic";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
+import { altCardBg } from "@/lib/utils";
 
 const ParticleField = dynamic(() => import("@/components/canvas/ParticleField"), {
   ssr: false,
@@ -68,7 +69,6 @@ export default function PhilosophySection() {
             data-reveal-item
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agency-yellow/10 border border-agency-yellow/30 text-agency-yellow text-xs font-mono mb-8"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Studio ethos & philosophy</span>
           </div>
 
@@ -79,7 +79,7 @@ export default function PhilosophySection() {
             >
               We Don’t Compete For Attention.
               <br />
-              <span className="text-agency-yellow">We Command It.</span>
+              We Command It.
             </h2>
             <p
               data-reveal-item
@@ -92,11 +92,11 @@ export default function PhilosophySection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-agency-white/10">
-          {PILLARS.map((pillar) => (
+          {PILLARS.map((pillar, index) => (
             <div
               key={pillar.num}
               data-reveal="card"
-              className="p-8 rounded-xl bg-agency-white/[0.08] border border-agency-border hover:border-agency-yellow/40 transition-all duration-300 flex flex-col justify-between"
+              className={`flex flex-col justify-between rounded-xl border border-agency-border p-8 transition-all duration-300 hover:border-agency-yellow/40 ${altCardBg(index)}`}
             >
               <div>
                 <span className="text-xs font-mono text-agency-yellow block mb-6">
