@@ -26,7 +26,13 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: [...PAGE_SEO.home.keywords, "Creative Whoppers"],
   icons: {
-    icon: "/images/brand/logos/favicon_yellow.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.jpeg", type: "image/jpeg" },
+    ],
+    apple: "/favicon.png",
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     type: "website",
