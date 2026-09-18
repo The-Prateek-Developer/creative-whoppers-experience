@@ -9,7 +9,7 @@ import { getServicePage, SERVICE_PAGES } from "@/lib/services-tree";
 import { itemSlugForName } from "@/lib/service-item-pages";
 import { SITE_OG_IMAGE } from "@/lib/site";
 import { altCardBg } from "@/lib/card-styles";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
 type Props = { params: { slug: string } };
 
@@ -36,6 +36,9 @@ export function generateMetadata({ params }: Props): Metadata {
 export default function ServiceDetailPage({ params }: Props) {
   const page = getServicePage(params.slug);
   if (!page) notFound();
+
+  const showCapabilitySections = Boolean(page.capabilitySections?.length);
+  const showGroups = Boolean(page.groups?.length) && !showCapabilitySections;
 
   return (
     <div className="relative w-full overflow-hidden pb-24 pt-8">
@@ -68,21 +71,66 @@ export default function ServiceDetailPage({ params }: Props) {
         <p className="page-heading-lead mb-10 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
           {page.intro}
         </p>
-        <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-3xl border border-agency-border">
+        <div className="relative mb-16 overflow-hidden rounded-3xl border border-agency-border bg-agency-black">
           <FadeImage
             src={page.image}
             alt={page.imageAlt}
-            fill
+            width={0}
+            height={0}
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover"
+            className="relative mx-auto h-auto w-full object-contain"
+            style={{ width: "100%", height: "auto" }}
             priority
           />
         </div>
       </section>
 
-      {page.groups && (
+      {showCapabilitySections ? (
+        <section className="relative z-10 mx-auto max-w-7xl space-y-10 px-6 lg:px-12">
+          {page.capabilitySections!.map((section, index) => (
+            <article
+              key={section.number}
+              className={`overflow-hidden rounded-3xl border border-agency-border ${altCardBg(index)}`}
+            >
+              <div className="grid grid-cols-1 gap-8 p-7 sm:p-9 lg:grid-cols-12 lg:gap-12 lg:p-10">
+                <div className="min-w-0 lg:col-span-7">
+                  <p className="mb-3 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
+                    {section.number}
+                  </p>
+                  <h2 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight text-agency-white sm:text-3xl">
+                    {section.title}
+                  </h2>
+                  <p className="max-w-xl font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+                    {section.description}
+                  </p>
+                </div>
+                <div className="lg:col-span-5 lg:border-l lg:border-agency-border lg:pl-10">
+                  <h3 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-yellow">
+                    Our capabilities
+                  </h3>
+                  <ul className="space-y-3">
+                    {section.capabilities.map((capability) => (
+                      <li key={capability} className="flex items-start gap-3">
+                        <Check
+                          className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow"
+                          aria-hidden
+                        />
+                        <span className="font-sans text-sm leading-relaxed text-agency-white/80">
+                          {capability}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
+      {showGroups ? (
         <section className="relative z-10 mx-auto max-w-7xl space-y-16 px-6 lg:px-12">
-          {page.groups.map((group) => (
+          {page.groups!.map((group) => (
             <div key={group.title}>
               <div className="mb-8 border-b border-agency-border pb-4">
                 <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-agency-yellow sm:text-3xl">
@@ -132,7 +180,7 @@ export default function ServiceDetailPage({ params }: Props) {
             </div>
           ))}
         </section>
-      )}
+      ) : null}
 
       {page.kind === "flagship" && page.pillarSlug && (
         <section className="relative z-10 mx-auto mt-16 max-w-7xl px-6 lg:px-12">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT_HREF, NAP, NAV_LINKS, SITE_DESCRIPTION } from "@/lib/site";
+import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 import SocialIcon from "@/components/icons/SocialIcon";
 import BrandLogo from "@/components/brand/BrandLogo";
 
@@ -32,17 +33,11 @@ export default function Footer() {
               </div>
 
               <div className="flex w-full flex-col items-stretch gap-3 lg:w-auto lg:min-w-[17rem]">
-                <Link
-                  href={CONTACT_HREF}
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-agency-yellow px-8 py-4 font-display text-sm font-bold uppercase tracking-wider text-agency-ink transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(248,214,37,0.35)] active:scale-[0.98]"
-                >
+                <Link href={CONTACT_HREF} className={ctaPrimary}>
                   <span>Start A Project</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  href={CONTACT_HREF}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-agency-border bg-agency-black px-6 py-4 font-mono text-xs uppercase tracking-wider text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
-                >
+                <Link href={CONTACT_HREF} className={ctaSecondary}>
                   <Mail className="h-4 w-4 text-agency-yellow" />
                   <span>Email Direct</span>
                 </Link>

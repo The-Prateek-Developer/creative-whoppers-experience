@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { CONTACT_HREF } from "@/lib/site";
+import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { useInViewGate } from "@/hooks/useInViewGate";
 import {
@@ -209,19 +210,13 @@ export default function ServicesGrid() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between border-t border-agency-border pt-6">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-agency-yellow hover:underline"
-                >
+              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-agency-border pt-6">
+                <Link href="/services" className={ctaSecondary}>
                   <span>Explore all services</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+                  <ArrowUpRight className="h-4 w-4" />
                 </Link>
 
-                <Link
-                  href={CONTACT_HREF}
-                  className="rounded-full bg-agency-yellow px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-colors hover:bg-agency-yellow"
-                >
+                <Link href={CONTACT_HREF} className={ctaPrimary}>
                   Inquire
                 </Link>
               </div>
@@ -232,10 +227,7 @@ export default function ServicesGrid() {
 
       <div className="mt-16 flex flex-col justify-between gap-4 border-t border-agency-border pt-8 font-mono text-xs text-agency-white/55 sm:flex-row sm:items-center">
         <span>Six major pillars, 25+ deliverable specs</span>
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-surface px-6 py-3 font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
-        >
+        <Link href="/services" className={ctaSecondary}>
           <span>View all services</span>
           <ArrowUpRight className="h-4 w-4" />
         </Link>

@@ -6,6 +6,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { ArrowUpRight } from "lucide-react";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { STATS } from "@/lib/site";
+import { ctaSecondary } from "@/lib/cta-styles";
 import { altCardBg } from "@/lib/utils";
 
 export default function AboutSnapshot() {
@@ -72,10 +73,10 @@ export default function AboutSnapshot() {
           <Link
             data-reveal-item
             href="/about-us"
-            className="mt-7 inline-flex items-center gap-2 rounded-full border border-agency-border px-5 py-2.5 font-sans text-[11px] font-semibold uppercase tracking-wider text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
+            className={`mt-7 ${ctaSecondary}`}
           >
             Know more about us
-            <ArrowUpRight className="h-3.5 w-3.5" />
+            <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

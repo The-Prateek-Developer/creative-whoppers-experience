@@ -16,6 +16,7 @@ import {
 import HeroVideo from "@/components/media/HeroVideo";
 import { PILLARS } from "@/lib/services-tree";
 import { CONTACT_HREF } from "@/lib/site";
+import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 
 const MotionLink = motion.create(Link);
 
@@ -66,7 +67,7 @@ export default function Hero() {
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
               <MotionLink
                 href={CONTACT_HREF}
-                className="inline-flex items-center gap-3 rounded-full bg-agency-yellow px-8 py-4 font-display text-sm font-bold uppercase tracking-wider text-agency-ink"
+                className={ctaPrimary}
                 initial="rest"
                 whileHover={reduceMotion ? undefined : "hover"}
                 whileTap={reduceMotion ? undefined : "tap"}
@@ -76,10 +77,7 @@ export default function Hero() {
                 Let&apos;s Create Together
                 <ArrowUpRight className="h-4 w-4" />
               </MotionLink>
-              <Link
-                href={CONTACT_HREF}
-                className="inline-flex items-center gap-2 rounded-full border border-agency-border px-7 py-4 text-sm font-medium text-agency-white transition-colors hover:border-agency-yellow hover:text-agency-yellow"
-              >
+              <Link href={CONTACT_HREF} className={ctaSecondary}>
                 Start a Project
               </Link>
             </motion.div>

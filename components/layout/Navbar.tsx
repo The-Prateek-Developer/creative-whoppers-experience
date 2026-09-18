@@ -25,6 +25,7 @@ import {
   underlineTransition,
 } from "@/lib/animations";
 import { CONTACT_HREF, NAP, NAV_LINKS } from "@/lib/site";
+import { ctaPrimary } from "@/lib/cta-styles";
 import SocialIcon from "@/components/icons/SocialIcon";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import BrandLogo from "@/components/brand/BrandLogo";
@@ -165,7 +166,7 @@ export default function Navbar() {
             <ThemeToggle />
             <MotionLink
               href={CONTACT_HREF}
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-agency-yellow px-6 py-3 text-xs font-semibold uppercase tracking-wider text-agency-ink transition-colors duration-300 hover:bg-agency-yellow"
+              className={`hidden sm:inline-flex ${ctaPrimary}`}
               initial="rest"
               animate="rest"
               whileHover={reduceMotion ? undefined : "hover"}
@@ -187,7 +188,7 @@ export default function Navbar() {
                 transition={{ duration: 0.28, ease: easings.outSoft }}
                 className="inline-flex"
               >
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="h-4 w-4" />
               </motion.span>
             </MotionLink>
 
@@ -294,7 +295,7 @@ export default function Navbar() {
                             {link.name}
                           </span>
                         </div>
-                        <div className="flex items-center gap-3 mt-1 sm:mt-0">
+                        <div className="hidden items-center gap-3 sm:mt-0 md:flex">
                           <span className="text-[11px] font-mono text-agency-white/55 group-hover:text-agency-white/80 transition-colors">
                             {link.tag}
                           </span>
@@ -309,13 +310,13 @@ export default function Navbar() {
                   <MotionLink
                     href={CONTACT_HREF}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-agency-yellow text-agency-ink font-display font-bold text-sm tracking-wider uppercase"
+                    className={ctaPrimary}
                     whileHover={reduceMotion ? undefined : ctaHover}
                     whileTap={reduceMotion ? undefined : ctaTap}
                     transition={ctaTransition}
                   >
                     <span>Start A Project Brief</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="h-4 w-4" />
                   </MotionLink>
                 </motion.div>
               </motion.nav>

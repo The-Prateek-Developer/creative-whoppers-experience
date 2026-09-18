@@ -273,7 +273,7 @@ export default function AboutClient() {
         id="our-approach"
         className="relative z-10 mx-auto mb-24 max-w-7xl scroll-mt-28 px-6 lg:px-12"
       >
-        <h2 className="section-heading mb-12 text-agency-yellow">Our approach</h2>
+        <h2 className="section-heading mb-12 text-agency-white">Our approach</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {PROCESS_STAGES.map((stage, index) => (
             <div
@@ -281,10 +281,10 @@ export default function AboutClient() {
               className={`rounded-2xl border border-agency-border p-8 ${altCardBg(index)}`}
             >
               <span className="font-mono text-xs text-agency-yellow">{stage.number}</span>
-              <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-yellow">
+              <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
                 {stage.title}
               </h3>
-              <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-yellow">
+              <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-white">
                 {stage.subtitle}
               </p>
               <p className="mt-4 text-sm leading-relaxed text-agency-white/60">{stage.description}</p>

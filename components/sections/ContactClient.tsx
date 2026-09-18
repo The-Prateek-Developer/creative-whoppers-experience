@@ -26,6 +26,7 @@ import {
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { NAP, WHATSAPP_URL } from "@/lib/site";
+import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 import { cn } from "@/lib/utils";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -269,9 +270,10 @@ export default function ContactClient() {
                     className={cn(
                       "mt-0.5 block font-medium leading-snug text-agency-white group-hover:text-agency-yellow",
                       channel.value.includes("@")
-                        ? "break-all font-mono text-[11px] sm:text-xs"
+                        ? "overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[clamp(0.62rem,1.4vw,0.8rem)]"
                         : "font-sans text-sm"
                     )}
+                    title={channel.value.includes("@") ? channel.value : undefined}
                   >
                     {channel.value}
                   </span>
@@ -327,7 +329,7 @@ export default function ContactClient() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
                       href={`mailto:${NAP.emails[0]}`}
-                      className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-full bg-agency-yellow px-6 py-3 font-display text-xs font-bold uppercase tracking-wider text-agency-ink transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+                      className={ctaPrimary}
                     >
                       Get in touch
                       <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -339,7 +341,7 @@ export default function ContactClient() {
                         setForm(INITIAL_FORM);
                         setErrors({});
                       }}
-                      className="inline-flex min-h-12 cursor-pointer items-center rounded-full border border-agency-border px-6 py-3 font-mono text-xs uppercase tracking-wider text-agency-white hover:border-agency-yellow hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+                      className={ctaSecondary}
                     >
                       Send another
                     </button>
@@ -512,7 +514,7 @@ export default function ContactClient() {
                     <motion.button
                       type="submit"
                       disabled={sending}
-                      className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-agency-yellow px-8 py-3.5 font-display text-xs font-bold uppercase tracking-wider text-agency-ink disabled:cursor-not-allowed disabled:opacity-70"
+                      className={`${ctaPrimary} cursor-pointer disabled:cursor-not-allowed disabled:opacity-70`}
                       initial="rest"
                       animate="rest"
                       whileHover={reduceMotion || sending ? undefined : "hover"}
@@ -525,7 +527,7 @@ export default function ContactClient() {
                     </motion.button>
                     <a
                       href={`mailto:${NAP.emails[0]}`}
-                      className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full border border-agency-border px-6 py-3.5 font-mono text-xs uppercase tracking-wider text-agency-white hover:border-agency-yellow hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+                      className={ctaSecondary}
                     >
                       <Mail className="h-4 w-4" />
                       Get in touch

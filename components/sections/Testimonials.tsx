@@ -220,7 +220,7 @@ export default function Testimonials({
         </div>
       </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-8">
         <ClientLogos embedded />
       </div>
     </section>

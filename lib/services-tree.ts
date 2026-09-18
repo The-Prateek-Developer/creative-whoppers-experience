@@ -12,6 +12,14 @@ export type ServiceGroup = {
   items: ServiceItem[];
 };
 
+/** Numbered capability blocks used on Creative Excellence detail pages */
+export type ServiceCapabilitySection = {
+  number: string;
+  title: string;
+  description: string;
+  capabilities: string[];
+};
+
 export type ServicePage = {
   slug: string;
   kind: "pillar" | "flagship";
@@ -25,6 +33,8 @@ export type ServicePage = {
   imageAlt: string;
   video?: string;
   groups?: ServiceGroup[];
+  /** When set, detail page renders these blocks (Creative Excellence doc layout) */
+  capabilitySections?: ServiceCapabilitySection[];
   pillarSlug?: string;
 };
 
@@ -136,14 +146,55 @@ export const SERVICE_PAGES: ServicePage[] = [
     kind: "pillar",
     number: "02",
     title: "Creative Production",
-    h1: "Creative Production",
-    metaTitle: "Film, Photography, Motion & Branding | Creative Whoppers",
+    h1: "Creating Compelling Visual Content",
+    metaTitle: "Creative Production | Creative Whoppers",
     metaDescription:
-      "Film and video production, motion design, animation, and brand identity design, visual stories and creative campaigns that build brand recall.",
+      "Film, video and design crafted to inform, inspire and convert, built on strategy, not just visuals.",
     intro:
-      "Film and video production, motion design, animation, and brand identity design, crafting visual stories and creative campaigns that capture attention and build brand recall.",
-    image: IMG.production,
-    imageAlt: "Creative production studio for film, photography and design",
+      "Film, video and design crafted to inform, inspire and convert, built on strategy, not just visuals.",
+    image: IMG.whatWeDoProduction,
+    imageAlt: "Creative production across film, photography and design",
+    capabilitySections: [
+      {
+        number: "01",
+        title: "Brand & Corporate Films",
+        description:
+          "Narrative-led films that build brand credibility and connect with audiences and stakeholders alike.",
+        capabilities: [
+          "Concept Development & Scriptwriting",
+          "Creative Direction & Cinematography",
+          "Corporate Profile & Leadership Films",
+          "Sound Design & Post-Production",
+          "Distribution & Performance Tracking",
+        ],
+      },
+      {
+        number: "02",
+        title: "Documentary & Testimonial Films",
+        description:
+          "Authentic, research-driven storytelling that captures real people and real trust.",
+        capabilities: [
+          "Research & Story Development",
+          "Field Production & Interviews",
+          "Archival Footage Sourcing",
+          "Cinematic Editing & Grading",
+          "Festival & Distribution Support",
+        ],
+      },
+      {
+        number: "03",
+        title: "Graphic Design & Brand Identity",
+        description:
+          "Visual identity systems that give brands a consistent presence across every touchpoint.",
+        capabilities: [
+          "Logo & Brand Identity Design",
+          "Brand Guidelines Development",
+          "Marketing & Collateral Design",
+          "Packaging & Print Design",
+          "Digital Design Assets",
+        ],
+      },
+    ],
     groups: [
       {
         title: "Film & Video Production",
@@ -267,43 +318,165 @@ export const SERVICE_PAGES: ServicePage[] = [
     slug: "digital-social-media",
     kind: "flagship",
     title: "Digital & Social Media",
-    h1: "Digital & Social Media",
+    h1: "Building Brands in the Digital Space",
     metaTitle: "Digital & Social Media | Creative Whoppers",
     metaDescription:
-      "Building a stronger digital presence through strategic social media, content, campaigns and audience engagement.",
+      "Strategic social media, content and campaigns that build presence and drive engagement — precisely targeted, consistently delivered.",
     intro:
-      "Building a stronger digital presence through strategic social media, content, campaigns and audience engagement.",
+      "Strategic social media, content and campaigns that build presence and drive engagement — precisely targeted, consistently delivered.",
     image: IMG.digitalSocial,
     imageAlt: "Digital and social media campaign planning",
     pillarSlug: "brand-marketing",
+    capabilitySections: [
+      {
+        number: "01",
+        title: "Social Media Strategy & Content",
+        description:
+          "Strategy-led content that gives every brand a clear voice and a consistent digital presence.",
+        capabilities: [
+          "Platform & Audience Strategy",
+          "Content Calendar & Production",
+          "Copywriting & Captioning",
+          "Trend-Based & Reels Content",
+          "Brand Voice Guidelines",
+        ],
+      },
+      {
+        number: "02",
+        title: "Performance Marketing",
+        description: "ROI-driven paid campaigns built to convert, not just to reach.",
+        capabilities: [
+          "Meta, Google & LinkedIn Ad Management",
+          "Audience Targeting & Retargeting",
+          "Creative A/B Testing",
+          "Budget Optimization",
+          "Conversion Tracking",
+        ],
+      },
+      {
+        number: "03",
+        title: "Community & Growth Management",
+        description:
+          "Active engagement and reporting that turns followers into a measurable, growing community.",
+        capabilities: [
+          "Community & DM Management",
+          "Influencer Collaboration",
+          "SEO & Traffic Growth",
+          "Performance Reporting & Insights",
+          "Brand Sentiment Monitoring",
+        ],
+      },
+    ],
   },
   {
     slug: "event-management",
     kind: "flagship",
     title: "Event Management",
-    h1: "Event Management",
+    h1: "Planning and Delivering Impactful Events",
     metaTitle: "Event Management | Creative Whoppers",
     metaDescription:
-      "Planning and delivering impactful events through creative concepts, seamless production and end to end execution.",
+      "Creative concepts turned into flawless execution from national conferences to institutional summits.",
     intro:
-      "Planning and delivering impactful events through creative concepts, seamless production and end to end execution.",
+      "Creative concepts turned into flawless execution from national conferences to institutional summits.",
     image: IMG.events,
     imageAlt: "Event management and on-ground production",
     pillarSlug: "experience-design",
+    capabilitySections: [
+      {
+        number: "01",
+        title: "Event Concept & Strategy",
+        description:
+          "Original concepts and themes that give every event a distinct identity and clear objective.",
+        capabilities: [
+          "Concept Ideation & Theme Design",
+          "Audience & Objective Mapping",
+          "Budgeting & Feasibility Planning",
+          "Timeline & Milestone Planning",
+          "Creative Narrative Development",
+        ],
+      },
+      {
+        number: "02",
+        title: "Corporate, Government & Conference Events",
+        description:
+          "Large-scale institutional events delivered with precision, protocol and end-to-end ownership.",
+        capabilities: [
+          "Corporate & Government Event Execution",
+          "Protocol & VIP Coordination",
+          "Agenda & Delegate Management",
+          "Exhibition & Stall Design",
+          "Multi-City Project Management",
+        ],
+      },
+      {
+        number: "03",
+        title: "Production & Technical Execution",
+        description:
+          "Stage, set and technical production that brings every concept to life on-ground.",
+        capabilities: [
+          "Stage, Set & Décor Design",
+          "AV, Lighting & LED Production",
+          "Artist & Vendor Management",
+          "Logistics & On-Ground Execution",
+          "Technical Rehearsals & Backup Planning",
+        ],
+      },
+    ],
   },
   {
     slug: "museum-heritage-digitization",
     kind: "flagship",
     title: "Museum Digitization",
-    h1: "Museum Digitization",
+    h1: "Museum & Heritage Digitization",
     metaTitle: "Museum Digitization | Creative Whoppers",
     metaDescription:
-      "Digitising heritage collections and transforming historical narratives into interactive, technology enabled museum experiences.",
+      "Preserving history through technology and immersive storytelling from archive to experience.",
     intro:
-      "Digitising heritage collections and transforming historical narratives into interactive, technology enabled museum experiences that educate, engage and inspire.",
+      "Preserving history through technology and immersive storytelling from archive to experience.",
     image: IMG.museum,
     imageAlt: "Museum and heritage digitization",
     pillarSlug: "digital-experiences",
+    capabilitySections: [
+      {
+        number: "01",
+        title: "Artifact & Digital Twin Capture",
+        description:
+          "High-precision documentation that turns fragile heritage into permanent, accessible digital records.",
+        capabilities: [
+          "High-Resolution Artifact Scanning",
+          "3D Object & Digital Twin Mapping",
+          "Archival Document Digitization",
+          "Metadata Tagging & Cataloguing",
+          "Secure Digital Archive Storage",
+        ],
+      },
+      {
+        number: "02",
+        title: "Immersive Visitor Experiences",
+        description:
+          "Technology-driven touchpoints that transform how visitors connect with history on-site.",
+        capabilities: [
+          "Multimedia Kiosks & AV Guides",
+          "Narrated Walkthroughs",
+          "Projection Mapping & Installations",
+          "Triggered Soundscapes",
+          "Heritage Documentary Production",
+        ],
+      },
+      {
+        number: "03",
+        title: "Digital Platforms for Heritage",
+        description:
+          "Websites and apps that extend the museum experience beyond its physical walls.",
+        capabilities: [
+          "UI/UX Design & Strategy",
+          "Website Development & CMS Integration",
+          "Mobile App Design & Development",
+          "Virtual Tour Integration",
+          "Platform Maintenance & Support",
+        ],
+      },
+    ],
   },
 ];
 
@@ -318,7 +491,11 @@ const pageBySlug = (slug: string) => {
 };
 
 export const FLAGSHIPS: ServicePage[] = [
-  pageBySlug("digital-social-media"),
+  {
+    ...pageBySlug("digital-social-media"),
+    intro:
+      "Building a stronger digital presence through strategic social media, content, campaigns and audience engagement.",
+  },
   {
     ...pageBySlug("creative-production"),
     image: IMG.whatWeDoProduction,
@@ -326,8 +503,16 @@ export const FLAGSHIPS: ServicePage[] = [
     intro:
       "Creating compelling visual content through film, video, photography, graphic design, motion and animation.",
   },
-  pageBySlug("event-management"),
-  pageBySlug("museum-heritage-digitization"),
+  {
+    ...pageBySlug("event-management"),
+    intro:
+      "Planning and delivering impactful events through creative concepts, seamless production and end-to-end execution.",
+  },
+  {
+    ...pageBySlug("museum-heritage-digitization"),
+    intro:
+      "Digitising heritage collections and transforming historical narratives into interactive, technology-enabled museum experiences that educate, engage and inspire.",
+  },
 ];
 
 export function getServicePage(slug: string) {

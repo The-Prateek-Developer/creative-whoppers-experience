@@ -99,7 +99,7 @@ function AutoRow({
       onMouseLeave={() => {
         pausedRef.current = false;
       }}
-      className="flex gap-4 overflow-x-auto px-4 py-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      className="flex gap-4 overflow-x-auto px-4 py-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
     >
       {loop.map((client, index) => (
         <LogoTile key={`${client.id}-${index}`} client={client} />

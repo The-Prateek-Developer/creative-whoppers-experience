@@ -32,7 +32,7 @@ export const NAP = {
     "https://maps.google.com/?q=211+Okhla+Industrial+Estate+Phase+3,+New+Delhi+110020",
   social: [
     { name: "Instagram", href: "https://instagram.com/creativewhoppers" },
-    { name: "LinkedIn", href: "https://linkedin.com/company/creative-whoppers" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/creativewhoppers/home/" },
     { name: "Facebook", href: "https://facebook.com/creativewhoppers" },
     { name: "YouTube", href: "https://youtube.com/@creativewhoppers" },
   ],

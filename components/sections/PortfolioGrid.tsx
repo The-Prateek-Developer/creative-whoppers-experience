@@ -8,6 +8,7 @@ import { PORTFOLIO_PROJECTS } from "@/lib/portfolio-data";
 import PortfolioCard from "@/components/sections/PortfolioCard";
 import { useSectionReveal } from "@/hooks/useSectionReveal";
 import { useInViewGate } from "@/hooks/useInViewGate";
+import { ctaSecondary } from "@/lib/cta-styles";
 
 export default function PortfolioGrid() {
   const featuredProjects = PORTFOLIO_PROJECTS.slice(0, 4);
@@ -77,10 +78,7 @@ export default function PortfolioGrid() {
           <span className="font-sans text-sm leading-relaxed text-agency-white/70 sm:text-base">
             Projects across events, films, branding and digital
           </span>
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong bg-agency-white/[0.06] px-6 py-3 font-mono text-xs font-semibold text-agency-yellow transition-all hover:bg-agency-yellow hover:text-agency-ink"
-          >
+          <Link href="/portfolio" className={ctaSecondary}>
             <span>View full portfolio</span>
             <ArrowUpRight className="h-4 w-4" />
           </Link>

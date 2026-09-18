@@ -44,13 +44,13 @@ export default function FlagshipServices() {
             href={`/services/${service.slug}`}
             className={`group overflow-hidden rounded-3xl border border-agency-border transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
           >
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden bg-agency-black">
               <FadeImage
                 src={service.image}
                 alt={service.imageAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             <div className="p-7">
@@ -64,16 +64,6 @@ export default function FlagshipServices() {
             </div>
           </Link>
         ))}
-      </div>
-
-      <div className="mt-12 border-t border-agency-border pt-8">
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 rounded-full border border-agency-border-strong px-6 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-agency-yellow transition-colors hover:bg-agency-yellow hover:text-agency-ink"
-        >
-          Explore all services
-          <ArrowUpRight className="h-4 w-4" />
-        </Link>
       </div>
     </section>
   );

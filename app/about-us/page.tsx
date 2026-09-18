@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="relative w-full overflow-hidden pb-24 pt-8">
+    <div className="relative w-full overflow-hidden pb-10 pt-8">
       <div
         className="pointer-events-none absolute -top-20 right-1/4 h-96 w-96 rounded-full bg-agency-yellow/15 blur-3xl"
         aria-hidden
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <AboutClient />
       <Testimonials
         id="trusted-across-sectors"
-        className="relative z-10 scroll-mt-28 py-16 lg:py-20"
+        className="relative z-10 scroll-mt-28 pt-12 pb-6 lg:pt-16 lg:pb-8"
       />
     </div>
   );

@@ -7,6 +7,7 @@ export type ServiceItemDetail = {
 
 const ED = "/images/services/experience-design";
 const CP = "/images/services/creative-production";
+const DE = "/images/services/digital-experiences";
 
 function collage(base: string, count = 1) {
   return Array.from({ length: count }, (_, index) =>
@@ -53,6 +54,17 @@ export const ITEM_SLUG_BY_NAME: Record<string, string> = {
   Illustration: "illustration",
   "Creative Campaign Design": "creative-campaign-design",
   "Print Collateral": "print-collateral",
+  "Artifact & Archive Digitization": "artifact-archive-digitization",
+  "Digital Twin Mapping": "digital-twin-mapping",
+  "Heritage Documentary Production": "heritage-documentary-production",
+  "Curated Multimedia Kiosks": "curated-multimedia-kiosks",
+  "Audio-Visual Guides": "audio-visual-guides",
+  "Immersive Narrated Walkthroughs": "immersive-narrated-walkthroughs",
+  "On-Site Immersive Installations": "on-site-immersive-installations",
+  "Sound Domes & Triggered Soundscapes": "sound-domes-triggered-soundscapes",
+  "UI/UX Design & Strategy": "ui-ux-design-strategy",
+  "Website Development & CMS Integration": "website-development-cms-integration",
+  "Mobile App Design & Development": "mobile-app-design-development",
 };
 
 export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
@@ -331,6 +343,50 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   "creative-production/print-collateral": {
     slug: "print-collateral",
     images: collage(`${CP}/print-collateral`),
+  },
+  "digital-experiences/artifact-archive-digitization": {
+    slug: "artifact-archive-digitization",
+    images: collage(`${DE}/artifact-archive-digitization`),
+  },
+  "digital-experiences/digital-twin-mapping": {
+    slug: "digital-twin-mapping",
+    images: collage(`${DE}/digital-twin-mapping`),
+  },
+  "digital-experiences/heritage-documentary-production": {
+    slug: "heritage-documentary-production",
+    images: collage(`${DE}/heritage-documentary-production`),
+  },
+  "digital-experiences/curated-multimedia-kiosks": {
+    slug: "curated-multimedia-kiosks",
+    images: collage(`${DE}/curated-multimedia-kiosks`),
+  },
+  "digital-experiences/audio-visual-guides": {
+    slug: "audio-visual-guides",
+    images: collage(`${DE}/audio-visual-guides`),
+  },
+  "digital-experiences/immersive-narrated-walkthroughs": {
+    slug: "immersive-narrated-walkthroughs",
+    images: collage(`${DE}/immersive-narrated-walkthroughs`),
+  },
+  "digital-experiences/on-site-immersive-installations": {
+    slug: "on-site-immersive-installations",
+    images: collage(`${DE}/on-site-immersive-installations`),
+  },
+  "digital-experiences/sound-domes-triggered-soundscapes": {
+    slug: "sound-domes-triggered-soundscapes",
+    images: collage(`${DE}/sound-domes-triggered-soundscapes`),
+  },
+  "digital-experiences/ui-ux-design-strategy": {
+    slug: "ui-ux-design-strategy",
+    images: collage(`${DE}/ui-ux-design-strategy`),
+  },
+  "digital-experiences/website-development-cms-integration": {
+    slug: "website-development-cms-integration",
+    images: collage(`${DE}/website-development-cms-integration`),
+  },
+  "digital-experiences/mobile-app-design-development": {
+    slug: "mobile-app-design-development",
+    images: collage(`${DE}/mobile-app-design-development`),
   },
 };
 
