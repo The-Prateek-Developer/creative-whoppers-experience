@@ -31,7 +31,20 @@ export interface PortfolioProject {
   impact: string;
   deliverables: string[];
   coverImage: string;
+  /** Six case-study photos shown below Overview on the brief page */
+  galleryImages: string[];
   featured: boolean;
+}
+
+function caseStudyGallery(folder: string): string[] {
+  return [
+    `/images/portfolio/${folder}/cover.jpg`,
+    `/images/portfolio/${folder}/01.jpg`,
+    `/images/portfolio/${folder}/02.jpg`,
+    `/images/portfolio/${folder}/03.jpg`,
+    `/images/portfolio/${folder}/04.jpg`,
+    `/images/portfolio/${folder}/05.jpg`,
+  ];
 }
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
@@ -68,6 +81,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "On-Ground Event Management",
     ],
     coverImage: SITE_IMAGES.sberbankEvent,
+    galleryImages: caseStudyGallery("sberbank"),
     featured: true,
   },
   {
@@ -104,6 +118,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Digital Platform Content Production",
     ],
     coverImage: SITE_IMAGES.armedForcesMuseum,
+    galleryImages: caseStudyGallery("armed-forces"),
     featured: true,
   },
   {
@@ -139,6 +154,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "On-Ground Event Management",
     ],
     coverImage: SITE_IMAGES.erasmusPanel,
+    galleryImages: caseStudyGallery("erasmus"),
     featured: true,
   },
   {
@@ -174,6 +190,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Multi-Location Route Coverage",
     ],
     coverImage: SITE_IMAGES.cycling4life,
+    galleryImages: caseStudyGallery("cycling4life"),
     featured: true,
   },
   {
@@ -210,6 +227,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "On-Ground Event Management",
     ],
     coverImage: SITE_IMAGES.chambalLiteraryFestival,
+    galleryImages: caseStudyGallery("chambal"),
     featured: true,
   },
 ];

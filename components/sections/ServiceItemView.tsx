@@ -58,20 +58,30 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
         </p>
 
         {detail.capabilities?.length ? (
-          <div className="mb-10 grid grid-cols-1 gap-10 border-b border-agency-border pb-10 lg:grid-cols-12">
-            <div className="min-w-0 lg:col-span-7 lg:pr-6">
-              <h1 className="mb-6 max-w-full font-display text-[clamp(1.7rem,3.1vw,2.75rem)] font-bold uppercase leading-[1.08] tracking-tight text-agency-white">
-                {item.name}
-              </h1>
-              <p className="max-w-xl font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-                {item.description}
-              </p>
+          <>
+            <h1 className="mb-6 max-w-4xl font-display text-[clamp(1.7rem,3.1vw,2.75rem)] font-bold uppercase leading-[1.08] tracking-tight text-agency-white">
+              {item.name}
+            </h1>
+            <p className="page-heading-lead mb-10 max-w-2xl font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+              {item.description}
+            </p>
+
+            <div className="mb-12">
+              <ServiceImagePayout
+                images={detail.images}
+                videos={detail.videos}
+                alt={item.name}
+                variant="page"
+                priority
+                banner
+              />
             </div>
-            <div className="lg:col-span-5 lg:border-l lg:border-agency-border lg:pl-10">
+
+            <div className="mb-10 border-b border-agency-border pb-10">
               <h2 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-yellow">
                 Our capabilities
               </h2>
-              <ul className="space-y-3">
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {detail.capabilities.map((capability) => (
                   <li key={capability} className="flex items-start gap-3">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
@@ -82,7 +92,7 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
                 ))}
               </ul>
             </div>
-          </div>
+          </>
         ) : (
           <>
             <h1 className="mb-6 whitespace-nowrap font-display text-[clamp(1.85rem,4vw,3.35rem)] font-bold uppercase leading-none tracking-tight text-agency-white">
@@ -91,16 +101,16 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
             <p className="page-heading-lead mb-10 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
               {item.description}
             </p>
+
+            <ServiceImagePayout
+              images={detail.images}
+              videos={detail.videos}
+              alt={item.name}
+              variant="page"
+              priority
+            />
           </>
         )}
-
-        <ServiceImagePayout
-          images={detail.images}
-          videos={detail.videos}
-          alt={item.name}
-          variant="page"
-          priority
-        />
       </section>
 
       {moreItems.length > 0 ? (

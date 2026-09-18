@@ -3,11 +3,26 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, FileDown, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT_HREF, NAP, NAV_LINKS, SITE_DESCRIPTION } from "@/lib/site";
 import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 import SocialIcon from "@/components/icons/SocialIcon";
 import BrandLogo from "@/components/brand/BrandLogo";
+
+const DOWNLOAD_LINKS = [
+  {
+    name: "Experience Design",
+    href: "https://drive.google.com/file/d/1sgMjeDfpX44SrWCVggxieyJEB_GtiHmi/view",
+  },
+  {
+    name: "Creative Production",
+    href: "https://drive.google.com/file/d/1T0w4YAETfTXJREA8VEwoIoujbV-EGIF1/view",
+  },
+  {
+    name: "Digital Experiences",
+    href: "https://drive.google.com/file/d/1edjYEzCGh7d_vkUbKqKILCFB6vuP3hqc/view",
+  },
+] as const;
 
 export default function Footer() {
   const pathname = usePathname();
@@ -116,20 +131,20 @@ export default function Footer() {
 
           <div className="min-w-0 lg:col-span-3">
             <h4 className="mb-6 text-xs font-medium uppercase tracking-wider text-agency-white/55">
-              Social
+              Download
             </h4>
-            <ul className="flex flex-col gap-3">
-              {NAP.social.map((item) => (
+            <ul className="flex flex-col gap-3 font-sans text-sm">
+              {DOWNLOAD_LINKS.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2.5 font-sans text-sm text-agency-white/80 transition-colors hover:text-agency-yellow"
+                    className="group inline-flex items-center gap-2 text-agency-white/80 transition-colors hover:text-agency-yellow"
                   >
-                    <SocialIcon name={item.name} />
+                    <FileDown className="h-3.5 w-3.5 shrink-0 text-agency-yellow" />
                     <span>{item.name}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-agency-white/40 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-agency-yellow" />
+                    <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
                   </a>
                 </li>
               ))}
@@ -141,9 +156,21 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {NAP.legalName}. All Right Reserved.
           </p>
-          <p>
-            {NAP.addressLocality}, {NAP.addressRegion}
-          </p>
+          <ul className="flex items-center gap-3">
+            {NAP.social.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-agency-border text-agency-white/80 transition-colors hover:border-agency-yellow/50 hover:text-agency-yellow"
+                >
+                  <SocialIcon name={item.name} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

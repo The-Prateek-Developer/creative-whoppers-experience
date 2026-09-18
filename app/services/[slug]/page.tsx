@@ -71,15 +71,13 @@ export default function ServiceDetailPage({ params }: Props) {
         <p className="page-heading-lead mb-10 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
           {page.intro}
         </p>
-        <div className="relative mb-16 overflow-hidden rounded-3xl border border-agency-border bg-agency-black">
+        <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-3xl border border-agency-border sm:aspect-[21/9]">
           <FadeImage
             src={page.image}
             alt={page.imageAlt}
-            width={0}
-            height={0}
+            fill
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="relative mx-auto h-auto w-full object-contain"
-            style={{ width: "100%", height: "auto" }}
+            className="object-cover"
             priority
           />
         </div>

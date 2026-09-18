@@ -1,6 +1,7 @@
 import React from "react";
 import FadeImage from "@/components/media/FadeImage";
 import ProjectFacts from "@/components/sections/ProjectFacts";
+import ProjectImageGallery from "@/components/sections/ProjectImageGallery";
 import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import type { PortfolioProject } from "@/lib/portfolio-data";
 import { testimonialForKey } from "@/lib/testimonials";
@@ -53,6 +54,8 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
           {project.overview}
         </p>
       </div>
+
+      <ProjectImageGallery images={project.galleryImages} alt={project.title} />
 
       <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">

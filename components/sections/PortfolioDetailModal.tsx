@@ -5,6 +5,7 @@ import FadeImage from "@/components/media/FadeImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import ProjectFacts from "@/components/sections/ProjectFacts";
+import ProjectImageGallery from "@/components/sections/ProjectImageGallery";
 import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import { PortfolioProject } from "@/lib/portfolio-data";
 import { easings } from "@/lib/animations";
@@ -131,6 +132,8 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                   {project.overview}
                 </p>
               </div>
+
+              <ProjectImageGallery images={project.galleryImages} alt={project.title} />
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="rounded-2xl border border-agency-border bg-agency-black/60 p-6">

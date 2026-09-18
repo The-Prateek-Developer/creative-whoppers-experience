@@ -17,6 +17,8 @@ type Props = {
   alt: string;
   variant?: "page" | "card";
   priority?: boolean;
+  /** Compact portfolio-style banner crop for service brief pages */
+  banner?: boolean;
 };
 
 function videoForIndex(videos: string[] | undefined, index: number) {
@@ -192,6 +194,7 @@ export default function ServiceImagePayout({
   videos,
   alt,
   priority,
+  banner,
 }: Props) {
   const [openSrc, setOpenSrc] = useState<string | null>(null);
   const [activeShort, setActiveShort] = useState<string | null>(null);
@@ -242,6 +245,30 @@ export default function ServiceImagePayout({
   }
 
   if (images.length === 0) return null;
+
+  if (banner) {
+    const src = images[0];
+    return (
+      <>
+        <button
+          type="button"
+          onClick={() => setOpenSrc(src)}
+          className="relative block aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-3xl border border-agency-border sm:aspect-[21/9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-agency-black"
+          aria-label={`View full image: ${alt}`}
+        >
+          <FadeImage
+            src={src}
+            alt={alt}
+            fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover"
+            priority={priority}
+          />
+        </button>
+        <ImageLightbox src={openSrc} alt={alt} onClose={() => setOpenSrc(null)} />
+      </>
+    );
+  }
 
   return (
     <>

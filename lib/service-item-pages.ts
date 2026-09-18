@@ -8,6 +8,7 @@ export type ServiceItemDetail = {
 const ED = "/images/services/experience-design";
 const CP = "/images/services/creative-production";
 const DE = "/images/services/digital-experiences";
+const BM = "/images/services/brand-marketing";
 
 function collage(base: string, count = 1) {
   return Array.from({ length: count }, (_, index) =>
@@ -65,6 +66,12 @@ export const ITEM_SLUG_BY_NAME: Record<string, string> = {
   "UI/UX Design & Strategy": "ui-ux-design-strategy",
   "Website Development & CMS Integration": "website-development-cms-integration",
   "Mobile App Design & Development": "mobile-app-design-development",
+  "Brand Strategy": "brand-strategy",
+  "Search Engine Optimization (SEO)": "search-engine-optimization-seo",
+  "Digital Marketing": "digital-marketing",
+  "Social Media Marketing": "social-media-marketing",
+  "Performance Marketing": "performance-marketing",
+  "Integrated Marketing Campaigns": "integrated-marketing-campaigns",
 };
 
 export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
@@ -387,6 +394,72 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   "digital-experiences/mobile-app-design-development": {
     slug: "mobile-app-design-development",
     images: collage(`${DE}/mobile-app-design-development`),
+  },
+  "brand-marketing/brand-strategy": {
+    slug: "brand-strategy",
+    capabilities: [
+      "Brand Positioning & Messaging",
+      "Brand Identity & Guidelines",
+      "Competitive & Market Analysis",
+      "Naming & Tagline Development",
+      "Brand Voice & Tone Strategy",
+    ],
+    images: collage(`${BM}/brand-strategy`),
+  },
+  "brand-marketing/search-engine-optimization-seo": {
+    slug: "search-engine-optimization-seo",
+    capabilities: [
+      "On-Page & Technical SEO",
+      "Keyword Research & Strategy",
+      "GMB (Google Business Profile) & Local SEO",
+      "Link Building & Off-Page SEO",
+      "SEO Audits & Performance Reporting",
+    ],
+    images: collage(`${BM}/search-engine-optimization-seo`),
+  },
+  "brand-marketing/digital-marketing": {
+    slug: "digital-marketing",
+    capabilities: [
+      "Email & WhatsApp Marketing",
+      "Content Marketing",
+      "Influencer & Affiliate Marketing",
+      "ORM (Online Reputation Management)",
+      "Local Listings & Citations",
+    ],
+    images: collage(`${BM}/digital-marketing`),
+  },
+  "brand-marketing/social-media-marketing": {
+    slug: "social-media-marketing",
+    capabilities: [
+      "Social Media Strategy & Planning",
+      "Content Creation & Scheduling",
+      "Community Management & Engagement",
+      "Platform-Specific Campaigns",
+      "Social Media Analytics & Reporting",
+    ],
+    images: collage(`${BM}/social-media-marketing`),
+  },
+  "brand-marketing/performance-marketing": {
+    slug: "performance-marketing",
+    capabilities: [
+      "Google Ads & Search Campaigns",
+      "Meta Ads (Facebook & Instagram)",
+      "LinkedIn Ads & YouTube Ads",
+      "A/B Testing & Conversion Rate Optimization",
+      "Campaign Analytics & Performance Tracking",
+    ],
+    images: collage(`${BM}/performance-marketing`),
+  },
+  "brand-marketing/integrated-marketing-campaigns": {
+    slug: "integrated-marketing-campaigns",
+    capabilities: [
+      "Cross-Channel Campaign Planning",
+      "Creative & Content Strategy",
+      "Lead Generation & CRM Integration",
+      "Campaign Rollout & Coordination",
+      "Analytics & ROI Measurement",
+    ],
+    images: collage(`${BM}/integrated-marketing-campaigns`),
   },
 };
 
