@@ -146,100 +146,163 @@ export const SERVICE_PAGES: ServicePage[] = [
     kind: "pillar",
     number: "02",
     title: "Creative Production",
-    h1: "Creating Compelling Visual Content",
+    h1: "Creative Production",
     metaTitle: "Creative Production | Creative Whoppers",
     metaDescription:
-      "Film, video and design crafted to inform, inspire and convert, built on strategy, not just visuals.",
+      "Film and video production, motion design, animation, and brand identity design, crafting visual stories and creative campaigns that capture attention and build brand recall.",
     intro:
-      "Film, video and design crafted to inform, inspire and convert, built on strategy, not just visuals.",
-    image: IMG.whatWeDoProduction,
+      "Film and video production, motion design, animation, and brand identity design, crafting visual stories and creative campaigns that capture attention and build brand recall.",
+    image: IMG.production,
     imageAlt: "Creative production across film, photography and design",
-    capabilitySections: [
-      {
-        number: "01",
-        title: "Brand & Corporate Films",
-        description:
-          "Narrative-led films that build brand credibility and connect with audiences and stakeholders alike.",
-        capabilities: [
-          "Concept Development & Scriptwriting",
-          "Creative Direction & Cinematography",
-          "Corporate Profile & Leadership Films",
-          "Sound Design & Post-Production",
-          "Distribution & Performance Tracking",
-        ],
-      },
-      {
-        number: "02",
-        title: "Documentary & Testimonial Films",
-        description:
-          "Authentic, research-driven storytelling that captures real people and real trust.",
-        capabilities: [
-          "Research & Story Development",
-          "Field Production & Interviews",
-          "Archival Footage Sourcing",
-          "Cinematic Editing & Grading",
-          "Festival & Distribution Support",
-        ],
-      },
-      {
-        number: "03",
-        title: "Graphic Design & Brand Identity",
-        description:
-          "Visual identity systems that give brands a consistent presence across every touchpoint.",
-        capabilities: [
-          "Logo & Brand Identity Design",
-          "Brand Guidelines Development",
-          "Marketing & Collateral Design",
-          "Packaging & Print Design",
-          "Digital Design Assets",
-        ],
-      },
-    ],
     groups: [
       {
         title: "Film & Video Production",
         items: [
-          { name: "Brand Films", description: "Compelling narratives that connect brands with their audience through strategy, scriptwriting, cinematography and post-production." },
-          { name: "Corporate Films", description: "Professional films that showcase your organization's vision, culture and achievements for stakeholders, investors and employees." },
-          { name: "Documentary Films", description: "Authentic, research-driven storytelling that captures real people, places and moments from research to the final cut." },
-          { name: "Explainer Videos", description: "Simplifying complex ideas into clear, engaging visuals that educate and drive action." },
-          { name: "Product Videos", description: "High-impact visuals that highlight product features and benefits to drive engagement, conversions and brand recall." },
-          { name: "Testimonial Videos", description: "Genuine customer stories that build trust and credibility with your target audience." },
-          { name: "Podcast Production", description: "End-to-end podcast solutions from concept and studio setup to recording, editing and publishing." },
-          { name: "Live Streaming", description: "Seamless live broadcast solutions for events, conferences and launches with real-time audience engagement." },
-          { name: "Reels & Shorts", description: "Fast-paced, trend-driven short-form videos built for social media impact and brand visibility." },
-          { name: "Video & Audio Editing", description: "Professional post-production that elevates raw footage into polished content across every platform." },
+          {
+            name: "Brand Films",
+            description:
+              "Compelling narratives that connect brands with their audience. We combine strategy, scriptwriting, cinematography and post-production to craft films that inform, inspire and convert.",
+          },
+          {
+            name: "Corporate Films",
+            description:
+              "Professional films that showcase your organization's vision, culture and achievements. We craft corporate narratives that build credibility with stakeholders, investors and employees.",
+          },
+          {
+            name: "Documentary Films",
+            description:
+              "Authentic, research-driven storytelling that captures real people, places and moments. We handle every stage from research to the final cut with cinematic depth.",
+          },
+          {
+            name: "Explainer Videos",
+            description:
+              "Simplifying complex ideas into clear, engaging visuals. We turn concepts, products and processes into videos that educate and drive action.",
+          },
+          {
+            name: "Product Videos",
+            description:
+              "High-impact visuals that highlight product features and benefits. We create videos that drive engagement, conversions and brand recall.",
+          },
+          {
+            name: "Testimonial Videos",
+            description:
+              "Genuine customer stories that build trust and credibility. We capture authentic experiences that resonate with your target audience.",
+          },
+          {
+            name: "Podcast Production",
+            description:
+              "End-to-end podcast solutions from concept to publishing. We manage studio setup, recording and editing for a polished listener experience.",
+          },
+          {
+            name: "Live Streaming",
+            description:
+              "Seamless live broadcast solutions for events, conferences and launches. We ensure flawless technical execution and real-time audience engagement.",
+          },
+          {
+            name: "Reels & Shorts",
+            description:
+              "Fast-paced, trend-driven content built for social media impact. We create scroll-stopping short-form videos that boost brand visibility.",
+          },
+          {
+            name: "Video & Audio Editing",
+            description:
+              "Professional post-production that elevates raw footage into polished content. We refine every frame and sound byte for maximum impact.",
+          },
         ],
       },
       {
         title: "Photography Production",
         items: [
-          { name: "Event Photography", description: "Capturing every key moment with a mix of candid, formal and cinematic shots that tell the complete story." },
-          { name: "Corporate Photography", description: "Professional imagery that reflects your brand's identity and culture across corporate communications and marketing." },
-          { name: "Product Photography", description: "Sharp, detail-focused visuals tailored for e-commerce, catalogs and campaigns." },
-          { name: "Drone Photography", description: "Aerial perspectives that add scale and impact, captured safely and creatively." },
+          {
+            name: "Event Photography",
+            description:
+              "Capturing every key moment with precision and creativity. We document your events with a mix of candid, formal and cinematic shots that tell the complete story.",
+          },
+          {
+            name: "Corporate Photography",
+            description:
+              "Professional imagery that reflects your brand's identity and culture. We deliver polished visuals for use across corporate communications and marketing.",
+          },
+          {
+            name: "Product Photography",
+            description:
+              "Sharp, detail-focused visuals that make products stand out. We create clean, high-quality images tailored for e-commerce, catalogs and campaigns.",
+          },
+          {
+            name: "Drone Photography",
+            description:
+              "Stunning aerial perspectives that add scale and impact to your visuals. We use advanced drone technology to capture unique vantage points safely and creatively.",
+          },
         ],
       },
       {
         title: "Motion & Animation",
         items: [
-          { name: "Motion Graphics", description: "Dynamic visual elements that blend design, animation and storytelling to capture attention and simplify messaging." },
-          { name: "2D Animation", description: "Hand-crafted animated storytelling that adds character and charm across formats and audiences." },
+          {
+            name: "Motion Graphics",
+            description:
+              "Dynamic visual elements that bring static ideas to life. We blend design, animation and storytelling to create graphics that capture attention and simplify messaging.",
+          },
+          {
+            name: "2D Animation",
+            description:
+              "Hand-crafted animated storytelling that adds character and charm to your brand. We create visually engaging animated content for a wide range of formats and audiences.",
+          },
         ],
       },
       {
         title: "Design & Branding",
         items: [
-          { name: "Logo Design", description: "Distinctive marks that capture the essence of your brand, memorable, versatile and built to last." },
-          { name: "Brand Identity", description: "A complete visual language that defines who you are and creates recognition across every touchpoint." },
-          { name: "Visual Identity", description: "Consistent visual elements that make your brand instantly recognizable everywhere." },
-          { name: "Packaging Design", description: "Packaging that stands out on the shelf and tells your brand story." },
-          { name: "Company Profile Design", description: "Professional profiles that present your business with clarity and impact." },
-          { name: "Brochure Design", description: "Informative, visually engaging brochures that balance content and creativity." },
-          { name: "Social Media Creatives", description: "Scroll-stopping, platform-specific visuals that keep your brand consistent and relevant." },
-          { name: "Illustration", description: "Custom artwork that adds a unique, human touch to your brand storytelling." },
-          { name: "Creative Campaign Design", description: "Integrated visual campaigns that bring big ideas to life across every channel." },
-          { name: "Print Collateral", description: "High-quality print materials that reinforce your brand presence offline." },
+          {
+            name: "Logo Design",
+            description:
+              "Distinctive marks that capture the essence of your brand. We craft logos that are memorable, versatile and built to stand the test of time.",
+          },
+          {
+            name: "Brand Identity",
+            description:
+              "A complete visual language that defines who you are. We build cohesive brand systems that create recognition and trust across every touchpoint.",
+          },
+          {
+            name: "Visual Identity",
+            description:
+              "Consistent visual elements that bring your brand to life across platforms. We design cohesive systems that ensure your brand is instantly recognizable everywhere.",
+          },
+          {
+            name: "Packaging Design",
+            description:
+              "Packaging that stands out on the shelf and tells your brand story. We design functional, eye-catching packaging that drives purchase decisions.",
+          },
+          {
+            name: "Company Profile Design",
+            description:
+              "Professional profiles that present your business with clarity and impact. We design compelling layouts that communicate your value to clients and investors.",
+          },
+          {
+            name: "Brochure Design",
+            description:
+              "Informative, visually engaging brochures that communicate your message effectively. We design layouts that balance content and creativity for maximum impact.",
+          },
+          {
+            name: "Social Media Creatives",
+            description:
+              "Scroll-stopping visuals designed for maximum social media engagement. We create platform-specific creatives that keep your brand consistent and relevant.",
+          },
+          {
+            name: "Illustration",
+            description:
+              "Custom artwork that adds a unique, human touch to your brand. We create original illustrations tailored to your style, tone and storytelling needs.",
+          },
+          {
+            name: "Creative Campaign Design",
+            description:
+              "Integrated visual campaigns that bring big ideas to life. We design cohesive creative assets that support your marketing goals across every channel.",
+          },
+          {
+            name: "Print Collateral",
+            description:
+              "High-quality print materials that reinforce your brand presence offline. We design collateral that is polished, professional and print-ready.",
+          },
         ],
       },
     ],
@@ -498,6 +561,7 @@ export const FLAGSHIPS: ServicePage[] = [
   },
   {
     ...pageBySlug("creative-production"),
+    title: "Graphics & Video Production",
     image: IMG.whatWeDoProduction,
     imageAlt: "Creative production across film, photography and design",
     intro:

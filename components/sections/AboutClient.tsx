@@ -9,6 +9,7 @@ import TeamGrid from "@/components/sections/TeamGrid";
 import { altCardBg } from "@/lib/utils";
 import { useLenis } from "@/components/layout/SmoothScroll";
 import { layoutSpring } from "@/lib/animations";
+import PageHeroMark from "@/components/brand/PageHeroMark";
 
 const ABOUT_SECTIONS = [
   { id: "who-we-are", label: "Who we are" },
@@ -169,16 +170,22 @@ export default function AboutClient() {
   return (
     <>
       <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
+        <PageHeroMark />
+        <div className="relative z-10">
         <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
           About us
         </p>
         <h1 className="page-heading mb-6 max-w-none whitespace-nowrap font-display text-display-xl font-bold uppercase tracking-tight text-agency-white">
           Who we are
         </h1>
-        <p className="page-heading-lead font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-          Have a project in mind? Share your brief with us, and let&apos;s explore how we can bring
-          it to life.
-        </p>
+        <div className="page-heading-lead max-w-3xl space-y-3 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
+          <p>We Design Experiences That People Remember.</p>
+          <p>
+            Every memorable experience starts with an idea, but it takes strategy, creativity,
+            technology and flawless execution to bring that idea to life.
+          </p>
+        </div>
+        </div>
       </section>
 
       <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
@@ -224,11 +231,13 @@ export default function AboutClient() {
             />
           </div>
           <div className="lg:col-span-6">
+            <h2 className="mb-5 font-display text-2xl font-bold uppercase tracking-tight text-agency-white sm:text-3xl">
+              We Believe Great Experiences Don&apos;t Just Happen. They&apos;re Designed.
+            </h2>
             <p className="mb-4 font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
-              Have a project in mind? Share your brief with us, and let&apos;s explore how we can
-              bring it to life. Every memorable experience starts with an idea, but it takes
-              strategy, creativity, technology and flawless execution to bring that idea to life.
-              That&apos;s where we come in.
+              Every memorable experience starts with an idea, but it takes strategy, creativity,
+              technology and flawless execution to bring that idea to life. That&apos;s where we come
+              in.
             </p>
             <p className="font-sans text-sm leading-relaxed text-agency-white/65 sm:text-base">
               From a stage and a screen to an interactive space, we bring together creative thinking

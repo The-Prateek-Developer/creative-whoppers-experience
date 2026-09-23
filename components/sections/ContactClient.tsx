@@ -23,11 +23,16 @@ import {
   ctaTransition,
   easings,
 } from "@/lib/animations";
-import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { NAP, WHATSAPP_URL } from "@/lib/site";
 import { ctaPrimary, ctaSecondary } from "@/lib/cta-styles";
 import { cn } from "@/lib/utils";
+import {
+  CONTACT_SERVICE_OPTIONS,
+  contactSubmissionSchema,
+  formatContactZodErrors,
+  type ContactFieldErrors,
+} from "@/lib/contact-schema";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -37,11 +42,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-const SERVICE_OPTIONS = [
-  ...PILLARS.map((item) => item.title),
-  ...FLAGSHIPS.filter((item) => item.kind === "flagship").map((item) => item.title),
-  "Something else",
-];
+const SERVICE_OPTIONS = [...CONTACT_SERVICE_OPTIONS];
 
 type FormFields = {
   name: string;
@@ -72,38 +73,10 @@ const FIELD_LABELS: Record<FieldKey, string> = {
   message: "Project brief",
 };
 
-function validate(form: FormFields): Partial<Record<FieldKey, string>> {
-  const errors: Partial<Record<FieldKey, string>> = {};
-  if (!form.name.trim()) errors.name = "Enter your name.";
-  if (!form.email.trim()) errors.email = "Enter your email address.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-    errors.email = "Enter a valid email address.";
-  }
-  const digits = form.phone.replace(/\D/g, "");
-  if (!form.phone.trim()) errors.phone = "Enter a phone number.";
-  else if (digits.length < 10) errors.phone = "Enter a phone number with at least 10 digits.";
-  if (!form.service) errors.service = "Select the service you need.";
-  if (!form.message.trim()) errors.message = "Tell us a little about the project.";
-  else if (form.message.trim().length < 12) {
-    errors.message = "Add a bit more detail so we can reply with a useful first note.";
-  }
-  return errors;
-}
-
-function briefText(form: FormFields) {
-  return [
-    `Hello Creative Whoppers,`,
-    ``,
-    `Name: ${form.name}`,
-    form.company ? `Company: ${form.company}` : null,
-    `Email: ${form.email}`,
-    `Phone: ${form.phone}`,
-    `Service: ${form.service}`,
-    ``,
-    form.message,
-  ]
-    .filter(Boolean)
-    .join("\n");
+function validate(form: FormFields): ContactFieldErrors {
+  const parsed = contactSubmissionSchema.safeParse(form);
+  if (parsed.success) return {};
+  return formatContactZodErrors(parsed.error);
 }
 
 function inputClass(invalid?: boolean) {
@@ -123,6 +96,7 @@ export default function ContactClient() {
   const [errors, setErrors] = useState<Partial<Record<FieldKey, string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [failedSubmit, setFailedSubmit] = useState(0);
 
   const errorEntries = (Object.entries(errors) as [FieldKey, string][]).filter(
@@ -144,8 +118,9 @@ export default function ContactClient() {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError("");
     const nextErrors = validate(form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
@@ -154,16 +129,33 @@ export default function ContactClient() {
     }
 
     setSending(true);
-    const subject = encodeURIComponent(`Brief: ${form.service} — ${form.name}`);
-    const body = encodeURIComponent(briefText(form));
-    const mailto = `mailto:${NAP.emails[0]}?subject=${subject}&body=${body}`;
-    window.setTimeout(() => {
-      const mailLink = document.createElement("a");
-      mailLink.href = mailto;
-      mailLink.click();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        message?: string;
+        errors?: ContactFieldErrors;
+      };
+
+      if (!res.ok || !data.ok) {
+        if (data.errors) setErrors(data.errors);
+        setSubmitError(data.message || "Could not send your brief. Please try again.");
+        setFailedSubmit((count) => count + 1);
+        return;
+      }
+
       setSubmitted(true);
+      setForm(INITIAL_FORM);
+    } catch {
+      setSubmitError("Network error. Check your connection and try again.");
+      setFailedSubmit((count) => count + 1);
+    } finally {
       setSending(false);
-    }, 280);
+    }
   };
 
   const channels = [
@@ -298,7 +290,8 @@ export default function ContactClient() {
               Share the brief
             </h2>
             <p className="mb-8 max-w-xl text-sm leading-relaxed text-agency-white/65">
-              Send the form and we&apos;ll open your email with the details filled in.
+              Fill in the form with as much detail as you can. We review every brief and reply
+              shortly.
             </p>
 
             <AnimatePresence mode="wait">
@@ -314,10 +307,11 @@ export default function ContactClient() {
                 >
                   <CheckCircle2 className="h-8 w-8 text-agency-yellow" aria-hidden />
                   <p className="mt-4 font-display text-xl font-semibold uppercase text-agency-white">
-                    Brief ready
+                    Brief received
                   </p>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-agency-white/70">
-                    If your mail app opened, send it through. If it didn&apos;t, write to{" "}
+                    Thanks — your enquiry is with our team. We&apos;ll follow up soon. Prefer to
+                    write directly? Reach us at{" "}
                     <a
                       href={`mailto:${NAP.emails[0]}`}
                       className="text-agency-yellow underline-offset-2 hover:underline"
@@ -385,6 +379,15 @@ export default function ContactClient() {
                       </ul>
                     </div>
                   )}
+
+                  {submitError ? (
+                    <div
+                      role="alert"
+                      className="rounded-2xl border border-red-500/40 bg-red-500/10 p-5 text-sm text-red-300"
+                    >
+                      {submitError}
+                    </div>
+                  ) : null}
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <Field
@@ -522,7 +525,7 @@ export default function ContactClient() {
                       variants={{ rest: ctaRest, hover: ctaHover, tap: ctaTap }}
                       transition={ctaTransition}
                     >
-                      {sending ? "Opening email…" : "Send enquiry"}
+                      {sending ? "Sending…" : "Send enquiry"}
                       <Send className="h-4 w-4" aria-hidden />
                     </motion.button>
                     <a
@@ -540,13 +543,13 @@ export default function ContactClient() {
 
           <aside className="space-y-6 lg:col-span-5">
             <div className="overflow-hidden rounded-3xl border border-agency-border">
-              <div className="relative aspect-[16/10]">
+              <div className="relative flex aspect-[16/10] items-center justify-center bg-agency-black px-8 py-6 sm:px-12">
                 <FadeImage
-                  src={SITE_IMAGES.handshake}
-                  alt="Creative collaboration and partnership"
+                  src="/images/brand/hero-mark.png"
+                  alt="Creative Whoppers brand mark"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  className="object-contain object-center p-6 opacity-90 sm:p-10"
                 />
               </div>
               <div className="space-y-5 p-6 sm:p-8">

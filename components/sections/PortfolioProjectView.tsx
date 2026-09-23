@@ -4,7 +4,6 @@ import ProjectFacts from "@/components/sections/ProjectFacts";
 import ProjectImageGallery from "@/components/sections/ProjectImageGallery";
 import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import type { PortfolioProject } from "@/lib/portfolio-data";
-import { testimonialForKey } from "@/lib/testimonials";
 
 export default function PortfolioProjectView({ project }: { project: PortfolioProject }) {
   return (
@@ -25,7 +24,7 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/40 to-transparent" />
         <div className="absolute left-6 top-6">
           <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-yellow backdrop-blur-md">
-            {project.number} · {project.category}
+            {project.category}
           </span>
         </div>
       </div>
@@ -72,18 +71,22 @@ export default function PortfolioProjectView({ project }: { project: PortfolioPr
         </div>
       </div>
 
-      <div className="mb-10 rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
-        <div>
-          <h2 className="mb-1 font-mono text-xs uppercase tracking-wider text-agency-yellow">
-            Impact
-          </h2>
-          <p className="font-sans text-sm font-medium text-agency-white">{project.impact}</p>
+      <div className={project.testimonial ? "mb-10" : undefined}>
+        <div className="rounded-2xl border border-agency-border-strong bg-agency-yellow/10 p-6">
+          <div>
+            <h2 className="mb-1 font-mono text-xs uppercase tracking-wider text-agency-yellow">
+              Impact
+            </h2>
+            <p className="font-sans text-sm font-medium text-agency-white">{project.impact}</p>
+          </div>
         </div>
       </div>
 
-      <div className="mb-4">
-        <ProjectTestimonial {...testimonialForKey(project.id)} />
-      </div>
+      {project.testimonial ? (
+        <div className="mb-4">
+          <ProjectTestimonial {...project.testimonial} />
+        </div>
+      ) : null}
     </article>
   );
 }

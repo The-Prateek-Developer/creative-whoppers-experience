@@ -8,6 +8,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 import { FLAGSHIPS, PILLARS } from "@/lib/services-tree";
 import { altCardBg } from "@/lib/card-styles";
 import { PAGE_SEO, SITE_OG_IMAGE } from "@/lib/site";
+import PageHeroMark from "@/components/brand/PageHeroMark";
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_SEO.services.title },
@@ -42,6 +43,8 @@ export default function ServicesPage() {
         ])}
       />
       <section className="relative z-10 mx-auto mb-16 max-w-7xl border-b border-agency-border px-6 pb-16 lg:px-12">
+        <PageHeroMark />
+        <div className="relative z-10">
         <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
           Services
         </p>
@@ -53,6 +56,7 @@ export default function ServicesPage() {
           Digital Experiences and Brand Marketing, covering everything an organisation needs
           to plan, produce and amplify work that lasts.
         </p>
+        </div>
       </section>
 
       <section className="relative z-10 mx-auto mb-24 max-w-7xl px-6 lg:px-12">
@@ -99,9 +103,9 @@ export default function ServicesPage() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className={`rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
+              className={`group rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
             >
-              <h3 className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
+              <h3 className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                 {service.title}
               </h3>
               <p className="mt-2 text-sm text-agency-white/60">{service.intro}</p>

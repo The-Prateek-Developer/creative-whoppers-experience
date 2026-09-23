@@ -8,6 +8,7 @@ import PortfolioCard from "@/components/sections/PortfolioCard";
 import { useInViewGate } from "@/hooks/useInViewGate";
 import { layoutSpring } from "@/lib/animations";
 import { refreshScrollTrigger } from "@/lib/gsap";
+import PageHeroMark from "@/components/brand/PageHeroMark";
 
 const FILTERS = ["All", ...PORTFOLIO_CATEGORIES] as const;
 
@@ -34,6 +35,8 @@ export default function PortfolioArchive() {
         />
 
         <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">
+          <PageHeroMark />
+          <div className="relative z-10">
           <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
             Portfolio
           </p>
@@ -44,6 +47,7 @@ export default function PortfolioArchive() {
             Events, films, branding and digital projects for corporate, government and institutional
             clients, from diplomatic campaigns and national broadcasts to museums and live culture.
           </p>
+          </div>
         </section>
 
         <section className="relative z-10 mx-auto mb-16 max-w-7xl px-6 lg:px-12">

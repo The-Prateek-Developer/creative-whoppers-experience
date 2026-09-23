@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import PageTransition from "@/components/layout/PageTransition";
-import SmoothScroll from "@/components/layout/SmoothScroll";
-import ScrollToTop from "@/components/layout/ScrollToTop";
-import CursorFollower from "@/components/canvas/CursorFollower";
 import ThemeScript from "@/components/theme/ThemeScript";
+import SiteChrome from "@/components/layout/SiteChrome";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 import { PAGE_SEO, SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "@/lib/site";
 
 const poppins = Poppins({
@@ -79,13 +75,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${poppins.className} font-sans bg-agency-black text-agency-white antialiased selection:bg-agency-yellow selection:text-agency-ink min-h-screen flex flex-col`}
       >
         <SmoothScroll>
-          <CursorFollower />
-          <Navbar />
-          <main className="relative w-full flex-1 pt-[5.5rem]">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-          <ScrollToTop />
+          <SiteChrome>{children}</SiteChrome>
         </SmoothScroll>
       </body>
     </html>

@@ -209,6 +209,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/brand-films": {
     slug: "brand-films",
+    capabilities: [
+      "Concept Development & Scriptwriting",
+      "Creative Direction & Storyboarding",
+      "Production & Cinematography",
+      "Sound Design & Post-Production",
+      "Distribution Strategy & Performance Tracking",
+    ],
     images: collage(`${CP}/brand-films`),
     videos: [
       "https://www.youtube.com/watch?v=gFNK1gZgUjE",
@@ -217,6 +224,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/corporate-films": {
     slug: "corporate-films",
+    capabilities: [
+      "Corporate Profile & Vision Films",
+      "Leadership & Interview Filming",
+      "Internal Communication Videos",
+      "Investor & Annual Report Films",
+      "Employee Culture & Recruitment Films",
+    ],
     images: collage(`${CP}/corporate-films`),
     videos: [
       "https://www.youtube.com/watch?v=SHTF8jD-weg",
@@ -225,6 +239,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/documentary-films": {
     slug: "documentary-films",
+    capabilities: [
+      "Research & Story Development",
+      "Field Production & Interviews",
+      "Archival Footage Sourcing",
+      "Cinematic Editing & Grading",
+      "Festival & Distribution Support",
+    ],
     images: collage(`${CP}/documentary-films`),
     videos: [
       "https://www.youtube.com/watch?v=xXOThqEDXcQ",
@@ -233,6 +254,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/explainer-videos": {
     slug: "explainer-videos",
+    capabilities: [
+      "Script & Concept Writing",
+      "2D/3D Animation & Motion Graphics",
+      "Voiceover & Sound Design",
+      "Whiteboard & Explainer Styles",
+      "Multi-Platform Video Optimization",
+    ],
     images: collage(`${CP}/explainer-videos`),
     videos: [
       "https://www.youtube.com/watch?v=4NNO5jCFvTw",
@@ -241,6 +269,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/product-videos": {
     slug: "product-videos",
+    capabilities: [
+      "Product Concept & Scripting",
+      "Studio & On-Location Shoots",
+      "360° & Feature Showcase Videos",
+      "Motion Graphics & Overlays",
+      "E-commerce & Social Formatting",
+    ],
     images: collage(`${CP}/product-videos`),
     videos: [
       "https://www.youtube.com/watch?v=grlISKkR1ug",
@@ -249,6 +284,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/testimonial-videos": {
     slug: "testimonial-videos",
+    capabilities: [
+      "Customer Sourcing & Scripting",
+      "On-Location Interview Filming",
+      "Emotional Storytelling & Direction",
+      "Editing & Sound Enhancement",
+      "Multi-Format Delivery",
+    ],
     images: collage(`${CP}/testimonial-videos`),
     videos: [
       "https://www.youtube.com/watch?v=KZlnoRbi5fI",
@@ -257,6 +299,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/podcast-production": {
     slug: "podcast-production",
+    capabilities: [
+      "Concept & Format Development",
+      "Studio Setup & Recording",
+      "Audio Mixing & Mastering",
+      "Video Podcast Production",
+      "Publishing & Distribution Support",
+    ],
     images: collage(`${CP}/podcast-production`),
     videos: [
       "https://www.youtube.com/watch?v=yV9D9NUqPLo",
@@ -265,6 +314,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/live-streaming": {
     slug: "live-streaming",
+    capabilities: [
+      "Multi-Camera Live Production",
+      "Streaming Platform Integration",
+      "Real-Time Graphics & Overlays",
+      "Technical Support & Backup Systems",
+      "Post-Event Recording & Archival",
+    ],
     images: collage(`${CP}/live-streaming`),
     videos: [
       "https://www.youtube.com/watch?v=LhouH513UqY",
@@ -273,6 +329,13 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/reels-shorts": {
     slug: "reels-shorts",
+    capabilities: [
+      "Trend Research & Concept Ideation",
+      "Quick-Turnaround Shoots",
+      "Dynamic Editing & Transitions",
+      "Platform-Specific Formatting",
+      "Hashtag & Caption Strategy",
+    ],
     images: collage(`${CP}/reels-shorts`),
     videos: [
       "https://www.youtube.com/shorts/Zv9YUWMQYhs",
@@ -283,72 +346,191 @@ export const SERVICE_ITEM_DETAILS: Record<string, ServiceItemDetail> = {
   },
   "creative-production/video-audio-editing": {
     slug: "video-audio-editing",
+    capabilities: [
+      "Video Cutting & Assembly",
+      "Color Grading & Correction",
+      "Sound Mixing & Mastering",
+      "Motion Graphics & Titles",
+      "Format Optimization for All Platforms",
+    ],
     images: collage(`${CP}/video-audio-editing`),
   },
   "creative-production/event-photography": {
     slug: "event-photography",
+    capabilities: [
+      "Pre-Event Planning & Shot Listing",
+      "Candid & Formal Coverage",
+      "Multi-Camera & Multi-Angle Shooting",
+      "Real-Time Editing & Highlights",
+      "Full Gallery Delivery & Archival",
+    ],
     images: collage(`${CP}/event-photography`),
   },
   "creative-production/corporate-photography": {
     slug: "corporate-photography",
+    capabilities: [
+      "Executive & Leadership Portraits",
+      "Workplace & Culture Photography",
+      "Corporate Event Coverage",
+      "Headshots & Team Photography",
+      "Brand-Aligned Editing & Retouching",
+    ],
     images: collage(`${CP}/corporate-photography`),
   },
   "creative-production/product-photography": {
     slug: "product-photography",
+    capabilities: [
+      "Studio & Lifestyle Shoots",
+      "360° & Multi-Angle Product Shots",
+      "Styling & Set Design",
+      "Retouching & Color Correction",
+      "E-commerce & Catalog Formatting",
+    ],
     images: collage(`${CP}/product-photography`),
   },
   "creative-production/drone-photography": {
     slug: "drone-photography",
+    capabilities: [
+      "Aerial Shot Planning & Permissions",
+      "High-Resolution Aerial Imaging",
+      "Event & Venue Aerial Coverage",
+      "Real Estate & Landscape Shoots",
+      "Post-Production & Editing",
+    ],
     images: collage(`${CP}/drone-photography`),
   },
   "creative-production/motion-graphics": {
     slug: "motion-graphics",
+    capabilities: [
+      "Concept & Storyboard Development",
+      "Kinetic Typography & Title Animation",
+      "Logo Animation & Brand Stings",
+      "Infographic & Data Visualization",
+      "Multi-Platform Motion Design",
+    ],
     images: collage(`${CP}/motion-graphics`),
     videos: ["https://www.youtube.com/watch?v=ObVGT5TzGOM"],
   },
   "creative-production/2d-animation": {
     slug: "2d-animation",
+    capabilities: [
+      "Character Design & Development",
+      "Storyboarding & Scriptwriting",
+      "Frame-by-Frame & Vector Animation",
+      "Voiceover Syncing & Sound Design",
+      "Rendering & Multi-Format Export",
+    ],
     images: collage(`${CP}/2d-animation`),
     videos: ["https://www.youtube.com/watch?v=WSwgPP2K2LI"],
   },
   "creative-production/logo-design": {
     slug: "logo-design",
+    capabilities: [
+      "Brand Research & Concept Sketching",
+      "Typography & Symbol Design",
+      "Multiple Concept Iterations",
+      "Color & Variation Exploration",
+      "Final Files & Usage Guidelines",
+    ],
     images: collage(`${CP}/logo-design`),
   },
   "creative-production/brand-identity": {
     slug: "brand-identity",
+    capabilities: [
+      "Brand Strategy & Positioning",
+      "Logo & Visual Language Design",
+      "Typography & Color Palette Systems",
+      "Brand Guidelines Documentation",
+      "Cross-Platform Brand Application",
+    ],
     images: collage(`${CP}/brand-identity`),
   },
   "creative-production/visual-identity": {
     slug: "visual-identity",
+    capabilities: [
+      "Visual Style & Mood Development",
+      "Icon & Graphic Element Design",
+      "Layout & Grid Systems",
+      "Digital & Print Application",
+      "Brand Consistency Auditing",
+    ],
     images: collage(`${CP}/visual-identity`),
   },
   "creative-production/packaging-design": {
     slug: "packaging-design",
+    capabilities: [
+      "Structural & Concept Design",
+      "Material & Finish Selection",
+      "Label & Artwork Design",
+      "Regulatory & Print Compliance",
+      "Print-Ready File Preparation",
+    ],
     images: collage(`${CP}/packaging-design`),
   },
   "creative-production/company-profile-design": {
     slug: "company-profile-design",
+    capabilities: [
+      "Content Structuring & Layout Planning",
+      "Custom Graphics & Infographics",
+      "Brand-Aligned Visual Design",
+      "Print & Digital Format Design",
+      "Editing & Proofreading Support",
+    ],
     images: collage(`${CP}/company-profile-design`),
   },
   "creative-production/brochure-design": {
     slug: "brochure-design",
+    capabilities: [
+      "Concept & Layout Planning",
+      "Content & Copy Integration",
+      "Custom Illustrations & Graphics",
+      "Print & Digital Versions",
+      "Multi-Fold & Format Design",
+    ],
     images: collage(`${CP}/brochure-design`),
   },
   "creative-production/social-media-creatives": {
     slug: "social-media-creatives",
+    capabilities: [
+      "Content Calendar Planning",
+      "Platform-Specific Design Formats",
+      "Static & Animated Post Design",
+      "Story & Reel Cover Design",
+      "Brand-Consistent Templates",
+    ],
     images: collage(`${CP}/social-media-creatives`),
   },
   "creative-production/illustration": {
     slug: "illustration",
-    images: collage(`${CP}/illustration`, 3),
+    capabilities: [
+      "Concept Sketching & Style Development",
+      "Character & Icon Illustration",
+      "Digital & Hand-Drawn Techniques",
+      "Editorial & Campaign Illustration",
+      "Multi-Format File Delivery",
+    ],
+    images: collage(`${CP}/illustration`),
   },
   "creative-production/creative-campaign-design": {
     slug: "creative-campaign-design",
+    capabilities: [
+      "Campaign Concept & Theme Development",
+      "Key Visual & Asset Design",
+      "Multi-Channel Creative Adaptation",
+      "Copy & Visual Alignment",
+      "Campaign Guideline Documentation",
+    ],
     images: collage(`${CP}/creative-campaign-design`),
   },
   "creative-production/print-collateral": {
     slug: "print-collateral",
+    capabilities: [
+      "Business Cards & Stationery Design",
+      "Flyers & Poster Design",
+      "Signage & Banner Design",
+      "Print-Ready Artwork Preparation",
+      "Vendor Coordination & Quality Check",
+    ],
     images: collage(`${CP}/print-collateral`),
   },
   "digital-experiences/artifact-archive-digitization": {

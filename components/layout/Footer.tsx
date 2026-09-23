@@ -12,15 +12,19 @@ import BrandLogo from "@/components/brand/BrandLogo";
 const DOWNLOAD_LINKS = [
   {
     name: "Experience Design",
-    href: "https://drive.google.com/file/d/1sgMjeDfpX44SrWCVggxieyJEB_GtiHmi/view",
+    href: "https://drive.google.com/file/d/1R19KluJp6vbvCHiAfWDY7qvbc8tqHfHX/view",
   },
   {
     name: "Creative Production",
-    href: "https://drive.google.com/file/d/1T0w4YAETfTXJREA8VEwoIoujbV-EGIF1/view",
+    href: "https://drive.google.com/file/d/1ZqtpRZEeqip8_GrCXapUP-rh6JITHbPQ/view",
   },
   {
     name: "Digital Experiences",
-    href: "https://drive.google.com/file/d/1edjYEzCGh7d_vkUbKqKILCFB6vuP3hqc/view",
+    href: "https://drive.google.com/file/d/1gCV0Wh-WJFzfDFMmc8Hxj1S_LswydOVi/view",
+  },
+  {
+    name: "Brand Marketing",
+    href: "https://drive.google.com/file/d/1sPgFdTJ048Zbhh3yP5IUJPRluur4TPDc/view",
   },
 ] as const;
 

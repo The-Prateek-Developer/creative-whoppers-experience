@@ -40,7 +40,7 @@ export default function WhyWhoppers() {
             key={item.title}
             className={`rounded-2xl border border-agency-border p-7 ${altCardBg(index)}`}
           >
-            <h3 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
+            <h3 className="mb-3 font-display text-xl font-semibold uppercase tracking-tight text-agency-yellow">
               {item.title}
             </h3>
             <p className="font-sans text-sm leading-relaxed text-agency-white/60">{item.description}</p>
@@ -48,7 +48,7 @@ export default function WhyWhoppers() {
         ))}
       </div>
 
-      <h2 className="section-heading mb-12 text-agency-white">Our approach</h2>
+      <h2 className="section-heading mb-12 text-agency-yellow">Our approach</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {PROCESS_STAGES.map((stage, index) => (
           <div
@@ -59,7 +59,7 @@ export default function WhyWhoppers() {
             <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white">
               {stage.title}
             </h3>
-            <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-white">
+            <p className="mt-2 font-display text-base font-semibold tracking-tight text-agency-yellow">
               {stage.subtitle}
             </p>
             <p className="mt-4 text-sm leading-relaxed text-agency-white/60">{stage.description}</p>

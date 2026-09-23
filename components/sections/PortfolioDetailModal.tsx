@@ -9,7 +9,6 @@ import ProjectImageGallery from "@/components/sections/ProjectImageGallery";
 import ProjectTestimonial from "@/components/sections/ProjectTestimonial";
 import { PortfolioProject } from "@/lib/portfolio-data";
 import { easings } from "@/lib/animations";
-import { testimonialForKey } from "@/lib/testimonials";
 
 interface PortfolioDetailModalProps {
   project: PortfolioProject | null;
@@ -95,7 +94,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
               <div className="absolute inset-0 bg-gradient-to-t from-agency-black via-agency-black/70 to-transparent" />
               <div className="absolute left-6 top-6">
                 <span className="rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-1.5 font-mono text-xs text-agency-yellow backdrop-blur-md">
-                  {project.number} · {project.category}
+                  {project.category}
                 </span>
               </div>
             </motion.div>
@@ -164,7 +163,7 @@ export default function PortfolioDetailModal({ project, onClose }: PortfolioDeta
                 </div>
               </div>
 
-              <ProjectTestimonial {...testimonialForKey(project.id)} />
+              {project.testimonial ? <ProjectTestimonial {...project.testimonial} /> : null}
             </motion.div>
           </motion.div>
         </div>

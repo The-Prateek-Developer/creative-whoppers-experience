@@ -34,6 +34,11 @@ export interface PortfolioProject {
   /** Six case-study photos shown below Overview on the brief page */
   galleryImages: string[];
   featured: boolean;
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+  };
 }
 
 function caseStudyGallery(folder: string): string[] {
@@ -83,6 +88,12 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     coverImage: SITE_IMAGES.sberbankEvent,
     galleryImages: caseStudyGallery("sberbank"),
     featured: true,
+    testimonial: {
+      quote:
+        "Creative Whoppers did a great job managing our event from start to finish. The team was responsive, easy to work with and handled the execution smoothly. Everything came together well, and our employees had a great experience.",
+      author: "Tanya Rajput",
+      role: "HR, Sberbank India",
+    },
   },
   {
     id: "armed-forces-museums",
@@ -156,6 +167,12 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     coverImage: SITE_IMAGES.erasmusPanel,
     galleryImages: caseStudyGallery("erasmus"),
     featured: true,
+    testimonial: {
+      quote:
+        "Selecting Creative Whoppers for our Erasmus event in 2023 was a fantastic choice. They managed everything with ease and creativity, leaving our guests impressed. Thank you, Creative Whoppers for putting together a memorable and smooth process that went beyond what we expected!",
+      author: "Sanjeev Roy",
+      role: "Expert in Higher Education Policy, International Partnership & Outreach — EU, UK & India",
+    },
   },
   {
     id: "cycling4life",
@@ -192,6 +209,12 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     coverImage: SITE_IMAGES.cycling4life,
     galleryImages: caseStudyGallery("cycling4life"),
     featured: true,
+    testimonial: {
+      quote:
+        "Delivered outstanding multimedia coverage for the Cycling4Life event in New Delhi. From capturing powerful visuals of over 500 cyclists to producing high-quality content that reflected our message of a greener future, their work was seamless, creative, and impactful. A valuable partner in bringing our vision to life.",
+      author: "Hema Singh Rance",
+      role: "Marketing & Communications Expert (Team Lead), European Union Policy & Outreach Partnerships (EUPOP)",
+    },
   },
   {
     id: "chambal-literary-festival",
@@ -229,6 +252,12 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     coverImage: SITE_IMAGES.chambalLiteraryFestival,
     galleryImages: caseStudyGallery("chambal"),
     featured: true,
+    testimonial: {
+      quote:
+        "Working with Creative Whoppers on the Chambal Literary Festival was a great experience. Their professionalism and attention to detail made the entire event run smoothly from start to finish. Truly appreciate their effort and expertise!",
+      author: "Dr. Shah Alam Rana",
+      role: "Founder, Chambal Foundation & Chambal Museum",
+    },
   },
 ];
 

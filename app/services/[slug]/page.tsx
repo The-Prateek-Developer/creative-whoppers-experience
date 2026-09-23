@@ -92,9 +92,6 @@ export default function ServiceDetailPage({ params }: Props) {
             >
               <div className="grid grid-cols-1 gap-8 p-7 sm:p-9 lg:grid-cols-12 lg:gap-12 lg:p-10">
                 <div className="min-w-0 lg:col-span-7">
-                  <p className="mb-3 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
-                    {section.number}
-                  </p>
                   <h2 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight text-agency-white sm:text-3xl">
                     {section.title}
                   </h2>

@@ -69,7 +69,7 @@ const PortfolioCard = React.forwardRef<HTMLAnchorElement, PortfolioCardProps>(
 
           <div className="absolute left-4 top-4 sm:left-5 sm:top-5">
             <span className="rounded-full border border-agency-border bg-agency-black/90 px-3 py-1 font-mono text-[10px] text-agency-yellow sm:text-[11px]">
-              {project.number} · {project.category}
+              {project.category}
             </span>
           </div>
 

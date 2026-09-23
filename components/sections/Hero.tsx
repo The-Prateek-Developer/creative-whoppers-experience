@@ -95,8 +95,11 @@ export default function Hero() {
                       href={`/services/${pillar.slug}`}
                       className="group flex items-center justify-between gap-4 py-3.5"
                     >
-                      <span className="flex items-baseline gap-3">
-                        <span className="font-mono text-[11px] text-agency-yellow">{pillar.number}</span>
+                      <span className="flex items-center gap-3">
+                        <span
+                          aria-hidden
+                          className="h-1.5 w-1.5 shrink-0 rounded-full bg-agency-yellow"
+                        />
                         <span className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                           {pillar.title}
                         </span>
