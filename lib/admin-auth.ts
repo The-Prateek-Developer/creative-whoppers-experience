@@ -21,6 +21,17 @@ export function getAdminCredentials() {
   return { username, password };
 }
 
+export function getAdminConfigStatus() {
+  return {
+    configured: Boolean(
+      process.env.ADMIN_USERNAME?.trim() &&
+        process.env.ADMIN_PASSWORD &&
+        process.env.ADMIN_SESSION_SECRET &&
+        process.env.ADMIN_SESSION_SECRET.length >= 16
+    ),
+  };
+}
+
 export async function createAdminSessionToken(username: string) {
   return new SignJWT({ role: "admin", username })
     .setProtectedHeader({ alg: "HS256" })
@@ -31,7 +42,9 @@ export async function createAdminSessionToken(username: string) {
 
 export async function verifyAdminSessionToken(token: string) {
   try {
-    const { payload } = await jwtVerify(token, getSecretKey());
+    const secret = process.env.ADMIN_SESSION_SECRET;
+    if (!secret || secret.length < 16) return null;
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
     if (payload.role !== "admin" || typeof payload.username !== "string") {
       return null;
     }
@@ -59,7 +72,6 @@ export function adminCookieOptions(maxAge = SESSION_TTL_SECONDS) {
 
 export async function verifyAdminPassword(username: string, password: string) {
   const creds = getAdminCredentials();
-  // Constant-time-ish compare via length + equality checks
   const userOk = username === creds.username;
   const passOk = password === creds.password;
   return userOk && passOk;
