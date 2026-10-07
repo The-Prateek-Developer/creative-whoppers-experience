@@ -53,7 +53,7 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
           </span>
         </nav>
 
-        <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-yellow">
+        <p className="mb-4 font-mono text-xs uppercase tracking-editorial-wide text-agency-white">
           {group.subtitle ? `${group.title}: ${group.subtitle}` : group.title}
         </p>
 
@@ -78,7 +78,7 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
             </div>
 
             <div className="mb-10 border-b border-agency-border pb-10">
-              <h2 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-yellow">
+              <h2 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-white">
                 Our capabilities
               </h2>
               <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -126,12 +126,14 @@ export default function ServiceItemView({ page, group, item, detail }: Props) {
                 <Link
                   key={entry.name}
                   href={`/services/${page.slug}/${slug}`}
-                  className={`group block rounded-2xl border border-agency-border p-6 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
+                  className={`group block rounded-2xl border border-agency-border p-6 transition-colors hover:border-agency-yellow ${altCardBg(index)}`}
                 >
                   <h3 className="mb-2 font-display text-2xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                     {entry.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-agency-white/60">{entry.description}</p>
+                  <p className="text-sm leading-relaxed text-agency-white/60">
+                    {entry.description}
+                  </p>
                   <span className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow">
                     View service <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>

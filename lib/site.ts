@@ -1,7 +1,8 @@
 export const SITE_NAME = "Creative Whoppers";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://creativewhoppers.com";
-export const SITE_OG_IMAGE = "/images/site/cycling-stage.jpg";
+/** Default social share / Open Graph image (brand mark). */
+export const SITE_OG_IMAGE = "/images/brand/og-default.png";
 
 export const BRAND_LOGOS = {
   dark: "/images/brand/logos/logo-wordmark-dark.png",

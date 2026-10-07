@@ -68,7 +68,7 @@ export default function ServicesPage() {
             <Link
               key={pillar.slug}
               href={`/services/${pillar.slug}`}
-              className={`group overflow-hidden rounded-3xl border border-agency-border hover:border-agency-yellow/50 ${altCardBg(index)}`}
+              className={`group overflow-hidden rounded-3xl border border-agency-border transition-colors hover:border-agency-yellow ${altCardBg(index)}`}
             >
               <div className="relative aspect-[16/9]">
                 <FadeImage
@@ -81,7 +81,7 @@ export default function ServicesPage() {
               </div>
               <div className="p-8">
                 <span className="font-mono text-xs text-agency-yellow">{pillar.number}</span>
-                <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white group-hover:text-agency-yellow">
+                <h3 className="mt-2 font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                   {pillar.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-agency-white/60">{pillar.intro}</p>
@@ -103,7 +103,7 @@ export default function ServicesPage() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className={`group rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`}
+              className={`group rounded-2xl border border-agency-border p-7 transition-colors hover:border-agency-yellow ${altCardBg(index)}`}
             >
               <h3 className="font-display text-xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                 {service.title}

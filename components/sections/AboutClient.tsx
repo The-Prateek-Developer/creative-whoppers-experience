@@ -86,6 +86,12 @@ const TEAM = [
     image: "/images/team/shoaib-zaidi.png",
   },
   {
+    name: "Vishakha",
+    role: "Creative Visualizer",
+    experience: "Design",
+    image: "/images/team/vishakha.jpeg",
+  },
+  {
     name: "Anand Mohan Gupta",
     role: "Video Editor",
     experience: "Post-Production",

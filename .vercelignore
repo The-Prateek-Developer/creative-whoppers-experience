@@ -1,0 +1,30 @@
+# Keep Vercel CLI uploads lean (git deploy already uses .gitignore)
+node_modules
+.next
+.vercel
+.neon
+.env
+.env*
+.git
+.agents
+.tmp-pdf-extract
+.tmp-hero-shots
+.tmp-docx-extract
+*.zip
+*.pdf
+*.docx
+Creative Whoppers_Creative Production.pdf
+Creative Whoppers_Experience Design.pdf
+Website Changes.docx
+Website Image - Home
+Website img
+/Client Logos/
+/Logos/
+Team Members - Creative Whoppers-20260913T072528Z-1-001
+changes to be done
+flies to be download
+favicon.jpeg
+icon 2.png
+our mision.jpeg
+our vision.jpeg
+*.old.jpg

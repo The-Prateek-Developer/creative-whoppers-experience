@@ -48,7 +48,7 @@ export default function WhyWhoppers() {
         ))}
       </div>
 
-      <h2 className="section-heading mb-12 text-agency-yellow">Our approach</h2>
+      <h2 className="section-heading mb-12 text-agency-white">Our approach</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {PROCESS_STAGES.map((stage, index) => (
           <div

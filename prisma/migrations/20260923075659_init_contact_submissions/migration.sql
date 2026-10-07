@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "ContactSubmission" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "company" TEXT NOT NULL DEFAULT '',
     "email" TEXT NOT NULL,
@@ -8,8 +8,10 @@ CREATE TABLE "ContactSubmission" (
     "service" TEXT NOT NULL,
     "message" TEXT NOT NULL,
     "status" TEXT NOT NULL DEFAULT 'new',
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "ContactSubmission_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

@@ -54,3 +54,20 @@ Team Members - Creative Whoppers-20260913T072528Z-1-001/
 next-env.d.ts
 
 .vercel
+.neon
+
+.env*
+
+# agents & local artifacts
+.agents/
+skills-lock.json
+.tmp-pdf-extract/
+*.pdf
+changes to be done/
+flies to be download/
+favicon.jpeg
+icon 2.png
+our mision.jpeg
+our vision.jpeg
+/vishakha.jpeg
+*.old.jpg

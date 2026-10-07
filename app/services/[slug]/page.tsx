@@ -100,7 +100,7 @@ export default function ServiceDetailPage({ params }: Props) {
                   </p>
                 </div>
                 <div className="lg:col-span-5 lg:border-l lg:border-agency-border lg:pl-10">
-                  <h3 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-yellow">
+                  <h3 className="mb-5 font-display text-lg font-semibold uppercase tracking-tight text-agency-white">
                     Our capabilities
                   </h3>
                   <ul className="space-y-3">
@@ -128,7 +128,7 @@ export default function ServiceDetailPage({ params }: Props) {
           {page.groups!.map((group) => (
             <div key={group.title}>
               <div className="mb-8 border-b border-agency-border pb-4">
-                <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-agency-yellow sm:text-3xl">
+                <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-agency-white sm:text-3xl">
                   {group.title}
                 </h2>
                 {group.subtitle ? (
@@ -141,14 +141,16 @@ export default function ServiceDetailPage({ params }: Props) {
                 {group.items.map((item, index) => {
                   const itemSlug = itemSlugForName(item.name);
                   const href = itemSlug ? `/services/${page.slug}/${itemSlug}` : null;
-                  const cardClass = `overflow-hidden rounded-2xl border border-agency-border transition-colors hover:border-agency-yellow/50 ${altCardBg(index)}`;
+                  const cardClass = `overflow-hidden rounded-2xl border border-agency-border transition-colors hover:border-agency-yellow ${altCardBg(index)}`;
 
                   const body = (
                     <div className="p-6">
                       <h3 className="mb-2 font-display text-2xl font-semibold uppercase tracking-tight text-agency-white transition-colors group-hover:text-agency-yellow">
                         {item.name}
                       </h3>
-                      <p className="text-sm leading-relaxed text-agency-white/60">{item.description}</p>
+                      <p className="text-sm leading-relaxed text-agency-white/60">
+                        {item.description}
+                      </p>
                       {href ? (
                         <span className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow">
                           View service <ArrowUpRight className="h-3.5 w-3.5" />
