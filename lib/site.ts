@@ -18,19 +18,20 @@ export const SITE_TAGLINE = "Enhance the creative impact of your Brand";
 export const NAP = {
   name: "Creative Whoppers",
   legalName: "Creative Whopper Pvt. Ltd.",
-  streetAddress: "3rd Floor, 211, Okhla Industrial Estate Phase 3 Rd, Okhla Phase III",
-  addressLocality: "New Delhi",
-  addressRegion: "Delhi",
-  postalCode: "110020",
+  officeType: "Corporate office",
+  streetAddress: "Plot No 9, 6th Floor, Sector 125",
+  addressLocality: "Noida",
+  addressRegion: "Uttar Pradesh",
+  postalCode: "201303",
   addressCountry: "IN",
   phones: ["+91 96675 63175", "+91 93544 84098"],
   phoneTel: ["+919667563175", "+919354484098"],
   emails: ["hello@creativewhoppers.com"],
   hours: "Monday–Saturday, 10:00 AM – 7:00 PM IST",
   mapEmbed:
-    "https://maps.google.com/maps?q=211%20Okhla%20Industrial%20Estate%20Phase%203%2C%20New%20Delhi%20110020&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "https://maps.google.com/maps?q=Plot%20No%209%2C%206th%20Floor%2C%20Sector%20125%2C%20Noida%2C%20Uttar%20Pradesh%20201303&t=&z=16&ie=UTF8&iwloc=&output=embed",
   mapLink:
-    "https://maps.google.com/?q=211+Okhla+Industrial+Estate+Phase+3,+New+Delhi+110020",
+    "https://maps.google.com/?q=Plot+No+9,+6th+Floor,+Sector+125,+Noida,+Uttar+Pradesh+201303",
   social: [
     { name: "Instagram", href: "https://instagram.com/creativewhoppers" },
     { name: "LinkedIn", href: "https://www.linkedin.com/company/creativewhoppers/home/" },

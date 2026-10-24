@@ -126,9 +126,14 @@ export default function Footer() {
               ))}
               <li className="inline-flex items-start gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-agency-yellow" />
-                <span>
+                <a
+                  href={NAP.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-agency-yellow"
+                >
                   {NAP.addressLocality}, {NAP.addressRegion}
-                </span>
+                </a>
               </li>
             </ul>
           </div>

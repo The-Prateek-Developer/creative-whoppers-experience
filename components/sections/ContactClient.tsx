@@ -184,7 +184,7 @@ export default function ContactClient() {
       href: NAP.mapLink,
       external: true,
       label: "Location",
-      value: `${NAP.addressLocality}`,
+      value: `${NAP.addressLocality}, ${NAP.addressRegion}`,
       icon: MapPin,
     },
   ];
@@ -559,11 +559,14 @@ export default function ContactClient() {
                 <p className="flex gap-3 text-sm leading-relaxed text-agency-white/80">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
                   <span>
+                    <span className="block font-mono text-[11px] font-medium uppercase tracking-wider text-agency-yellow/90">
+                      Corporate office:
+                    </span>
                     {NAP.name}
                     <br />
                     {NAP.streetAddress}
                     <br />
-                    {NAP.addressLocality}, {NAP.addressRegion} {NAP.postalCode}
+                    {NAP.addressLocality}, {NAP.addressRegion}-{NAP.postalCode}
                   </span>
                 </p>
                 <p className="flex gap-3 text-sm">

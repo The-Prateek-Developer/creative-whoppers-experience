@@ -38,6 +38,11 @@ export function localBusinessJsonLd() {
       postalCode: NAP.postalCode,
       addressCountry: NAP.addressCountry,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 28.54548,
+      longitude: 77.32877,
+    },
     openingHours: "Mo-Sa 10:00-19:00",
   };
 }
