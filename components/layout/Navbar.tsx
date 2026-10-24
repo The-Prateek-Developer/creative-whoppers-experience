@@ -338,15 +338,31 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <span className="mb-2 block text-agency-white/55">Corporate Office</span>
-                  <a
-                    href={NAP.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-agency-white/80 hover:text-agency-yellow font-sans transition-colors"
-                  >
-                    {NAP.addressLocality}, {NAP.addressRegion}
-                  </a>
+                  <span className="mb-2 block text-agency-white/55">Locations</span>
+                  <div className="space-y-2 font-sans text-sm">
+                    <div>
+                      <span className="block font-mono text-[10px] uppercase tracking-wider text-agency-yellow">Corporate Office</span>
+                      <a
+                        href={NAP.corporateOffice.mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-agency-white/80 hover:text-agency-yellow transition-colors"
+                      >
+                        {NAP.corporateOffice.addressLocality}, {NAP.corporateOffice.addressRegion}
+                      </a>
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[10px] uppercase tracking-wider text-agency-white/50">Head Office</span>
+                      <a
+                        href={NAP.headOffice.mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-agency-white/80 hover:text-agency-yellow transition-colors"
+                      >
+                        {NAP.headOffice.addressLocality}, {NAP.headOffice.addressRegion}
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div>

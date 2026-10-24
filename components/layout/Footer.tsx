@@ -124,16 +124,38 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-              <li className="inline-flex items-start gap-2">
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-agency-yellow" />
-                <a
-                  href={NAP.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-agency-yellow"
-                >
-                  {NAP.addressLocality}, {NAP.addressRegion}
-                </a>
+              <li className="flex flex-col gap-2 pt-1 font-sans text-xs">
+                <div className="flex items-start gap-2">
+                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-agency-yellow" />
+                  <div>
+                    <span className="block font-mono text-[10px] uppercase tracking-wider text-agency-yellow">
+                      Corporate Office
+                    </span>
+                    <a
+                      href={NAP.corporateOffice.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-agency-white/80 transition-colors hover:text-agency-yellow"
+                    >
+                      {NAP.corporateOffice.addressLocality}, {NAP.corporateOffice.addressRegion}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 pl-5">
+                  <div>
+                    <span className="block font-mono text-[10px] uppercase tracking-wider text-agency-white/50">
+                      Head Office
+                    </span>
+                    <a
+                      href={NAP.headOffice.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-agency-white/80 transition-colors hover:text-agency-yellow"
+                    >
+                      {NAP.headOffice.addressLocality}, {NAP.headOffice.addressRegion}
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

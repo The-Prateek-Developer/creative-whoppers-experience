@@ -11,12 +11,29 @@ export function organizationJsonLd() {
     telephone: NAP.phoneTel[0],
     address: {
       "@type": "PostalAddress",
-      streetAddress: NAP.streetAddress,
-      addressLocality: NAP.addressLocality,
-      addressRegion: NAP.addressRegion,
-      postalCode: NAP.postalCode,
-      addressCountry: NAP.addressCountry,
+      streetAddress: NAP.headOffice.streetAddress,
+      addressLocality: NAP.headOffice.addressLocality,
+      addressRegion: NAP.headOffice.addressRegion,
+      postalCode: NAP.headOffice.postalCode,
+      addressCountry: NAP.headOffice.addressCountry,
     },
+    location: NAP.offices.map((office) => ({
+      "@type": "Place",
+      name: `${SITE_NAME} - ${office.title}`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: office.streetAddress,
+        addressLocality: office.addressLocality,
+        addressRegion: office.addressRegion,
+        postalCode: office.postalCode,
+        addressCountry: office.addressCountry,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: office.geo.latitude,
+        longitude: office.geo.longitude,
+      },
+    })),
     sameAs: NAP.social.map((item) => item.href),
   };
 }
@@ -32,17 +49,37 @@ export function localBusinessJsonLd() {
     email: NAP.emails[0],
     address: {
       "@type": "PostalAddress",
-      streetAddress: NAP.streetAddress,
-      addressLocality: NAP.addressLocality,
-      addressRegion: NAP.addressRegion,
-      postalCode: NAP.postalCode,
-      addressCountry: NAP.addressCountry,
+      streetAddress: NAP.corporateOffice.streetAddress,
+      addressLocality: NAP.corporateOffice.addressLocality,
+      addressRegion: NAP.corporateOffice.addressRegion,
+      postalCode: NAP.corporateOffice.postalCode,
+      addressCountry: NAP.corporateOffice.addressCountry,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 28.54548,
-      longitude: 77.32877,
+      latitude: NAP.corporateOffice.geo.latitude,
+      longitude: NAP.corporateOffice.geo.longitude,
     },
+    department: [
+      {
+        "@type": "LocalBusiness",
+        name: `${NAP.name} - Head Office`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: NAP.headOffice.streetAddress,
+          addressLocality: NAP.headOffice.addressLocality,
+          addressRegion: NAP.headOffice.addressRegion,
+          postalCode: NAP.headOffice.postalCode,
+          addressCountry: NAP.headOffice.addressCountry,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: NAP.headOffice.geo.latitude,
+          longitude: NAP.headOffice.geo.longitude,
+        },
+        openingHours: "Mo-Sa 10:00-19:00",
+      },
+    ],
     openingHours: "Mo-Sa 10:00-19:00",
   };
 }

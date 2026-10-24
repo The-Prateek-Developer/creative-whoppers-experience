@@ -98,6 +98,9 @@ export default function ContactClient() {
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [failedSubmit, setFailedSubmit] = useState(0);
+  const [activeOfficeId, setActiveOfficeId] = useState<string>("corporate-office");
+  const activeOffice =
+    NAP.offices.find((o) => o.id === activeOfficeId) ?? NAP.offices[0];
 
   const errorEntries = (Object.entries(errors) as [FieldKey, string][]).filter(
     ([, message]) => Boolean(message)
@@ -181,10 +184,10 @@ export default function ContactClient() {
       icon: Mail,
     },
     {
-      href: NAP.mapLink,
-      external: true,
-      label: "Location",
-      value: `${NAP.addressLocality}, ${NAP.addressRegion}`,
+      href: "#locations-map",
+      external: false,
+      label: "Locations",
+      value: "Noida & New Delhi",
       icon: MapPin,
     },
   ];
@@ -554,72 +557,146 @@ export default function ContactClient() {
               </div>
               <div className="space-y-5 p-6 sm:p-8">
                 <h2 className="font-display text-xl font-semibold uppercase text-agency-white">
-                  Get in touch
+                  Our Offices
                 </h2>
-                <p className="flex gap-3 text-sm leading-relaxed text-agency-white/80">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
-                  <span>
-                    <span className="block font-mono text-[11px] font-medium uppercase tracking-wider text-agency-yellow/90">
-                      Corporate office:
-                    </span>
-                    {NAP.name}
-                    <br />
-                    {NAP.streetAddress}
-                    <br />
-                    {NAP.addressLocality}, {NAP.addressRegion}-{NAP.postalCode}
-                  </span>
-                </p>
-                <p className="flex gap-3 text-sm">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
-                  <span className="space-y-1 font-mono">
-                    {NAP.phones.map((phone, index) => (
-                      <a
-                        key={phone}
-                        href={`tel:${NAP.phoneTel[index]}`}
-                        className="block min-h-11 cursor-pointer py-1 hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
+
+                <div className="space-y-4">
+                  {NAP.offices.map((office) => {
+                    const isSelected = activeOfficeId === office.id;
+                    return (
+                      <div
+                        key={office.id}
+                        className={`rounded-2xl border p-4 transition-all ${
+                          isSelected
+                            ? "border-agency-yellow/80 bg-agency-yellow/[0.04]"
+                            : "border-agency-border/80 bg-agency-white/[0.02] hover:border-agency-white/20"
+                        }`}
                       >
-                        {phone}
-                      </a>
-                    ))}
-                  </span>
-                </p>
-                <p className="flex items-center gap-3 text-sm">
-                  <Mail className="h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
-                  <a
-                    href={`mailto:${NAP.emails[0]}`}
-                    className="cursor-pointer hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
-                  >
-                    {NAP.emails[0]}
-                  </a>
-                </p>
-                <p className="flex gap-3 text-sm text-agency-white/80">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
-                  {NAP.hours}
-                </p>
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <span className="block font-mono text-xs font-semibold uppercase tracking-wider text-agency-yellow">
+                              {office.title}
+                            </span>
+                            <span className="block text-[11px] font-sans text-agency-white/50">
+                              {office.subtitle}
+                            </span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActiveOfficeId(office.id);
+                              const el = document.getElementById("locations-map");
+                              el?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className="inline-flex cursor-pointer items-center gap-1 rounded-full border border-agency-border px-2.5 py-1 font-mono text-[10px] uppercase text-agency-white/80 transition-colors hover:border-agency-yellow hover:text-agency-yellow"
+                          >
+                            <span>Map</span>
+                            <ArrowUpRight className="h-3 w-3" />
+                          </button>
+                        </div>
+                        <p className="mt-2.5 flex gap-2.5 text-sm leading-relaxed text-agency-white/80">
+                          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
+                          <span>
+                            {NAP.name}
+                            <br />
+                            {office.streetAddress}
+                            <br />
+                            {office.addressLocality}, {office.addressRegion}-{office.postalCode}
+                          </span>
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="space-y-3 pt-3 border-t border-agency-border/60">
+                  <p className="flex gap-3 text-sm">
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
+                    <span className="space-y-1 font-mono">
+                      {NAP.phones.map((phone, index) => (
+                        <a
+                          key={phone}
+                          href={`tel:${NAP.phoneTel[index]}`}
+                          className="block min-h-11 cursor-pointer py-1 hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
+                        >
+                          {phone}
+                        </a>
+                      ))}
+                    </span>
+                  </p>
+                  <p className="flex items-center gap-3 text-sm">
+                    <Mail className="h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
+                    <a
+                      href={`mailto:${NAP.emails[0]}`}
+                      className="cursor-pointer hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
+                    >
+                      {NAP.emails[0]}
+                    </a>
+                  </p>
+                  <p className="flex gap-3 text-sm text-agency-white/80">
+                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
+                    {NAP.hours}
+                  </p>
+                </div>
               </div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section className="relative w-full pt-16 lg:pt-20">
-        <a
-          href={NAP.mapLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute right-6 top-20 z-10 inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-agency-border bg-agency-black/80 px-3.5 py-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow backdrop-blur-sm hover:border-agency-yellow lg:right-12 lg:top-24"
-        >
-          Open in Google Maps
-          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-        </a>
-        <div data-lenis-prevent className="w-full overflow-hidden border-y border-agency-border">
-          <iframe
-            title="Creative Whoppers studio map"
-            src={NAP.mapEmbed}
-            className="h-[22rem] w-full grayscale contrast-125 !pointer-events-auto sm:h-[28rem] lg:h-[36rem] dark:invert"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+      <section id="locations-map" className="relative w-full pt-16 lg:pt-20 scroll-mt-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12 pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wider text-agency-yellow">Studio Locations</p>
+            <h3 className="font-display text-xl font-bold uppercase text-agency-white mt-1">
+              Visit our offices
+            </h3>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            {NAP.offices.map((office) => {
+              const active = office.id === activeOfficeId;
+              return (
+                <button
+                  key={office.id}
+                  type="button"
+                  onClick={() => setActiveOfficeId(office.id)}
+                  className={`inline-flex items-center gap-2 cursor-pointer rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all ${
+                    active
+                      ? "border border-agency-yellow bg-agency-yellow text-agency-ink font-bold shadow-[0_0_15px_rgba(248,214,37,0.3)]"
+                      : "border border-agency-border bg-agency-surface text-agency-white/80 hover:border-agency-yellow/60 hover:text-agency-white"
+                  }`}
+                >
+                  <MapPin className={`h-3.5 w-3.5 ${active ? "text-agency-ink" : "text-agency-yellow"}`} />
+                  <span>{office.title}</span>
+                  <span className={`text-[10px] ${active ? "text-agency-ink/80" : "text-agency-white/50"}`}>
+                    ({office.addressLocality})
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="relative w-full">
+          <a
+            href={activeOffice.mapLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute right-6 top-6 z-10 inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-agency-border bg-agency-black/85 px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-agency-yellow backdrop-blur-md shadow-lg hover:border-agency-yellow lg:right-12"
+          >
+            Open {activeOffice.title} in Google Maps
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+          </a>
+          <div data-lenis-prevent className="w-full overflow-hidden border-y border-agency-border">
+            <iframe
+              key={activeOffice.id}
+              title={`Creative Whoppers ${activeOffice.title} map`}
+              src={activeOffice.mapEmbed}
+              className="h-[22rem] w-full grayscale contrast-125 !pointer-events-auto sm:h-[28rem] lg:h-[36rem] dark:invert"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </div>

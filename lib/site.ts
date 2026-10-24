@@ -18,6 +18,70 @@ export const SITE_TAGLINE = "Enhance the creative impact of your Brand";
 export const NAP = {
   name: "Creative Whoppers",
   legalName: "Creative Whopper Pvt. Ltd.",
+
+  corporateOffice: {
+    title: "Corporate office",
+    subtitle: "New Office Location",
+    streetAddress: "Plot No 9, 6th Floor, Sector 125",
+    addressLocality: "Noida",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "201303",
+    addressCountry: "IN",
+    geo: { latitude: 28.54548, longitude: 77.32877 },
+    mapEmbed:
+      "https://maps.google.com/maps?q=Plot%20No%209%2C%206th%20Floor%2C%20Sector%20125%2C%20Noida%2C%20Uttar%20Pradesh%20201303&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapLink:
+      "https://maps.google.com/?q=Plot+No+9,+6th+Floor,+Sector+125,+Noida,+Uttar+Pradesh+201303",
+  },
+
+  headOffice: {
+    title: "Head office",
+    subtitle: "Headquarters",
+    streetAddress: "3rd Floor, 211, Okhla Industrial Estate Phase 3 Rd, Okhla Phase III",
+    addressLocality: "New Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110020",
+    addressCountry: "IN",
+    geo: { latitude: 28.5432, longitude: 77.2726 },
+    mapEmbed:
+      "https://maps.google.com/maps?q=211%20Okhla%20Industrial%20Estate%20Phase%203%2C%20New%20Delhi%20110020&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    mapLink:
+      "https://maps.google.com/?q=211+Okhla+Industrial+Estate+Phase+3,+New+Delhi+110020",
+  },
+
+  offices: [
+    {
+      id: "corporate-office",
+      title: "Corporate office",
+      subtitle: "New Office Location",
+      streetAddress: "Plot No 9, 6th Floor, Sector 125",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      postalCode: "201303",
+      addressCountry: "IN",
+      geo: { latitude: 28.54548, longitude: 77.32877 },
+      mapEmbed:
+        "https://maps.google.com/maps?q=Plot%20No%209%2C%206th%20Floor%2C%20Sector%20125%2C%20Noida%2C%20Uttar%20Pradesh%20201303&t=&z=16&ie=UTF8&iwloc=&output=embed",
+      mapLink:
+        "https://maps.google.com/?q=Plot+No+9,+6th+Floor,+Sector+125,+Noida,+Uttar+Pradesh+201303",
+    },
+    {
+      id: "head-office",
+      title: "Head office",
+      subtitle: "Headquarters",
+      streetAddress: "3rd Floor, 211, Okhla Industrial Estate Phase 3 Rd, Okhla Phase III",
+      addressLocality: "New Delhi",
+      addressRegion: "Delhi",
+      postalCode: "110020",
+      addressCountry: "IN",
+      geo: { latitude: 28.5432, longitude: 77.2726 },
+      mapEmbed:
+        "https://maps.google.com/maps?q=211%20Okhla%20Industrial%20Estate%20Phase%203%2C%20New%20Delhi%20110020&t=&z=15&ie=UTF8&iwloc=&output=embed",
+      mapLink:
+        "https://maps.google.com/?q=211+Okhla+Industrial+Estate+Phase+3,+New+Delhi+110020",
+    },
+  ],
+
   officeType: "Corporate office",
   streetAddress: "Plot No 9, 6th Floor, Sector 125",
   addressLocality: "Noida",
