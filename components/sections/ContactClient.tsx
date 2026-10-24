@@ -98,7 +98,7 @@ export default function ContactClient() {
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [failedSubmit, setFailedSubmit] = useState(0);
-  const [activeOfficeId, setActiveOfficeId] = useState<string>("corporate-office");
+  const [activeOfficeId, setActiveOfficeId] = useState<string>("head-office");
   const activeOffice =
     NAP.offices.find((o) => o.id === activeOfficeId) ?? NAP.offices[0];
 
@@ -187,7 +187,7 @@ export default function ContactClient() {
       href: "#locations-map",
       external: false,
       label: "Locations",
-      value: "Noida & New Delhi",
+      value: "New Delhi & Noida",
       icon: MapPin,
     },
   ];
@@ -610,20 +610,19 @@ export default function ContactClient() {
                 </div>
 
                 <div className="space-y-3 pt-3 border-t border-agency-border/60">
-                  <p className="flex gap-3 text-sm">
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
-                    <span className="space-y-1 font-mono">
-                      {NAP.phones.map((phone, index) => (
+                  <div className="space-y-2">
+                    {NAP.phones.map((phone, index) => (
+                      <p key={phone} className="flex items-center gap-3 text-sm">
+                        <Phone className="h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
                         <a
-                          key={phone}
                           href={`tel:${NAP.phoneTel[index]}`}
-                          className="block min-h-11 cursor-pointer py-1 hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
+                          className="font-mono cursor-pointer hover:text-agency-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agency-yellow"
                         >
                           {phone}
                         </a>
-                      ))}
-                    </span>
-                  </p>
+                      </p>
+                    ))}
+                  </div>
                   <p className="flex items-center gap-3 text-sm">
                     <Mail className="h-4 w-4 shrink-0 text-agency-yellow" aria-hidden />
                     <a
